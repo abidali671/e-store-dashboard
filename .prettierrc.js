@@ -1,0 +1,22 @@
+module.exports = {
+	useTabs: true,
+	tabWidth: 2,
+	jsxSingleQuote: true,
+	printWidth: 100,
+	singleQuote: true,
+	semi: true,
+	trailingComma: 'all',
+	arrowParens: 'always',
+	endOfLine: 'auto',
+	importOrderSeparation: true,
+	importOrder: [
+		'^lodash|^react$',
+		'react',
+		'^@',
+		'^components',
+		'^modules',
+		'^\\w',
+		'^(\\.\\./)+',
+		'^\\.',
+	],
+};
