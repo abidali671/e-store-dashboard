@@ -1,0 +1,28 @@
+.inputRounded .MuiOutlinedInput-root {
+    border-radius: 20px;
+    /* width:50%; */
+    margin-bottom: 10px;
+  }
+
+  .flex-form{
+text-align: center;
+  }
+  .signIn-img{
+    width: 100%;
+  
+  }
+  .main-signIn{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 70px auto;
+  }
+  @media (max-width: 500px) {
+    .signIn-img{
+      display: none;
+      }
+      .flex-form{
+        /* height: 100vh; */
+        justify-content: center;
+      }
+  }
