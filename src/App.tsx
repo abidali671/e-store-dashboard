@@ -2,17 +2,29 @@ import React from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
-import Navbar from './components/Navbar.jsx'
-function App() {
+import { AuthContainer } from './components';
+
+const App: React.FC = () => {
 	return (
-		<>
-		<Navbar />
-			<Routes>
-				<Route path='/login' element={<Login />} />
-				
-			</Routes>
-			</>
+		<Routes>
+			<Route
+				path='/login'
+				element={
+					<AuthContainer>
+						<Login />
+					</AuthContainer>
+				}
+			/>
+			<Route
+				path='/register'
+				element={
+					<AuthContainer>
+						<Login />
+					</AuthContainer>
+				}
+			/>
+		</Routes>
 	);
-}
+};
 
 export default App;
