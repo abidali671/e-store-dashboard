@@ -1,13 +1,12 @@
-import { useFormik } from 'formik';
-import * as yup from 'yup';
-import { Button, TextField, OutlinedInput, InputAdornment, Typography } from '@mui/material';
+import { Button, TextField, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
-import './styles.css';
-import SignIn from '../assests/Rectangle5.png';
+import '../../styles.css';
 import { styled } from '@mui/material/styles';
 import { AuthContainer } from '../../../components';
+import useLogin from './login.hook';
+import SignInImg from '../../../assests/Rectangle5.png';
 
 const Item = styled(Paper)(({ theme }) => ({
 	backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -17,26 +16,8 @@ const Item = styled(Paper)(({ theme }) => ({
 	color: theme.palette.text.secondary,
 }));
 
-const validationSchema = yup.object({
-	email: yup.string('Enter your email').email('Enter a valid email').required('Email is required'),
-	password: yup
-		.string('Enter your password')
-		.min(8, 'Password should be of minimum 8 characters length')
-		.required('Password is required'),
-});
-
 const Login = () => {
-	const formik = useFormik({
-		initialValues: {
-			email: 'foobar@example.com',
-			password: 'foobar',
-		},
-		validationSchema: validationSchema,
-		onSubmit: (values) => {
-			alert(JSON.stringify(values, null, 2));
-		},
-	});
-
+	const { formik } = useLogin();
 	return (
 		<AuthContainer>
 			<Box sx={{ flexGrow: 1 }}>
@@ -44,7 +25,7 @@ const Login = () => {
 				<Grid container columns={12}>
 					<Grid item lg={6} sm={6}>
 						{/* side Image */}
-						<img src={SignIn} className='signIn-img' />
+						<img src={SignInImg} className='signIn-img' />
 					</Grid>
 					<Grid item lg={6} sm={6} flexGrow={1}>
 						{/* Sign in */}
