@@ -4,7 +4,7 @@ import React from 'react';
 
 type ComponentT = React.FC<FormikValues>;
 
-const FormikTextField: ComponentT = (props) => {
+const FormikTextField: ComponentT = (props: FormikValues) => {
 	const {
 		sx,
 		name,
