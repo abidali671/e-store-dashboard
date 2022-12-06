@@ -1,5 +1,5 @@
 import { Box, Grid } from '@mui/material';
-import { Navbar } from '../../components';
+import { Navbar } from '@components';
 import * as types from './auth_container.types';
 import * as styles from './auth_container.styles';
 

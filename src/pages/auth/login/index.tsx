@@ -1,7 +1,7 @@
 import { Link, Typography } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import Box from '@mui/material/Box';
-import { AuthContainer, FormikTextField, FormWrapper } from '../../../components';
+import { AuthContainer, FormikTextField, FormWrapper } from '@components';
 import useLogin from './login.hook';
 import * as types from './login.types';
 import * as styles from './login.styles';
