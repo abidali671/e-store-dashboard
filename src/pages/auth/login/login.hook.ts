@@ -1,24 +1,19 @@
 import { useFormik } from 'formik';
-import * as yup from 'yup';
+import validationSchema from './login.schema';
+import { FormValues } from './login.types';
 
 const useLogin = () => {
-	const validationSchema = yup.object({
-		email: yup.string().email('Enter a valid email').required('Email is required'),
-		password: yup
-			.string()
-			.min(8, 'Password should be of minimum 8 characters length')
-			.required('Password is required'),
-	});
+	const handleSubmit = (values: FormValues) => {
+		alert(JSON.stringify(values, null, 2));
+	};
 
 	const formik = useFormik({
+		validationSchema,
 		initialValues: {
 			email: '',
 			password: '',
 		},
-		validationSchema: validationSchema,
-		onSubmit: (values) => {
-			alert(JSON.stringify(values, null, 2));
-		},
+		onSubmit: handleSubmit,
 	});
 
 	return { formik };

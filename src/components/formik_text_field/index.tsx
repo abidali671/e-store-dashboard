@@ -37,6 +37,7 @@ const FormikTextField: ComponentT = (props: FormikValues) => {
 			type={type}
 			multiline={multiline}
 			minRows={minRows}
+			fullWidth
 		/>
 	);
 };
