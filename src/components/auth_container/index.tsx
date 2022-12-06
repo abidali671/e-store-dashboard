@@ -9,7 +9,7 @@ const AuthContainer: types.ComponentT = ({ children }: types.PropsT) => {
 	return (
 		<Box>
 			<Navbar />
-			<Box sx={{ flexGrow: 1,justifyContent:'center',alignItem:'center'}}>
+			<Box sx={{ flexGrow: 1, justifyContent: 'center', alignItem: 'center' }}>
 				{/* grid layout */}
 				<Grid container columns={12}>
 					<Grid item lg={6} md={6} xs={6}>
@@ -18,7 +18,7 @@ const AuthContainer: types.ComponentT = ({ children }: types.PropsT) => {
 					</Grid>
 					<Grid item lg={6} md={6} sm={12} flexGrow={1}>
 						{/* Sign in */}
-					{children}	
+						{children}
 					</Grid>
 				</Grid>
 			</Box>
