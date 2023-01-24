@@ -1,6 +1,13 @@
-import {Navbar,SideList} from '../../components/index';
-import { Box, Grid } from '@mui/material';
+import React from 'react';
+import { Navbar, Sidebar } from '@components';
+import { Box } from '@mui/material';
+
 const Dashboard = () => {
+	const [isCollapsed, setIsCollapsed] = React.useState<boolean>(false);
+
+	const toggleSidebar = () => {
+		setIsCollapsed(!isCollapsed);
+	};
 	return (
 		<Box
 			sx={{
@@ -14,10 +21,14 @@ const Dashboard = () => {
 			<Box sx={{ background: 'red' }}>
 				<Navbar />
 			</Box>
-			<Box sx={{ display: 'grid', gridTemplateColumns: '300px 1fr' }}>
-				<Box sx={{ background: 'blue' }}>
-					<SideList />
-				</Box>
+			<Box
+				sx={{
+					display: 'grid',
+					gridTemplateColumns: `${isCollapsed ? 60 : 300}px 1fr`,
+					transition: '0.5s',
+				}}
+			>
+				<Sidebar isCollapsed={isCollapsed} toggleSidebar={toggleSidebar} />
 				<Box sx={{ background: 'green' }}></Box>
 			</Box>
 		</Box>

@@ -1,14 +1,3 @@
-
-.select{
-	border-left: 4px solid #86AAF1;
-
-
-	margin: 0px 5px;
-}
-.unselect{
-	border-left: none;
-
-}
 .App {
 	text-align: center;
 }
