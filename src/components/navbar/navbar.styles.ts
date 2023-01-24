@@ -6,7 +6,9 @@ export const root: SxProps<Theme> = {
 	background: '#FFF',
 	display: 'flex',
 	alignItems: 'center',
-	justifyContent: 'flex-start',
-	px: '40px',
-	borderBottom:'1px solid gray'
+	// margin:'0 auto',
+	justifyContent: 'space-between',
+	px: '60px',
+	borderBottom:'1px solid #7D767680',
+	
 };

@@ -25,7 +25,7 @@ const FormikTextField: ComponentT = (props: FormikValues) => {
 		<TextField
 			placeholder={placeholder}
 			label={label}
-			variant='outlined'
+			// variant='outlined'
 			name={name}
 			value={values[name]}
 			onChange={handleChange}
