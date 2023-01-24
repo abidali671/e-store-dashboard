@@ -3,7 +3,7 @@ import { Navbar } from '@components';
 import * as types from './auth_container.types';
 import * as styles from './auth_container.styles';
 
-import SignInImg from '@assests/super_sale.png';
+import SignInImg from '@assests/account.png';
 
 const AuthContainer: types.ComponentT = ({ children }: types.PropsT) => {
 	return (
