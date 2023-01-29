@@ -13,7 +13,7 @@ const AuthContainer: types.ComponentT = ({ children }: types.PropsT) => {
 				<Grid item xs={6}>
 					<Box component='img' src={SignInImg} sx={styles.coverImg} />
 				</Grid>
-				<Grid item xs={6} flexGrow={1}>
+				<Grid item xs={12} sm={12} md={6} flexGrow={1}>
 					{children}
 				</Grid>
 			</Grid>

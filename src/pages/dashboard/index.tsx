@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Sidebar } from '@components';
+import { Navbar, Sidebar, View } from '@components';
 import { Box } from '@mui/material';
 
 const Dashboard = () => {
@@ -14,11 +14,11 @@ const Dashboard = () => {
 				height: '100vh',
 				width: '100%',
 				display: 'grid',
-				gridTemplateRows: '80px 1fr',
+				gridTemplateRows: '60px 1fr',
 				gridTemplateColumns: '1fr',
 			}}
 		>
-			<Box sx={{ background: 'red' }}>
+			<Box >
 				<Navbar />
 			</Box>
 			<Box
@@ -29,7 +29,9 @@ const Dashboard = () => {
 				}}
 			>
 				<Sidebar isCollapsed={isCollapsed} toggleSidebar={toggleSidebar} />
-				<Box sx={{ background: 'green' }}></Box>
+				<Box > 
+				<View />
+				</Box>
 			</Box>
 		</Box>
 	);
