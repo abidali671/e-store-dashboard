@@ -11,4 +11,5 @@ export const coverImg: SxProps<Theme> = {
 	width: '100%',
 	height: '100%',
 	objectFit: 'cover',
+	display:{md:'block',xs:'none'}
 };

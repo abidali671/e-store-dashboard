@@ -21,6 +21,7 @@ export const unselect = {
 
 export const collapseBtn = {
 	width: '30px',
+	
 	borderTopRightRadius: '30px',
 	borderBottomRightRadius: '30px',
 	display: 'flex',
@@ -31,4 +32,5 @@ export const collapseBtn = {
 	height: '200px',
 	left: '100%',
 	backgroundColor: '#86AAF1',
+	cursor:'pointer',
 };

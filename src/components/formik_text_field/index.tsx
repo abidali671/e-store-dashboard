@@ -1,4 +1,4 @@
-import { TextField } from '@mui/material';
+import { OutlinedInput, TextField } from '@mui/material';
 import { FormikValues } from 'formik';
 import React from 'react';
 
@@ -6,7 +6,7 @@ type ComponentT = React.FC<FormikValues>;
 
 const FormikTextField: ComponentT = (props: FormikValues) => {
 	const {
-		sx,
+	
 		name,
 		label,
 		values,
@@ -22,23 +22,23 @@ const FormikTextField: ComponentT = (props: FormikValues) => {
 	} = props;
 
 	return (
-		<TextField
+		<OutlinedInput
 			placeholder={placeholder}
-			label={label}
-			// variant='outlined'
+			// variant='none'/
 			name={name}
 			value={values[name]}
 			onChange={handleChange}
 			error={touched[name] && Boolean(errors[name])}
-			helperText={touched[name] && errors[name]}
-			sx={{ ...sx }}
-			InputProps={InputProps}
-			InputLabelProps={InputLabelProps}
+			// helperText={touched[name] && errors[name]}
+			sx={{borderRadius:'30px',border:'1px solid #8A86864D',height:'46px',my:'4px'}}
+			// InputProps={InputProps}
+			// InputLabelProps={InputLabelProps}
 			type={type}
 			multiline={multiline}
 			minRows={minRows}
 			fullWidth
 		/>
+		
 	);
 };
 

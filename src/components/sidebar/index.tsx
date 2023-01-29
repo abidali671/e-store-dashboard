@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Divider, ListItem, ListItemButton, ListItemText } from '@mui/material';
-import { SideItemT, sideListItems } from '../data/app.data';
+import { SideItemT, sideListItems } from '../../data/app.data';
 import arrowleft2 from '@assests/arrowleft2.png';
 import * as styles from './sidebar.styles';
 
@@ -38,7 +38,7 @@ const Sidebar = ({
 				);
 			})}
 			<Box onClick={toggleSidebar} sx={styles.collapseBtn}>
-				<Box component='img' src={arrowleft2} />
+				<Box component='img' src={arrowleft2} sx={{rotate: isCollapsed ?  '180deg' : '360deg'}}/>
 			</Box>
 		</Box>
 	);

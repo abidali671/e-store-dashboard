@@ -17,7 +17,7 @@ const Navbar = () => {
 			<Box
 				component='img'
 				sx={{
-					height: 60,
+					height: 50,
 				}}
 				alt='Logo'
 				src={Logo}
