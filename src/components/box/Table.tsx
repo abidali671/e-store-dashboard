@@ -6,7 +6,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Grid } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 
 function createData(name: string, calories: number, fat: number, carbs: number, protein: number) {
 	return { name, calories, fat, carbs, protein };
@@ -22,12 +22,12 @@ const rows = [
 
 export default function DenseTable() {
 	return (
-		<Grid item xs={12} sm={12} md={12}>
-			<TableContainer component={Paper} >
-				<Table sx={{ minWidth: 350,width:'900px' }} size='small' aria-label='a dense table'>
+		<Grid item xs={12} sm={12} md={12} sx={{ overflow: 'auto' }}>
+			<TableContainer component={Paper}>
+				<Table size='small' aria-label='a dense table'>
 					<TableHead>
 						<TableRow>
-							<TableCell  sx={{ fontWeight: 'bold' }}>Dessert (100g serving)</TableCell>
+							<TableCell sx={{ fontWeight: 'bold' }}>Dessert (100g serving)</TableCell>
 							<TableCell align='right' sx={{ fontWeight: 'bold' }}>
 								Calories
 							</TableCell>

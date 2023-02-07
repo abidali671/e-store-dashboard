@@ -5,11 +5,9 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import { ViewDetails } from '../../data/app.data';
 import Typography from '@mui/material/Typography';
-import Chart from '../../assests/Chart.png';
-import ChartB from '../../assests/circle.png';
-import Stack from '@mui/material/Stack';
 import Box1 from '../box/Box1';
-import {DenseTable} from '../index'
+import { DenseTable } from '../../components';
+
 const Item = styled(Paper)(({ theme }) => ({
 	backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
 	...theme.typography.body2,
@@ -24,34 +22,31 @@ const Item = styled(Paper)(({ theme }) => ({
 	color: theme.palette.text.secondary,
 }));
 
-function View() {
+const View: React.FC = () => {
 	return (
-		<Box sx={{ flexGrow: 1, padding: 6, pt: 5 }}>
+		<Box sx={{ flexGrow: 1, padding: 6, pt: 5, overflowX: 'hidden' }}>
 			<Grid container spacing={{ xs: 2, md: 2 }} columns={{ xs: 6, sm: 6, md: 12 }}>
 				{ViewDetails.map((item, index) => (
 					<Grid item xs={3} sm={2} md={3} key={index}>
 						<Item>
 							<Box>
-								<Typography  variant='h5' sx={{ color: 'black', fontWeight: 'bold'}}>
+								<Typography variant='h5' sx={{ color: 'black', fontWeight: 'bold' }}>
 									{item.title}
 								</Typography>
-								<Typography sx={{fontSize:'clamp(12px, 2vw, 15px)'}} variant='caption'>{item.info}</Typography>
+								<Typography sx={{ fontSize: 'clamp(12px, 2vw, 15px)' }} variant='caption'>
+									{item.info}
+								</Typography>
 							</Box>
 
 							<Box component='img' sx={{ height: '100%' }} src={item.icon} />
 						</Item>
 					</Grid>
 				))}
-			{/* all grid boxes here */}
 				<Box1 />
-				
-				
-				{/* all grid boxes here */}
-
-				{/* <DenseTable /> */}
+				<DenseTable />
 			</Grid>
 		</Box>
 	);
-}
+};
 
 export default View;

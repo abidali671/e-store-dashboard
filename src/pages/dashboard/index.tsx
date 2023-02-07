@@ -18,7 +18,7 @@ const Dashboard = () => {
 				gridTemplateColumns: '1fr',
 			}}
 		>
-			<Box >
+			<Box>
 				<Navbar />
 			</Box>
 			<Box
@@ -26,12 +26,11 @@ const Dashboard = () => {
 					display: 'grid',
 					gridTemplateColumns: `${isCollapsed ? 60 : 300}px 1fr`,
 					transition: '0.5s',
+					overflowX: 'hidden',
 				}}
 			>
 				<Sidebar isCollapsed={isCollapsed} toggleSidebar={toggleSidebar} />
-				<Box > 
 				<View />
-				</Box>
 			</Box>
 		</Box>
 	);
