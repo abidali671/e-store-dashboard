@@ -28,7 +28,7 @@ export const collapseBtn = {
 	justifyContent: 'center',
 	alignItems: 'center',
 	position: 'absolute',
-	top: '50%',
+	top: '30%',
 	height: '200px',
 	left: '100%',
 	backgroundColor: '#86AAF1',

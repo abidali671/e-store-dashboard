@@ -7,7 +7,7 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import IconButton from '@mui/material/IconButton';
 
 import Logo from './../../assests/logos.png';
-import SearchIcon from './../../assests/Vector.png';
+import SearchIcon from './../../assests/searchnormal.png';
 import NotificationIcon from './../../assests/notification.png';
 import avatar from './../../assests/Rectangle16.png';
 

@@ -9,7 +9,8 @@ import { LabelRounded } from '@mui/icons-material';
 
 const Login: types.ComponentT = () => {
 	const { formik } = useLogin();
-
+console.log(formik.errors);
+const {errors} = formik 
 	return (
 		<AuthContainer>
 			<Box sx={styles.root}>
@@ -18,16 +19,19 @@ const Login: types.ComponentT = () => {
 						<Typography variant='h3'>Sign in</Typography>
 						<Box sx={{textAlign:'left',width:{xs:'100%',md:'80%'}}}> 
 						<Typography variant='caption' sx={{color:'#9F9B9B',fontSize:{xs:'10px',md:'12px'}}}>Email/Number or Username</Typography>
-						
+					
 						<FormikTextField name='email' label='Email' {...formik} />
 						<Typography variant='caption' sx={{textAlign:'left',fontSize:{xs:'10px',md:'12px'},color:'#9F9B9B'}}>Password</Typography>
-
+						
 						<FormikTextField name='password' type='password' label='Password' {...formik} />
 						<Typography variant='caption' sx={{color:'#9F9B9B'}}>Forget Password</Typography>
 						</Box>
+						{/* {errors && <Typography variant='caption' sx={{color:'red'}}>{errors.password ? errors.password : errors.email}</Typography>} */}
 						<LoadingButton variant='contained'  sx={styles.button} type='submit'>
 							LOGIN
 						</LoadingButton>
+
+						
 						<Typography variant='caption'>
 							Dont have an account? <Link href='#'> Register</Link>
 						</Typography>
