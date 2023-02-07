@@ -10,6 +10,10 @@ import copy from '@assests/copy.png';
 import userAdd from '@assests/useradd.png';
 import packageplus from '@assests/packageplus.png';
 import dollarsquare from '@assests/dollarsquare.png';
+import Chart from '@assests/Chart.png';
+import ChartB from '../assests/circle.png';
+import ChartC from '../assests/Chart9.png';
+import Vector from '../assests/Vector.png';
 
 export interface SideItemT {
 	id: number;
@@ -35,20 +39,70 @@ export const sideListItems: SideItemT[] = [
 export const ViewDetails = [{
 	title: '1.15K',
 	info: 'Daily Signups',
-	icon:userAdd
-},{
+	icon: userAdd
+}, {
 	title: '38.45k',
 	info: 'Daily Visitors',
-	icon:profile2user
+	icon: profile2user
 },
 {
 	title: '13.75K',
 	info: 'Daily Orders',
-	icon:packageplus
-},{
+	icon: packageplus
+}, {
 	title: '$1.5M',
 	info: 'Daily Revenue',
-	icon:dollarsquare
+	icon: dollarsquare
 },
 
+]
+
+export interface Boxes {
+	title: string;
+	subValue?: Record<string,string>[];
+	img?: string;
+	md: number,
+	full: boolean,
+	bottom?: string
+}
+
+
+export const boxValue = [
+	{
+		title: 'Sales Report',
+		subValue: [{
+			label: 'Via Referral',
+			color: 'red'
+		}, {
+			label: 'Direct',
+			color: 'green'
+		}, {
+			label: 'Via Social',
+			color: 'yellow'
+		}],
+		
+
+		img: Chart,
+		md: 8,
+		full: true
+	},
+	{
+		title: 'Orders Overview',
+		md: 4,
+		img: ChartB,
+		full: false
+	},
+	{
+		title: 'User Activity',
+		md: 8,
+		img: Vector,
+		full: true
+	},
+	{
+		title: 'Current Users',
+		md: 4,
+		full: false,
+		img: ChartC,
+		bottom: 'IN-DETAIL OVERVIEW'
+	},
 ]

@@ -5,3 +5,4 @@ export { default as FormikTextField } from './formik_text_field';
 export { default as Navbar } from './navbar';
 export { default as Sidebar } from './sidebar';
 export { default as View } from './view/View';
+export { default as DenseTable } from '../components/box/Table';
