@@ -7,9 +7,11 @@ import * as styles from './sidebar.styles';
 const Sidebar = ({
 	toggleSidebar,
 	isCollapsed,
+	width,
 }: {
 	toggleSidebar: () => void;
 	isCollapsed: boolean;
+	width: number;
 }) => {
 	const [selectedDiv, setSelectedDiv] = useState<number>(1);
 
@@ -29,7 +31,17 @@ const Sidebar = ({
 								<ListItemButton>
 									<Box component='img' src={item.icon} />
 									{!isCollapsed && (
-										<ListItemText sx={styles.sideListStyle}>{item.text}</ListItemText>
+										<ListItemText
+											sx={{
+												fontWeight: 'lighter',
+												color: '#9F9B9B',
+												display: `${width == 500 ? 'none' : 'block'}`,
+
+												paddingLeft: '8px',
+											}}
+										>
+											{item.text}
+										</ListItemText>
 									)}
 								</ListItemButton>
 							</ListItem>
@@ -38,7 +50,13 @@ const Sidebar = ({
 				);
 			})}
 			<Box onClick={toggleSidebar} sx={styles.collapseBtn}>
-				<Box component='img' src={arrowleft2} sx={{rotate: isCollapsed ?  '180deg' : '360deg'}}/>
+				<Box
+					component='img'
+					src={arrowleft2}
+					sx={{
+						rotate: isCollapsed ? '180deg' : '360deg',
+					}}
+				/>
 			</Box>
 		</Box>
 	);
