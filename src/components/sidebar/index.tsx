@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Divider, ListItem, ListItemButton, ListItemText } from '@mui/material';
 import { SideItemT, sideListItems } from '../../data/app.data';
+import { Copy } from '@assests/icons';
 import arrowleft2 from '@assests/arrowleft2.png';
 import * as styles from './sidebar.styles';
 
@@ -15,6 +16,7 @@ const Sidebar = ({
 
 	return (
 		<Box sx={styles.sideListWrapper}>
+			<Copy color='green' />
 			{sideListItems.map((item: SideItemT) => {
 				return (
 					<React.Fragment key={item.id}>
