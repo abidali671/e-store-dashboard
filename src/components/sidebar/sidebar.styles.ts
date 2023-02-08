@@ -6,7 +6,7 @@ export const sideListWrapper = {
 };
 
 // export const sideListStyle = {
-	
+
 // };
 
 export const selected = {
@@ -19,10 +19,9 @@ export const unselect = {
 
 export const collapseBtn = {
 	width: '30px',
-	
 	borderTopRightRadius: '30px',
 	borderBottomRightRadius: '30px',
-	display: {sm:'flex',md:'flex',xs:'none'},
+	display: { md: 'flex', xs: 'none' },
 	justifyContent: 'center',
 	// display:'flex',
 	alignItems: 'center',
@@ -31,8 +30,5 @@ export const collapseBtn = {
 	height: '200px',
 	left: '100%',
 	backgroundColor: '#86AAF1',
-	cursor:'pointer',
-	
-	
-		
+	cursor: 'pointer',
 };

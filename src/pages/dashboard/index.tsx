@@ -1,21 +1,14 @@
-import React,{useState,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar, Sidebar, View } from '@components';
 import { Box } from '@mui/material';
 
 const Dashboard = () => {
 	const [isCollapsed, setIsCollapsed] = React.useState<boolean>(false);
-	const [width, setWidth]   = useState<number>(window.innerWidth);
-	const updateDimensions = () => {
-		setWidth(window.innerWidth);
-	}
-	useEffect(() => {
-		window.addEventListener('resize', updateDimensions);
-		return () => window.removeEventListener('resize', updateDimensions);
-	}, []);
+
 	const toggleSidebar = () => {
 		setIsCollapsed(!isCollapsed);
 	};
-	console.log(width)
+
 	return (
 		<Box
 			sx={{
@@ -32,13 +25,12 @@ const Dashboard = () => {
 			<Box
 				sx={{
 					display: 'grid',
-					// width:'60px',
-					gridTemplateColumns: `${width == 500 || isCollapsed ? 60 : 300}px 1fr`,
+					gridTemplateColumns: { md: `${isCollapsed ? 60 : 300}px 1fr`, xs: '60px 1fr' },
 					transition: '0.5s',
 					overflowX: 'hidden',
 				}}
 			>
-				<Sidebar isCollapsed={isCollapsed} width={width}  toggleSidebar={toggleSidebar} />
+				<Sidebar isCollapsed={isCollapsed} toggleSidebar={toggleSidebar} />
 				<View />
 			</Box>
 		</Box>
@@ -46,5 +38,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
-

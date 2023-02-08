@@ -7,11 +7,9 @@ import * as styles from './sidebar.styles';
 const Sidebar = ({
 	toggleSidebar,
 	isCollapsed,
-	width,
 }: {
 	toggleSidebar: () => void;
 	isCollapsed: boolean;
-	width: number;
 }) => {
 	const [selectedDiv, setSelectedDiv] = useState<number>(1);
 
@@ -35,8 +33,7 @@ const Sidebar = ({
 											sx={{
 												fontWeight: 'lighter',
 												color: '#9F9B9B',
-												display: `${width == 500 ? 'none' : 'block'}`,
-
+												display: { md: 'flex', xs: 'none' },
 												paddingLeft: '8px',
 											}}
 										>
