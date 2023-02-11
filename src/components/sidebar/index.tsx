@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Box, SvgIcon, Divider, ListItem, ListItemButton, ListItemText } from '@mui/material';
+import { Box, Divider, ListItem, ListItemButton, ListItemText } from '@mui/material';
 import { SideItemT, sideListItems } from '../../data/app.data';
 import arrowleft2 from '@assests/arrowleft2.png';
 import * as styles from './sidebar.styles';
-import { Copy } from '@assests/icons';
+
 const Sidebar = ({
 	toggleSidebar,
 	isCollapsed,

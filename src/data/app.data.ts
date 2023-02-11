@@ -14,12 +14,10 @@ import {
 	Dashboard,
 	Vendors,
 	Profile,
-	UserAdd,
 	Dollar,
 	Package,
 } from '@assests/icons';
 import React from 'react';
-
 
 export interface SideItemT {
 	id: number;
