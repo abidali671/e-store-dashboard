@@ -27,7 +27,6 @@ const View: React.FC = () => {
 		<Box sx={{ flexGrow: 1, padding: 6, pt: 5, overflow: 'auto' }}>
 			<Grid container spacing={{ xs: 2, md: 2 }} columns={{ xs: 6, sm: 6, md: 12 }}>
 				{ViewDetails.map((item, index) => {
-					const Svgs = item.icon
 					return (
 						<Grid item xs={6} sm={3} md={3} key={index}>
 							<Item>
@@ -38,8 +37,7 @@ const View: React.FC = () => {
 									<Typography variant='caption'>{item.info}</Typography>
 								</Box>
 
-								{/* <Box component='img' sx={{ height: '100%' }} src={item.icon} /> */}
-								<Svgs />
+						{item?.icon && <item.icon />}
 							</Item>
 						</Grid>
 					);

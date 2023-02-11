@@ -1,18 +1,35 @@
-
 import Chart from '@assests/Chart.png';
 import ChartB from '../assests/circle.png';
 import ChartC from '../assests/Chart9.png';
 import Vector from '../assests/Vector.png';
-import { Copy ,User,Category,Products, Order, Review, Brand, logout,  Dashboard ,Vendors,Profile,UserAdd,Dollar, Package} from '@assests/icons';
+import {
+	Copy,
+	User,
+	Category,
+	Products,
+	Order,
+	Review,
+	Brand,
+	logout,
+	Dashboard,
+	Vendors,
+	Profile,
+	UserAdd,
+	Dollar,
+	Package,
+} from '@assests/icons';
+import React from 'react';
+
+
 export interface SideItemT {
 	id: number;
 	text?: string;
-	icon?: any;
+	icon?: React.FC;
 	divider?: boolean;
 }
 
 export const sideListItems: SideItemT[] = [
-	{ id: 1, text: 'DASHBOARD', icon: Dashboard  },
+	{ id: 1, text: 'DASHBOARD', icon: Dashboard },
 	{ id: 2, text: 'VENDORS', icon: Vendors },
 	{ id: 3, divider: true },
 	{ id: 4, text: 'CATAGORIES', icon: Category },
@@ -25,73 +42,77 @@ export const sideListItems: SideItemT[] = [
 	{ id: 11, text: 'OTHER PAGES', icon: Copy },
 ];
 
-export const ViewDetails = [{
-	title: '1.15K',
-	info: 'Daily Signups',
-	icon: User
-}, {
-	title: '38.45k',
-	info: 'Daily Visitors',
-	icon: Profile
-},
-{
-	title: '13.75K',
-	info: 'Daily Orders',
-	icon: Package
-}, {
-	title: '$1.5M',
-	info: 'Daily Revenue',
-	icon: Dollar
-},
-
-]
+export const ViewDetails = [
+	{
+		title: '1.15K',
+		info: 'Daily Signups',
+		icon: User,
+	},
+	{
+		title: '38.45k',
+		info: 'Daily Visitors',
+		icon: Profile,
+	},
+	{
+		title: '13.75K',
+		info: 'Daily Orders',
+		icon: Package,
+	},
+	{
+		title: '$1.5M',
+		info: 'Daily Revenue',
+		icon: Dollar,
+	},
+];
 
 export interface Boxes {
 	title: string;
-	subValue?: Record<string,string>[];
+	subValue?: Record<string, string>[];
 	img?: string;
-	md: number,
-	full: boolean,
-	bottom?: string
+	md: number;
+	full: boolean;
+	bottom?: string;
 }
-
 
 export const boxValue = [
 	{
 		title: 'Sales Report',
-		subValue: [{
-			label: 'Via Referral',
-			color: 'red'
-		}, {
-			label: 'Direct',
-			color: 'green'
-		}, {
-			label: 'Via Social',
-			color: 'yellow'
-		}],
-		
+		subValue: [
+			{
+				label: 'Via Referral',
+				color: 'red',
+			},
+			{
+				label: 'Direct',
+				color: 'green',
+			},
+			{
+				label: 'Via Social',
+				color: 'yellow',
+			},
+		],
 
 		img: Chart,
 		md: 8,
-		full: true
+		full: true,
 	},
 	{
 		title: 'Orders Overview',
 		md: 4,
 		img: ChartB,
-		full: false
+		full: false,
 	},
 	{
 		title: 'User Activity',
 		md: 8,
 		img: Vector,
-		full: true
+		full: true,
 	},
 	{
 		title: 'Current Users',
 		md: 4,
 		full: false,
 		img: ChartC,
-		bottom: 'IN-DETAIL OVERVIEW'
+		bottom: 'IN-DETAIL OVERVIEW',
 	},
-]
+];
