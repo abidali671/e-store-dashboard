@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { Box, Divider, ListItem, ListItemButton, ListItemText } from '@mui/material';
+import { Box,SvgIcon, Divider, ListItem, ListItemButton, ListItemText } from '@mui/material';
 import { SideItemT, sideListItems } from '../../data/app.data';
-import { Copy } from '@assests/icons';
 import arrowleft2 from '@assests/arrowleft2.png';
 import * as styles from './sidebar.styles';
-
+import { Copy } from '@assests/icons';
 const Sidebar = ({
 	toggleSidebar,
 	isCollapsed,
@@ -16,8 +15,8 @@ const Sidebar = ({
 
 	return (
 		<Box sx={styles.sideListWrapper}>
-			<Copy color='green' />
 			{sideListItems.map((item: SideItemT) => {
+				const Svgs = item.icon
 				return (
 					<React.Fragment key={item.id}>
 						{item.divider ? (
@@ -29,7 +28,8 @@ const Sidebar = ({
 								disablePadding
 							>
 								<ListItemButton>
-									<Box component='img' src={item.icon} />
+									<Svgs />
+								
 									{!isCollapsed && (
 										<ListItemText
 											sx={{

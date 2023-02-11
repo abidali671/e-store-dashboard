@@ -41,7 +41,7 @@ export default function DenseTable() {
 							<TableCell align='right' sx={{ fontWeight: 'bold' }}>
 								Order Cost
 							</TableCell>
-							<TableCell align='right' sx={{ fontWeight: 'bold' }}>
+							<TableCell align='right'  sx={{ fontWeight: 'bold',width:'140px',minWidth:'90px' }}>
 								Status
 							</TableCell>
 							<TableCell align='right' sx={{ fontWeight: 'bold' }}>

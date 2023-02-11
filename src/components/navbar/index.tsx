@@ -7,8 +7,7 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import IconButton from '@mui/material/IconButton';
 
 import Logo from './../../assests/logos.png';
-import SearchIcon from './../../assests/searchnormal.png';
-import NotificationIcon from './../../assests/notification.png';
+import {Search,Ring} from '@assests/icons';
 import avatar from './../../assests/Rectangle16.png';
 
 const Navbar = () => {
@@ -34,15 +33,9 @@ const Navbar = () => {
 					id='outlined-adornment-weight'
 					startAdornment={
 						<InputAdornment position='end'>
-							<IconButton aria-label='toggle password visibility'>
-								<Box
-									component='img'
-									sx={{
-										height: 15,
-										
-									}}
-									src={SearchIcon}
-								/>
+							<IconButton sx={{width:'30px'}} size='small' aria-label='toggle password visibility'>
+								
+								<Search  />
 							</IconButton>
 						</InputAdornment>
 					}
@@ -52,20 +45,14 @@ const Navbar = () => {
 					}}
 				/>
 			</Box>
-			<Box >
+			<Box>
+			
+			<Ring  />
 			<Box
 				component='img'
 				sx={{
 					height: 25,
-					px:'10px'
-				}}
-				alt='NotificationIcon'
-				src={NotificationIcon}
-			/>
-			<Box
-				component='img'
-				sx={{
-					height: 25,
+					paddingLeft:'10px'
 				}}
 				alt='avatar'
 				src={avatar}
