@@ -20,24 +20,24 @@ import {
 import React from 'react';
 
 export interface SideItemT {
-	id: number;
-	text?: string;
+	label?: string;
 	icon?: React.FC;
 	divider?: boolean;
+	path?: string;
 }
 
 export const sideListItems: SideItemT[] = [
-	{ id: 1, text: 'DASHBOARD', icon: Dashboard },
-	{ id: 2, text: 'VENDORS', icon: Vendors },
-	{ id: 3, divider: true },
-	{ id: 4, text: 'CATAGORIES', icon: Category },
-	{ id: 5, text: 'PRODUCTS', icon: Products },
-	{ id: 6, text: 'ORDERS', icon: Order },
-	{ id: 7, text: 'REVIEWS', icon: Review },
-	{ id: 8, text: 'BRANDS', icon: Brand },
-	{ id: 9, divider: true },
-	{ id: 10, text: 'LOG OUT', icon: logout },
-	{ id: 11, text: 'OTHER PAGES', icon: Copy },
+	{ label: 'DASHBOARD', path: '/dashboard', icon: Dashboard },
+	{ label: 'VENDORS', path: '/vendors', icon: Vendors },
+	{ divider: true },
+	{ label: 'CATAGORIES', icon: Category },
+	{ label: 'PRODUCTS', icon: Products },
+	{ label: 'ORDERS', icon: Order },
+	{ label: 'REVIEWS', icon: Review },
+	{ label: 'BRANDS', icon: Brand },
+	{ divider: true },
+	{ label: 'LOG OUT', icon: logout },
+	{ label: 'OTHER PAGES', icon: Copy },
 ];
 
 export const ViewDetails = [

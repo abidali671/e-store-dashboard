@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Box, Divider, ListItem, ListItemButton, ListItemText } from '@mui/material';
 import { SideItemT, sideListItems } from '../../data/app.data';
 import arrowleft2 from '@assests/arrowleft2.png';
@@ -11,18 +12,23 @@ const Sidebar = ({
 	toggleSidebar: () => void;
 	isCollapsed: boolean;
 }) => {
-	const [selectedDiv, setSelectedDiv] = useState<number>(1);
+	const [selectedDiv, setSelectedDiv] = useState<number>(0);
+	const navigate = useNavigate();
+
+	const handleChangePage = (path: string) => {
+		navigate(path);
+	};
 
 	return (
 		<Box sx={styles.sideListWrapper}>
-			{sideListItems.map((item: SideItemT) => (
-				<React.Fragment key={item.id}>
+			{sideListItems.map((item: SideItemT, index: number) => (
+				<React.Fragment key={index}>
 					{item?.divider ? (
 						<Divider />
 					) : (
 						<ListItem
-							sx={item.id === selectedDiv ? styles.selected : styles.unselect}
-							onClick={() => setSelectedDiv(item.id)}
+							sx={index === selectedDiv ? styles.selected : styles.unselect}
+							onClick={() => item?.path && handleChangePage(item.path)}
 							disablePadding
 						>
 							<ListItemButton>
@@ -36,7 +42,7 @@ const Sidebar = ({
 											paddingLeft: '8px',
 										}}
 									>
-										{item.text}
+										{item.label}
 									</ListItemText>
 								)}
 							</ListItemButton>
