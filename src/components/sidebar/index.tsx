@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Box, Divider, ListItem, ListItemButton, ListItemText } from '@mui/material';
 import { SideItemT, sideListItems } from '../../data/app.data';
 import arrowleft2 from '@assests/arrowleft2.png';
@@ -12,8 +12,8 @@ const Sidebar = ({
 	toggleSidebar: () => void;
 	isCollapsed: boolean;
 }) => {
-	const [selectedDiv, setSelectedDiv] = useState<number>(0);
 	const navigate = useNavigate();
+	const location = useLocation();
 
 	const handleChangePage = (path: string) => {
 		navigate(path);
@@ -27,7 +27,7 @@ const Sidebar = ({
 						<Divider />
 					) : (
 						<ListItem
-							sx={index === selectedDiv ? styles.selected : styles.unselect}
+							sx={location.pathname === item.path ? styles.selected : styles.unselect}
 							onClick={() => item?.path && handleChangePage(item.path)}
 							disablePadding
 						>
