@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar, Sidebar, View } from '@components';
 import { Box } from '@mui/material';
 
@@ -8,6 +8,7 @@ const Dashboard = () => {
 	const toggleSidebar = () => {
 		setIsCollapsed(!isCollapsed);
 	};
+
 	return (
 		<Box
 			sx={{
@@ -24,7 +25,7 @@ const Dashboard = () => {
 			<Box
 				sx={{
 					display: 'grid',
-					gridTemplateColumns: `${isCollapsed ? 60 : 300}px 1fr`,
+					gridTemplateColumns: { md: `${isCollapsed ? 60 : 300}px 1fr`, xs: '60px 1fr' },
 					transition: '0.5s',
 					overflowX: 'hidden',
 				}}

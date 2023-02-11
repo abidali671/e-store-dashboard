@@ -24,24 +24,24 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const View: React.FC = () => {
 	return (
-		<Box sx={{ flexGrow: 1, padding: 6, pt: 5, overflowX: 'hidden' }}>
+		<Box sx={{ flexGrow: 1, padding: 6, pt: 5, overflow: 'auto' }}>
 			<Grid container spacing={{ xs: 2, md: 2 }} columns={{ xs: 6, sm: 6, md: 12 }}>
-				{ViewDetails.map((item, index) => (
-					<Grid item xs={3} sm={2} md={3} key={index}>
-						<Item>
-							<Box>
-								<Typography variant='h5' sx={{ color: 'black', fontWeight: 'bold' }}>
-									{item.title}
-								</Typography>
-								<Typography sx={{ fontSize: 'clamp(12px, 2vw, 15px)' }} variant='caption'>
-									{item.info}
-								</Typography>
-							</Box>
+				{ViewDetails.map((item, index) => {
+					return (
+						<Grid item xs={6} sm={3} md={3} key={index}>
+							<Item>
+								<Box>
+									<Typography variant='h5' sx={{ color: 'black', fontWeight: 'bold' }}>
+										{item.title}
+									</Typography>
+									<Typography variant='caption'>{item.info}</Typography>
+								</Box>
 
-							<Box component='img' sx={{ height: '100%' }} src={item.icon} />
-						</Item>
-					</Grid>
-				))}
+						{item?.icon && <item.icon />}
+							</Item>
+						</Grid>
+					);
+				})}
 				<Box1 />
 				<DenseTable />
 			</Grid>

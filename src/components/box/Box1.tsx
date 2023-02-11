@@ -26,7 +26,7 @@ const Box1: React.FC = () => {
 		<React.Fragment>
 			{boxValue.map((item: Boxes, ind) =>
 				item.full ? (
-					<Grid item xs={6} sm={5} md={item.md} key={ind}>
+					<Grid item xs={6} sm={6} md={item.md} key={ind}>
 						<Item sx={{ padding: 0, width: '100%' }}>
 							<Box sx={{ width: '100%' }}>
 								<Box p={2} sx={{ borderBottom: '1px solid #7D767680' }}>
@@ -75,7 +75,7 @@ const Box1: React.FC = () => {
 						</Item>
 					</Grid>
 				) : (
-					<Grid item xs={6} sm={3} md={item.md} key={ind}>
+					<Grid item xs={6} sm={6} md={item.md} key={ind}>
 						<Item sx={{ padding: 0, height: '99%' }}>
 							<Box sx={{ width: '100%', height: '100%' }}>
 								<Box p={2} sx={{ borderBottom: '1px solid #7D767680' }}>

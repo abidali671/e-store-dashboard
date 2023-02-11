@@ -5,11 +5,9 @@ export const sideListWrapper = {
 	position: 'relative',
 };
 
-export const sideListStyle = {
-	fontWeight: 'lighter',
-	color: '#9F9B9B',
-	paddingLeft: '8px',
-};
+// export const sideListStyle = {
+
+// };
 
 export const selected = {
 	borderLeft: '4px solid #86AAF1',
@@ -21,16 +19,16 @@ export const unselect = {
 
 export const collapseBtn = {
 	width: '30px',
-	
 	borderTopRightRadius: '30px',
 	borderBottomRightRadius: '30px',
-	display: 'flex',
+	display: { md: 'flex', xs: 'none' },
 	justifyContent: 'center',
+	// display:'flex',
 	alignItems: 'center',
 	position: 'absolute',
 	top: '30%',
 	height: '200px',
 	left: '100%',
 	backgroundColor: '#86AAF1',
-	cursor:'pointer',
+	cursor: 'pointer',
 };
