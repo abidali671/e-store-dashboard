@@ -8,9 +8,7 @@ const Container: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 	const { isCollapsed, toggleSidebar } = useContainer();
 	return (
 		<Box sx={styles.root}>
-			<Box>
-				<Navbar />
-			</Box>
+			<Navbar />
 			<Box sx={{ ...styles.pageWrapper(isCollapsed) }}>
 				<Sidebar isCollapsed={isCollapsed} toggleSidebar={toggleSidebar} />
 				<Box sx={styles.contentWrapper}>{children}</Box>
