@@ -32,7 +32,7 @@ const Sidebar = ({
 							disablePadding
 						>
 							<ListItemButton>
-								{item?.icon && <item.icon />}
+								{item?.icon && <item.icon  />}
 								{!isCollapsed && (
 									<ListItemText
 										sx={{
