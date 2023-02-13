@@ -6,12 +6,13 @@ const Profile = (props: SVGProps<SVGSVGElement>) => (
 		xmlns='http://www.w3.org/2000/svg'
 		width='32'
 		height='32'
+		color='#000'
 		fill='none'
 		viewBox='0 0 32 32'
 		{...props}
 	>
 		<path
-			stroke='#000'
+			 stroke='currentColor'
 			strokeLinecap='round'
 			strokeLinejoin='round'
 			strokeWidth='1.5'

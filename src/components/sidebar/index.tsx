@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Box, Divider, ListItem, ListItemButton, ListItemText } from '@mui/material';
 import { SideItemT, sideListItems } from '../../data/app.data';
@@ -21,7 +21,8 @@ const Sidebar = ({
 
 	return (
 		<Box sx={styles.sideListWrapper}>
-			{sideListItems.map((item: SideItemT, index: number) => (
+			{sideListItems.map((item: SideItemT, index: number) => {
+				return (
 				<React.Fragment key={index}>
 					{item?.divider ? (
 						<Divider />
@@ -32,7 +33,7 @@ const Sidebar = ({
 							disablePadding
 						>
 							<ListItemButton>
-								{item?.icon && <item.icon />}
+							{item?.icon && <item.icon />}
 								{!isCollapsed && (
 									<ListItemText
 										sx={{
@@ -49,7 +50,7 @@ const Sidebar = ({
 						</ListItem>
 					)}
 				</React.Fragment>
-			))}
+			)})}
 			<Box onClick={toggleSidebar} sx={styles.collapseBtn}>
 				<Box
 					component='img'

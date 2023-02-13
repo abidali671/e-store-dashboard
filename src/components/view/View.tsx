@@ -3,7 +3,7 @@ import { experimentalStyled as styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
-import { ViewDetails } from '../../data/app.data';
+import { ViewDetails, ViewDetailsT } from '../../data/app.data';
 import Typography from '@mui/material/Typography';
 import Box1 from '../box/Box1';
 import { DenseTable } from '../../components';
@@ -26,7 +26,7 @@ const View: React.FC = () => {
 	return (
 		<Box sx={{ flexGrow: 1, padding: 6, pt: 5, overflow: 'auto' }}>
 			<Grid container spacing={{ xs: 2, md: 2 }} columns={{ xs: 6, sm: 6, md: 12 }}>
-				{ViewDetails.map((item, index) => {
+				{ViewDetails.map((item :ViewDetailsT, index) => {
 					return (
 						<Grid item xs={6} sm={3} md={3} key={index}>
 							<Item>

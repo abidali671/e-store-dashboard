@@ -7,18 +7,20 @@ const UserAdd = (props: SVGProps<SVGSVGElement>) => (
 		width='32'
 		height='32'
 		fill='none'
+		color='#000'
 		viewBox='0 0 32 32'
 		{...props}
+	
 	>
 		<path
-			stroke='#000'
+stroke='currentColor'
 			strokeLinecap='round'
 			strokeLinejoin='round'
 			strokeWidth='1.5'
 			d='M4.547 29.333C4.547 24.173 9.68 20 16 20c1.28 0 2.52.173 3.68.493M16 16a6.667 6.667 0 100-13.334A6.667 6.667 0 0016 16v0z'
 		></path>
 		<path
-			stroke='#000'
+					 stroke='currentColor'
 			strokeLinecap='round'
 			strokeLinejoin='round'
 			strokeMiterlimit='10'

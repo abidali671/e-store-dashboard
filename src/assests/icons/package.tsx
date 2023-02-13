@@ -8,10 +8,12 @@ const Package = (props: SVGProps<SVGSVGElement>) => (
 		height='32'
 		fill='none'
 		viewBox='0 0 32 32'
+		color='#000'
 		{...props}
 	>
 		<path
-			stroke='#000'
+					 stroke='currentColor'
+
 			strokeLinecap='round'
 			strokeLinejoin='round'
 			strokeWidth='2'
