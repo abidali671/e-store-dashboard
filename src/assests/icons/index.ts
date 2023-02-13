@@ -14,3 +14,5 @@ export { default as Dollar } from './dollar';
 export { default as Profile } from './profile';
 export { default as Search } from './search';
 export { default as Ring } from './ring';
+export { default as Message } from './message';
+export { default as Phone } from './phone';

@@ -39,8 +39,13 @@ export const sideListItems: SideItemT[] = [
 	{ label: 'LOG OUT', icon: logout },
 	{ label: 'OTHER PAGES', icon: Copy },
 ];
-
-export const ViewDetails = [
+export interface ViewDetailsT {
+	title: string;
+	info?: string;
+	icon?: React.FC;
+	
+}
+export const ViewDetails:ViewDetailsT[] = [
 	{
 		title: '1.15K',
 		info: 'Daily Signups',
