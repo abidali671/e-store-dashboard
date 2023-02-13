@@ -8,13 +8,13 @@ const Breadcrumbs = () => {
 	const { pathname } = useLocation();
 
 	const pathnames = pathname.split('/').filter(Boolean);
-	console.log('nav',pathname);
-	
 
 	return (
-		<MUIBreadcrumbs aria-label='breadcrumb' separator={<NavigateNextIcon fontSize="small" />}>
+		<MUIBreadcrumbs aria-label='breadcrumb' separator={<NavigateNextIcon fontSize='small' />}>
 			{pathnames.length ? (
-				<Link sx={{textDecoration:'none',cursor:'pointer'}} onClick={() => navigate('/')}>HOME</Link>
+				<Link sx={{ textDecoration: 'none', cursor: 'pointer' }} onClick={() => navigate('/')}>
+					HOME
+				</Link>
 			) : (
 				<Typography> HOME </Typography>
 			)}

@@ -24,9 +24,9 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const View: React.FC = () => {
 	return (
-		<Box sx={{ flexGrow: 1, padding: 6, pt: 5, overflow: 'auto' }}>
+		<Box sx={{ flexGrow: 1, overflow: 'auto' }}>
 			<Grid container spacing={{ xs: 2, md: 2 }} columns={{ xs: 6, sm: 6, md: 12 }}>
-				{ViewDetails.map((item :ViewDetailsT, index) => {
+				{ViewDetails.map((item: ViewDetailsT, index) => {
 					return (
 						<Grid item xs={6} sm={3} md={3} key={index}>
 							<Item>
@@ -37,7 +37,7 @@ const View: React.FC = () => {
 									<Typography variant='caption'>{item.info}</Typography>
 								</Box>
 
-						{item?.icon && <item.icon />}
+								{item?.icon && <item.icon />}
 							</Item>
 						</Grid>
 					);

@@ -6,14 +6,11 @@ import BoxLayout from './boxLayout';
 const Vendors = () => {
 	return (
 		<Container>
-			<Box m={3}>
-				<Typography variant='h6' fontWeight='bold' gutterBottom>
-					Vendors
-				</Typography>
-				<Breadcrumbs />
-				<BoxLayout />
-			</Box>
-			
+			<Typography variant='h6' fontWeight='bold'>
+				Vendors
+			</Typography>
+			{/* <Breadcrumbs /> */}
+			<BoxLayout />
 		</Container>
 	);
 };

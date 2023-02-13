@@ -2,7 +2,6 @@ import * as React from 'react';
 import { experimentalStyled as styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
 import Face from '@assests/face.png';
 import Typography from '@mui/material/Typography';
 import { Stack } from '@mui/material';
@@ -18,46 +17,49 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function BoxLayout() {
 	return (
-		<Box sx={{ flexGrow: 1 }} my={2} mx='auto'>
-			<Grid
-            justifyContent='center'
-				sx={{ border: '1px solid #ECECEC', borderRadius: '20px' }}
-				container
-				spacing={{ xs: 2, md: 0 }}
-				columns={{ xs: 3, sm: 8, md: 12,lg:12}}
-			>
-				{Array.from(Array(6)).map((_, index) => (
-					<Grid item xs={2} sm={4} md={3} lg={3} key={index}>
-						<Box m={2} textAlign='center' >
-							<Box
-								p={3}
-                             
-								sx={{ border: '1px solid #ECECEC', borderRadius: '20px', textAlign: 'center' }}
-							>
-								<Box component='img' sx={{ maxWidth: '100%', width: '70%' }} src={Face} />
-								<Box sx={{ textAlign: 'center' }}>
-									<Typography variant='h6' fontWeight={600} my={1}>
-										Alex Johnson
-									</Typography>
-									<Stack direction='row' alignItems='center' gap={1}>
-										<Phone />
-										<Typography variant='h6' fontSize={14} fontWeight={300} color='#9F9B9B'>
-											+91 394-5454-2861
-										</Typography>
-									</Stack>
+		<Box
+			sx={{
+				display: 'grid',
+				border: '1px solid #ECECEC',
+				borderRadius: '20px',
+				gridTemplateColumns: {
+					lg: 'repeat(4, 1fr)',
+					md: 'repeat(3, 1fr)',
+					sm: 'repeat(2, 1fr)',
+					xs: '1fr',
+				},
+				gap: 3,
+				p: 3,
+			}}
+		>
+			{Array.from(Array(6)).map((_, index) => (
+				<Box key={index} textAlign='center'>
+					<Box
+						p={3}
+						sx={{ border: '1px solid #ECECEC', borderRadius: '20px', textAlign: 'center' }}
+					>
+						<Box component='img' sx={{ maxWidth: '100%', width: '70%' }} src={Face} />
+						<Box sx={{ textAlign: 'center' }}>
+							<Typography variant='h6' fontWeight={600} my={1}>
+								Alex Johnson
+							</Typography>
+							<Stack direction='row' alignItems='center' gap={1}>
+								<Phone />
+								<Typography variant='h6' fontSize={14} fontWeight={300} color='#9F9B9B'>
+									+91 394-5454-2861
+								</Typography>
+							</Stack>
 
-									<Stack direction='row' alignItems='center' gap={1} my={1}>
-										<Message />
-										<Typography variant='h6' fontSize={14} fontWeight={300} color='#9F9B9B'>
-											example@gmail.com
-										</Typography>
-									</Stack>
-								</Box>
-							</Box>
+							<Stack direction='row' alignItems='center' gap={1} my={1}>
+								<Message />
+								<Typography variant='h6' fontSize={14} fontWeight={300} color='#9F9B9B'>
+									example@gmail.com
+								</Typography>
+							</Stack>
 						</Box>
-					</Grid>
-				))}
-			</Grid>
+					</Box>
+				</Box>
+			))}
 		</Box>
 	);
 }

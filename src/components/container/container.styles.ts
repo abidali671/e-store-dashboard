@@ -16,4 +16,4 @@ export const pageWrapper = (isCollapsed: boolean) =>
 		overflowX: 'hidden',
 	} as SxProps);
 
-export const contentWrapper: SxProps<Theme> = { flex: 1,overflowX:'hidden' };
+export const contentWrapper: SxProps<Theme> = { flex: 1, overflowX: 'hidden', padding: 6 };
