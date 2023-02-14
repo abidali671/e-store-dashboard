@@ -1,6 +1,5 @@
 import Container from '@components/container';
 import { Typography } from '@mui/material';
-import { Box } from '@mui/system';
 import Breadcrumbs from './breadcrumbs';
 import BoxLayout from './boxLayout';
 const Vendors = () => {
@@ -9,7 +8,7 @@ const Vendors = () => {
 			<Typography variant='h6' fontWeight='bold'>
 				Vendors
 			</Typography>
-			{/* <Breadcrumbs /> */}
+			<Breadcrumbs />
 			<BoxLayout />
 		</Container>
 	);

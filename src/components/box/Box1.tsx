@@ -6,6 +6,7 @@ import { boxValue, Boxes } from '../../data/app.data';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import { experimentalStyled as styled } from '@mui/material/styles';
+import { MyChartComponent, AreaChart } from '@components';
 
 const Box1: React.FC = () => {
 	const Item = styled(Paper)(({ theme }) => ({
@@ -84,8 +85,15 @@ const Box1: React.FC = () => {
 									</Typography>
 								</Box>
 
-								<Box px={2} sx={{ textAlign: 'center', margin: '0 auto' }}>
-									<Box sx={{ maxWidth: '100%', height: 'auto' }} component='img' src={item.img} />
+								<Box
+									px={2}
+									sx={{ textAlign: 'center', margin: '0 auto', maxWidth: '100%', height: 'auto' }}
+								>
+									{item.typeChart ? (
+										<MyChartComponent userData={item.data?.map((val) => val)} />
+									) : (
+										<AreaChart userData={item.data} />
+									)}
 								</Box>
 
 								{item.bottom && (
@@ -108,5 +116,4 @@ const Box1: React.FC = () => {
 		</React.Fragment>
 	);
 };
-
 export default Box1;

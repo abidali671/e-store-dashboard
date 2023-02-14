@@ -43,9 +43,9 @@ export interface ViewDetailsT {
 	title: string;
 	info?: string;
 	icon?: React.FC;
-	
+
 }
-export const ViewDetails:ViewDetailsT[] = [
+export const ViewDetails: ViewDetailsT[] = [
 	{
 		title: '1.15K',
 		info: 'Daily Signups',
@@ -75,6 +75,9 @@ export interface Boxes {
 	md: number;
 	full: boolean;
 	bottom?: string;
+	data?: any[]
+
+	typeChart?: boolean
 }
 
 export const boxValue = [
@@ -104,6 +107,8 @@ export const boxValue = [
 		md: 4,
 		img: ChartB,
 		full: false,
+		data: [9.9, 8.7, 25.6, 32.0, 23.8],
+		typeChart: true
 	},
 	{
 		title: 'User Activity',
@@ -117,5 +122,13 @@ export const boxValue = [
 		full: false,
 		img: ChartC,
 		bottom: 'IN-DETAIL OVERVIEW',
+		data: [
+			{ name: 'series1', data: [31, 40, 28, 51, 42, 109, 100] },
+			{
+				name: 'series2',
+				data: [11, 32, 45, 32, 34, 52, 41],
+			},
+		],
+		typeChart: false
 	},
 ];

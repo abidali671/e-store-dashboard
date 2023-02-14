@@ -7,3 +7,5 @@ export { default as Navbar } from './navbar';
 export { default as Sidebar } from './sidebar';
 export { default as View } from './view/View';
 export { default as DenseTable } from '../components/box/Table';
+export { default as MyChartComponent } from '../components/charts/circle';
+export { default as AreaChart } from '../components/charts/area';

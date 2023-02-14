@@ -5,12 +5,10 @@ import { AuthContainer, FormikTextField, FormWrapper } from '@components';
 import useLogin from './login.hook';
 import * as types from './login.types';
 import * as styles from './login.styles';
-import { LabelRounded } from '@mui/icons-material';
 
 const Login: types.ComponentT = () => {
 	const { formik } = useLogin();
 console.log(formik.errors);
-const {errors} = formik 
 	return (
 		<AuthContainer>
 			<Box sx={styles.root}>
@@ -26,7 +24,6 @@ const {errors} = formik
 						<FormikTextField name='password' type='password' label='Password' {...formik} />
 						<Typography variant='caption' sx={{color:'#9F9B9B'}}>Forget Password</Typography>
 						</Box>
-						{/* {errors && <Typography variant='caption' sx={{color:'red'}}>{errors.password ? errors.password : errors.email}</Typography>} */}
 						<LoadingButton variant='contained'  sx={styles.button} type='submit'>
 							LOGIN
 						</LoadingButton>

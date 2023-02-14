@@ -42,6 +42,7 @@ const View: React.FC = () => {
 						</Grid>
 					);
 				})}
+				
 				<Box1 />
 				<DenseTable />
 			</Grid>
