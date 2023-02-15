@@ -20,42 +20,48 @@ const Sidebar = ({
 	};
 
 	return (
-		<Box sx={styles.sideListWrapper}>
-			{sideListItems.map((item: SideItemT, index: number) => {
-				return (
-				<React.Fragment key={index}>
-					{item?.divider ? (
-						<Divider />
-					) : (
-						<ListItem
-							sx={location.pathname === item.path ? styles.selected : styles.unselect}
-							onClick={() => item?.path && handleChangePage(item.path)}
-							disablePadding
-						>
-							<ListItemButton>
-							{item?.icon && <item.icon />}
-								{!isCollapsed && (
-									<ListItemText
-										sx={{
-											fontWeight: 'lighter',
-											color: '#9F9B9B',
-											display: { md: 'flex', xs: 'none' },
-											paddingLeft: '8px',
-										}}
-									>
-										{item.label}
-									</ListItemText>
-								)}
-							</ListItemButton>
-						</ListItem>
-					)}
-				</React.Fragment>
-			)})}
-			<Box onClick={toggleSidebar} sx={styles.collapseBtn}>
+		<Box sx={{ flex: 1, overflowY: 'hidden' }}>
+			<Box sx={styles.sideListWrapper}>
+				{sideListItems.map((item: SideItemT, index: number) => {
+					return (
+						<React.Fragment key={index}>
+							{item?.divider ? (
+								<Divider />
+							) : (
+								<ListItem onClick={() => item?.path && handleChangePage(item.path)} disablePadding>
+									<Box sx={location.pathname === item.path ? styles.select : null} />
+
+									<ListItemButton sx={{ height: '54px' }}>
+										{item?.icon && (
+											<item.icon
+												style={{ color: location.pathname === item.path ? '#86AAF1' : '#9F9B9B' }}
+											/>
+										)}
+										{!isCollapsed && (
+											<ListItemText
+												sx={{
+													fontWeight: 'lighter',
+													color: location.pathname === item.path ? '#86AAF1' : '#9F9B9B',
+													display: { md: 'flex', xs: 'none' },
+													paddingLeft: '8px',
+												}}
+											>
+												{item.label}
+											</ListItemText>
+										)}
+									</ListItemButton>
+								</ListItem>
+							)}
+						</React.Fragment>
+					);
+				})}
+			</Box>
+			<Box onClick={toggleSidebar} sx={isCollapsed ? styles.collapseBtn : styles.collapsedBtn}>
 				<Box
 					component='img'
 					src={arrowleft2}
 					sx={{
+						transition: '0.3s',
 						rotate: isCollapsed ? '180deg' : '360deg',
 					}}
 				/>

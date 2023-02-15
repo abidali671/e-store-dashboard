@@ -10,6 +10,15 @@ const MyChartComponent = ({ userData }: userDataT) => {
 		legend: {
 			show: false,
 		},
+		Chart:{
+			type: 'area',
+			toolbar: {
+                show: true,
+                tools: {
+                  download: false
+                }
+              }
+		},
         colors:['#FF4560', '#775DD0', '#008FFB','#00E396','#FEB019']
 	};
 

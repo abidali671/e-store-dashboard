@@ -21,7 +21,7 @@ import React from 'react';
 
 export interface SideItemT {
 	label?: string;
-	icon?: React.FC;
+	icon?: React.FC<React.SVGProps<SVGSVGElement>>;
 	divider?: boolean;
 	path?: string;
 }
