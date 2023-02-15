@@ -3,19 +3,12 @@ export const sideListWrapper = {
 	bgcolor: 'background.paper',
 	borderRight: '1px solid #ddd',
 	position: 'relative',
+	height:'100%',
+	overflow: 'auto'
 };
 
-// export const sideListStyle = {
 
-// };
 
-export const selected = {
-	borderLeft: '4px solid #86AAF1',
-};
-
-export const unselect = {
-	borderLeft: 'none',
-};
 
 export const collapseBtn = {
 	width: '30px',
@@ -32,3 +25,11 @@ export const collapseBtn = {
 	backgroundColor: '#86AAF1',
 	cursor: 'pointer',
 };
+export const select = {
+	height: '40px',
+	width: '8px',
+	borderRadius: '20px',
+	backgroundColor: '#86AAF1',
+	position: 'absolute',
+	left: '2px',
+}
