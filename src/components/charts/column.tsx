@@ -10,12 +10,12 @@ const ColumnChart = ({ userData }: userDataT) => {
 		chart: {
 			type: 'bar',
 			height: 350,
-            toolbar: {
-                show: true,
-                tools: {
-                  download: false
-                }
-              }
+			toolbar: {
+				show: true,
+				tools: {
+					download: false,
+				},
+			},
 		},
 		plotOptions: {
 			bar: {
@@ -24,7 +24,7 @@ const ColumnChart = ({ userData }: userDataT) => {
 				//   endingShape: 'rounded',
 			},
 		},
-		
+
 		stroke: {
 			show: true,
 			width: 2,
@@ -33,7 +33,7 @@ const ColumnChart = ({ userData }: userDataT) => {
 		xaxis: {
 			categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
 		},
-    
+
 		yaxis: {
 			title: {
 				text: '$ (thousands)',
@@ -49,7 +49,7 @@ const ColumnChart = ({ userData }: userDataT) => {
 				},
 			},
 		},
-        legend: {
+		legend: {
 			show: false,
 		},
 	});

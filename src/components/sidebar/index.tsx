@@ -20,7 +20,7 @@ const Sidebar = ({
 	};
 
 	return (
-		<Box   position='relative' sx={{flex:1,backgroundColor:'red',overflowY:'hidden',overflowX:'visible'}}>
+		<Box sx={{ flex: 1, overflowY: 'hidden' }}>
 			<Box sx={styles.sideListWrapper}>
 				{sideListItems.map((item: SideItemT, index: number) => {
 					return (
@@ -56,11 +56,12 @@ const Sidebar = ({
 					);
 				})}
 			</Box>
-			<Box onClick={toggleSidebar} sx={styles.collapseBtn}>
+			<Box onClick={toggleSidebar} sx={isCollapsed ? styles.collapseBtn : styles.collapsedBtn}>
 				<Box
 					component='img'
 					src={arrowleft2}
 					sx={{
+						transition: '0.3s',
 						rotate: isCollapsed ? '180deg' : '360deg',
 					}}
 				/>
