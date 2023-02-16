@@ -4,10 +4,11 @@ export const root: SxProps<Theme> = {
 	width: 'auto',
 	display: 'flex',
 	alignItems: 'center',
-	justifyContent: 'flex-start',
+	// justifyContent: 'flex-start',
 	flexDirection: 'column',
-	margin: '100px',
+	// my: 1,
 	textAlign: 'center',
+	height:'100%'
 };
 export const button: SxProps<Theme> = {
 	backgroundColor:'black',

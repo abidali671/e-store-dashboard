@@ -12,7 +12,7 @@ const Item = styled(Paper)(({ theme }) => ({
 	backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
 	...theme.typography.body2,
 	padding: theme.spacing(2),
-	border: '1px solid #7D767680',
+	border: '1px solid #D9D9D9',
 	textAlign: 'left',
 	borderRadius: '15px',
 	display: 'flex',
