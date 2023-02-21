@@ -18,7 +18,7 @@ const RowTable = () => {
 				justifyContent: 'center',
 				alignItems: 'center',
 				ml: 1.5,
-				pt: 2,
+				pt: 3,
 			}}
 		>
 			<Grid container spacing={{ xs: 2, md: 1 }}>
