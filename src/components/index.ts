@@ -10,3 +10,4 @@ export { default as DenseTable } from '../components/box/Table';
 export { default as MyChartComponent } from '../components/charts/circle';
 export { default as AreaChart } from '../components/charts/area';
 export { default as ColumnChart } from '../components/charts/column';
+export { default as RowTable } from '../components/rowTable';
