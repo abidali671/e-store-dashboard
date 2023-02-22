@@ -1,11 +1,13 @@
-import palette from './palette';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import components from './components';
+import palette from './palette';
 
 interface IProps {
 	children: React.ReactNode;
 }
 
 const theme = createTheme({
+	components,
 	palette,
 });
 
