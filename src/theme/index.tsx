@@ -9,6 +9,6 @@ const theme = createTheme({
 	palette,
 });
 
-const MuiTheme = (props: IProps) => <ThemeProvider theme={theme} children={props.children} />;
+const MuiTheme = (props: IProps) => <ThemeProvider theme={theme}>{props.children}</ThemeProvider>;
 
 export default MuiTheme;
