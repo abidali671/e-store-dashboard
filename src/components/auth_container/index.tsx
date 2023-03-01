@@ -8,12 +8,12 @@ import Rectangle from '@assests/Rectangle2.png';
 const AuthContainer: types.ComponentT = ({ children }: types.PropsT) => {
 	return (
 		<Box sx={styles.root}>
-			<Navbar />
-			<Grid  alignItems='center'  container columns={12}>
-				<Grid  item xs={6} md={6}>
+			<Navbar isSearchBar={false} />
+			<Grid alignItems='center' container columns={12}>
+				<Grid item xs={6} md={6} sx={{ width: '100%' }}>
 					<Box component='img' src={Rectangle} sx={styles.coverImg} />
 				</Grid>
-				<Grid my={2}  item xs={12} sm={12} md={6} >
+				<Grid my={2} item xs={12} sm={12} md={6}>
 					{children}
 				</Grid>
 			</Grid>

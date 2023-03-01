@@ -8,7 +8,7 @@ import Logo from '@assests/logos.png';
 import { Search, Ring } from '@assests/icons';
 import avatar from '@assests/Rectangle16.png';
 
-const Navbar = () => {
+const Navbar = ({ isSearchBar = true }: { isSearchBar?: boolean }) => {
 	return (
 		<Box sx={styles.root}>
 			<Box
@@ -19,31 +19,33 @@ const Navbar = () => {
 				alt='Logo'
 				src={Logo}
 			/>
-			<Box sx={{ width: '50%' }}>
-				<OutlinedInput
-					sx={{
-						borderRadius: '50px',
-						height: 45,
-					}}
-					fullWidth
-					id='outlined-adornment-weight'
-					startAdornment={
-						<InputAdornment position='end'>
-							<IconButton
-								sx={{ width: '30px' }}
-								size='small'
-								aria-label='toggle password visibility'
-							>
-								<Search />
-							</IconButton>
-						</InputAdornment>
-					}
-					aria-describedby='outlined-weight-helper-text'
-					inputProps={{
-						'aria-label': 'weight',
-					}}
-				/>
-			</Box>
+			{isSearchBar && (
+				<Box sx={{ width: '50%' }}>
+					<OutlinedInput
+						sx={{
+							borderRadius: '50px',
+							height: 45,
+						}}
+						fullWidth
+						id='outlined-adornment-weight'
+						startAdornment={
+							<InputAdornment position='end'>
+								<IconButton
+									sx={{ width: '30px' }}
+									size='small'
+									aria-label='toggle password visibility'
+								>
+									<Search />
+								</IconButton>
+							</InputAdornment>
+						}
+						aria-describedby='outlined-weight-helper-text'
+						inputProps={{
+							'aria-label': 'weight',
+						}}
+					/>
+				</Box>
+			)}
 			<Box>
 				<Ring />
 				<Box

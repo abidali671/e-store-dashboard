@@ -80,15 +80,15 @@ export default function DenseTable() {
 									{row.protein}
 								</TableCell>
 								<TableCell
-									align='right'
+									align='center'
 							
 								>
 									<Button
 										sx={{
 											backgroundColor: row.color,
 											borderRadius: '20px',
-										margin:'0 auto',
-											color: 'white',
+										
+											color: 'white !important',
 											fontSize: '10px',
 											
 											':hover': { backgroundColor: row.color },

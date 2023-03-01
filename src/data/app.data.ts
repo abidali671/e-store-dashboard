@@ -18,7 +18,9 @@ import {
 	Package,
 } from '@assests/icons';
 import React from 'react';
-
+import shoes from '@assests/shoes.png'
+import shirt from '@assests/shirt.png'
+import jack from '@assests/jack.png'
 export interface SideItemT {
 	label?: string;
 	icon?: React.FC<React.SVGProps<SVGSVGElement>>;
@@ -132,3 +134,32 @@ export const boxValue = [
 		typeChart: false
 	},
 ];
+interface productT {
+	title:string,
+	desc:string,
+	price:number,
+	sales:number,
+	img:string
+}
+export const productDetail:productT[] = [{
+	img:'shoes',
+	title: 'Baby Cotton Shoes',
+	desc: 'Statement belting with double-turnlock hardware adds “swagger” to a simple.',
+	price: 340,
+	sales: 590
+},
+{
+	img:'shirt',
+	title: 'Hoddies For Mens',
+	desc: 'Statement belting with double-turnlock hardware adds “swagger” to a simple.',
+	price: 399,
+	sales: 300
+},
+{
+	img:'jack',
+	title: 'Long-Slive T-Shirt',
+	desc: 'Statement belting with double-turnlock hardware adds “swagger” to a simple.',
+	price: 480,
+	sales: 210
+},
+]
