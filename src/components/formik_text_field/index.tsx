@@ -32,7 +32,7 @@ const FormikTextField: ComponentT = (props: FormikValues) => {
 			value={values[name]}
 			onChange={handleChange}
 			error={touched[name] && Boolean(errors[name])}
-			sx={{ borderRadius: '30px', border: '1px solid #8A86864D', height: '46px', my: '4px' }}
+		
 
 			multiline={multiline}
 			minRows={minRows}

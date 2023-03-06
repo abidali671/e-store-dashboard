@@ -5,94 +5,92 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import { Grid, IconButton, Button } from '@mui/material';
+import {
+	Grid,
+	IconButton,
+	Button,
+	Box,
+	Typography,
+	TextField,
+	MenuItem,
+	
+} from '@mui/material';
+import UsePagination from './pagination';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-
-function createData(
-	name: number,
-	calories: number,
-	fat: number,
-	carbs: number,
-	protein: number,
-	task: string,
-	color: string,
-) {
-	return { name, calories, fat, carbs, protein, task, color };
-}
-
-const rows = [
-	createData(2541, 159, 6.0, 24, 4.0, 'completed', '#00E396'),
-	createData(2542, 237, 9.0, 37, 4.3, 'onHold', '#A368BF'),
-	createData(2543, 262, 16.0, 24, 6.0, 'onHold', '#A368BF'),
-	createData(2544, 305, 3.7, 67, 4.3, 'cancelled', '#FF2828'),
-	createData(2545, 356, 16.0, 49, 3.9, 'delayed', '#FEB019'),
-];
+import {rows} from './box.data'
 
 export default function DenseTable() {
+	const [page, setPage] = React.useState(0);
+	const [rowsPerPage, setRowsPerPage] = React.useState(5);
+	
+	const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
+
+
 	return (
-		<Grid item xs={12} sm={12} md={12} sx={{ overflow: 'auto' }}>
+		<Grid item xs={12} sm={12} md={12}>
 			<TableContainer
-				component={Paper}
-				sx={{ border: '1px solid #7D767680', borderRadius: '20px' }}
+				
+				sx={{ border: '1px solid #D9D9D9', borderRadius: '20px',boxShadow:'none' }}
 			>
 				<Table size='small' aria-label='a dense table'>
 					<TableHead>
-						<TableRow>
-							<TableCell sx={{ fontWeight: 'bold', width: '100px', maxWidth: '90px' }}>
+						<TableRow sx={{flex:'1'}}>
+							<TableCell sx={{ fontWeight: 'bold'}}>
 								Order ID
 							</TableCell>
 
-							<TableCell align='right' sx={{ fontWeight: 'bold' }}>
+							<TableCell align='center' sx={{ fontWeight: 'bold',width:'40ch' }}>
 								Product Name
 							</TableCell>
-							<TableCell align='right' sx={{ fontWeight: 'bold' }}>
+							<TableCell align='center' sx={{ fontWeight: 'bold' }}>
 								Units
 							</TableCell>
-							<TableCell align='right' sx={{ fontWeight: 'bold' }}>
+							<TableCell align='center' sx={{ fontWeight: 'bold' }}>
 								Order Date
 							</TableCell>
-							<TableCell align='right' sx={{ fontWeight: 'bold' }}>
+							<TableCell align='center' sx={{ fontWeight: 'bold' }}>
 								Order Cost
 							</TableCell>
 							<TableCell
-								align='right'
-								sx={{ fontWeight: 'bold', width: '140px', minWidth: '90px' }}
+								align='center'
+								sx={{ fontWeight: 'bold' }}
 							>
 								Status
 							</TableCell>
+							<TableCell align='right' sx={{ fontWeight: 'bold' }}></TableCell>
 							<TableCell align='right' sx={{ fontWeight: 'bold' }}></TableCell>
 						</TableRow>
 					</TableHead>
 					<TableBody>
 						{rows.map((row) => (
 							<TableRow key={row.name} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-								<TableCell component='th' scope='row'>
+								<TableCell  component='th' scope='row'>
 									{row.name}
 								</TableCell>
-								<TableCell align='right' sx={{ color: '#9F9B9B' }}>
+								<TableCell align='center' sx={{ color: '#9F9B9B' }}>
 									{row.calories}
 								</TableCell>
-								<TableCell align='right' sx={{ color: '#9F9B9B' }}>
+								<TableCell  align='center'  sx={{ color: '#9F9B9B' }}>
 									{row.fat}
 								</TableCell>
-								<TableCell align='right' sx={{ color: '#9F9B9B' }}>
+								<TableCell   align='center' sx={{ color: '#9F9B9B' }}>
 									{row.carbs}
 								</TableCell>
-								<TableCell align='right' sx={{ color: '#9F9B9B' }}>
+								<TableCell  align='center' sx={{ color: '#9F9B9B' }}>
 									{row.protein}
 								</TableCell>
 								<TableCell
 									align='center'
-									sx={{ width: '30px', display: 'flex', flexDirection: 'column', margin: '0 auto' }}
+							
 								>
 									<Button
 										sx={{
 											backgroundColor: row.color,
 											borderRadius: '20px',
-											margin: '0 auto',
-											color: 'white',
+										
+											color: 'white !important',
 											fontSize: '10px',
+											
 											':hover': { backgroundColor: row.color },
 										}}
 										variant='text'
@@ -109,6 +107,38 @@ export default function DenseTable() {
 						))}
 					</TableBody>
 				</Table>
+				<Box sx={{display:'flex',justifyContent:{md:'space-between',sm:'center'},gap:'5px', alignItems:'center',px:2,py:1,flexWrap:'wrap'}}>
+					<Box >
+						<Typography variant='caption' color='#9F9B9B'>
+							Showing 1 to 20 of 88 entries
+						</Typography>
+					</Box>
+					<Box sx={{display:'flex',alignItems:'center',overflow:'hidden',color:'#9F9B9B'}}>
+						<Typography variant='h6' fontSize={16} color='inherit'>
+							Show
+						</Typography>
+						<TextField
+							sx={{'.MuiInputBase-root':{
+								height:'30px',
+								borderRadius:'40px',
+								border:'1px solid #D9D9D9'
+							}, width: '80px', display: 'flex',mx:2}}
+							id='outlined-select-currency'
+							select
+							defaultValue='20'
+						>
+							<MenuItem key={1} value={20} >
+								20
+							</MenuItem>
+						</TextField>
+						<Typography variant='h6' fontSize={16} color='#9F9B9B'>
+							Entries
+						</Typography>
+					</Box>
+					<Box >
+						<UsePagination />
+					</Box>
+				</Box>
 			</TableContainer>
 		</Grid>
 	);

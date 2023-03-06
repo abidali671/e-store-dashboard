@@ -13,7 +13,7 @@ const Box1: React.FC = () => {
 		backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
 		...theme.typography.body2,
 		padding: theme.spacing(2),
-		border: '1px solid #7D767680',
+		border:'1px solid #D9D9D9',
 		textAlign: 'left',
 		borderRadius: '15px',
 		display: 'flex',
@@ -37,7 +37,6 @@ const Box1: React.FC = () => {
 								</Box>
 
 								<Box px={2} sx={{ minHeight: '40%', width: '100%' }}>
-									{/* <Box sx={{ width: '100%', pt: 3 }} component='img' src={item.img} /> */}
 									<ColumnChart
 										userData={[
 											{

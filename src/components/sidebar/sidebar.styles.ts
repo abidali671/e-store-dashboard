@@ -4,7 +4,7 @@ export const sideListWrapper = {
 	bgcolor: 'background.paper',
 	borderRight: '1px solid #ddd',
 	position: 'relative',
-	overflowY: 'auto',
+	// overflowY: 'auto',
 };
 
 export const collapseBtn = {
