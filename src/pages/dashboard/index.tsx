@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from '@components';
+import { Card, Container } from '@components';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
@@ -29,7 +29,10 @@ const Dashboard: React.FC = () => {
 							</Box>
 						</Grid>
 					))}
-					<Box1 />
+					<Card title='Test' footer='test footer'>
+						Test CHildren
+					</Card>
+					{/* <Box1 /> */}
 					{/* <DenseTable />
 					<RowTable /> */}
 				</Grid>
