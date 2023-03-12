@@ -3,20 +3,29 @@ import { Navbar } from '@components';
 import * as types from './auth_container.types';
 import * as styles from './auth_container.styles';
 
-import Rectangle from '@assests/Rectangle2.png';
+import Rectangle from '@assests/Rectangle5.png';
 
 const AuthContainer: types.ComponentT = ({ children }: types.PropsT) => {
 	return (
 		<Box sx={styles.root}>
 			<Navbar isSearchBar={false} />
-			<Grid alignItems='center' container columns={12}>
-				<Grid item xs={6} md={6} sx={{ width: '100%' }}>
-					<Box component='img' src={Rectangle} sx={styles.coverImg} />
-				</Grid>
-				<Grid my={2} item xs={12} sm={12} md={6}>
-					{children}
-				</Grid>
-			</Grid>
+			<div style={{ width: '100%' }}>
+				<Box
+					sx={{
+						display: 'flex',
+
+						justifyContent: { md: 'space-around', sm: 'center' },
+						alignItems: 'center',
+					}}
+				>
+					<Box sx={{ flex: 1, display: { md: 'block', xs: 'none', width: '100%' } }}>
+						<Box component='img' src={Rectangle} sx={styles.coverImg} />
+					</Box>
+					<Box mt={2} sx={{ flex: 1 }}>
+						{children}
+					</Box>
+				</Box>
+			</div>
 		</Box>
 	);
 };

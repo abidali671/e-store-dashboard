@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Grid, Box, Paper, Typography, IconButton } from '@mui/material';
 import { Update } from '@assests/icons';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
@@ -36,8 +35,9 @@ const RowTable = () => {
 					<Item>
 						<Box sx={{ width: '100%', p: 0 }}>
 							<Box
-								p={1.3}
 								sx={{
+									height: '47px',
+									px: '16px',
 									display: 'flex',
 									alignItems: 'center',
 									justifyContent: 'space-between',
@@ -48,11 +48,11 @@ const RowTable = () => {
 									TOP SALLING PRODUCTS
 								</Typography>
 								<Box>
-									<IconButton aria-label='expand row' size='small' sx={{ p: 0 }}>
+									<IconButton aria-label='expand row' size='small'>
 										<Update />
 									</IconButton>
 
-									<IconButton aria-label='expand row' size='small' sx={{ p: 0 }}>
+									<IconButton aria-label='expand row' size='small'>
 										<MoreVertIcon />
 									</IconButton>
 								</Box>
