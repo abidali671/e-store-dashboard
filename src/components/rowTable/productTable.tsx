@@ -19,9 +19,7 @@ const ProductTable = () => {
 						<TableRow>
 							<TableCell sx={{ fontWeight: 'bold' }}>Sold by Item</TableCell>
 
-							<TableCell align='center' sx={{ fontWeight: 'bold' }}>
-							
-							</TableCell>
+							<TableCell align='center' sx={{ fontWeight: 'bold' }}></TableCell>
 
 							<TableCell sx={{ display: 'flex', justifyContent: 'flex-end' }}>
 								<IconButton aria-label='expand row' size='small'>
