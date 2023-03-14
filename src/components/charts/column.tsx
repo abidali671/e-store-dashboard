@@ -6,10 +6,11 @@ interface userDataT {
 	userData: any;
 }
 const ColumnChart = ({ userData }: userDataT) => {
-	const [option, setOption] = useState<ApexOptions>({
+	const [option] = useState<ApexOptions>({
 		chart: {
 			type: 'bar',
-			height: 350,
+			height: 'auto',
+
 			toolbar: {
 				show: true,
 				tools: {

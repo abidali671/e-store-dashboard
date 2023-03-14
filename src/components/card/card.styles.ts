@@ -25,10 +25,15 @@ export const footerWrapper = {
 };
 
 export const contentWrapper = {
-	height: '48px',
+	// height: 'auto',
 	py: '16px',
+
 	display: 'flex',
 	alignItems: 'center',
+	'&>*': {
+		height: 'auto',
+		width: '100%'
+	}
 };
 
 export const footerLink = {

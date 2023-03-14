@@ -6,16 +6,16 @@ interface userDataT {
 	userData: any;
 }
 const AreaChart = ({ userData }: userDataT) => {
-	const [option, setOption] = useState<ApexOptions>({
+	const [option] = useState<ApexOptions>({
 		chart: {
 			// height: 350,
 			type: 'area',
 			toolbar: {
-                show: false,
-                tools: {
-                  download: false
-                }
-              }
+				show: false,
+				tools: {
+					download: false,
+				},
+			},
 		},
 		dataLabels: {
 			enabled: false,
@@ -50,7 +50,6 @@ const AreaChart = ({ userData }: userDataT) => {
 						width='100%'
 						// height='100%'
 						series={userData.map((data: number) => data)}
-						
 					/>
 				</div>
 			</div>

@@ -17,3 +17,4 @@ export { default as Ring } from './ring';
 export { default as Message } from './message';
 export { default as Phone } from './phone';
 export { default as Update } from './update';
+export { default as Hameburger } from './hameburger';

@@ -9,11 +9,11 @@ export const root: SxProps<Theme> = {
 };
 
 export const pageWrapper = (isCollapsed: boolean) =>
-	({
-		display: 'grid',
-		gridTemplateColumns: { md: `${isCollapsed ? 60 : 300}px 1fr`, xs: '60px 1fr' },
-		transition: '0.5s',
-		overflowX: 'hidden',
-	} as SxProps);
+({
+	display: 'grid',
+	gridTemplateColumns: { md: `${isCollapsed ? 60 : 300}px 1fr`, xs: '1fr' },
+	transition: '0.5s',
+	overflowX: 'hidden',
+} as SxProps);
 
 export const contentWrapper: SxProps<Theme> = { flex: 1, overflowX: 'hidden', padding: 6 };

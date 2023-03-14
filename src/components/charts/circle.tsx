@@ -6,20 +6,20 @@ interface userDataT {
 }
 const MyChartComponent = ({ userData }: userDataT) => {
 	const options = {
-		labels: ['Cases', 'Recovered', 'Deaths','Deaths','Deaths'],
+		labels: ['Cases', 'Recovered', 'Deaths', 'Deaths', 'Deaths'],
 		legend: {
 			show: false,
 		},
-		Chart:{
+		Chart: {
 			type: 'area',
 			toolbar: {
-                show: true,
-                tools: {
-                  download: false
-                }
-              }
+				show: true,
+				tools: {
+					download: false,
+				},
+			},
 		},
-        colors:['#FF4560', '#775DD0', '#008FFB','#00E396','#FEB019']
+		colors: ['#FF4560', '#775DD0', '#008FFB', '#00E396', '#FEB019'],
 	};
 
 	return (
@@ -28,7 +28,6 @@ const MyChartComponent = ({ userData }: userDataT) => {
 				<div className='mixed-chart'>
 					<Chart
 						options={options}
-
 						series={userData.map((data: number) => data)}
 						type='donut'
 						width='100%'

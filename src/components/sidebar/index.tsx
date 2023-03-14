@@ -20,7 +20,18 @@ const Sidebar = ({
 	};
 
 	return (
-		<Box sx={{ flex: 1, overflowY: 'hidden' }}>
+		<Box
+			sx={{
+				flex: 1,
+				overflowY: 'hidden',
+				position: { md: 'initial', xs: 'fixed' },
+				top: 0,
+				left: 0,
+				width: { md: 'auto', xs: '75%' },
+				backgroundColor: 'green ',
+				zIndex: 999,
+			}}
+		>
 			<Box sx={styles.sideListWrapper}>
 				{sideListItems.map((item: SideItemT, index: number) => {
 					return (

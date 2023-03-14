@@ -14,17 +14,15 @@ export const coverImg: SxProps<Theme> = {
 };
 
 export const imgWrapper: SxProps<Theme> = {
-	flex: 1,
+
 	display: { md: 'block', xs: 'none' },
 	width: '100%',
 	height: '100%',
-	background: 'red',
+
 	position: 'relative',
 };
 
 export const contentWrapper: SxProps<Theme> = {
-	justifyContent: { md: 'space-around', sm: 'center' },
-	alignItems: 'center',
 	display: 'grid',
 	gridTemplateColumns: '1fr 1fr',
 };

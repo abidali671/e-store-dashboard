@@ -3,14 +3,21 @@ import InputAdornment from '@mui/material/InputAdornment';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import IconButton from '@mui/material/IconButton';
 import * as styles from './navbar.styles';
-
+import useContainer from '../container/container.hook';
 import Logo from '@assests/logos.png';
-import { Search, Ring } from '@assests/icons';
+import { Search, Ring, Hameburger } from '@assests/icons';
 import avatar from '@assests/Rectangle16.png';
 
 const Navbar = ({ isSearchBar = true }: { isSearchBar?: boolean }) => {
+	const { isCollapsed } = useContainer();
+
 	return (
 		<Box sx={styles.root}>
+			{isSearchBar && (
+				<Box sx={{ ...styles.pageWrapper(isCollapsed) }}>
+					<Hameburger />
+				</Box>
+			)}
 			<Box
 				component='img'
 				sx={{
