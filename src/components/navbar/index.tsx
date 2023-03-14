@@ -8,20 +8,25 @@ import Logo from '@assests/logos.png';
 import { Search, Ring, Hameburger } from '@assests/icons';
 import avatar from '@assests/Rectangle16.png';
 
-const Navbar = ({ isSearchBar = true }: { isSearchBar?: boolean }) => {
-	const { isCollapsed } = useContainer();
-
+const Navbar = ({
+	isSearchBar = true,
+	toggleSidebar,
+}: {
+	isSearchBar?: boolean;
+	toggleSidebar?: () => void;
+}) => {
 	return (
 		<Box sx={styles.root}>
-			{isSearchBar && (
-				<Box sx={{ ...styles.pageWrapper(isCollapsed) }}>
-					<Hameburger />
-				</Box>
-			)}
+			<Box
+				onClick={toggleSidebar}
+				component={Hameburger}
+				sx={{ display: { md: 'none' }, cursor: 'pointer' }}
+			/>
 			<Box
 				component='img'
 				sx={{
 					height: 50,
+					display: { xs: 'none', md: 'block' },
 				}}
 				alt='Logo'
 				src={Logo}
