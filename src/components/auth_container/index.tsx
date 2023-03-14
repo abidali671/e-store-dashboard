@@ -13,7 +13,7 @@ const AuthContainer: types.ComponentT = ({ children }: types.PropsT) => {
 				<Box sx={styles.imgWrapper}>
 					<Box component='img' src={Rectangle} sx={styles.coverImg} />
 				</Box>
-				<Box>{children}</Box>
+				<Box mt={4}>{children}</Box>
 			</Box>
 		</Box>
 	);

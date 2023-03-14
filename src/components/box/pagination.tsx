@@ -2,7 +2,6 @@ import * as React from 'react';
 import usePagination from '@mui/material/usePagination';
 import { styled } from '@mui/material/styles';
 // import * as styles from './pagination.styles';
-import { Button } from '@mui/material';
 const List = styled('ul')({
 	listStyle: 'none',
 	padding: 0,
@@ -25,8 +24,7 @@ export default function UsePagination() {
 				},
 
 				display: 'flex',
-				
-				
+
 				alignItems: 'center',
 			}}
 		>

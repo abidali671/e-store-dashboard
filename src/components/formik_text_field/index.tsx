@@ -6,22 +6,13 @@ import React from 'react';
 type ComponentT = React.FC<FormikValues>;
 
 const FormikTextField: ComponentT = (props: FormikValues) => {
-	const {
-		name,
-		values,
-		errors,
-		touched,
-		handleChange,
-		placeholder,
-		type,
-		multiline,
-		minRows,
-	} = props;
+	const { name, values, errors, touched, handleChange, placeholder, type, multiline, minRows } =
+		props;
 	const [showPassword, setShowPassword] = React.useState(false);
 
 	const handleClickShowPassword = () => setShowPassword((show) => !show);
 
-	const handleMouseDownPassword = (event: any) => {
+	const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
 		event.preventDefault();
 	};
 
@@ -32,8 +23,6 @@ const FormikTextField: ComponentT = (props: FormikValues) => {
 			value={values[name]}
 			onChange={handleChange}
 			error={touched[name] && Boolean(errors[name])}
-		
-
 			multiline={multiline}
 			minRows={minRows}
 			fullWidth

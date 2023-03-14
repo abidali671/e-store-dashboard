@@ -18,15 +18,17 @@ import {
 	Package,
 } from '@assests/icons';
 import React from 'react';
-import shoes from '@assests/shoes.png'
-import shirt from '@assests/shirt.png'
-import jack from '@assests/jack.png'
+
+
 export interface SideItemT {
 	label?: string;
 	icon?: React.FC<React.SVGProps<SVGSVGElement>>;
 	divider?: boolean;
 	path?: string;
 }
+
+// export const chartArr = [MyChartComponent, AreaChart, ColumnChart]
+
 
 export const sideListItems: SideItemT[] = [
 	{ label: 'DASHBOARD', path: '/dashboard', icon: Dashboard },
@@ -77,8 +79,7 @@ export interface Boxes {
 	md: number;
 	full: boolean;
 	bottom?: string;
-	data?: any[]
-
+	data?: any
 	typeChart?: boolean
 }
 
@@ -135,28 +136,28 @@ export const boxValue = [
 	},
 ];
 interface productT {
-	title:string,
-	desc:string,
-	price:number,
-	sales:number,
-	img:string
+	title: string,
+	desc: string,
+	price: number,
+	sales: number,
+	img: string
 }
-export const productDetail:productT[] = [{
-	img:'shoes',
+export const productDetail: productT[] = [{
+	img: 'shoes',
 	title: 'Baby Cotton Shoes',
 	desc: 'Statement belting with double-turnlock hardware adds “swagger” to a simple.',
 	price: 340,
 	sales: 590
 },
 {
-	img:'shirt',
+	img: 'shirt',
 	title: 'Hoddies For Mens',
 	desc: 'Statement belting with double-turnlock hardware adds “swagger” to a simple.',
 	price: 399,
 	sales: 300
 },
 {
-	img:'jack',
+	img: 'jack',
 	title: 'Long-Slive T-Shirt',
 	desc: 'Statement belting with double-turnlock hardware adds “swagger” to a simple.',
 	price: 480,

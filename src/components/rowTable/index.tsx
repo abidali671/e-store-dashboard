@@ -5,9 +5,8 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import ProductTable from './productTable';
 import styled from '@emotion/styled';
 import { productDetail } from '../../data/app.data';
-import Shoes from '@assests/shoes.png';
 const RowTable = () => {
-	const Item = styled(Paper)(({ theme }) => ({
+	const Item = styled(Paper)(() => ({
 		border: '1px solid #D9D9D9',
 		textAlign: 'left',
 		borderRadius: '15px',

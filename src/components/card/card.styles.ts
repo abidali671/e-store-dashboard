@@ -25,10 +25,13 @@ export const footerWrapper = {
 };
 
 export const contentWrapper = {
-	height: '48px',
 	py: '16px',
 	display: 'flex',
 	alignItems: 'center',
+	'&>*': {
+		height: 'auto',
+		width: '100%',
+	},
 };
 
 export const footerLink = {
