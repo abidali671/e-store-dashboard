@@ -43,7 +43,7 @@ const Dashboard: React.FC = () => {
 				</Grid>
 				<Grid item xs={4}>
 					<Card title='Current Users' footer='IN-DETAIL OVERVIEW'>
-						<AreaChart userData={CURRENT_USERS} />
+						<AreaChart series={CURRENT_USERS} />
 					</Card>
 				</Grid>
 			</Grid>

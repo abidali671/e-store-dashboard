@@ -10,6 +10,6 @@ export { default as RowTable } from './rowTable';
 export { default as Sidebar } from './sidebar';
 
 // Charts
-export { default as AreaChart } from './charts/area';
+export { default as AreaChart } from './charts/area_chart';
 export { default as BarChart } from './charts/bar_chart';
 export { default as DonutChart } from './charts/donut_chart';
