@@ -11,11 +11,6 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { rows } from './box.data';
 
 export default function DenseTable() {
-	const [page] = React.useState(0);
-	const [rowsPerPage] = React.useState(5);
-
-	// const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
-
 	return (
 		<Grid item xs={12} sm={12} md={12}>
 			<TableContainer sx={{ border: '1px solid #D9D9D9', borderRadius: '20px', boxShadow: 'none' }}>

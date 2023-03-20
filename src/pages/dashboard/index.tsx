@@ -17,15 +17,15 @@ import _map from 'lodash/map';
 
 const Dashboard: React.FC = () => {
 	return (
-		<Container>
-			<Grid container spacing={2} columns={{ xs: 6, sm: 6, md: 12 }}>
+		<Container sx={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+			<Grid container spacing={4} columns={{ xs: 6, sm: 6, md: 12 }}>
 				{_map(ViewDetails, (item: ViewDetailsT, index) => (
 					<Grid item xs={6} sm={3} md={3} key={index}>
 						<DataCard {...item} />
 					</Grid>
 				))}
 			</Grid>
-			<Grid container spacing={2} columns={12}>
+			<Grid container spacing={4} columns={12}>
 				<Grid item xs={8}>
 					<Card title='Sales Report'>
 						<BarChart series={SALES_REPORT} />
@@ -45,6 +45,12 @@ const Dashboard: React.FC = () => {
 					<Card title='Current Users' footer='IN-DETAIL OVERVIEW'>
 						<AreaChart series={CURRENT_USERS} />
 					</Card>
+				</Grid>
+				<Grid item xs={12}>
+					<DenseTable />
+				</Grid>
+				<Grid item xs={12}>
+					<RowTable />
 				</Grid>
 			</Grid>
 		</Container>
