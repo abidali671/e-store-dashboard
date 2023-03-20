@@ -1,7 +1,3 @@
-import Chart from '@assests/Chart.png';
-import ChartB from '../assests/circle.png';
-import ChartC from '../assests/Chart9.png';
-import Vector from '../assests/Vector.png';
 import {
 	Copy,
 	User,
@@ -19,7 +15,6 @@ import {
 } from '@assests/icons';
 import React from 'react';
 
-
 export interface SideItemT {
 	label?: string;
 	icon?: React.FC<React.SVGProps<SVGSVGElement>>;
@@ -28,7 +23,6 @@ export interface SideItemT {
 }
 
 // export const chartArr = [MyChartComponent, AreaChart, ColumnChart]
-
 
 export const sideListItems: SideItemT[] = [
 	{ label: 'DASHBOARD', path: '/dashboard', icon: Dashboard },
@@ -47,7 +41,6 @@ export interface ViewDetailsT {
 	title: string;
 	info?: string;
 	icon?: React.FC;
-
 }
 export const ViewDetails: ViewDetailsT[] = [
 	{
@@ -79,88 +72,37 @@ export interface Boxes {
 	md: number;
 	full: boolean;
 	bottom?: string;
-	data?: any
-	typeChart?: boolean
+	data?: any;
+	typeChart?: boolean;
 }
 
-export const boxValue = [
+interface productT {
+	title: string;
+	desc: string;
+	price: number;
+	sales: number;
+	img: string;
+}
+export const productDetail: productT[] = [
 	{
-		title: 'Sales Report',
-		subValue: [
-			{
-				label: 'Via Referral',
-				color: 'red',
-			},
-			{
-				label: 'Direct',
-				color: 'green',
-			},
-			{
-				label: 'Via Social',
-				color: 'yellow',
-			},
-		],
-
-		img: Chart,
-		md: 8,
-		full: true,
+		img: 'shoes',
+		title: 'Baby Cotton Shoes',
+		desc: 'Statement belting with double-turnlock hardware adds “swagger” to a simple.',
+		price: 340,
+		sales: 590,
 	},
 	{
-		title: 'Orders Overview',
-		md: 4,
-		img: ChartB,
-		full: false,
-		data: [9.9, 8.7, 25.6, 32.0, 23.8],
-		typeChart: true
+		img: 'shirt',
+		title: 'Hoddies For Mens',
+		desc: 'Statement belting with double-turnlock hardware adds “swagger” to a simple.',
+		price: 399,
+		sales: 300,
 	},
 	{
-		title: 'User Activity',
-		md: 8,
-		img: Vector,
-		full: true,
-	},
-	{
-		title: 'Current Users',
-		md: 4,
-		full: false,
-		img: ChartC,
-		bottom: 'IN-DETAIL OVERVIEW',
-		data: [
-			{ name: 'series1', data: [31, 40, 28, 51, 42, 109, 100] },
-			{
-				name: 'series2',
-				data: [11, 32, 45, 32, 34, 52, 41],
-			},
-		],
-		typeChart: false
+		img: 'jack',
+		title: 'Long-Slive T-Shirt',
+		desc: 'Statement belting with double-turnlock hardware adds “swagger” to a simple.',
+		price: 480,
+		sales: 210,
 	},
 ];
-interface productT {
-	title: string,
-	desc: string,
-	price: number,
-	sales: number,
-	img: string
-}
-export const productDetail: productT[] = [{
-	img: 'shoes',
-	title: 'Baby Cotton Shoes',
-	desc: 'Statement belting with double-turnlock hardware adds “swagger” to a simple.',
-	price: 340,
-	sales: 590
-},
-{
-	img: 'shirt',
-	title: 'Hoddies For Mens',
-	desc: 'Statement belting with double-turnlock hardware adds “swagger” to a simple.',
-	price: 399,
-	sales: 300
-},
-{
-	img: 'jack',
-	title: 'Long-Slive T-Shirt',
-	desc: 'Statement belting with double-turnlock hardware adds “swagger” to a simple.',
-	price: 480,
-	sales: 210
-},
-]
