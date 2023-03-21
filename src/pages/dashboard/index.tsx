@@ -1,17 +1,9 @@
 import React from 'react';
-import {
-	Card,
-	Container,
-	DonutChart,
-	AreaChart,
-	BarChart,
-	DenseTable,
-	RowTable,
-} from '@components';
+import { Card, Container, DonutChart, AreaChart, BarChart, DenseTable } from '@components';
 import { Box, Grid, Typography } from '@mui/material';
 import { CURRENT_USERS, ORDERS_OVERVIEW, SALES_REPORT } from 'src/data/dashboard';
 import { ViewDetails, ViewDetailsT } from '../../data/app.data';
-
+import { productsRow } from '@components/box/box.data';
 import * as styles from './dashboard.styles';
 import _map from 'lodash/map';
 
@@ -46,14 +38,75 @@ const Dashboard: React.FC = () => {
 						<AreaChart series={CURRENT_USERS} />
 					</Card>
 				</Grid>
-				<Grid item xs={12}>
-					<DenseTable />
+				<Grid item xs={6}>
+					<Card title='Sold by item' footer='VIEW REPORT'>
+						<SoldItemList list={productsRow} />
+					</Card>
 				</Grid>
-				<Grid item xs={12}>
-					<RowTable />
+				<Grid item xs={6}>
+					<Card title='Current Users' footer='IN-DETAIL OVERVIEW'>
+						<AreaChart series={CURRENT_USERS} />
+					</Card>
 				</Grid>
 			</Grid>
 		</Container>
+	);
+};
+
+const SoldItemList: React.FC<{ list: Record<string, string | number>[] }> = ({ list }) => {
+	return (
+		<Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', px: '16px' }}>
+			{_map(list, (item, index) => (
+				<React.Fragment key={index}>
+					<Typography
+						variant='body2'
+						sx={{
+							color: 'gray.400',
+							fontWeight: 600,
+							lineHeight: '48px',
+							whiteSpace: 'nowrap',
+						}}
+					>
+						{item.name}
+					</Typography>
+					<Typography
+						variant='body2'
+						sx={{
+							textAlign: 'center',
+							color: 'gray.400',
+							fontWeight: 600,
+							lineHeight: '48px',
+							whiteSpace: 'nowrap',
+						}}
+					>
+						{item.quantity}
+					</Typography>
+
+					<Typography
+						variant='body2'
+						sx={{
+							textAlign: 'right',
+							color: 'gray.400',
+							fontWeight: 600,
+							lineHeight: '48px',
+							whiteSpace: 'nowrap',
+						}}
+					>
+						{item.average}
+					</Typography>
+					{index < list.length - 1 && (
+						<Box
+							sx={{
+								width: '100%',
+								height: '1px',
+								backgroundColor: 'gray.100',
+								gridColumnStart: 'span 3',
+							}}
+						/>
+					)}
+				</React.Fragment>
+			))}
+		</Box>
 	);
 };
 
@@ -66,7 +119,6 @@ const DataCard: React.FC<ViewDetailsT> = (props) => {
 				</Typography>
 				<Typography variant='caption'>{props.info}</Typography>
 			</Box>
-
 			{props?.icon && <props.icon />}
 		</Box>
 	);

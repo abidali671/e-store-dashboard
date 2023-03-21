@@ -25,7 +25,6 @@ export const footerWrapper = {
 };
 
 export const contentWrapper = {
-	py: '16px',
 	display: 'flex',
 	alignItems: 'center',
 	'&>*': {

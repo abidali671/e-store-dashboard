@@ -2,7 +2,6 @@ import React from 'react';
 import { Grid, Box, Paper, Typography, IconButton } from '@mui/material';
 import { Update } from '@assests/icons';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import ProductTable from './productTable';
 import styled from '@emotion/styled';
 import { productDetail } from '../../data/app.data';
 const RowTable = () => {
@@ -28,7 +27,6 @@ const RowTable = () => {
 		>
 			<Grid container spacing={{ xs: 2, md: 1 }}>
 				<Grid item xs={12} md={6}>
-					<ProductTable />
 				</Grid>
 				<Grid item xs={12} md={6}>
 					<Item>

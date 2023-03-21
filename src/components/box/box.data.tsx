@@ -18,17 +18,15 @@ export const rows = [
 	createData(2545, 356, 16.0, 49, 3.9, 'delayed', '#FEB019'),
 ];
 
-function createProduct(name: string, product: number) {
-	return { name, product };
-}
-
 export const productsRow = [
-	createProduct('Backpack', 9),
-	createProduct('T-Shirt', 7),
-	createProduct('Coat', 2),
-	createProduct('Coat', 2),
-	createProduct('Necklace', 5),
-	createProduct('Jeans Pant', 6),
-	createProduct('Shoes', 6),
-	createProduct('Watches', 6),
+	{ name: 'Backpack', quantity: 9, average: '20%' },
+	{ name: 'Backpack', quantity: 9, average: '20%' },
+	{ name: 'Backpack', quantity: 9, average: '20%' },
+	{ name: 'Backpack', quantity: 9, average: '20%' },
+	{ name: 'Backpack', quantity: 9, average: '20%' },
+	{ name: 'Backpack', quantity: 9, average: '20%' },
+	{ name: 'Backpack', quantity: 9, average: '20%' },
+	{ name: 'Backpack', quantity: 9, average: '20%' },
+	{ name: 'Backpack', quantity: 9, average: '20%' },
+	{ name: 'Backpack', quantity: 9, average: '20%' },
 ];
