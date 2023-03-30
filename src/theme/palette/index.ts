@@ -102,15 +102,28 @@ const orange: ColorPartial = {
 	800: '#8b741a',
 	900: '#6a5914 ',
 };
+const error = {
+	500: red[500],
+}
+const success = {
+	500: green[500]
+}
+const warning = {
+	500: orange[600]
+}
 
 const palette: PaletteOptions = {
 	green,
+
 	white,
 	red,
 	blue,
 	gray,
 	violet,
 	orange,
+	error,
+	success,
+	warning
 };
 
 export default palette;

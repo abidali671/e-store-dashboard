@@ -28,13 +28,14 @@ export const contentWrapper = {
 	display: 'flex',
 	alignItems: 'center',
 	'&>*': {
-		height: 'auto',
+		maxHeight: '100%',
 		width: '100%',
 	},
 };
 
 export const footerLink = {
 	fontWeight: 500,
+
 	color: 'blue.400',
 };
 
