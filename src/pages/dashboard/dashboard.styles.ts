@@ -13,3 +13,5 @@ export const cardTitle: SxProps<Theme> = {
 	color: 'black',
 	fontWeight: 'bold',
 };
+
+

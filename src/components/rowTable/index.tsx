@@ -3,7 +3,7 @@ import { Grid, Box, Paper, Typography, IconButton } from '@mui/material';
 import { Update } from '@assests/icons';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import styled from '@emotion/styled';
-import { productDetail } from '../../data/app.data';
+// import { productDetail } from '../../data/app.data';
 const RowTable = () => {
 	const Item = styled(Paper)(() => ({
 		border: '1px solid #D9D9D9',
@@ -26,8 +26,7 @@ const RowTable = () => {
 			}}
 		>
 			<Grid container spacing={{ xs: 2, md: 1 }}>
-				<Grid item xs={12} md={6}>
-				</Grid>
+				<Grid item xs={12} md={6}></Grid>
 				<Grid item xs={12} md={6}>
 					<Item>
 						<Box sx={{ width: '100%', p: 0 }}>
@@ -55,7 +54,7 @@ const RowTable = () => {
 								</Box>
 							</Box>
 							<Box>
-								{productDetail.map((product, ind) => (
+								{/* {productDetail.map((product, ind) => (
 									<Box sx={{ display: 'flex', p: 1, backgroundColor: 'green' }} key={ind}>
 										<Box component='img' src={require(`@assests/${product.img}.png`)} width={110} />
 										<Box px={1}>
@@ -87,7 +86,7 @@ const RowTable = () => {
 											</Typography>
 										</Box>
 									</Box>
-								))}
+								))} */}
 							</Box>
 						</Box>
 					</Item>

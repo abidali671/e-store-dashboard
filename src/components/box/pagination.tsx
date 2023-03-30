@@ -9,9 +9,10 @@ const List = styled('ul')({
 	display: 'flex',
 });
 
-export default function UsePagination() {
+export default function Pagination({ count = 10, value, onChange }) {
 	const { items } = usePagination({
-		count: 10,
+		count,
+		defaultPage: value,
 	});
 
 	return (
@@ -28,7 +29,7 @@ export default function UsePagination() {
 				alignItems: 'center',
 			}}
 		>
-			{items.map(({ page, type, selected, ...item }, index) => {
+			{items.map(({ page, type, selected, onClick, ...item }, index) => {
 				let children = null;
 
 				if (type === 'start-ellipsis' || type === 'end-ellipsis') {
@@ -44,6 +45,10 @@ export default function UsePagination() {
 								backgroundColor: selected ? '#86AAF1' : '',
 							}}
 							{...item}
+							onClick={(e) => {
+								onClick(e);
+								onChange(page);
+							}}
 						>
 							{page}
 						</button>
@@ -55,7 +60,7 @@ export default function UsePagination() {
 							{...item}
 							style={{
 								width: '95px',
-								// height: '26px',
+
 								border: 'none',
 								outline: 'none',
 								borderRadius: type === 'previous' ? '20px 0px 0px 20px' : '0px 20px 20px  0px',
@@ -63,6 +68,10 @@ export default function UsePagination() {
 								color: '#9F9B9B',
 								cursor: 'pointer',
 								backgroundColor: '#D9D9D9',
+							}}
+							onClick={(e) => {
+								onClick(e);
+								onChange(page);
 							}}
 						>
 							{type}
