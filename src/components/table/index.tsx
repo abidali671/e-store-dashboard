@@ -20,7 +20,7 @@ interface TableProps {
 }
 
 const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
-	const [entries, setEntries] = useState(20);
+	const [entries, setEntries] = useState(5);
 	const [currentPage, setCurrentPage] = useState(1);
 
 	const totalPages = React.useMemo(() => {
