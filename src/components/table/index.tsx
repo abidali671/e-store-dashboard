@@ -26,18 +26,14 @@ const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
 	const totalPages = React.useMemo(() => {
 		return Math.ceil(data.length / entries);
 	}, [entries]);
-	// console.log(data.slice(20, 40));
 
 	const dataShow = React.useMemo(() => {
-		// console.log(data.slice((currentPage - 1) * entries, (currentPage - 1) * entries + entries));
-		// console.log(data);
 		return data.slice((currentPage - 1) * entries, (currentPage - 1) * entries + entries);
 	}, [entries, currentPage]);
 
 	const handleEntries = (e: SelectChangeEvent<string>) => {
 		setEntries(+e.target.value);
 	};
-	console.log(dataShow);
 
 	return (
 		<TableContainer
@@ -49,25 +45,27 @@ const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
 		>
 			<Table>
 				<TableHead>
-					{columns.map((column) => (
-						<TableCell
-							sx={{
-								borderRadius: '20px',
-								boxShadow: 'none',
-								textAlign: 'center',
-								fontWeight: 'bold',
-							}}
-							key={column.name}
-						>
-							{column.label}
-						</TableCell>
-					))}
+					<TableRow>
+						{columns.map((column) => (
+							<TableCell
+								sx={{
+									borderRadius: '20px',
+									boxShadow: 'none',
+									textAlign: 'center',
+									fontWeight: 'bold',
+								}}
+								key={column.name}
+							>
+								{column.label}
+							</TableCell>
+						))}
+					</TableRow>
 				</TableHead>
 				<TableBody>
-					{dataShow.map((item) => (
-						<TableRow key={item.product}>
-							{columns.map((column) => (
-								<TableCell key={column.name} sx={{ textAlign: 'center' }}>
+					{dataShow.map((item, index) => (
+						<TableRow key={index}>
+							{columns.map((column, index) => (
+								<TableCell key={index} sx={{ textAlign: 'center' }}>
 									{column?.render ? column?.render(item[column.name]) : item[column.name]}
 								</TableCell>
 							))}
@@ -121,7 +119,7 @@ const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
 					</Typography>
 				</Box>
 				<Box>
-					<Pagination value={currentPage} onChange={setCurrentPage} count={totalPages} />
+					<Pagination page={currentPage} onChange={setCurrentPage} count={totalPages} />
 				</Box>
 			</Box>
 		</TableContainer>
