@@ -9,7 +9,7 @@ const List = styled('ul')({
 	display: 'flex',
 });
 
-export default function Pagination({ count = 10, page, onChange }) {
+export default function Pagination({ count, page, onChange }) {
 	const { items } = usePagination({ count, page });
 
 	return (
