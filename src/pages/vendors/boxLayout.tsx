@@ -1,113 +1,126 @@
-import * as React from 'react';
+
 import Box from '@mui/material/Box';
-import Face from '@assests/face.png';
 import Typography from '@mui/material/Typography';
-import { Button, Stack } from '@mui/material';
+import { Chip, Stack } from '@mui/material';
 import { Phone, Message } from '@assests/icons';
-
-export default function BoxLayout() {
+import { Table } from '@components/index';
+import Pagination from '@components/box/pagination';
+import { VendorData } from './vendor';
+import * as styles from './boxLayout.styles';
+export const VendorGrid = () => {
 	return (
-		<Box
-			sx={{
-				display: 'grid',
-				width: '100%',
-				border: '1px solid #ECECEC',
-				borderRadius: '20px',
-				gridTemplateColumns: {
-					lg: 'repeat(4, 1fr)',
-					md: 'repeat(3, 1fr)',
-					sm: 'repeat(2, 1fr)',
-					xs: '1fr',
-				},
-				gap: 3,
+		<>
 
-				p: 3,
-			}}
-		>
-			{Array.from(Array(6)).map((_, index) => (
-				<Box key={index}>
-					<Box sx={{ border: '1px solid #ECECEC', borderRadius: '20px', textAlign: 'center' }}>
-						<Box component='img' sx={{ maxWidth: '100%', width: '70%' }} src={Face} />
+			<Box
+				sx={styles.GridLayout}
+			>
+				{VendorData.map(({ name, email, totalSell: sells, product, profile }, index) => (
+
+					<Box key={index}
+						sx={styles.card}
+					>
+						<Box component='img' sx={styles.cardImg} src={profile} />
 						<Box sx={{ textAlign: 'center' }}>
 							<Typography variant='h6' fontWeight={600} my={1}>
-								Alex Johnson
+								{name}
 							</Typography>
 							<Stack direction='row' alignItems='center' justifyContent='center' gap={1}>
 								<Phone />
 								<Typography variant='h6' fontSize={14} fontWeight={300} color='#9F9B9B'>
-									+91 394-5454-2861
+									{email}
 								</Typography>
 							</Stack>
 
 							<Stack direction='row' alignItems='center' gap={1} my={1} justifyContent='center'>
 								<Message />
 								<Typography variant='h6' fontSize={14} fontWeight={300} color='#9F9B9B'>
-									example@gmail.com
+									{email}
 								</Typography>
 							</Stack>
 						</Box>
-						<Box sx={{ display: 'flex', gap: 1, justifyContent: 'center', flexWrap: 'wrap' }}>
-							<Box>
-								<Button
-									sx={{
-										display: 'block',
-										backgroundColor: '#CCCCCC',
-										borderRadius: '20px',
-										padding: '3px',
-										fontSize: '12px',
-										color: 'black',
-										textTransform: 'capitalize',
-									}}
-									variant='text'
-								>
-									Items
-								</Button>
+						<Stack justifyContent='center' flexWrap='wrap' gap={1} flexDirection='row'>
+							<Stack flexDirection='column'>
+								<Chip label='Items' />
 								<Typography variant='caption' color='initial'>
-									83
+									{product}
 								</Typography>
-							</Box>
-							<Box>
-								<Button
-									sx={{
-										backgroundColor: '#CCCCCC',
-										display: 'block',
-										borderRadius: '20px',
-										padding: '3px',
-										fontSize: '12px',
-										color: 'black',
-										textTransform: 'capitalize',
-									}}
-									variant='text'
-								>
-									Sells
-								</Button>
+							</Stack>
+							<Stack flexDirection='column'>
+								<Chip label='Sells' />
 								<Typography variant='caption' color='initial'>
-									83
+									{sells}
 								</Typography>
-							</Box>
-							<Box>
-								<Button
-									sx={{
-										backgroundColor: '#CCCCCC',
-										display: 'block',
-										borderRadius: '20px',
-										padding: '3px',
-										fontSize: '12px',
-										color: 'black',
-										textTransform: 'capitalize',
-									}}
-									variant='text'
-								>
-									Payout
-								</Button>
+							</Stack>
+							<Stack flexDirection='column'>
+								<Chip label='Payout' />
 								<Typography variant='caption' color='initial'>
-									83
+									{sells}
 								</Typography>
-							</Box>
-						</Box>
+							</Stack>
+						</Stack>
 					</Box>
-				</Box>
-			))}
-		</Box>
+
+				))}
+				{/* <Pagination /> */}
+			</Box>
+		</>
 	);
+}
+export const VendorTable = () => {
+	return (
+		<Table columns={[
+			{
+				name: 'profile', label: 'Profile', render: (val: string) => (
+					<Box
+						component='img'
+						sx={{
+							height: '50px',
+							width: '50px',
+							objectFit: 'cover',
+							borderRadius: '50%',
+							objectPosition: 'center',
+						}}
+						src={val}
+						alt=''
+						height='100'
+						width='100'
+					/>
+				),
+			},
+			{ name: 'name', label: 'Name' },
+			{ name: 'email', label: 'Email' },
+			{ name: 'product', label: 'Product' },
+			{ name: 'totalSell', label: 'Total Sell' },
+			{
+				name: 'status',
+				label: 'Status',
+
+			},
+			{
+				name: 'joinOn',
+				label: 'Join on',
+
+			},
+			{
+				name: 'action',
+				label: 'Action',
+				render: (val: string) => (
+					<Box
+						component='img'
+						sx={{
+
+							width: '50px',
+							objectFit: 'cover',
+							objectPosition: 'center',
+						}}
+						src={val}
+						alt=''
+
+					/>
+				),
+
+			},
+
+		]} data={VendorData} />
+	)
 }

@@ -6,7 +6,7 @@ const components: Components = {
         styleOverrides: {
             root: {
                 // Some CSS
-                borderRadius: '30px', border: '1px solid #8A86864D', height: '46px', my: '4px'
+                borderRadius: '16px', border: '1px solid #8A86864D', height: '48px',
             },
         },
     },

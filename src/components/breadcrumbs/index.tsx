@@ -10,7 +10,11 @@ const Breadcrumbs = () => {
 	const pathnames = pathname.split('/').filter(Boolean);
 
 	return (
-		<MUIBreadcrumbs sx={{py:2}} aria-label='breadcrumb' separator={<NavigateNextIcon fontSize='small' />}>
+		<MUIBreadcrumbs
+			sx={{ py: 2 }}
+			aria-label='breadcrumb'
+			separator={<NavigateNextIcon fontSize='small' />}
+		>
 			{pathnames.length ? (
 				<Link sx={{ textDecoration: 'none', cursor: 'pointer' }} onClick={() => navigate('/')}>
 					HOME

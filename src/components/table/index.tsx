@@ -12,17 +12,17 @@ import {
 	TableRow,
 	Select,
 	SelectChangeEvent,
+	Icon,
 } from '@mui/material';
 
 interface TableProps {
-	columns: { name: string; label: string; render?: (arg: string) => JSX.Element }[];
-	data: Record<string, string>[];
+	columns: { name: string; label: string; render?: (arg: unknown) => JSX.Element }[];
+	data: unknown[];
 }
 
 const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
 	const [entries, setEntries] = useState(5);
 	const [currentPage, setCurrentPage] = useState(1);
-
 	const totalPages = React.useMemo(() => {
 		return Math.ceil(data.length / entries);
 	}, [entries]);
@@ -38,9 +38,11 @@ const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
 	return (
 		<TableContainer
 			sx={{
-				border: '1px solid #D9D9D9',
+				border: '1px solid',
+				borderColor: 'gray.100',
 				borderRadius: '20px',
 				overflow: 'hidden',
+				p: 0,
 			}}
 		>
 			<Table>
@@ -53,6 +55,7 @@ const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
 									boxShadow: 'none',
 									textAlign: 'center',
 									fontWeight: 'bold',
+									whiteSpace: 'nowrap',
 								}}
 								key={column.name}
 							>
@@ -89,7 +92,7 @@ const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
 						color='#9F9B9B'
 						sx={{ display: { xs: 'none', md: 'block' } }}
 					>
-						Showing 1 to 20 of 88 entries
+						Showing {currentPage} to {dataShow.length} of {data.length}
 					</Typography>
 				</Box>
 				<Box sx={{ display: 'flex', alignItems: 'center', color: '#9F9B9B' }}>

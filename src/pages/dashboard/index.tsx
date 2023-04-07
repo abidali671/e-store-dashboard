@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Container, DonutChart, AreaChart, BarChart, Table } from '@components';
-import { Box, Button, Grid, TableCell, Typography, IconButton } from '@mui/material';
+import { Box, Grid, Typography, IconButton } from '@mui/material';
 import { CURRENT_USERS, ORDERS_OVERVIEW, SALES_REPORT, tableData } from 'src/data/dashboard';
 import { ViewDetails, ViewDetailsT } from '../../data/app.data';
 import { productsRow, productDetail } from '@components/box/box.data';
@@ -66,7 +66,7 @@ const Dashboard: React.FC = () => {
 							{
 								name: 'status',
 								label: 'Status',
-								render: (value) => (
+								render: (value: string) => (
 									<Chip
 										label={value}
 										color={
