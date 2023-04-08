@@ -87,15 +87,13 @@ const Categories = () => {
 									<Box
 										component='img'
 										sx={{
-											height: '50px',
-											width: '50px',
+											height: '45px',
+											width: '45px',
 											objectFit: 'cover',
 											objectPosition: 'center',
 										}}
 										src={val}
-										alt=''
-										height='100'
-										width='100'
+
 									/>
 								),
 							},

@@ -2,15 +2,12 @@ import React, { useState } from 'react';
 import Pagination from '@components/box/pagination';
 import {
 	TableCell,
-	MenuItem,
-	Typography,
-	Box,
 	Table,
 	TableBody,
 	TableContainer,
 	TableHead,
 	TableRow,
-	Select,
+
 	SelectChangeEvent,
 } from '@mui/material';
 
@@ -42,6 +39,7 @@ const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
 				borderRadius: '20px',
 				overflow: 'hidden',
 				p: 0,
+
 			}}
 		>
 			<Table>
@@ -55,6 +53,7 @@ const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
 									textAlign: 'center',
 									fontWeight: 'bold',
 									whiteSpace: 'nowrap',
+
 								}}
 								key={column.name}
 							>
@@ -65,9 +64,9 @@ const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
 				</TableHead>
 				<TableBody>
 					{dataShow.map((item, index) => (
-						<TableRow key={index}>
+						<TableRow key={index} sx={{ height: '60px' }}>
 							{columns.map((column, index) => (
-								<TableCell key={index} sx={{ textAlign: 'center' }}>
+								<TableCell key={index} sx={{ textAlign: 'center', p: '0px' }}>
 									{column?.render ? column?.render(item[column.name]) : item[column.name]}
 								</TableCell>
 							))}
@@ -75,55 +74,7 @@ const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
 					))}
 				</TableBody>
 			</Table>
-			<Box
-				sx={{
-					display: 'flex',
-					justifyContent: { md: 'space-between', sm: 'center' },
-					gap: '5px',
-					alignItems: 'center',
-					px: 2,
-					py: 1,
-				}}
-			>
-				<Box>
-					<Typography
-						variant='caption'
-						color='#9F9B9B'
-						sx={{ display: { xs: 'none', md: 'block' } }}
-					>
-						Showing {currentPage} to {dataShow.length} of {data.length}
-					</Typography>
-				</Box>
-				<Box sx={{ display: 'flex', alignItems: 'center', color: '#9F9B9B' }}>
-					<Typography variant='h6' fontSize={16} color='inherit'>
-						Show
-					</Typography>
-					<Select
-						sx={{
-							'.MuiInputBase-root': {
-								height: '30px',
-								borderRadius: '40px',
-								border: '1px solid #D9D9D9',
-							},
-							width: '80px',
-							display: 'flex',
-							mx: 2,
-						}}
-						value={String(entries)}
-						onChange={handleEntries}
-					>
-						<MenuItem value={5}>5</MenuItem>
-						<MenuItem value={10}>10</MenuItem>
-						<MenuItem value={20}>20</MenuItem>
-					</Select>
-					<Typography variant='h6' fontSize={16} color='#9F9B9B'>
-						Entries
-					</Typography>
-				</Box>
-				<Box>
-					<Pagination page={currentPage} onChange={setCurrentPage} count={totalPages} />
-				</Box>
-			</Box>
+			<Pagination page={currentPage} onChange={setCurrentPage} count={totalPages} dataShow={dataShow} data={data} entries={entries} handleEntries={handleEntries} />
 		</TableContainer>
 	);
 };

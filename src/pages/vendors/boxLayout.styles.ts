@@ -1,9 +1,6 @@
 export const GridLayout = {
     display: 'grid',
     width: '100%',
-    border: '1px solid',
-    borderColor: 'gray.100',
-    borderRadius: '20px',
     gridTemplateColumns: {
         md: 'repeat(3, 1fr)',
         sm: 'repeat(2, 1fr)',
