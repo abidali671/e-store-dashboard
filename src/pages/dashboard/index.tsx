@@ -7,7 +7,7 @@ import { productsRow, productDetail } from '@components/box/box.data';
 import * as styles from './dashboard.styles';
 import _map from 'lodash/map';
 import Chip from '@mui/material/Chip';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+
 
 interface ProductProps {
 	name: string;
@@ -73,12 +73,12 @@ const Dashboard: React.FC = () => {
 											value == 'COMPLETED'
 												? 'success'
 												: value === 'ON HOLD'
-												? 'warning'
-												: value == 'CANCELLED'
-												? 'error'
-												: value === 'IN PROGRESS'
-												? 'secondary'
-												: 'default'
+													? 'warning'
+													: value == 'CANCELLED'
+														? 'error'
+														: value === 'IN PROGRESS'
+															? 'secondary'
+															: 'default'
 										}
 										sx={{ color: 'white !important' }}
 									/>
@@ -87,10 +87,11 @@ const Dashboard: React.FC = () => {
 							{
 								name: 'action',
 								label: '',
-								render: () => (
-									<IconButton aria-label='expand row' size='small'>
-										<MoreVertIcon />
+								render: (Val: React.FC<React.SVGProps<SVGSVGElement>>) => (
+									<IconButton>
+										<Val style={{ height: '20px', width: '20px' }} />
 									</IconButton>
+
 								),
 							},
 						]}

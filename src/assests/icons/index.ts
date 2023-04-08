@@ -19,3 +19,4 @@ export { default as Phone } from './phone';
 export { default as Update } from './update';
 export { default as Hameburger } from './hameburger';
 export { default as ArrowDown } from './arrowDown';
+export { default as MoreOption } from './moreOption';

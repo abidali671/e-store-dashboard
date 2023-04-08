@@ -1,5 +1,6 @@
 import Face from '@assests/imgs/Face.png';
-import { ArrowDown } from '@assests/icons'
+import { MoreOption } from '@assests/icons'
+
 export const VendorData = [{
     id: '1',
     profile: Face,
@@ -9,7 +10,7 @@ export const VendorData = [{
     totalSell: '2164',
     status: 'Active',
     joinOn: '2020-01-02',
-    action: ArrowDown
+    action: MoreOption
 },
 {
     id: '2',
@@ -20,7 +21,7 @@ export const VendorData = [{
     totalSell: '2164',
     status: 'Active',
     joinOn: '2020-01-02',
-    action: ArrowDown
+    action: MoreOption
 },
 {
     id: '3',
@@ -31,7 +32,7 @@ export const VendorData = [{
     totalSell: '2164',
     status: 'Active',
     joinOn: '2020-01-02',
-    action: ArrowDown
+    action: MoreOption
 },
 {
     id: '4',
@@ -42,7 +43,7 @@ export const VendorData = [{
     totalSell: '2164',
     status: 'Active',
     joinOn: '2020-01-02',
-    action: ArrowDown
+    action: MoreOption
 },
 {
     id: '5',
@@ -53,7 +54,7 @@ export const VendorData = [{
     totalSell: '2164',
     status: 'Active',
     joinOn: '2020-01-02',
-    action: ArrowDown
+    action: MoreOption
 },
 {
     id: '6',
@@ -64,7 +65,7 @@ export const VendorData = [{
     totalSell: '2164',
     status: 'Active',
     joinOn: '2020-01-02',
-    action: ArrowDown
+    action: MoreOption
 },
 {
     id: '7',
@@ -75,7 +76,7 @@ export const VendorData = [{
     totalSell: '2164',
     status: 'Active',
     joinOn: '2020-01-02',
-    action: ArrowDown
+    action: MoreOption
 },
 
 {
@@ -87,7 +88,7 @@ export const VendorData = [{
     totalSell: '2164',
     status: 'Active',
     joinOn: '2020-01-02',
-    action: ArrowDown
+    action: MoreOption
 },
 {
     id: '9',
@@ -98,7 +99,7 @@ export const VendorData = [{
     totalSell: '2164',
     status: 'Active',
     joinOn: '2020-01-02',
-    action: ArrowDown
+    action: MoreOption
 },
 {
     id: '10',
@@ -109,7 +110,7 @@ export const VendorData = [{
     totalSell: '2164',
     status: 'Active',
     joinOn: '2020-01-02',
-    action: ArrowDown
+    action: MoreOption
 },
 {
     id: '11',
@@ -120,7 +121,7 @@ export const VendorData = [{
     totalSell: '2164',
     status: 'Active',
     joinOn: '2020-01-02',
-    action: ArrowDown
+    action: MoreOption
 },
 {
     id: '12',
@@ -131,7 +132,7 @@ export const VendorData = [{
     totalSell: '2164',
     status: 'Active',
     joinOn: '2020-01-02',
-    action: ArrowDown
+    action: MoreOption
 },
 {
     id: '13',
@@ -142,7 +143,7 @@ export const VendorData = [{
     totalSell: '2164',
     status: 'Active',
     joinOn: '2020-01-02',
-    action: ArrowDown
+    action: MoreOption
 },
 {
     id: '14',
@@ -153,6 +154,6 @@ export const VendorData = [{
     totalSell: '2164',
     status: 'Active',
     joinOn: '2020-01-02',
-    action: ArrowDown
+    action: MoreOption
 },
 ]

@@ -1,4 +1,4 @@
-import { Chip, Stack, Box, Typography } from '@mui/material';
+import { Chip, Stack, Box, Typography, IconButton } from '@mui/material';
 import { Phone, Message } from '@assests/icons';
 import { Table } from '@components/index';
 import Pagination from '@components/box/pagination';
@@ -103,9 +103,9 @@ export const VendorTable = () => {
 				name: 'action',
 				label: 'Action',
 				render: (Val: React.FC<React.SVGProps<SVGSVGElement>>) => (
-					<Box style={{ display: 'flex', width: '100%' }}>
-						<Val style={{ margin: '0 auto' }} />
-					</Box>
+					<IconButton>
+						<Val style={{ height: '20px', width: '20px' }} />
+					</IconButton>
 
 				),
 
