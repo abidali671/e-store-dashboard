@@ -1,5 +1,5 @@
 import Face from '@assests/imgs/Face.png';
-import ArrowDown from '@assests/imgs/arrowDown.png'
+import { ArrowDown } from '@assests/icons'
 export const VendorData = [{
     id: '1',
     profile: Face,

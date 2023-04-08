@@ -1,12 +1,10 @@
-
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import { Chip, Stack } from '@mui/material';
+import { Chip, Stack, Box, Typography } from '@mui/material';
 import { Phone, Message } from '@assests/icons';
 import { Table } from '@components/index';
 import Pagination from '@components/box/pagination';
 import { VendorData } from './vendor';
 import * as styles from './boxLayout.styles';
+import React from 'react';
 export const VendorGrid = () => {
 	return (
 		<>
@@ -104,19 +102,11 @@ export const VendorTable = () => {
 			{
 				name: 'action',
 				label: 'Action',
-				render: (val: string) => (
-					<Box
-						component='img'
-						sx={{
+				render: (Val: React.FC<React.SVGProps<SVGSVGElement>>) => (
+					<Box style={{ display: 'flex', width: '100%' }}>
+						<Val style={{ margin: '0 auto' }} />
+					</Box>
 
-							width: '50px',
-							objectFit: 'cover',
-							objectPosition: 'center',
-						}}
-						src={val}
-						alt=''
-
-					/>
 				),
 
 			},
