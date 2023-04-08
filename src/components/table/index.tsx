@@ -12,11 +12,10 @@ import {
 	TableRow,
 	Select,
 	SelectChangeEvent,
-	Icon,
 } from '@mui/material';
 
 interface TableProps {
-	columns: { name: string; label: string; render?: (arg: unknown) => JSX.Element }[];
+	columns: { name: string; label: string; render?: (column_value: unknown) => JSX.Element }[];
 	data: unknown[];
 }
 

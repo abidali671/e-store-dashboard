@@ -8,12 +8,12 @@ import * as styles from './dashboard.styles';
 import _map from 'lodash/map';
 import Chip from '@mui/material/Chip';
 
-
 interface ProductProps {
 	name: string;
 	quantity: number;
 	average: string;
 }
+
 const Dashboard: React.FC = () => {
 	return (
 		<Container sx={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
@@ -73,12 +73,12 @@ const Dashboard: React.FC = () => {
 											value == 'COMPLETED'
 												? 'success'
 												: value === 'ON HOLD'
-													? 'warning'
-													: value == 'CANCELLED'
-														? 'error'
-														: value === 'IN PROGRESS'
-															? 'secondary'
-															: 'default'
+												? 'warning'
+												: value == 'CANCELLED'
+												? 'error'
+												: value === 'IN PROGRESS'
+												? 'secondary'
+												: 'default'
 										}
 										sx={{ color: 'white !important' }}
 									/>
@@ -87,11 +87,10 @@ const Dashboard: React.FC = () => {
 							{
 								name: 'action',
 								label: '',
-								render: (Val: React.FC<React.SVGProps<SVGSVGElement>>) => (
+								render: (Icon: React.FC<React.SVGProps<SVGSVGElement>>) => (
 									<IconButton>
-										<Val style={{ height: '20px', width: '20px' }} />
+										<Icon style={{ height: '20px', width: '20px' }} />
 									</IconButton>
-
 								),
 							},
 						]}
@@ -114,7 +113,7 @@ const SoldItemList: React.FC<{
 				px: '16px',
 			}}
 		>
-			{_map(list.slice(0, 7), (item, index) => (
+			{_map(list, (item, index) => (
 				<React.Fragment key={index}>
 					<Typography
 						variant='body2'
