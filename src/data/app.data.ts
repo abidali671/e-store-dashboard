@@ -22,8 +22,6 @@ export interface SideItemT {
 	path?: string;
 }
 
-// export const chartArr = [MyChartComponent, AreaChart, ColumnChart]
-
 export const sideListItems: SideItemT[] = [
 	{ label: 'DASHBOARD', path: '/dashboard', icon: Dashboard },
 	{ label: 'VENDORS', path: '/vendors', icon: Vendors },
