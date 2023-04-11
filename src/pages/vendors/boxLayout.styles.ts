@@ -18,3 +18,10 @@ export const card = {
     py: '16px'
 }
 export const cardImg = { width: '148px', height: '148px', backgroundColor: 'orange.900', borderRadius: '50%' }
+export const tableRowImg = {
+    height: '48px',
+    width: '48px',
+    objectFit: 'cover',
+    borderRadius: '50%',
+    objectPosition: 'center',
+}

@@ -91,13 +91,7 @@ export const VendorTable = () => {
 					render: (val: string) => (
 						<Box
 							component='img'
-							sx={{
-								height: '50px',
-								width: '50px',
-								objectFit: 'cover',
-								borderRadius: '50%',
-								objectPosition: 'center',
-							}}
+							sx={styles.tableRowImg}
 							src={val}
 							alt=''
 							height='100'

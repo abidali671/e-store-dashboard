@@ -10,6 +10,7 @@ import {
 
 	SelectChangeEvent,
 } from '@mui/material';
+import { tableContainer } from './table.styles';
 
 interface TableProps {
 	columns: { name: string; label: string; render?: (column_value: unknown) => JSX.Element }[];
@@ -32,30 +33,12 @@ const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
 	};
 
 	return (
-		<TableContainer
-			sx={{
-				border: '1px solid',
-				borderColor: 'gray.100',
-				borderRadius: '20px',
-				overflow: 'hidden',
-				p: 0,
-
-			}}
-		>
+		<TableContainer sx={tableContainer}>
 			<Table>
 				<TableHead>
 					<TableRow>
 						{columns.map((column) => (
-							<TableCell
-								sx={{
-									borderRadius: '20px',
-									boxShadow: 'none',
-									textAlign: 'center',
-									fontWeight: 'bold',
-									whiteSpace: 'nowrap',
-
-								}}
-								key={column.name}
+							<TableCell key={column.name}
 							>
 								{column.label}
 							</TableCell>
@@ -64,13 +47,15 @@ const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
 				</TableHead>
 				<TableBody>
 					{dataShow.map((item, index) => (
-						<TableRow key={index} sx={{ height: '60px' }}>
+
+						<TableRow key={index} sx={{ border: index < dataShow.length - 1 ? '1 ' : '0' }}>
 							{columns.map((column, index) => (
-								<TableCell key={index} sx={{ textAlign: 'center', p: '0px' }}>
+								<TableCell key={index} >
 									{column?.render ? column?.render(item[column.name]) : item[column.name]}
 								</TableCell>
 							))}
 						</TableRow>
+
 					))}
 				</TableBody>
 			</Table>

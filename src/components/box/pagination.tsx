@@ -23,6 +23,8 @@ export default function Pagination({ count, page, onChange, dataShow, data, entr
 					alignItems: 'center',
 					px: 2,
 					py: 1,
+					borderTop: '1px solid',
+					borderColor: 'gray.100'
 				}}
 			>
 				<Box>
@@ -39,14 +41,11 @@ export default function Pagination({ count, page, onChange, dataShow, data, entr
 						Show
 					</Typography>
 					<Select
+						size='small'
 						sx={{
-							'.MuiInputBase-root': {
-								height: '30px',
-								borderRadius: '40px',
-								border: '1px solid #D9D9D9',
-							},
+
 							width: '80px',
-							display: 'flex',
+
 							mx: 2,
 						}}
 						value={String(entries)}
