@@ -7,6 +7,7 @@ import useContainer from '../container/container.hook';
 import Logo from '@assests/logos.png';
 import { Search, Ring, Hameburger } from '@assests/icons';
 import avatar from '@assests/Rectangle16.png';
+import SearchBar from '@components/searchBar';
 
 const Navbar = ({
 	isSearchBar = true,
@@ -32,31 +33,7 @@ const Navbar = ({
 				src={Logo}
 			/>
 			{isSearchBar && (
-				<Box sx={{ width: '50%' }}>
-					<OutlinedInput
-						sx={{
-							borderRadius: '50px',
-							height: 45,
-						}}
-						fullWidth
-						id='outlined-adornment-weight'
-						startAdornment={
-							<InputAdornment position='end'>
-								<IconButton
-									sx={{ width: '30px' }}
-									size='small'
-									aria-label='toggle password visibility'
-								>
-									<Search />
-								</IconButton>
-							</InputAdornment>
-						}
-						aria-describedby='outlined-weight-helper-text'
-						inputProps={{
-							'aria-label': 'weight',
-						}}
-					/>
-				</Box>
+				<SearchBar placeholderText='Search...' />
 			)}
 			<Box>
 				<Ring />
