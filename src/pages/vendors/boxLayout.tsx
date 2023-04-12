@@ -3,7 +3,6 @@ import { Chip, Stack, Box, Typography, IconButton } from '@mui/material';
 import { Phone, Message } from '@assests/icons';
 import { Table } from '@components/index';
 import { VendorData } from './vendor';
-
 import * as styles from './boxLayout.styles';
 import Pagination from '@components/box/pagination';
 

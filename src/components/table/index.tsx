@@ -34,20 +34,18 @@ const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
 
 	return (
 		<TableContainer sx={tableContainer}>
-			<Table>
+			<Table stickyHeader>
 				<TableHead>
 					<TableRow>
 						{columns.map((column) => (
-							<TableCell key={column.name}
-							>
+							<TableCell key={column.name}>
 								{column.label}
 							</TableCell>
 						))}
 					</TableRow>
 				</TableHead>
-				<TableBody>
+				<TableBody >
 					{dataShow.map((item, index) => (
-
 						<TableRow key={index} sx={{ border: index < dataShow.length - 1 ? '1 ' : '0' }}>
 							{columns.map((column, index) => (
 								<TableCell key={index} >
