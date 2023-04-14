@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import InputAdornment from '@mui/material/InputAdornment';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import IconButton from '@mui/material/IconButton';
@@ -8,6 +8,8 @@ import Logo from '@assests/logos.png';
 import { Search, Ring, Hameburger } from '@assests/icons';
 import avatar from '@assests/Rectangle16.png';
 import SearchBar from '@components/searchBar';
+import { useDispatch } from 'react-redux';
+import { logout } from 'src/features/authSlice';
 
 const Navbar = ({
 	isSearchBar = true,
@@ -16,6 +18,11 @@ const Navbar = ({
 	isSearchBar?: boolean;
 	toggleSidebar?: () => void;
 }) => {
+
+	const dispatch = useDispatch()
+	const handleLogout = () => {
+		dispatch(logout())
+	}
 	return (
 		<Box sx={styles.root}>
 			<Box
@@ -45,7 +52,11 @@ const Navbar = ({
 					}}
 					alt='avatar'
 					src={avatar}
+
 				/>
+				<Button variant="outlined" >
+
+				</Button>
 			</Box>
 		</Box>
 	);

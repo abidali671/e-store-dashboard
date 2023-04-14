@@ -4,7 +4,7 @@ import { MoreOption } from '@assests/icons'
 export const VendorData = [{
     id: '1',
     profile: Face,
-    name: 'Abid ali',
+    name: 'wahab',
     email: 'abidali@gmail.com',
     product: '32',
     totalSell: '2164',

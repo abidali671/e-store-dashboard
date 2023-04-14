@@ -5,7 +5,7 @@ import * as styles from './productCard.style'
 const ProductCard = () => {
     return (
         <Box sx={styles.mainProduct}>
-            {Array(5).fill(<Box sx={styles.card}>
+            {Array(9).fill(<Box sx={styles.card}>
                 <Box component='img' src={Shirt} width='100%' />
                 <Box sx={styles.cardContent}>
                     <Typography variant="body1" color='gray.400'>Glomy Hoodie</Typography>

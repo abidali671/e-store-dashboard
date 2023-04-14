@@ -7,11 +7,11 @@ import * as styles from './boxLayout.styles';
 import Pagination from '@components/box/pagination';
 
 export const VendorGrid = () => {
-	const [data, setData] = useState(VendorData)
+
 	const [entries, setEntries] = useState(5);
 	const [currentPage, setCurrentPage] = useState(1);
 
-	console.log(VendorData);
+
 
 	const totalPages = React.useMemo(() => {
 		return Math.ceil(VendorData.length / entries);
@@ -80,7 +80,23 @@ export const VendorGrid = () => {
 		</Box>
 	);
 };
-export const VendorTable = () => {
+export const VendorTable: React.FC<{ onSearch: string }> = ({ onSearch }) => {
+	const [data, setData] = useState(VendorData)
+
+
+	React.useEffect(() => {
+
+		const filtered = VendorData.filter(
+			item => item.name.toLocaleLowerCase().includes(onSearch)
+		);
+		setData(filtered);
+
+
+	}, [onSearch, VendorData]);
+
+	console.log(data);
+
+
 	return (
 		<Table
 			columns={[
@@ -120,7 +136,7 @@ export const VendorTable = () => {
 					),
 				},
 			]}
-			data={VendorData}
+			data={data}
 		/>
 	);
 };

@@ -12,19 +12,20 @@ const Products = () => {
 			</Typography>
 			<Breadcrumbs />
 			<Box sx={{ border: '1px solid', borderColor: 'gray.100', borderRadius: '20px', }}>
-				<Stack flexWrap='wrap' width='100%' gap={2} flexDirection='row' justifyContent='space-between' py='40px' px='44px'>
-					<SearchBar placeholderText='search with product name' />
-					<Stack flexDirection='row' gap={2}>
-						<Button variant="outlined" sx={{ color: 'gray.400', borderColor: 'gray.100', borderRadius: '10px', height: '45px' }}>
-							All Category
-						</Button>
-						<Button variant="outlined" sx={{ color: 'gray.400', borderColor: 'gray.100', borderRadius: '10px', height: '45px' }}>
-							ORDER BY
-						</Button>
+				<Box sx={{ py: '40px', px: '40px' }}>
+					<Stack flexWrap='wrap' gap={3} width='100%' flexDirection='row' justifyContent='space-between' >
+						<SearchBar placeholderText='search with product name' />
+						<Stack flexDirection='row' gap={2}>
+							<Button variant="outlined" sx={{ color: 'gray.400', borderColor: 'gray.100', borderRadius: '10px', height: '45px' }}>
+								All Category
+							</Button>
+							<Button variant="outlined" sx={{ color: 'gray.400', borderColor: 'gray.100', borderRadius: '10px', height: '45px' }}>
+								ORDER BY
+							</Button>
+						</Stack>
 					</Stack>
-				</Stack>
-
-				<ProductCard />
+					<ProductCard />
+				</Box>
 			</Box>
 		</Container>
 	);

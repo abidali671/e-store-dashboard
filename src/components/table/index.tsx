@@ -20,6 +20,7 @@ interface TableProps {
 const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
 	const [entries, setEntries] = useState(5);
 	const [currentPage, setCurrentPage] = useState(1);
+
 	const totalPages = React.useMemo(() => {
 		return Math.ceil(data.length / entries);
 	}, [entries]);
@@ -31,6 +32,8 @@ const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
 	const handleEntries = (e: SelectChangeEvent<string>) => {
 		setEntries(+e.target.value);
 	};
+	console.log(data, 'datdsa=');
+
 
 	return (
 		<TableContainer sx={tableContainer}>

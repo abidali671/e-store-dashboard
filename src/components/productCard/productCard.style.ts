@@ -7,7 +7,7 @@ export const mainProduct = {
         xs: '1fr',
     },
     gap: 3,
-    p: 3,
+    pt: 3,
 }
 export const card = { border: '1px solid', borderColor: 'gray.100', borderRadius: '20px' }
 export const cardContent = { borderTop: '1px solid', borderColor: 'gray.100', px: '40px', py: '10px' }
