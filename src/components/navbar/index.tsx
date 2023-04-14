@@ -20,7 +20,8 @@ const Navbar = ({
 
 	const [anchorEl, setAnchorEl] = useState(null);
 
-	const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn)
+	const userEmail = useSelector((state: RootState) => state.auth.email)
+	console.log(userEmail, '==user');
 
 	const dispatch = useDispatch()
 	const handleLogout = () => {
@@ -29,7 +30,14 @@ const Navbar = ({
 
 	const open = Boolean(anchorEl);
 
-	const menuItems = ['Profile', 'My account', 'Logout'];
+	// menu items
+	const menuItems = [
+		{ label: JSON.parse(userEmail) || 'user101', action: () => console.log('profile') },
+		{ label: 'My Account', action: () => console.log('account') },
+		{ label: 'Logout', action: handleLogout },
+	];
+
+
 	const handleClick = (event) => {
 		setAnchorEl(event.currentTarget);
 	};
@@ -73,6 +81,7 @@ const Navbar = ({
 						onClick={handleClick}
 
 					/>
+					{/* Menu items with logout */}
 					{anchorEl && <Menu
 						id='custom-menu'
 						anchorEl={anchorEl}
@@ -83,15 +92,15 @@ const Navbar = ({
 						}}
 					>
 						{menuItems.map((menuItem, index) => (
-							<MenuItem key={index} onClick={handleClose}>
-								{menuItem}
+							<MenuItem key={index} onClick={menuItem.action}>
+								{menuItem.label}
 							</MenuItem>
 						))}
 					</Menu>}
 				</Box>
-				<Button onClick={handleLogout} variant='outlined' sx={{ color: 'blue.300', cursor: 'pointer', height: '30px' }}>
+				{/* <Button onClick={handleLogout} variant='outlined' sx={{ color: 'blue.300', cursor: 'pointer', height: '30px' }}>
 					Log Out
-				</Button>
+				</Button> */}
 			</Box>
 		</Box>
 	);
