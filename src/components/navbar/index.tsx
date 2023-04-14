@@ -1,15 +1,13 @@
-import { Box, Button } from '@mui/material';
-import InputAdornment from '@mui/material/InputAdornment';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import IconButton from '@mui/material/IconButton';
+import { Box, Button, Menu, MenuItem } from '@mui/material';
 import * as styles from './navbar.styles';
-import useContainer from '../container/container.hook';
 import Logo from '@assests/logos.png';
-import { Search, Ring, Hameburger } from '@assests/icons';
+import { Ring, Hameburger } from '@assests/icons';
 import avatar from '@assests/Rectangle16.png';
 import SearchBar from '@components/searchBar';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logout } from 'src/features/authSlice';
+import { useState } from 'react';
+import { RootState } from 'src/features/store';
 
 const Navbar = ({
 	isSearchBar = true,
@@ -19,10 +17,26 @@ const Navbar = ({
 	toggleSidebar?: () => void;
 }) => {
 
+
+	const [anchorEl, setAnchorEl] = useState(null);
+
+	const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn)
+
 	const dispatch = useDispatch()
 	const handleLogout = () => {
 		dispatch(logout())
 	}
+
+	const open = Boolean(anchorEl);
+
+	const menuItems = ['Profile', 'My account', 'Logout'];
+	const handleClick = (event) => {
+		setAnchorEl(event.currentTarget);
+	};
+
+	const handleClose = () => {
+		setAnchorEl(null);
+	};
 	return (
 		<Box sx={styles.root}>
 			<Box
@@ -42,20 +56,41 @@ const Navbar = ({
 			{isSearchBar && (
 				<SearchBar placeholderText='Search...' />
 			)}
-			<Box>
+			<Box sx={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
 				<Ring />
-				<Box
-					component='img'
-					sx={{
-						height: 25,
-						paddingLeft: '10px',
-					}}
-					alt='avatar'
-					src={avatar}
+				<Box>
+					<Box
+						component='img'
+						sx={{
+							height: 25,
 
-				/>
-				<Button variant="outlined" >
+						}}
+						aria-controls={open ? 'custom-menu' : undefined}
+						aria-haspopup='true'
+						aria-expanded={open ? 'true' : undefined}
+						alt='avatar'
+						src={avatar}
+						onClick={handleClick}
 
+					/>
+					{anchorEl && <Menu
+						id='custom-menu'
+						anchorEl={anchorEl}
+						open={open}
+						onClose={handleClose}
+						MenuListProps={{
+							'aria-labelledby': 'custom-menu-button',
+						}}
+					>
+						{menuItems.map((menuItem, index) => (
+							<MenuItem key={index} onClick={handleClose}>
+								{menuItem}
+							</MenuItem>
+						))}
+					</Menu>}
+				</Box>
+				<Button onClick={handleLogout} variant='outlined' sx={{ color: 'blue.300', cursor: 'pointer', height: '30px' }}>
+					Log Out
 				</Button>
 			</Box>
 		</Box>
