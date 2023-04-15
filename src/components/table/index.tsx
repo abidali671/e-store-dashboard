@@ -7,7 +7,6 @@ import {
 	TableContainer,
 	TableHead,
 	TableRow,
-
 	SelectChangeEvent,
 } from '@mui/material';
 import { tableContainer } from './table.styles';
@@ -32,8 +31,6 @@ const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
 	const handleEntries = (e: SelectChangeEvent<string>) => {
 		setEntries(+e.target.value);
 	};
-	console.log(data, 'datdsa=');
-
 
 	return (
 		<TableContainer sx={tableContainer}>
@@ -41,26 +38,31 @@ const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
 				<TableHead>
 					<TableRow>
 						{columns.map((column) => (
-							<TableCell key={column.name}>
-								{column.label}
-							</TableCell>
+							<TableCell key={column.name}>{column.label}</TableCell>
 						))}
 					</TableRow>
 				</TableHead>
-				<TableBody >
+				<TableBody>
 					{dataShow.map((item, index) => (
 						<TableRow key={index} sx={{ border: index < dataShow.length - 1 ? '1 ' : '0' }}>
 							{columns.map((column, index) => (
-								<TableCell key={index} >
+								<TableCell key={index}>
 									{column?.render ? column?.render(item[column.name]) : item[column.name]}
 								</TableCell>
 							))}
 						</TableRow>
-
 					))}
 				</TableBody>
 			</Table>
-			<Pagination page={currentPage} onChange={setCurrentPage} count={totalPages} dataShow={dataShow} data={data} entries={entries} handleEntries={handleEntries} />
+			<Pagination
+				page={currentPage}
+				onChange={setCurrentPage}
+				count={totalPages}
+				dataShow={dataShow}
+				data={data}
+				entries={entries}
+				handleEntries={handleEntries}
+			/>
 		</TableContainer>
 	);
 };

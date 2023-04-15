@@ -7,29 +7,23 @@ import * as styles from './boxLayout.styles';
 import Pagination from '@components/box/pagination';
 
 export const VendorGrid = () => {
-
 	const [entries, setEntries] = useState(5);
 	const [currentPage, setCurrentPage] = useState(1);
-
-
 
 	const totalPages = React.useMemo(() => {
 		return Math.ceil(VendorData.length / entries);
 	}, [entries]);
 
-
 	const dataShow = React.useMemo(() => {
 		return VendorData.slice((currentPage - 1) * entries, (currentPage - 1) * entries + entries);
 	}, [entries, currentPage]);
-	console.log(dataShow, '===')
 
 	const handleEntries = (e: any) => {
 		setEntries(+e.target.value);
 	};
 
-
 	return (
-		<Box sx={{ border: '1px solid', borderColor: 'gray.100', borderRadius: '20px', }}>
+		<Box sx={{ border: '1px solid', borderColor: 'gray.100', borderRadius: '20px' }}>
 			<Box sx={styles.GridLayout}>
 				{dataShow.map(({ name, email, totalSell: sells, product, profile }, index) => (
 					<Box key={index} sx={styles.card}>
@@ -74,28 +68,26 @@ export const VendorGrid = () => {
 						</Stack>
 					</Box>
 				))}
-
 			</Box>
-			<Pagination page={currentPage} onChange={setCurrentPage} count={totalPages} dataShow={dataShow} data={VendorData} entries={entries} handleEntries={handleEntries} />
+			<Pagination
+				page={currentPage}
+				onChange={setCurrentPage}
+				count={totalPages}
+				dataShow={dataShow}
+				data={VendorData}
+				entries={entries}
+				handleEntries={handleEntries}
+			/>
 		</Box>
 	);
 };
 export const VendorTable: React.FC<{ onSearch: string }> = ({ onSearch }) => {
-	const [data, setData] = useState(VendorData)
-
+	const [data, setData] = useState(VendorData);
 
 	React.useEffect(() => {
-
-		const filtered = VendorData.filter(
-			item => item.name.toLocaleLowerCase().includes(onSearch)
-		);
+		const filtered = VendorData.filter((item) => item.name.toLocaleLowerCase().includes(onSearch));
 		setData(filtered);
-
-
 	}, [onSearch, VendorData]);
-
-	console.log(data);
-
 
 	return (
 		<Table
