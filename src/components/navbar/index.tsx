@@ -5,9 +5,9 @@ import { Ring, Hameburger } from '@assests/icons';
 import avatar from '@assests/Rectangle16.png';
 import SearchBar from '@components/searchBar';
 import { useDispatch, useSelector } from 'react-redux';
-import { logout } from 'src/features/authSlice';
+import { logout } from 'src/features/auth/auth.slice';
 import { useState } from 'react';
-import { RootState } from 'src/features/store';
+import { RootState } from 'src/store';
 
 const Navbar = ({
 	isSearchBar = true,
