@@ -1,18 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Login from './pages/auth/login';
 import Dashboard from './pages/dashboard';
 import Vendors from './pages/vendors';
 import Categories from './pages/categories';
 import Products from './pages/products';
-import { useSelector } from 'react-redux';
-import { RootState } from './features/store';
-
-
+import { useSelector } from './hooks';
 
 const App: React.FC = () => {
-	const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
-	console.log(isLoggedIn, 'login check');
+	const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
 	return (
 		<Routes>
