@@ -1,4 +1,4 @@
-import { MoreOption } from '@assests/icons'
+import { MoreOption } from '@assests/icons';
 export const SALES_REPORT = [
 	{
 		name: 'Net Profit',
@@ -31,7 +31,6 @@ export const tableData = [
 		units: '1',
 		orderDate: '22 Dec 2022',
 		orderCost: '$10',
-		action: MoreOption,
 		status: 'COMPLETED',
 	},
 	{
@@ -41,10 +40,8 @@ export const tableData = [
 		orderDate: '22 Dec 2022',
 		orderCost: '$20',
 		status: 'ON HOLD',
-		action: MoreOption,
 	},
 	{
-		action: MoreOption,
 		id: '3',
 		product: 'shirt',
 		units: '3',
@@ -54,7 +51,6 @@ export const tableData = [
 	},
 	{
 		id: '4',
-		action: MoreOption,
 		product: 'jeans',
 		units: '4',
 		orderDate: '22 Dec 2022',
@@ -68,7 +64,6 @@ export const tableData = [
 		units: '2',
 		orderDate: '22 Dec 2022',
 		orderCost: '$40',
-		action: MoreOption,
 		status: 'CANCELLED',
 	},
 	{
@@ -78,7 +73,6 @@ export const tableData = [
 		orderDate: '22 Dec 2022',
 		orderCost: '$40',
 		status: 'CANCELLED',
-		action: MoreOption,
 	},
 	{
 		id: '7',
@@ -86,12 +80,10 @@ export const tableData = [
 		units: '2',
 		orderDate: '22 Dec 2022',
 		orderCost: '$40',
-		action: MoreOption,
 		status: 'CANCELLED',
 	},
 	{
 		id: '8',
-		action: MoreOption,
 		product: 'jacket',
 		units: '2',
 		orderDate: '22 Dec 2022',
@@ -105,7 +97,6 @@ export const tableData = [
 		orderDate: '22 Dec 2022',
 		orderCost: '$40',
 		status: 'COMPLETED',
-		action: MoreOption,
 	},
 	{
 		id: '10',
@@ -114,7 +105,6 @@ export const tableData = [
 		orderDate: '22 Dec 2022',
 		orderCost: '$40',
 		status: 'CANCELLED',
-		action: MoreOption,
 	},
 	{
 		id: '11',
@@ -123,7 +113,6 @@ export const tableData = [
 		orderDate: '22 Dec 2022',
 		orderCost: '$40',
 		status: 'COMPLETED',
-		action: MoreOption,
 	},
 	{
 		id: '12',
@@ -132,7 +121,6 @@ export const tableData = [
 		orderDate: '22 Dec 2022',
 		orderCost: '$40',
 		status: 'COMPLETED',
-		action: MoreOption,
 	},
 	{
 		id: '13',
@@ -141,7 +129,6 @@ export const tableData = [
 		orderDate: '22 Dec 2022',
 		orderCost: '$40',
 		status: 'CANCELLED',
-		action: MoreOption,
 	},
 	{
 		id: '14',
@@ -150,7 +137,6 @@ export const tableData = [
 		orderDate: '22 Dec 2022',
 		orderCost: '$40',
 		status: 'COMPLETED',
-		action: MoreOption,
 	},
 
 	{
@@ -160,7 +146,6 @@ export const tableData = [
 		orderDate: '22 Dec 2022',
 		orderCost: '$40',
 		status: 'COMPLETED',
-		action: MoreOption,
 	},
 	{
 		id: '16',
@@ -169,7 +154,6 @@ export const tableData = [
 		orderDate: '22 Dec 2022',
 		orderCost: '$40',
 		status: 'COMPLETED',
-		action: MoreOption,
 	},
 	{
 		id: '17',
@@ -178,7 +162,6 @@ export const tableData = [
 		orderDate: '22 Dec 2022',
 		orderCost: '$40',
 		status: 'CANCELLED',
-		action: MoreOption,
 	},
 	{
 		id: '18',
@@ -187,7 +170,6 @@ export const tableData = [
 		orderDate: '22 Dec 2022',
 		orderCost: '$40',
 		status: 'COMPLETED',
-		action: MoreOption,
 	},
 	{
 		id: '19',
@@ -196,7 +178,6 @@ export const tableData = [
 		orderDate: '22 Dec 2022',
 		orderCost: '$40',
 		status: 'COMPLETED',
-		action: MoreOption,
 	},
 	{
 		id: '20',
@@ -205,7 +186,6 @@ export const tableData = [
 		orderDate: '22 Dec 2022',
 		orderCost: '$40',
 		status: 'COMPLETED',
-		action: MoreOption,
 	},
 	{
 		id: '21',
@@ -214,6 +194,5 @@ export const tableData = [
 		orderDate: '22 Dec 2022',
 		orderCost: '$40',
 		status: 'COMPLETED',
-		action: MoreOption,
 	},
-]
+];
