@@ -10,10 +10,15 @@ import {
 	SelectChangeEvent,
 } from '@mui/material';
 import { tableContainer } from './table.styles';
+import { JSONValue } from 'src/types';
 
 interface TableProps {
-	columns: { name: string; label: string; render?: (column_value: unknown) => JSX.Element }[];
-	data: unknown[];
+	columns: {
+		name: string;
+		label: string;
+		render?: (column_value: JSONValue) => JSX.Element;
+	}[];
+	data: JSONValue[];
 }
 
 const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
