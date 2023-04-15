@@ -17,9 +17,7 @@ const Navbar = ({
 	toggleSidebar?: () => void;
 }) => {
 	const [anchorEl, setAnchorEl] = useState(null);
-
 	const userEmail = useSelector((state: RootState) => state.auth.email);
-	console.log(userEmail, '==user');
 
 	const dispatch = useDispatch();
 	const handleLogout = () => {
