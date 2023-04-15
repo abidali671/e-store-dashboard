@@ -16,17 +16,15 @@ const Navbar = ({
 	isSearchBar?: boolean;
 	toggleSidebar?: () => void;
 }) => {
-
-
 	const [anchorEl, setAnchorEl] = useState(null);
 
-	const userEmail = useSelector((state: RootState) => state.auth.email)
+	const userEmail = useSelector((state: RootState) => state.auth.email);
 	console.log(userEmail, '==user');
 
-	const dispatch = useDispatch()
+	const dispatch = useDispatch();
 	const handleLogout = () => {
-		dispatch(logout())
-	}
+		dispatch(logout());
+	};
 
 	const open = Boolean(anchorEl);
 
@@ -36,7 +34,6 @@ const Navbar = ({
 		{ label: 'My Account', action: () => console.log('account') },
 		{ label: 'Logout', action: handleLogout },
 	];
-
 
 	const handleClick = (event) => {
 		setAnchorEl(event.currentTarget);
@@ -61,9 +58,7 @@ const Navbar = ({
 				alt='Logo'
 				src={Logo}
 			/>
-			{isSearchBar && (
-				<SearchBar placeholderText='Search...' />
-			)}
+			{isSearchBar && <SearchBar placeholderText='Search...' />}
 			<Box sx={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
 				<Ring />
 				<Box>
@@ -71,7 +66,6 @@ const Navbar = ({
 						component='img'
 						sx={{
 							height: 25,
-
 						}}
 						aria-controls={open ? 'custom-menu' : undefined}
 						aria-haspopup='true'
@@ -79,24 +73,25 @@ const Navbar = ({
 						alt='avatar'
 						src={avatar}
 						onClick={handleClick}
-
 					/>
 					{/* Menu items with logout */}
-					{anchorEl && <Menu
-						id='custom-menu'
-						anchorEl={anchorEl}
-						open={open}
-						onClose={handleClose}
-						MenuListProps={{
-							'aria-labelledby': 'custom-menu-button',
-						}}
-					>
-						{menuItems.map((menuItem, index) => (
-							<MenuItem key={index} onClick={menuItem.action}>
-								{menuItem.label}
-							</MenuItem>
-						))}
-					</Menu>}
+					{anchorEl && (
+						<Menu
+							id='custom-menu'
+							anchorEl={anchorEl}
+							open={open}
+							onClose={handleClose}
+							MenuListProps={{
+								'aria-labelledby': 'custom-menu-button',
+							}}
+						>
+							{menuItems.map((menuItem, index) => (
+								<MenuItem key={index} onClick={menuItem.action}>
+									{menuItem.label}
+								</MenuItem>
+							))}
+						</Menu>
+					)}
 				</Box>
 				{/* <Button onClick={handleLogout} variant='outlined' sx={{ color: 'blue.300', cursor: 'pointer', height: '30px' }}>
 					Log Out
