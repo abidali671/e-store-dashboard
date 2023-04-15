@@ -32,9 +32,10 @@ export const sideListItems: SideItemT[] = [
 	{ label: 'REVIEWS', icon: Review },
 	{ label: 'BRANDS', icon: Brand },
 	{ divider: true },
-	{ label: 'LOG OUT', icon: logout },
+	{ label: 'LOG OUT', icon: logout, path: '/login' },
 	{ label: 'OTHER PAGES', icon: Copy },
 ];
+
 export interface ViewDetailsT {
 	title: string;
 	info?: string;
@@ -73,5 +74,3 @@ export interface Boxes {
 	data?: any;
 	typeChart?: boolean;
 }
-
-
