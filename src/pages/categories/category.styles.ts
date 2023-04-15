@@ -3,6 +3,6 @@ export const mainForm = {
     justifyContent: 'center',
     padding: '16px 24px',
     flexDirection: 'column',
-    gap: '4px',
+    gap: '8px',
 }
 

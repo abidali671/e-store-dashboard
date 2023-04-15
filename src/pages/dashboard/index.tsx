@@ -16,7 +16,7 @@ interface ProductProps {
 
 const Dashboard: React.FC = () => {
 	return (
-		<Container sx={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
+		<Container sx={styles.Container}>
 			<Grid container spacing={4} columns={{ xs: 6, sm: 6, md: 12 }}>
 				{_map(ViewDetails, (item: ViewDetailsT, index) => (
 					<Grid item xs={6} sm={3} md={3} key={index}>
@@ -73,12 +73,12 @@ const Dashboard: React.FC = () => {
 											value == 'COMPLETED'
 												? 'success'
 												: value === 'ON HOLD'
-												? 'warning'
-												: value == 'CANCELLED'
-												? 'error'
-												: value === 'IN PROGRESS'
-												? 'secondary'
-												: 'default'
+													? 'warning'
+													: value == 'CANCELLED'
+														? 'error'
+														: value === 'IN PROGRESS'
+															? 'secondary'
+															: 'default'
 										}
 										sx={{ color: 'white !important' }}
 									/>
@@ -105,16 +105,17 @@ const Dashboard: React.FC = () => {
 const SoldItemList: React.FC<{
 	list: ProductProps[];
 }> = ({ list }) => {
+
 	return (
 		<Box
 			sx={{
 				display: 'grid',
 				gridTemplateColumns: 'repeat(3, 1fr)',
-				px: '16px',
+				// px: '16px',
 			}}
 		>
 			{_map(list, (item, index) => (
-				<React.Fragment key={index}>
+				<React.Fragment key={index} >
 					<Typography
 						variant='body2'
 						sx={{
@@ -122,6 +123,7 @@ const SoldItemList: React.FC<{
 							fontWeight: 600,
 							lineHeight: '48px',
 							whiteSpace: 'nowrap',
+							px: '16px'
 						}}
 					>
 						{item.name}
@@ -147,6 +149,7 @@ const SoldItemList: React.FC<{
 							fontWeight: 600,
 							lineHeight: '48px',
 							whiteSpace: 'nowrap',
+							px: '16px'
 						}}
 					>
 						{item.average}
@@ -199,8 +202,8 @@ const SellingProducts = ({ productDetail }) => {
 							objectPosition: 'center',
 						}}
 					/>
-					<Box pl={1}>
-						<Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+					<Box pl={1} width='100%' >
+						<Box sx={{ display: 'flex', justifyContent: 'space-between', }}>
 							<Typography variant='h6' fontWeight='bold' fontSize={14} color='initial'>
 								{product.title}
 							</Typography>

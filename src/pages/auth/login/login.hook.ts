@@ -1,10 +1,15 @@
 import { useFormik } from 'formik';
 import validationSchema from './login.schema';
 import { FormValues } from './login.types';
-
+import { useDispatch } from 'react-redux';
+import { login } from '../../../features/authSlice';
+import { useNavigate } from 'react-router-dom';
 const useLogin = () => {
+	const navigate = useNavigate()
+	const dispatch = useDispatch()
 	const handleSubmit = (values: FormValues) => {
-		alert(JSON.stringify(values, null, 2));
+		dispatch(login(JSON.stringify(values.email)))
+		navigate('/dashboard')
 	};
 
 	const formik = useFormik({
@@ -13,7 +18,7 @@ const useLogin = () => {
 			email: '',
 			password: '',
 		},
-		onSubmit: handleSubmit,
+		onSubmit: handleSubmit
 	});
 
 	return { formik };

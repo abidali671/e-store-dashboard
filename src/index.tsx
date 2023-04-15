@@ -3,12 +3,16 @@ import { BrowserRouter } from 'react-router-dom';
 import MuiTheme from './theme';
 import App from './App';
 import './index.css';
+import { Provider } from 'react-redux';
+import store from './features/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
-	<MuiTheme>
-		<BrowserRouter>
-			<App />
-		</BrowserRouter>
-	</MuiTheme>,
+	<Provider store={store}>
+		<MuiTheme>
+			<BrowserRouter>
+				<App />
+			</BrowserRouter>
+		</MuiTheme>
+	</Provider>,
 );

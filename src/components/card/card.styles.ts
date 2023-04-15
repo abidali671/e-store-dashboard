@@ -4,6 +4,8 @@ export const root = {
 	border: '1px solid',
 	borderColor: 'gray.100',
 	borderRadius: '16px',
+	display: 'flex',
+	flexDirection: 'column'
 };
 
 export const headerWrapper = {
@@ -22,6 +24,7 @@ export const footerWrapper = {
 	alignItems: 'center',
 	borderTop: '1px solid',
 	borderColor: 'gray.100',
+	marginTop: 'auto'
 };
 
 export const contentWrapper = {

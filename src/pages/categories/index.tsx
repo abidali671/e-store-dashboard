@@ -28,16 +28,16 @@ const Categories = () => {
 						<Box sx={mainForm} component='form'>
 							<FormControl>
 								<Typography fontWeight='bold' variant='body1'>
-									NAME
+									Name
 								</Typography>
 
-								<OutlinedInput name='name' placeholder='Please enter your name' />
+								<TextField name='name' placeholder='Please enter your name' />
 							</FormControl>
 							<FormControl>
 								<Typography fontWeight='bold' variant='body1'>
 									Slug
 								</Typography>
-								<OutlinedInput name='slug' placeholder='Please enter your slug' />
+								<TextField name='slug' placeholder='Please enter your slug' />
 							</FormControl>
 							<FormControl>
 								<Typography variant='body1' fontWeight='bold'>
@@ -60,7 +60,7 @@ const Categories = () => {
 									</Typography>
 								</Box>
 
-								<TextField sx={{ '.MuiOutlinedInput-root': { height: '56px' } }} />
+								<TextField />
 								<Button
 									variant='contained'
 									sx={{
@@ -68,7 +68,7 @@ const Categories = () => {
 										color: 'white',
 
 										width: '120px',
-										marginTop: '10px',
+										marginTop: '14px',
 									}}
 								>
 									Submit
@@ -87,15 +87,13 @@ const Categories = () => {
 									<Box
 										component='img'
 										sx={{
-											height: '50px',
-											width: '50px',
+											height: '48px',
+											width: '48px',
 											objectFit: 'cover',
 											objectPosition: 'center',
 										}}
 										src={val}
-										alt=''
-										height='100'
-										width='100'
+
 									/>
 								),
 							},

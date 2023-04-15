@@ -21,7 +21,7 @@ export const collapseBtn = {
 	top: '35%',
 	height: '200px',
 	left: '60px',
-	backgroundColor: '#86AAF1',
+	backgroundColor: 'blue.300',
 	cursor: 'pointer',
 	transition: '0.5s',
 };
@@ -38,7 +38,7 @@ export const collapsedBtn = {
 	top: '35%',
 	height: '200px',
 	left: '300px',
-	backgroundColor: '#86AAF1',
+	backgroundColor: 'blue.300',
 	cursor: 'pointer',
 	transition: '0.5s',
 };

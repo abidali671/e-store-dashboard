@@ -1,13 +1,12 @@
-import { Link, Typography, Box } from '@mui/material';
+import { Typography, Box } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import { AuthContainer, FormikTextField, FormWrapper } from '@components';
 import useLogin from './login.hook';
 import * as types from './login.types';
 import * as styles from './login.styles';
-
+import { Link } from 'react-router-dom';
 const Login: types.ComponentT = () => {
 	const { formik } = useLogin();
-
 	return (
 		<AuthContainer>
 			<Box sx={styles.root}>
@@ -38,8 +37,9 @@ const Login: types.ComponentT = () => {
 						<LoadingButton variant='contained' sx={styles.button} type='submit'>
 							LOGIN
 						</LoadingButton>
+
 						<Typography variant='caption'>
-							Dont have an account? <Link href='#'> Register</Link>
+							Dont have an account? <Link to='#'> Register</Link>
 						</Typography>
 					</FormWrapper>
 				</Box>

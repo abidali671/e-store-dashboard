@@ -1,12 +1,13 @@
-import { Box } from '@mui/material';
-import InputAdornment from '@mui/material/InputAdornment';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import IconButton from '@mui/material/IconButton';
+import { Box, Button, Menu, MenuItem } from '@mui/material';
 import * as styles from './navbar.styles';
-import useContainer from '../container/container.hook';
 import Logo from '@assests/logos.png';
-import { Search, Ring, Hameburger } from '@assests/icons';
+import { Ring, Hameburger } from '@assests/icons';
 import avatar from '@assests/Rectangle16.png';
+import SearchBar from '@components/searchBar';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from 'src/features/authSlice';
+import { useState } from 'react';
+import { RootState } from 'src/features/store';
 
 const Navbar = ({
 	isSearchBar = true,
@@ -15,6 +16,35 @@ const Navbar = ({
 	isSearchBar?: boolean;
 	toggleSidebar?: () => void;
 }) => {
+
+
+	const [anchorEl, setAnchorEl] = useState(null);
+
+	const userEmail = useSelector((state: RootState) => state.auth.email)
+	console.log(userEmail, '==user');
+
+	const dispatch = useDispatch()
+	const handleLogout = () => {
+		dispatch(logout())
+	}
+
+	const open = Boolean(anchorEl);
+
+	// menu items
+	const menuItems = [
+		{ label: JSON.parse(userEmail) || 'user101', action: () => console.log('profile') },
+		{ label: 'My Account', action: () => console.log('account') },
+		{ label: 'Logout', action: handleLogout },
+	];
+
+
+	const handleClick = (event) => {
+		setAnchorEl(event.currentTarget);
+	};
+
+	const handleClose = () => {
+		setAnchorEl(null);
+	};
 	return (
 		<Box sx={styles.root}>
 			<Box
@@ -32,43 +62,45 @@ const Navbar = ({
 				src={Logo}
 			/>
 			{isSearchBar && (
-				<Box sx={{ width: '50%' }}>
-					<OutlinedInput
-						sx={{
-							borderRadius: '50px',
-							height: 45,
-						}}
-						fullWidth
-						id='outlined-adornment-weight'
-						startAdornment={
-							<InputAdornment position='end'>
-								<IconButton
-									sx={{ width: '30px' }}
-									size='small'
-									aria-label='toggle password visibility'
-								>
-									<Search />
-								</IconButton>
-							</InputAdornment>
-						}
-						aria-describedby='outlined-weight-helper-text'
-						inputProps={{
-							'aria-label': 'weight',
-						}}
-					/>
-				</Box>
+				<SearchBar placeholderText='Search...' />
 			)}
-			<Box>
+			<Box sx={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
 				<Ring />
-				<Box
-					component='img'
-					sx={{
-						height: 25,
-						paddingLeft: '10px',
-					}}
-					alt='avatar'
-					src={avatar}
-				/>
+				<Box>
+					<Box
+						component='img'
+						sx={{
+							height: 25,
+
+						}}
+						aria-controls={open ? 'custom-menu' : undefined}
+						aria-haspopup='true'
+						aria-expanded={open ? 'true' : undefined}
+						alt='avatar'
+						src={avatar}
+						onClick={handleClick}
+
+					/>
+					{/* Menu items with logout */}
+					{anchorEl && <Menu
+						id='custom-menu'
+						anchorEl={anchorEl}
+						open={open}
+						onClose={handleClose}
+						MenuListProps={{
+							'aria-labelledby': 'custom-menu-button',
+						}}
+					>
+						{menuItems.map((menuItem, index) => (
+							<MenuItem key={index} onClick={menuItem.action}>
+								{menuItem.label}
+							</MenuItem>
+						))}
+					</Menu>}
+				</Box>
+				{/* <Button onClick={handleLogout} variant='outlined' sx={{ color: 'blue.300', cursor: 'pointer', height: '30px' }}>
+					Log Out
+				</Button> */}
 			</Box>
 		</Box>
 	);
