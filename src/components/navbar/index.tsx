@@ -16,8 +16,9 @@ const Navbar = ({
 	isSearchBar?: boolean;
 	toggleSidebar?: () => void;
 }) => {
+
+
 	const [anchorEl, setAnchorEl] = useState(null);
-	const userEmail = useSelector((state: RootState) => state.auth.email);
 
 	const dispatch = useDispatch();
 	const handleLogout = () => {
@@ -33,13 +34,8 @@ const Navbar = ({
 		{ label: 'Logout', action: handleLogout },
 	];
 
-	const handleClick = (event) => {
-		setAnchorEl(event.currentTarget);
-	};
 
-	const handleClose = () => {
-		setAnchorEl(null);
-	};
+
 	return (
 		<Box sx={styles.root}>
 			<Box
@@ -65,31 +61,28 @@ const Navbar = ({
 						sx={{
 							height: 25,
 						}}
-						aria-controls={open ? 'custom-menu' : undefined}
-						aria-haspopup='true'
-						aria-expanded={open ? 'true' : undefined}
+
 						alt='avatar'
 						src={avatar}
 						onClick={handleClick}
+
 					/>
 					{/* Menu items with logout */}
-					{anchorEl && (
-						<Menu
-							id='custom-menu'
-							anchorEl={anchorEl}
-							open={open}
-							onClose={handleClose}
-							MenuListProps={{
-								'aria-labelledby': 'custom-menu-button',
-							}}
-						>
-							{menuItems.map((menuItem, index) => (
-								<MenuItem key={index} onClick={menuItem.action}>
-									{menuItem.label}
-								</MenuItem>
-							))}
-						</Menu>
-					)}
+					{anchorEl && <Menu
+						id='custom-menu'
+						anchorEl={anchorEl}
+						open={open}
+						onClose={handleClose}
+						MenuListProps={{
+							'aria-labelledby': 'custom-menu-button',
+						}}
+					>
+						{menuItems.map((menuItem, index) => (
+							<MenuItem key={index} onClick={menuItem.action}>
+								{menuItem.label}
+							</MenuItem>
+						))}
+					</Menu>}
 				</Box>
 				{/* <Button onClick={handleLogout} variant='outlined' sx={{ color: 'blue.300', cursor: 'pointer', height: '30px' }}>
 					Log Out
