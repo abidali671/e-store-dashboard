@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Chip, Stack, Box, Typography, IconButton } from '@mui/material';
-import { Phone, Message } from '@assests/icons';
+import { Phone, Message, MoreOption } from '@assests/icons';
 import { Table } from '@components/index';
 import { VendorData } from './vendor';
 import * as styles from './boxLayout.styles';
@@ -85,9 +85,9 @@ export const VendorTable: React.FC<{ onSearch: string }> = ({ onSearch }) => {
 	const [data, setData] = useState(VendorData);
 
 	React.useEffect(() => {
-		const filtered = VendorData.filter((item) => item.name.toLocaleLowerCase().includes(onSearch));
+		const filtered = VendorData.filter((item) => item.name.toLowerCase().includes(onSearch.toLowerCase()));
 		setData(filtered);
-	}, [onSearch, VendorData]);
+	}, [onSearch]);
 
 	return (
 		<Table
@@ -121,9 +121,9 @@ export const VendorTable: React.FC<{ onSearch: string }> = ({ onSearch }) => {
 				{
 					name: 'action',
 					label: 'Action',
-					render: (Icon: React.FC<React.SVGProps<SVGSVGElement>>) => (
+					render: () => (
 						<IconButton>
-							<Icon style={{ height: '20px', width: '20px' }} />
+							<MoreOption style={{ height: '20px', width: '20px' }} />
 						</IconButton>
 					),
 				},
