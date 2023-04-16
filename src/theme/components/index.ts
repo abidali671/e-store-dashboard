@@ -26,7 +26,7 @@ const components: Components = {
 	},
 	MuiTableCell: {
 		styleOverrides: {
-			root: { textAlign: 'center', p: '0px', border: '0px', paddingTop: '0', paddingBottom: '0' }
+			root: { textAlign: 'center', p: '0px', border: '0px', padding: '0', }
 		}
 	},
 	MuiTableRow: {
