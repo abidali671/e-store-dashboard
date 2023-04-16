@@ -24,18 +24,6 @@ const Navbar = ({
 	const handleLogout = () => {
 		dispatch(logout());
 	};
-
-	const open = Boolean(anchorEl);
-
-	// menu items
-	const menuItems = [
-		{ label: JSON.parse(userEmail) || 'user101', action: () => console.log('profile') },
-		{ label: 'My Account', action: () => console.log('account') },
-		{ label: 'Logout', action: handleLogout },
-	];
-
-
-
 	return (
 		<Box sx={styles.root}>
 			<Box
@@ -64,29 +52,10 @@ const Navbar = ({
 
 						alt='avatar'
 						src={avatar}
-						onClick={handleClick}
-
 					/>
-					{/* Menu items with logout */}
-					{anchorEl && <Menu
-						id='custom-menu'
-						anchorEl={anchorEl}
-						open={open}
-						onClose={handleClose}
-						MenuListProps={{
-							'aria-labelledby': 'custom-menu-button',
-						}}
-					>
-						{menuItems.map((menuItem, index) => (
-							<MenuItem key={index} onClick={menuItem.action}>
-								{menuItem.label}
-							</MenuItem>
-						))}
-					</Menu>}
+
 				</Box>
-				{/* <Button onClick={handleLogout} variant='outlined' sx={{ color: 'blue.300', cursor: 'pointer', height: '30px' }}>
-					Log Out
-				</Button> */}
+
 			</Box>
 		</Box>
 	);
