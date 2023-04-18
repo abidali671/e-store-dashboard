@@ -1,10 +1,31 @@
 import { Breadcrumbs, Container } from '@components';
 import ProductCard from '@components/productCard';
+import { mainProduct } from '@components/productCard/productCard.style';
 import SearchBar from '@components/searchBar';
 import { Box, Stack, Typography, Button } from '@mui/material';
+import useAxios from 'src/axios';
 
 
 const Products = () => {
+
+	const { response, loading, error, sendData } = useAxios({
+		method: 'GET',
+		url: '/products',
+		headers: {
+			accept: '*/*'
+		}
+	});
+	console.log(response?.data, '=re');
+	if (loading) {
+		return <div>Loading...</div>;
+	}
+
+	// Check for error state
+	if (error) {
+		return <div>Error: {error.message}</div>;
+	}
+
+
 	return (
 		<Container>
 			<Typography variant='h5' fontWeight='bold'>
@@ -24,7 +45,11 @@ const Products = () => {
 							</Button>
 						</Stack>
 					</Stack>
-					<ProductCard />
+					<Box sx={mainProduct}>
+						{response?.data.products.map((item, ind) => (
+							<ProductCard title={item.title} price={item.price} image={item.images[0]} key={ind} />
+						))}
+					</Box>
 				</Box>
 			</Box>
 		</Container>
