@@ -24,7 +24,6 @@ interface TableProps {
 const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
 	const [entries, setEntries] = useState(5);
 	const [currentPage, setCurrentPage] = useState(1);
-	const [dataCol, setDataCol] = useState([]);
 
 	const totalPages = React.useMemo(() => {
 		return Math.ceil(data.length / entries);
@@ -37,9 +36,6 @@ const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
 	const handleEntries = (e: SelectChangeEvent<string>) => {
 		setEntries(+e.target.value);
 	};
-
-	console.log(data, 'datashowx');
-
 	return (
 		<TableContainer sx={tableContainer}>
 			<Table stickyHeader>
@@ -52,7 +48,7 @@ const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
 				</TableHead>
 				<TableBody>
 					{dataShow.map((item, index) => (
-						<TableRow key={index} sx={{ border: index < dataShow.length - 1 ? '1 ' : '0' }}>
+						<TableRow key={index} sx={{ border: index === dataShow.length - 2 ? '0px' : '1px solid red' }}>
 							{columns.map((column, index) => (
 								<TableCell key={index} >
 									{column?.render ? column?.render(item[column.name]) : item[column.name]}
