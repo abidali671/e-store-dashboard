@@ -34,6 +34,7 @@ const SignUp: types.ComponentT = () => {
                             </Typography>
 
                             <FormikTextField name='firstName' label='firstname' {...formik} />
+                            {formErrors['first_name'] && <Typography variant='body1' fontSize='12px'>{formErrors['username']}</Typography>}
 
                             <Typography
                                 variant='caption'
@@ -42,6 +43,8 @@ const SignUp: types.ComponentT = () => {
                             </Typography>
 
                             <FormikTextField name='lastName' label='lastname' {...formik} />
+                            {formErrors['last_name'] && <Typography variant='body1' fontSize='12px'>{formErrors['username']}</Typography>}
+
                             <Typography
                                 variant='caption'
                                 sx={{ textAlign: 'left', fontSize: { xs: '10px', md: '14px' }, color: '#9F9B9B' }}>
@@ -50,6 +53,7 @@ const SignUp: types.ComponentT = () => {
 
                             <FormikTextField name='email' type='text' label='email' {...formik} />
 
+                            {formErrors['email'] && <Typography variant='body1' fontSize='12px'>{formErrors['username']}</Typography>}
 
                             <Typography
                                 variant='caption'
