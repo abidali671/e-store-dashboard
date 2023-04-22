@@ -1,35 +1,25 @@
 import { useFormik } from 'formik';
 import API from 'src/axios';
 
+const InitialSignUpValues = {
+	username: '',
+	password: '',
+	first_name: '',
+	last_name: '',
+	email: '',
+};
+
 const useSign = () => {
-	const handleSubmit = async (values: {
-		username: string;
-		password: string;
-		firstName: string;
-		lastName: string;
-		email: string;
-	}) => {
+	const handleSubmit = async (values: typeof InitialSignUpValues) => {
 		try {
-			await API.post('/api/auth/register', {
-				username: values.username,
-				password: values.password,
-				email: values.email,
-				first_name: values.firstName,
-				last_name: values.lastName,
-			});
+			await API.post('/api/auth/register', values);
 		} catch (error) {
 			formik.setErrors(error.response.data);
 		}
 	};
 
 	const formik = useFormik({
-		initialValues: {
-			username: '',
-			password: '',
-			firstName: '',
-			lastName: '',
-			email: '',
-		},
+		initialValues: InitialSignUpValues,
 		onSubmit: handleSubmit,
 	});
 
