@@ -1,3 +1,5 @@
+export { default as pathnames } from './pathnames';
+
 type Primitive = string | number | boolean | undefined | null;
 type JSONArray = JSONValue[];
 type JSONObject = { [key: string]: JSONValue };
