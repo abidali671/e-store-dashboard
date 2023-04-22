@@ -1,5 +1,5 @@
 import { Visibility, VisibilityOff } from '@mui/icons-material';
-import { IconButton, InputAdornment, OutlinedInput } from '@mui/material';
+import { IconButton, InputAdornment, TextField } from '@mui/material';
 import { FormikValues } from 'formik';
 import React from 'react';
 
@@ -17,30 +17,33 @@ const FormikTextField: ComponentT = (props: FormikValues) => {
 	};
 
 	return (
-		<OutlinedInput
+		<TextField
 			placeholder={placeholder}
 			name={name}
 			value={values[name]}
 			onChange={handleChange}
 			error={touched[name] && Boolean(errors[name])}
+			helperText={errors[name]}
 			multiline={multiline}
 			minRows={minRows}
 			fullWidth
 			type={type == 'password' ? (showPassword ? 'text' : 'password') : type}
-			endAdornment={
-				<InputAdornment position='end'>
-					{type == 'password' ? (
-						<IconButton
-							aria-label='toggle password visibility'
-							onClick={handleClickShowPassword}
-							onMouseDown={handleMouseDownPassword}
-							edge='end'
-						>
-							{showPassword ? <VisibilityOff /> : <Visibility />}
-						</IconButton>
-					) : null}
-				</InputAdornment>
-			}
+			InputProps={{
+				endAdornment: (
+					<InputAdornment position='end'>
+						{type == 'password' ? (
+							<IconButton
+								aria-label='toggle password visibility'
+								onClick={handleClickShowPassword}
+								onMouseDown={handleMouseDownPassword}
+								edge='end'
+							>
+								{showPassword ? <VisibilityOff /> : <Visibility />}
+							</IconButton>
+						) : null}
+					</InputAdornment>
+				),
+			}}
 		/>
 	);
 };

@@ -8,7 +8,8 @@ import * as types from './register.types';
 import * as styles from './register.styles';
 
 const Register: types.ComponentT = () => {
-	const { formik, formErrors } = useSign();
+	const { formik } = useSign();
+
 	const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 	return (
@@ -34,11 +35,6 @@ const Register: types.ComponentT = () => {
 							</Typography>
 
 							<FormikTextField name='username' label='username' {...formik} />
-							{formErrors['username'] && (
-								<Typography variant='body1' fontSize='12px'>
-									{formErrors['username']}
-								</Typography>
-							)}
 
 							<Typography
 								variant='caption'
@@ -48,11 +44,6 @@ const Register: types.ComponentT = () => {
 							</Typography>
 
 							<FormikTextField name='firstName' label='firstname' {...formik} />
-							{formErrors['first_name'] && (
-								<Typography variant='body1' fontSize='12px'>
-									{formErrors['first_name']}
-								</Typography>
-							)}
 
 							<Typography
 								variant='caption'
@@ -62,11 +53,6 @@ const Register: types.ComponentT = () => {
 							</Typography>
 
 							<FormikTextField name='lastName' label='lastname' {...formik} />
-							{formErrors['last_name'] && (
-								<Typography variant='body1' fontSize='12px'>
-									{formErrors['last_name']}
-								</Typography>
-							)}
 
 							<Typography
 								variant='caption'
@@ -76,12 +62,6 @@ const Register: types.ComponentT = () => {
 							</Typography>
 
 							<FormikTextField name='email' type='text' label='email' {...formik} />
-
-							{formErrors['email'] && (
-								<Typography variant='body1' fontSize='12px'>
-									{formErrors['email']}
-								</Typography>
-							)}
 
 							<Typography
 								variant='caption'
@@ -96,7 +76,12 @@ const Register: types.ComponentT = () => {
 						<Typography variant='caption' sx={{ display: 'flex', alignItems: 'center' }}>
 							<Checkbox {...label} defaultChecked size='small' /> I Accept Terms & Coditions
 						</Typography>
-						<LoadingButton variant='contained' sx={styles.button} type='submit'>
+						<LoadingButton
+							loading={formik.isSubmitting}
+							variant='contained'
+							sx={styles.button}
+							type='submit'
+						>
 							SIGN UP
 						</LoadingButton>
 					</FormWrapper>
