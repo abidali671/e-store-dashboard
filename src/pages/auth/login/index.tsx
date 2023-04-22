@@ -7,6 +7,7 @@ import * as styles from './login.styles';
 import { Link } from 'react-router-dom';
 const Login: types.ComponentT = () => {
 	const { formik } = useLogin();
+
 	return (
 		<AuthContainer>
 			<Box sx={styles.root}>
@@ -16,14 +17,16 @@ const Login: types.ComponentT = () => {
 						<Box sx={{ textAlign: 'left', width: { xs: '100%', md: '80%' } }}>
 							<Typography
 								variant='caption'
-								sx={{ color: '#9F9B9B', fontSize: { xs: '10px', md: '12px' } }}>
+								sx={{ color: '#9F9B9B', fontSize: { xs: '10px', md: '12px' } }}
+							>
 								Email/Number or Username
 							</Typography>
 
 							<FormikTextField name='username' label='username' {...formik} />
 							<Typography
 								variant='caption'
-								sx={{ textAlign: 'left', fontSize: { xs: '10px', md: '12px' }, color: '#9F9B9B' }}>
+								sx={{ textAlign: 'left', fontSize: { xs: '10px', md: '12px' }, color: '#9F9B9B' }}
+							>
 								Password
 							</Typography>
 
@@ -32,7 +35,12 @@ const Login: types.ComponentT = () => {
 								Forget Password
 							</Typography>
 						</Box>
-						<LoadingButton variant='contained' sx={styles.button} type='submit'>
+						<LoadingButton
+							loading={formik.isSubmitting}
+							variant='contained'
+							sx={styles.button}
+							type='submit'
+						>
 							LOGIN
 						</LoadingButton>
 
