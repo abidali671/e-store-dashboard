@@ -6,9 +6,10 @@ export { default as Container } from './container';
 export { default as FormWrapper } from './form_wrapper';
 export { default as FormikTextField } from './formik_text_field';
 export { default as Navbar } from './navbar';
+export { default as Pagination } from './box/pagination';
 export { default as RowTable } from './rowTable';
 export { default as Sidebar } from './sidebar';
-
+export { default as SearchBar } from './searchBar';
 
 // Charts
 export { default as AreaChart } from './charts/area_chart';

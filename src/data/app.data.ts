@@ -14,6 +14,7 @@ import {
 	Package,
 } from '@assests/icons';
 import React from 'react';
+import { JSONValue } from 'src/types';
 
 export interface SideItemT {
 	label?: string;
@@ -71,6 +72,6 @@ export interface Boxes {
 	md: number;
 	full: boolean;
 	bottom?: string;
-	data?: any;
+	data?: JSONValue;
 	typeChart?: boolean;
 }

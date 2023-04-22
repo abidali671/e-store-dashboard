@@ -1,16 +1,19 @@
 import React from 'react';
-import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Login from './pages/auth/login';
+import Register from './pages/auth/register';
 import Dashboard from './pages/dashboard';
 import Vendors from './pages/vendors';
 import Categories from './pages/categories';
 import Products from './pages/products';
+
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useSelector } from './hooks';
-import SignUp from './pages/auth/signup';
+import { pathnames } from './types';
 
 const App: React.FC = () => {
 	return (
 		<Routes>
+			<Route path={pathnames.REGISTER} element={<Register />} />
 			<Route
 				path='/login'
 				element={
@@ -51,8 +54,8 @@ const App: React.FC = () => {
 					</ProtectedRoute>
 				}
 			/>
+			<Route path='/' element={<Navigate to='/dashboard' />} />
 			<Route path='*' element={<div>page not found</div>} />
-			<Route path='/' element={<SignUp />} />
 		</Routes>
 	);
 };

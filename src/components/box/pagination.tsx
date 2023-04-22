@@ -2,7 +2,7 @@ import * as React from 'react';
 import usePagination from '@mui/material/usePagination';
 import { styled } from '@mui/material/styles';
 import { Box, MenuItem, Select, Typography } from '@mui/material';
-// import * as styles from './pagination.styles';
+
 const List = styled('ul')({
 	listStyle: 'none',
 	padding: 0,
@@ -10,7 +10,15 @@ const List = styled('ul')({
 	display: 'flex',
 });
 
-export default function Pagination({ count, page, onChange, dataShow, data, entries, handleEntries }) {
+export default function Pagination({
+	count,
+	page,
+	onChange,
+	dataShow,
+	data,
+	entries,
+	handleEntries,
+}) {
 	const { items } = usePagination({ count, page });
 
 	return (
@@ -24,7 +32,7 @@ export default function Pagination({ count, page, onChange, dataShow, data, entr
 					px: 2,
 					py: 1,
 					borderTop: '1px solid',
-					borderColor: 'gray.100'
+					borderColor: 'gray.100',
 				}}
 			>
 				<Box>
@@ -43,7 +51,6 @@ export default function Pagination({ count, page, onChange, dataShow, data, entr
 					<Select
 						size='small'
 						sx={{
-
 							width: '80px',
 
 							mx: 2,
@@ -128,7 +135,6 @@ export default function Pagination({ count, page, onChange, dataShow, data, entr
 					})}
 				</List>
 			</Box>
-
 		</>
 	);
 }
