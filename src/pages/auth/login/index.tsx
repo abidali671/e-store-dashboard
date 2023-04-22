@@ -1,10 +1,11 @@
 import { Typography, Box } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import { AuthContainer, FormikTextField, FormWrapper } from '@components';
+import { Link } from 'react-router-dom';
 import useLogin from './login.hook';
 import * as types from './login.types';
 import * as styles from './login.styles';
-import { Link } from 'react-router-dom';
+
 const Login: types.ComponentT = () => {
 	const { formik } = useLogin();
 
