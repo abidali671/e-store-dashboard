@@ -1,5 +1,4 @@
 import React from 'react';
-import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Login from './pages/auth/login';
 import Register from './pages/auth/register';
 import Dashboard from './pages/dashboard';
@@ -7,12 +6,14 @@ import Vendors from './pages/vendors';
 import Categories from './pages/categories';
 import Products from './pages/products';
 
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useSelector } from './hooks';
+import { pathnames } from './types';
 
 const App: React.FC = () => {
 	return (
 		<Routes>
-			<Route path='/register' element={<Register />} />
+			<Route path={pathnames.REGISTER} element={<Register />} />
 			<Route
 				path='/login'
 				element={

@@ -2,6 +2,7 @@ import { Typography, Box } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import { AuthContainer, FormikTextField, FormWrapper } from '@components';
 import { Link } from 'react-router-dom';
+import { pathnames } from 'src/types';
 import useLogin from './login.hook';
 import * as types from './login.types';
 import * as styles from './login.styles';
@@ -46,7 +47,7 @@ const Login: types.ComponentT = () => {
 						</LoadingButton>
 
 						<Typography variant='caption'>
-							Dont have an account? <Link to='#'> Register</Link>
+							Dont have an account? <Link to={pathnames.REGISTER}> Register</Link>
 						</Typography>
 					</FormWrapper>
 				</Box>
