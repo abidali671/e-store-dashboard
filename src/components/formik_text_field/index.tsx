@@ -6,8 +6,18 @@ import React from 'react';
 type ComponentT = React.FC<FormikValues>;
 
 const FormikTextField: ComponentT = (props: FormikValues) => {
-	const { name, values, errors, touched, handleChange, placeholder, type, multiline, minRows } =
-		props;
+	const {
+		name,
+		values,
+		errors,
+		touched,
+		handleChange,
+		placeholder,
+		type,
+		multiline,
+		minRows,
+		label,
+	} = props;
 	const [showPassword, setShowPassword] = React.useState(false);
 
 	const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -18,6 +28,7 @@ const FormikTextField: ComponentT = (props: FormikValues) => {
 
 	return (
 		<TextField
+			label={label}
 			placeholder={placeholder}
 			name={name}
 			value={values[name]}
