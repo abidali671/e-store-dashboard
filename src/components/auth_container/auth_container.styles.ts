@@ -22,6 +22,6 @@ export const imgWrapper: SxProps<Theme> = {
 
 export const contentWrapper: SxProps<Theme> = {
 	display: 'grid',
-	gridTemplateColumns: '1fr 1fr',
+	gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
 	alignItems: 'center',
 };

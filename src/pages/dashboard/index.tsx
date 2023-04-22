@@ -7,7 +7,7 @@ import { productsRow, productDetail } from '@components/box/box.data';
 import * as styles from './dashboard.styles';
 import _map from 'lodash/map';
 import Chip from '@mui/material/Chip';
-
+import { MoreOption } from '@assests/icons';
 interface ProductProps {
 	name: string;
 	quantity: number;
@@ -87,9 +87,9 @@ const Dashboard: React.FC = () => {
 							{
 								name: 'action',
 								label: '',
-								render: (Icon: React.FC<React.SVGProps<SVGSVGElement>>) => (
+								render: () => (
 									<IconButton>
-										<Icon style={{ height: '20px', width: '20px' }} />
+										<MoreOption style={{ height: '20px', width: '20px' }} />
 									</IconButton>
 								),
 							},

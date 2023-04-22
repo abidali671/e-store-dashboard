@@ -31,12 +31,11 @@ const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
 
 	const dataShow = React.useMemo(() => {
 		return data.slice((currentPage - 1) * entries, (currentPage - 1) * entries + entries);
-	}, [entries, currentPage]);
+	}, [entries, currentPage, data]);
 
 	const handleEntries = (e: SelectChangeEvent<string>) => {
 		setEntries(+e.target.value);
 	};
-
 	return (
 		<TableContainer sx={tableContainer}>
 			<Table stickyHeader>
@@ -49,7 +48,7 @@ const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
 				</TableHead>
 				<TableBody>
 					{dataShow.map((item, index) => (
-						<TableRow key={index} sx={{ border: index < dataShow.length - 1 ? '1 ' : '0' }}>
+						<TableRow key={index} sx={{ border: index === dataShow.length - 2 ? '0px' : '1px solid red' }}>
 							{columns.map((column, index) => (
 								<TableCell key={index}>
 									{column?.render ? column?.render(item[column.name]) : item[column.name]}

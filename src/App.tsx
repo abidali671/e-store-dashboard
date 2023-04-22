@@ -6,6 +6,7 @@ import Vendors from './pages/vendors';
 import Categories from './pages/categories';
 import Products from './pages/products';
 import { useSelector } from './hooks';
+import SignUp from './pages/auth/signup';
 
 const App: React.FC = () => {
 	return (
@@ -50,7 +51,8 @@ const App: React.FC = () => {
 					</ProtectedRoute>
 				}
 			/>
-			<Route path='*' element={<div>404 not found!</div>} />
+			<Route path='*' element={<div>page not found</div>} />
+			<Route path='/' element={<SignUp />} />
 		</Routes>
 	);
 };

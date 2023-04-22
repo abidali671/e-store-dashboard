@@ -16,16 +16,14 @@ const Login: types.ComponentT = () => {
 						<Box sx={{ textAlign: 'left', width: { xs: '100%', md: '80%' } }}>
 							<Typography
 								variant='caption'
-								sx={{ color: '#9F9B9B', fontSize: { xs: '10px', md: '12px' } }}
-							>
+								sx={{ color: '#9F9B9B', fontSize: { xs: '10px', md: '12px' } }}>
 								Email/Number or Username
 							</Typography>
 
-							<FormikTextField name='email' label='Email' {...formik} />
+							<FormikTextField name='username' label='username' {...formik} />
 							<Typography
 								variant='caption'
-								sx={{ textAlign: 'left', fontSize: { xs: '10px', md: '12px' }, color: '#9F9B9B' }}
-							>
+								sx={{ textAlign: 'left', fontSize: { xs: '10px', md: '12px' }, color: '#9F9B9B' }}>
 								Password
 							</Typography>
 

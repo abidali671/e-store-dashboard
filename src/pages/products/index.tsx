@@ -1,8 +1,8 @@
 import { Breadcrumbs, Container } from '@components';
 import ProductCard from '@components/productCard';
+import { mainProduct } from '@components/productCard/productCard.style';
 import SearchBar from '@components/searchBar';
 import { Box, Stack, Typography, Button } from '@mui/material';
-
 
 const Products = () => {
 	return (
@@ -24,7 +24,11 @@ const Products = () => {
 							</Button>
 						</Stack>
 					</Stack>
-					<ProductCard />
+					<Box sx={mainProduct}>
+						{/* {response?.data.products.map((item, ind) => (
+							<ProductCard title={item.title} price={item.price} image={item.images[0]} key={ind} />
+						))} */}
+					</Box>
 				</Box>
 			</Box>
 		</Container>

@@ -24,16 +24,17 @@ const components: Components = {
 			},
 		],
 	},
-	MuiTableCell: {
-		styleOverrides: {
-			root: { textAlign: 'center', p: '0px', border: '0px', paddingTop: '0', paddingBottom: '0' }
-		}
-	},
 	MuiTableRow: {
 		styleOverrides: {
-			root: { height: '60px', borderBottom: '1px solid', borderColor: palette.gray[100] }
+			root: { height: '60px', border: '1px solid', borderColor: palette.gray[100] }
 		}
 	},
+	MuiTableCell: {
+		styleOverrides: {
+			root: { textAlign: 'center', p: '0px', padding: '0', }
+		}
+	},
+
 	MuiTableHead: {
 		styleOverrides: {
 			root: {

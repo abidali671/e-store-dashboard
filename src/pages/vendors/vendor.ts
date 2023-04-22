@@ -1,5 +1,4 @@
 import Face from '@assests/imgs/Face.png';
-import { MoreOption } from '@assests/icons';
 
 export const VendorData = [
 	{

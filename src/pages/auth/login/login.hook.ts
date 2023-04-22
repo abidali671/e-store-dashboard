@@ -1,21 +1,30 @@
 import { useFormik } from 'formik';
-import validationSchema from './login.schema';
 import { FormValues } from './login.types';
 import { useDispatch } from 'react-redux';
 import { login } from '../../../features/auth/auth.slice';
 import { useNavigate } from 'react-router-dom';
+import API from 'src/axios';
 const useLogin = () => {
 	const navigate = useNavigate()
 	const dispatch = useDispatch()
-	const handleSubmit = (values: FormValues) => {
-		dispatch(login(JSON.stringify(values.email)))
-		navigate('/dashboard')
+
+	const handleSubmit = async (values: { username: string, password: string }) => {
+		// dispatch(login(JSON.stringify(values.email)))
+		// navigate('/dashboard')
+		console.log(values, '===values');
+		try {
+			await API.post('/api/auth/login', {
+				username: values.username,
+				password: values.password,
+			})
+		} catch (error) {
+			console.log(error.response);
+		}
 	};
 
 	const formik = useFormik({
-		validationSchema,
 		initialValues: {
-			email: '',
+			username: '',
 			password: '',
 		},
 		onSubmit: handleSubmit
