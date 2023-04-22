@@ -13,7 +13,6 @@ const App: React.FC = () => {
 		<Routes>
 			<Route
 				path='/login'
-
 				element={
 					<ProtectedRoute>
 						<Login />

@@ -85,7 +85,9 @@ export const VendorTable: React.FC<{ onSearch: string }> = ({ onSearch }) => {
 	const [data, setData] = useState(VendorData);
 
 	React.useEffect(() => {
-		const filtered = VendorData.filter((item) => item.name.toLowerCase().includes(onSearch.toLowerCase()));
+		const filtered = VendorData.filter((item) =>
+			item.name.toLowerCase().includes(onSearch.toLowerCase()),
+		);
 		setData(filtered);
 	}, [onSearch]);
 

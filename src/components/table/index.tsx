@@ -50,7 +50,7 @@ const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
 					{dataShow.map((item, index) => (
 						<TableRow key={index} sx={{ border: index === dataShow.length - 2 ? '0px' : '1px solid red' }}>
 							{columns.map((column, index) => (
-								<TableCell key={index} >
+								<TableCell key={index}>
 									{column?.render ? column?.render(item[column.name]) : item[column.name]}
 								</TableCell>
 							))}

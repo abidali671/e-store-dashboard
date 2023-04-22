@@ -1,6 +1,5 @@
 import Face from '@assests/imgs/Face.png';
 
-
 export const VendorData = [
 	{
 		id: '1',
