@@ -1,11 +1,10 @@
 import Container from '@components/container';
-import { Box, Button, Typography } from '@mui/material';
-import Breadcrumbs from '../../components/breadcrumbs/index';
+import { Box, Typography } from '@mui/material';
+import { Breadcrumbs, SearchBar } from '@components';
 import { VendorTable, VendorGrid } from './boxLayout';
 import { useState } from 'react';
 import GridViewIcon from '@mui/icons-material/GridView';
 import TableViewIcon from '@mui/icons-material/TableView';
-import SearchBar from '@components/searchBar';
 
 const Vendors = () => {
 	const [view, setView] = useState('grid');

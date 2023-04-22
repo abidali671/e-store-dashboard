@@ -1,10 +1,8 @@
 import { Card, Container, Table, Breadcrumbs } from '@components';
-
 import {
 	Typography,
 	Grid,
 	Box,
-	OutlinedInput,
 	FormControl,
 	TextField,
 	Chip,
@@ -93,7 +91,6 @@ const Categories = () => {
 											objectPosition: 'center',
 										}}
 										src={val}
-
 									/>
 								),
 							},

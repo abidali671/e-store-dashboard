@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { Chip, Stack, Box, Typography, IconButton } from '@mui/material';
+import { Chip, Stack, Box, Typography, IconButton, SelectChangeEvent } from '@mui/material';
 import { Phone, Message, MoreOption } from '@assests/icons';
-import { Table } from '@components/index';
+import { Table, Pagination } from '@components';
 import { VendorData } from './vendor';
 import * as styles from './boxLayout.styles';
-import Pagination from '@components/box/pagination';
 
 export const VendorGrid = () => {
 	const [entries, setEntries] = useState(5);
@@ -18,7 +17,7 @@ export const VendorGrid = () => {
 		return VendorData.slice((currentPage - 1) * entries, (currentPage - 1) * entries + entries);
 	}, [entries, currentPage]);
 
-	const handleEntries = (e: any) => {
+	const handleEntries = (e: SelectChangeEvent<string>) => {
 		setEntries(+e.target.value);
 	};
 

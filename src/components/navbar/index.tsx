@@ -1,13 +1,9 @@
-import { Box, Button, Menu, MenuItem } from '@mui/material';
+import { Box } from '@mui/material';
 import * as styles from './navbar.styles';
 import Logo from '@assests/logos.png';
 import { Ring, Hameburger } from '@assests/icons';
 import avatar from '@assests/Rectangle16.png';
 import SearchBar from '@components/searchBar';
-import { useDispatch, useSelector } from 'react-redux';
-import { logout } from 'src/features/auth/auth.slice';
-import { useState } from 'react';
-import { RootState } from 'src/store';
 
 const Navbar = ({
 	isSearchBar = true,
@@ -16,13 +12,6 @@ const Navbar = ({
 	isSearchBar?: boolean;
 	toggleSidebar?: () => void;
 }) => {
-	const [anchorEl, setAnchorEl] = useState(null);
-	const userEmail = useSelector((state: RootState) => state.auth.email);
-
-	const dispatch = useDispatch();
-	const handleLogout = () => {
-		dispatch(logout());
-	};
 	return (
 		<Box sx={styles.root}>
 			<Box
@@ -48,13 +37,10 @@ const Navbar = ({
 						sx={{
 							height: 25,
 						}}
-
 						alt='avatar'
 						src={avatar}
 					/>
-
 				</Box>
-
 			</Box>
 		</Box>
 	);

@@ -1,4 +1,3 @@
-import { MoreOption } from '@assests/icons';
 export const SALES_REPORT = [
 	{
 		name: 'Net Profit',
