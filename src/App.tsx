@@ -15,7 +15,7 @@ const App: React.FC = () => {
 		<Routes>
 			<Route path={pathnames.REGISTER} element={<Register />} />
 			<Route
-				path='/login'
+				path={pathnames.LOGIN}
 				element={
 					<ProtectedRoute>
 						<Login />
@@ -23,7 +23,7 @@ const App: React.FC = () => {
 				}
 			/>
 			<Route
-				path='/dashboard'
+				path={pathnames.DASHBOARD}
 				element={
 					<ProtectedRoute>
 						<Dashboard />
@@ -31,7 +31,7 @@ const App: React.FC = () => {
 				}
 			/>
 			<Route
-				path='/vendors'
+				path={pathnames.VENDORS}
 				element={
 					<ProtectedRoute>
 						<Vendors />
@@ -39,7 +39,7 @@ const App: React.FC = () => {
 				}
 			/>
 			<Route
-				path='/category'
+				path={pathnames.CATEGORY}
 				element={
 					<ProtectedRoute>
 						<Categories />
@@ -47,14 +47,14 @@ const App: React.FC = () => {
 				}
 			/>
 			<Route
-				path='/products'
+				path={pathnames.PRODUCTS}
 				element={
 					<ProtectedRoute>
 						<Products />
 					</ProtectedRoute>
 				}
 			/>
-			<Route path='/' element={<Navigate to='/dashboard' />} />
+			<Route path='/' element={<Navigate to={pathnames.DASHBOARD} />} />
 			<Route path='*' element={<div>page not found</div>} />
 		</Routes>
 	);
@@ -64,13 +64,13 @@ const ProtectedRoute = ({ children }) => {
 	const location = useLocation();
 	const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
-	if (location.pathname === '/login' && !isLoggedIn) return children;
-	if (location.pathname === '/login' && isLoggedIn) {
+	if (location.pathname === pathnames.LOGIN && !isLoggedIn) return children;
+	if (location.pathname === pathnames.LOGIN && isLoggedIn) {
 		alert('Already LoggedIn');
-		return <Navigate to='/dashboard' />;
+		return <Navigate to={pathnames.DASHBOARD} />;
 	}
 
-	return isLoggedIn ? children : <Navigate to='/login' />;
+	return isLoggedIn ? children : <Navigate to={pathnames.LOGIN} />;
 };
 
 export default App;

@@ -1,4 +1,5 @@
 import { useFormik } from 'formik';
+import { useNavigate } from 'react-router-dom';
 import API from 'src/axios';
 
 const InitialSignUpValues = {
@@ -10,9 +11,12 @@ const InitialSignUpValues = {
 };
 
 const useSign = () => {
+	const navigate = useNavigate()
 	const handleSubmit = async (values: typeof InitialSignUpValues) => {
 		try {
 			await API.post('/api/auth/register', values);
+			navigate('/dashboard');
+
 		} catch (error) {
 			formik.setErrors(error.response.data);
 		}
