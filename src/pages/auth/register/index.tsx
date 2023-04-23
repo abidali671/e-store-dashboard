@@ -18,9 +18,9 @@ const Register: types.ComponentT = () => {
 						<Typography variant='h3'>Sign Up</Typography>
 						<Stack
 							sx={{
-								width: { xs: '100%', md: '80%' },
-								gap: 2,
-								'&>*': { margin: '5px 0' },
+								width: '100%',
+								gap: '10px',
+								// '&>*': { margin: '5px 0' },
 							}}
 						>
 							<FormikTextField name='username' label='Username' {...formik} />
