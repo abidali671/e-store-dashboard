@@ -1,23 +1,26 @@
 import { useFormik } from 'formik';
+import { useNavigate } from 'react-router-dom';
 import API from 'src/axios';
 
+const InitialSignUpValues = {
+	username: '',
+	password: '',
+
+};
+
 const useLogin = () => {
-	const handleSubmit = async (values: { username: string; password: string }) => {
+	const navigate = useNavigate()
+	const handleSubmit = async (values: typeof InitialSignUpValues & { non_field_error: string }) => {
 		try {
-			await API.post('/api/auth/login', {
-				username: values.username,
-				password: values.password,
-			});
+			await API.post('/api/auth/login', values);
+			navigate('/dashboard');
 		} catch (error) {
-			console.log(error.response);
+			formik.setErrors(error.response.data);
 		}
 	};
 
 	const formik = useFormik({
-		initialValues: {
-			username: '',
-			password: '',
-		},
+		initialValues: InitialSignUpValues,
 		onSubmit: handleSubmit,
 	});
 

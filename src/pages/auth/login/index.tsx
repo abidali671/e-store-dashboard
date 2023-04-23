@@ -1,4 +1,4 @@
-import { Typography, Box } from '@mui/material';
+import { Typography, Box, Stack, FormHelperText } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import { AuthContainer, FormikTextField, FormWrapper } from '@components';
 import { Link } from 'react-router-dom';
@@ -16,25 +16,16 @@ const Login: types.ComponentT = () => {
 				<Box component='form' onSubmit={formik.handleSubmit}>
 					<FormWrapper>
 						<Typography variant='h3'>Sign in</Typography>
-						<Box sx={{ textAlign: 'left', width: { xs: '100%', md: '80%' } }}>
-							<Typography
-								variant='caption'
-								sx={{ color: '#9F9B9B', fontSize: { xs: '10px', md: '12px' } }}>
-								Email/Number or Username
-							</Typography>
-
+						<Stack sx={{ width: '100%', gap: '10px' }}>
 							<FormikTextField name='username' label='username' {...formik} />
-							<Typography
-								variant='caption'
-								sx={{ textAlign: 'left', fontSize: { xs: '10px', md: '12px' }, color: '#9F9B9B' }}>
-								Password
-							</Typography>
-
 							<FormikTextField name='password' type='password' label='Password' {...formik} />
-							<Typography variant='caption' sx={{ color: '#9F9B9B' }}>
+							<Typography variant='caption' sx={{ color: '#9F9B9B', textAlign: 'left' }}>
 								Forget Password
 							</Typography>
-						</Box>
+						</Stack>
+						{formik.errors['non_field_error'] && <FormHelperText sx={{ color: '#9F9B9B', textAlign: 'left' }}>
+							{formik.errors['non_field_error']}
+						</FormHelperText>}
 						<LoadingButton
 							loading={formik.isSubmitting}
 							variant='contained'

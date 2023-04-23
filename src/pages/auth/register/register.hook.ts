@@ -15,7 +15,7 @@ const useSign = () => {
 	const handleSubmit = async (values: typeof InitialSignUpValues) => {
 		try {
 			await API.post('/api/auth/register', values);
-			navigate('/dashboard');
+			navigate('/login');
 
 		} catch (error) {
 			formik.setErrors(error.response.data);
