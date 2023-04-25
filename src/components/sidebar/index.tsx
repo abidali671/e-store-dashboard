@@ -4,6 +4,8 @@ import { Box, Divider, ListItem, ListItemButton, ListItemText } from '@mui/mater
 import { SideItemT, sideListItems } from '../../data/app.data';
 import arrowleft2 from '@assests/arrowleft2.png';
 import * as styles from './sidebar.styles';
+import { useDispatch } from 'src/hooks';
+import { logout } from 'src/features/auth/auth.slice';
 
 const Sidebar = ({
 	toggleSidebar,
@@ -12,6 +14,8 @@ const Sidebar = ({
 	toggleSidebar: () => void;
 	isCollapsed: boolean;
 }) => {
+	const dispatch = useDispatch()
+
 	const navigate = useNavigate();
 	const location = useLocation();
 
@@ -42,7 +46,7 @@ const Sidebar = ({
 							{item?.divider ? (
 								<Divider />
 							) : (
-								<ListItem onClick={() => item?.path && handleChangePage(item.path)} disablePadding>
+								<ListItem onClick={() => { item?.path && handleChangePage(item.path); item.label === 'LOG OUT' ? dispatch(logout()) : null }} disablePadding>
 									<Box sx={location.pathname === item.path ? styles.select : null} />
 
 									<ListItemButton sx={{ height: '54px' }}>
@@ -59,6 +63,7 @@ const Sidebar = ({
 													display: 'flex',
 													paddingLeft: '8px',
 												}}
+
 											>
 												{item.label}
 											</ListItemText>
