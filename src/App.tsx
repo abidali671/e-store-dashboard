@@ -9,6 +9,7 @@ import Products from './pages/products';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useSelector } from './hooks';
 import { pathnames } from './types';
+import AddProduct from './pages/addProduct';
 
 const App: React.FC = () => {
 	return (
@@ -54,6 +55,14 @@ const App: React.FC = () => {
 					</ProtectedRoute>
 				}
 			/>
+			<Route
+				path={pathnames.ADD_PRODUCT}
+				element={
+					<ProtectedRoute>
+						<AddProduct />
+					</ProtectedRoute>
+				}
+			/>
 			<Route path='/' element={<Navigate to={pathnames.DASHBOARD} />} />
 			<Route path='*' element={<div>page not found</div>} />
 		</Routes>
@@ -62,11 +71,11 @@ const App: React.FC = () => {
 
 const ProtectedRoute = ({ children }) => {
 	const location = useLocation();
-	const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+	const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
+	console.log(isLoggedIn, '==login');
 
 	if (location.pathname === pathnames.LOGIN && !isLoggedIn) return children;
 	if (location.pathname === pathnames.LOGIN && isLoggedIn) {
-		alert('Already LoggedIn');
 		return <Navigate to={pathnames.DASHBOARD} />;
 	}
 

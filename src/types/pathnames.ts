@@ -5,6 +5,7 @@ enum pathnames {
 	VENDORS = '/vendors',
 	CATEGORY = '/category',
 	PRODUCTS = '/products',
+	ADD_PRODUCT = '/add-product',
 }
 
 export default pathnames;

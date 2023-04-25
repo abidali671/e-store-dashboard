@@ -1,6 +1,8 @@
 import { useFormik } from 'formik';
-import { useNavigate } from 'react-router-dom';
 import API from 'src/axios';
+import { login } from 'src/features/auth/auth.slice';
+import { useDispatch } from 'src/hooks';
+
 
 const InitialSignUpValues = {
 	username: '',
@@ -9,11 +11,12 @@ const InitialSignUpValues = {
 };
 
 const useLogin = () => {
-	const navigate = useNavigate()
+	const dispatch = useDispatch()
 	const handleSubmit = async (values: typeof InitialSignUpValues & { non_field_error: string }) => {
 		try {
 			await API.post('/api/auth/login', values);
-			navigate('/dashboard');
+			dispatch(login(values.username))
+
 		} catch (error) {
 			formik.setErrors(error.response.data);
 		}

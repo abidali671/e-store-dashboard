@@ -33,7 +33,7 @@ export const sideListItems: SideItemT[] = [
 	{ label: 'REVIEWS', icon: Review },
 	{ label: 'BRANDS', icon: Brand },
 	{ divider: true },
-	{ label: 'LOG OUT', icon: logout, path: '/login' },
+	{ label: 'LOG OUT', icon: logout },
 	{ label: 'OTHER PAGES', icon: Copy },
 ];
 
