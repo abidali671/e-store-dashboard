@@ -15,8 +15,7 @@ const Register: types.ComponentT = () => {
 				<Box component='form' onSubmit={formik.handleSubmit}>
 					<FormWrapper>
 						<Typography variant='h3'>Sign Up</Typography>
-						<Stack
-							sx={{ width: '100%', gap: '10px', }}>
+						<Stack sx={{ width: '100%', gap: '10px' }}>
 							<FormikTextField name='username' label='Username' {...formik} />
 							<FormikTextField name='first_name' label='First Name' {...formik} />
 							<FormikTextField name='last_name' label='Last Name' {...formik} />
@@ -24,9 +23,12 @@ const Register: types.ComponentT = () => {
 							<FormikTextField name='password' type='password' label='Password' {...formik} />
 						</Stack>
 
-						<Typography variant='caption' sx={{ display: 'flex', alignItems: 'center' }}>
-							<Checkbox defaultChecked size='small' /> I Accept Terms & Coditions
-						</Typography>
+						<Stack sx={{ alignItems: 'center', flexDirection: 'row', width: '100%' }}>
+							<Checkbox defaultChecked size='small' />
+							<Typography variant='caption' color='initial'>
+								I Accept Terms & Coditions
+							</Typography>
+						</Stack>
 
 						<LoadingButton
 							loading={formik.isSubmitting}
