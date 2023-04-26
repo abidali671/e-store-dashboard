@@ -3,14 +3,19 @@ import { Breadcrumbs, Container, Pagination } from '@components';
 import ProductCard from '@components/productCard';
 import { mainProduct } from '@components/productCard/productCard.style';
 import SearchBar from '@components/searchBar';
-import { Box, Stack, Typography, Button } from '@mui/material';
+import { Box, Stack, Typography, Button, Select, MenuItem } from '@mui/material';
 import { categoryData } from 'src/data/category';
 import { useNavigate } from 'react-router-dom';
 
 const Products = () => {
+	const [age, setAge] = React.useState('All category');
+
+	const handleChange = (event) => {
+		setAge(event.target.value);
+	};
 	const [entries, setEntries] = useState(5);
 	const [currentPage, setCurrentPage] = useState(1);
-	const navigate = useNavigate()
+	const navigate = useNavigate();
 	const totalPages = React.useMemo(() => {
 		return Math.ceil(categoryData.length / entries);
 	}, [entries]);
@@ -39,18 +44,17 @@ const Products = () => {
 					>
 						<SearchBar placeholderText='search with product name' />
 						<Stack flexDirection='row' gap={2}>
-							<Button
-								variant='outlined'
-								sx={{
-									color: 'gray.400',
-									borderColor: 'gray.100',
-									borderRadius: '10px',
-									height: '45px',
-								}}
-
+							<Select
+								labelId='demo-simple-select-label'
+								id='demo-simple-select'
+								value={age}
+								label='categories'
+								onChange={handleChange}
 							>
-								All Category
-							</Button>
+								<MenuItem value='All category'>All category</MenuItem>
+								<MenuItem value='Shirt'>Shirt</MenuItem>
+								<MenuItem value='Bag'>Bag</MenuItem>
+							</Select>
 							<Button
 								variant='outlined'
 								sx={{
@@ -66,14 +70,10 @@ const Products = () => {
 						</Stack>
 					</Stack>
 					<Box sx={mainProduct}>
-						{dataShow.map(((category, ind) => (
+						{dataShow.map((category, ind) => (
 							<ProductCard title={category.name} price='200$' key={ind} />
-						)))
-
-						}
+						))}
 					</Box>
-
-
 				</Box>
 				<Pagination
 					page={currentPage}
