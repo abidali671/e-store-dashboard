@@ -1,10 +1,8 @@
 import { Components } from '@mui/material';
-import palette from '../palette/index'
-
+import palette from '../palette/index';
 
 const components: Components = {
 	MuiOutlinedInput: {
-
 		styleOverrides: {
 			root: {
 				borderRadius: '8px',
@@ -19,20 +17,26 @@ const components: Components = {
 				style: {
 					height: '36px',
 					fontSize: '14px',
-					maxHeight: '36px'
+					maxHeight: '36px',
+				},
+			},
+			{
+				props: { multiline: true },
+				style: {
+					height: 'auto',
 				},
 			},
 		],
 	},
 	MuiTableRow: {
 		styleOverrides: {
-			root: { height: '60px', border: '1px solid', borderColor: palette.gray[100] }
-		}
+			root: { height: '60px', border: '1px solid', borderColor: palette.gray[100] },
+		},
 	},
 	MuiTableCell: {
 		styleOverrides: {
-			root: { textAlign: 'center', p: '0px', padding: '0', }
-		}
+			root: { textAlign: 'center', p: '0px', padding: '0' },
+		},
 	},
 
 	MuiTableHead: {
@@ -44,14 +48,11 @@ const components: Components = {
 					textAlign: 'center',
 					fontWeight: 'bold',
 					whiteSpace: 'nowrap',
-					height: '60px'
-				}
-			}
-		}
-	}
+					height: '60px',
+				},
+			},
+		},
+	},
 };
-
-
-
 
 export default components;

@@ -1,7 +1,7 @@
 import { Typography, Box, Stack, FormHelperText } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import { AuthContainer, FormikTextField, FormWrapper } from '@components';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { pathnames } from 'src/types';
 import useLogin from './login.hook';
 import * as types from './login.types';
@@ -23,9 +23,11 @@ const Login: types.ComponentT = () => {
 								Forget Password
 							</Typography>
 						</Stack>
-						{formik.errors['non_field_error'] && <FormHelperText sx={{ color: '#9F9B9B', textAlign: 'left' }}>
-							{formik.errors['non_field_error']}
-						</FormHelperText>}
+						{formik.errors['non_field_error'] && (
+							<FormHelperText sx={{ color: '#9F9B9B', textAlign: 'left' }}>
+								{formik.errors['non_field_error']}
+							</FormHelperText>
+						)}
 						<LoadingButton
 							loading={formik.isSubmitting}
 							variant='contained'
