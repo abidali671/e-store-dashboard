@@ -71,15 +71,21 @@ const App: React.FC = () => {
 
 const ProtectedRoute = ({ children }) => {
 	const location = useLocation();
-	const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
-	console.log(isLoggedIn, '==login');
+	const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+
+	const searchParams = new URLSearchParams(location.search);
+	const nextRoute = searchParams.get('next');
 
 	if (location.pathname === pathnames.LOGIN && !isLoggedIn) return children;
 	if (location.pathname === pathnames.LOGIN && isLoggedIn) {
-		return <Navigate to={pathnames.DASHBOARD} />;
+		return <Navigate to={nextRoute || pathnames.DASHBOARD} />;
 	}
 
-	return isLoggedIn ? children : <Navigate to={pathnames.LOGIN} />;
+	return isLoggedIn ? (
+		children
+	) : (
+		<Navigate to={{ pathname: pathnames.LOGIN, search: 'next=' + location.pathname }} />
+	);
 };
 
 export default App;
