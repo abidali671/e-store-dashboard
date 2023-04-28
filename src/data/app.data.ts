@@ -14,7 +14,7 @@ import {
 	Package,
 } from '@assests/icons';
 import React from 'react';
-import { JSONValue } from 'src/types';
+import { JSONValue } from '@types';
 
 export interface SideItemT {
 	label?: string;

@@ -8,7 +8,7 @@ import Products from './pages/products';
 
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useSelector } from './hooks';
-import { pathnames } from './types';
+import { pathnames } from '@types';
 import AddProduct from './pages/addProduct';
 
 const App: React.FC = () => {

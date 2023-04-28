@@ -3,8 +3,12 @@ import Container from '@components/container';
 import FormikTextField from '@components/formik_text_field';
 import { Box, Stack, Typography, Grid, TextField, Checkbox } from '@mui/material';
 import React from 'react';
+import { useSelector } from 'react-redux';
+
 import * as styles from './addproduct.styles';
 const AddProduct = () => {
+	const dropDown = useSelector((state) => state['dropdowns'].sizes);
+
 	return (
 		<Container>
 			<Typography variant='h5' fontWeight='bold'>
@@ -61,7 +65,7 @@ const AddProduct = () => {
 									SIZE
 								</Typography>
 								<Stack flexDirection='row'>
-									{['S', 'L', 'XL', 'XXL'].map((val, ind) => (
+									{dropDown.map((val, ind) => (
 										<Typography variant='h6' color='gray.300' key={ind}>
 											<Checkbox defaultChecked={false} size='medium' />
 											{val}

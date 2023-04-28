@@ -1,90 +1,34 @@
 import React, { useState } from 'react';
 import { Breadcrumbs, Container, Pagination } from '@components';
-import ProductCard from '@components/productCard';
-import { mainProduct } from '@components/productCard/productCard.style';
 import SearchBar from '@components/searchBar';
-import { Box, Stack, Typography, Button, Select, MenuItem } from '@mui/material';
-import { categoryData } from 'src/data/category';
-import { useNavigate } from 'react-router-dom';
+import { Box, Typography } from '@mui/material';
+
+import GridViewIcon from '@mui/icons-material/GridView';
+import TableViewIcon from '@mui/icons-material/TableView';
+import { ProductTable, ProductGrid } from './boxLayout';
 
 const Products = () => {
-	const [age, setAge] = React.useState('All category');
+	const [view, setView] = useState('grid');
+	const [onSearch, setOnSearch] = useState('');
+	function toggleView() {
+		setView(view === 'grid' ? 'table' : 'grid');
+	}
 
-	const handleChange = (event) => {
-		setAge(event.target.value);
-	};
-	const [entries, setEntries] = useState(5);
-	const [currentPage, setCurrentPage] = useState(1);
-	const navigate = useNavigate();
-	const totalPages = React.useMemo(() => {
-		return Math.ceil(categoryData.length / entries);
-	}, [entries]);
-
-	const dataShow = React.useMemo(() => {
-		return categoryData.slice((currentPage - 1) * entries, (currentPage - 1) * entries + entries);
-	}, [entries, currentPage]);
-
-	const handleEntries = (e: any) => {
-		setEntries(+e.target.value);
-	};
 	return (
 		<Container>
 			<Typography variant='h5' fontWeight='bold'>
 				Products
 			</Typography>
-			<Breadcrumbs />
-			<Box sx={{ border: '1px solid', borderColor: 'gray.100', borderRadius: '20px' }}>
-				<Box sx={{ py: '40px', px: '40px' }}>
-					<Stack
-						flexWrap='wrap'
-						gap={3}
-						width='100%'
-						flexDirection='row'
-						justifyContent='space-between'
-					>
-						<SearchBar placeholderText='search with product name' />
-						<Stack flexDirection='row' gap={2}>
-							<Select
-								labelId='demo-simple-select-label'
-								id='demo-simple-select'
-								value={age}
-								label='categories'
-								onChange={handleChange}
-							>
-								<MenuItem value='All category'>All category</MenuItem>
-								<MenuItem value='Shirt'>Shirt</MenuItem>
-								<MenuItem value='Bag'>Bag</MenuItem>
-							</Select>
-							<Button
-								variant='outlined'
-								sx={{
-									color: 'gray.400',
-									borderColor: 'gray.100',
-									borderRadius: '10px',
-									height: '45px',
-								}}
-								onClick={() => navigate('/add-product')}
-							>
-								ORDER BY
-							</Button>
-						</Stack>
-					</Stack>
-					<Box sx={mainProduct}>
-						{dataShow.map((category, ind) => (
-							<ProductCard title={category.name} price='200$' key={ind} />
-						))}
-					</Box>
-				</Box>
-				<Pagination
-					page={currentPage}
-					onChange={setCurrentPage}
-					count={totalPages}
-					dataShow={dataShow}
-					data={categoryData}
-					entries={entries}
-					handleEntries={handleEntries}
-				/>
+			<Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+				<Breadcrumbs />
+				{view === 'table' && <SearchBar placeholderText='Filter table' setOnSearch={setOnSearch} />}
+				{view === 'grid' ? (
+					<GridViewIcon sx={{ cursor: 'pointer', color: 'blue.500' }} onClick={toggleView} />
+				) : (
+					<TableViewIcon sx={{ cursor: 'pointer', color: 'blue.500' }} onClick={toggleView} />
+				)}
 			</Box>
+			{view === 'grid' ? <ProductGrid /> : <ProductTable onSearch={onSearch} />}
 		</Container>
 	);
 };

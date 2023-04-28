@@ -10,7 +10,7 @@ import {
 	SelectChangeEvent,
 } from '@mui/material';
 import { tableContainer } from './table.styles';
-import { JSONValue } from 'src/types';
+import { JSONArray, JSONValue } from '@types';
 
 interface TableProps {
 	columns: {
@@ -18,7 +18,7 @@ interface TableProps {
 		label: string;
 		render?: (column_value: JSONValue) => JSX.Element;
 	}[];
-	data: JSONValue[];
+	data: JSONArray;
 }
 
 const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
@@ -48,7 +48,10 @@ const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
 				</TableHead>
 				<TableBody>
 					{dataShow.map((item, index) => (
-						<TableRow key={index} sx={{ border: index === dataShow.length - 2 ? '0px' : '1px solid red' }}>
+						<TableRow
+							key={index}
+							sx={{ border: index === dataShow.length - 2 ? '0px' : '1px solid red' }}
+						>
 							{columns.map((column, index) => (
 								<TableCell key={index}>
 									{column?.render ? column?.render(item[column.name]) : item[column.name]}

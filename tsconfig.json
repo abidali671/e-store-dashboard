@@ -16,12 +16,14 @@
 		"noEmit": true,
 		"jsx": "react-jsx",
 		"baseUrl": ".",
-		
+
 		"paths": {
 			"@assests/*": ["./src/assests/*"],
 			"@assests": ["./src/assests"],
 			"@components/*": ["./src/components/*"],
-			"@components": ["./src/components"]
+			"@components": ["./src/components"],
+			"@types/*": ["./src/types/*"],
+			"@types": ["./src/types"]
 		}
 	},
 	"include": ["src", "index.d.ts"]
