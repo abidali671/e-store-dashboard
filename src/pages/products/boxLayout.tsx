@@ -3,29 +3,39 @@ import { Pagination, ProductCard, SearchBar, Table } from '@components';
 import { mainProduct } from '@components/productCard/productCard.style';
 import { Button, IconButton, MenuItem, Select } from '@mui/material';
 import { Box, Stack } from '@mui/system';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, useId } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { productData } from 'src/data/product';
 
+
 export const ProductGrid = () => {
-	const [age, setAge] = useState('All category');
+	const [selectMenu, setSelectMenu] = useState('All category');
+	const [filteredData, setFilteredData] = useState(productData);
+
 	const handleChange = (event: any) => {
-		setAge(event.target.value);
+		const selectedCategory = event.target.value;
+		setSelectMenu(event.target.value)
+		selectedCategory === 'All category' ? setFilteredData(productData) :
+			setFilteredData(data => data.filter(item => item.name === selectedCategory))
 	};
+
 	const [entries, setEntries] = useState(5);
 	const [currentPage, setCurrentPage] = useState(1);
 	const navigate = useNavigate();
+
 	const totalPages = useMemo(() => {
-		return Math.ceil(productData.length / entries);
+		return Math.ceil(filteredData.length / entries);
 	}, [entries]);
 
 	const dataShow = useMemo(() => {
-		return productData.slice((currentPage - 1) * entries, (currentPage - 1) * entries + entries);
-	}, [entries, currentPage]);
+		return filteredData.slice((currentPage - 1) * entries, (currentPage - 1) * entries + entries);
+	}, [entries, currentPage, filteredData]);
 
 	const handleEntries = (e: any) => {
 		setEntries(+e.target.value);
 	};
+
+
 	return (
 		<Box sx={{ border: '1px solid', borderColor: 'gray.100', borderRadius: '20px' }}>
 			<Box sx={{ py: '40px', px: '40px' }}>
@@ -41,8 +51,9 @@ export const ProductGrid = () => {
 						<Select
 							labelId='demo-simple-select-label'
 							id='demo-simple-select'
-							value={age}
+							value={selectMenu}
 							label='categories'
+							defaultValue='All category'
 							onChange={handleChange}
 						>
 							<MenuItem value='All category'>All category</MenuItem>
@@ -64,9 +75,9 @@ export const ProductGrid = () => {
 					</Stack>
 				</Stack>
 				<Box sx={mainProduct}>
-					{dataShow.map((category, ind) => (
-						<ProductCard title={category['name']} price='200$' key={ind} />
-					))}
+					{dataShow.length > 0 ? dataShow.map((category, ind) => (
+						<ProductCard title={category['name']} price={category.price} key={ind} />
+					)) : 'No products found'}
 				</Box>
 			</Box>
 			<Pagination
