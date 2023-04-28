@@ -5,11 +5,11 @@ import Dashboard from './pages/dashboard';
 import Vendors from './pages/vendors';
 import Categories from './pages/categories';
 import Products from './pages/products';
-
+import AddProduct from './pages/addProduct';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useSelector } from './hooks';
 import { pathnames } from '@types';
-import AddProduct from './pages/addProduct';
+import { ProductOverview } from './components';
 
 const App: React.FC = () => {
 	return (
@@ -63,6 +63,12 @@ const App: React.FC = () => {
 					</ProtectedRoute>
 				}
 			/>
+			<Route path="/product-detail/:id" element={
+				<ProtectedRoute>
+					<ProductOverview />
+				</ProtectedRoute>
+			} />
+
 			<Route path='/' element={<Navigate to={pathnames.DASHBOARD} />} />
 			<Route path='*' element={<div>page not found</div>} />
 		</Routes>

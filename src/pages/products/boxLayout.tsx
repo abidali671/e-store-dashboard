@@ -76,7 +76,7 @@ export const ProductGrid = () => {
 				</Stack>
 				<Box sx={mainProduct}>
 					{dataShow.length > 0 ? dataShow.map((category, ind) => (
-						<ProductCard title={category['name']} price={category.price} key={ind} />
+						<ProductCard title={category['name']} id={category.id} price={category.price} key={ind} />
 					)) : 'No products found'}
 				</Box>
 			</Box>
@@ -98,7 +98,7 @@ export const ProductTable: React.FC<{ onSearch: string }> = ({ onSearch }) => {
 
 	useEffect(() => {
 		const filtered = productData.filter((item) =>
-			item['name'].toLowerCase().includes(onSearch.toLowerCase()),
+			item['name'].toLowerCase().includes(onSearch.toLowerCase()) || (item['price'].toLowerCase().includes(onSearch.toLowerCase())),
 		);
 		setData(filtered);
 	}, [onSearch]);

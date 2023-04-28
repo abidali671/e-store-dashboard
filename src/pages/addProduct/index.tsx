@@ -1,8 +1,5 @@
-import Shirt from '@assests/bag.png';
 import Container from '@components/container';
-import FormikTextField from '@components/formik_text_field';
 import { Box, Stack, Typography, TextField, Checkbox } from '@mui/material';
-import React from 'react';
 import { useSelector } from 'react-redux';
 
 import * as styles from './addproduct.styles';
