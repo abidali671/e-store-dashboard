@@ -50,7 +50,7 @@ const AddProduct = () => {
                                 <Typography variant='body1' fontSize={20} color='gray.300'>
                                     COLORS
                                 </Typography>
-                                <Stack flexDirection='row' gap='8px'>
+                                <Stack flexDirection='row' gap='8px' pt={1}>
                                     <Box sx={styles.colorBox} />
                                     <Box sx={styles.colorBox} />
                                     <Box sx={styles.colorBox} />
@@ -61,10 +61,10 @@ const AddProduct = () => {
                                 <Typography variant='body1' fontSize={20} color='gray.300'>
                                     SIZE
                                 </Typography>
-                                <Stack flexDirection='row'>
+                                <Stack flexDirection='row' pt={.5}>
                                     {dropDown.map((val, ind) => (
-                                        <Typography variant='h6' color='gray.300' key={ind}>
-                                            <Checkbox defaultChecked={false} size='medium' />
+                                        <Typography variant='body1' color='gray.300' key={ind}>
+                                            <Checkbox defaultChecked={false} size='small' sx={{ padding: '0px 5px' }} />
                                             {val}
                                         </Typography>
                                     ))}
@@ -84,9 +84,9 @@ const AddProduct = () => {
                         />
                         <TextField required id='outlined-required' label='PRODUCT TAGS' />
                     </Stack>
-                </Box>
-            </Box>
-        </Container>
+                </Box >
+            </Box >
+        </Container >
     );
 };
 
