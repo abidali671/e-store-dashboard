@@ -77,93 +77,46 @@ const AddProduct: React.FC = () => {
 							)}
 						</Box>
 
-						<Box sx={styles.mainSmallBoxes} {...getRootProps({ className: 'dropzone' })}>
-							{Array(5)
-								.fill('')
-								.map((_, index) => uploadMultipleImages[index + 1] || '')
-								.map((image, index) => (
-									<Box key={index} sx={styles.smallBoxes}>
-										{image ? (
-											<Box
-												component='img'
-												src={image}
-												sx={{ width: '100%', height: '100%', objectFit: 'contain' }}
-											/>
-										) : (
-											<>
-												<input {...getInputProps()} type='file' />
-												<Typography
-													variant='body2'
-													fontWeight='bold'
-													textAlign='center'
-													color='gray.500'
-												>
-													750 x 850
-												</Typography>
-											</>
-										)}
-									</Box>
-								))}
+						<Box sx={styles.mainSmallBoxes}>
+							{Array(5).fill(
+								<Box sx={styles.smallBoxes}>
+									<Typography variant='body2' fontWeight='bold' textAlign='center' color='gray.500'>
+										750 x 850
+									</Typography>
+								</Box>,
+							)}
 						</Box>
 					</Box>
-
-					<Stack
-						gridColumn={{ xs: 'span 12', md: 'span 8' }}
-						sx={styles.rightSide}
-						component='form'
-						onSubmit={(e) => handleSubmit(e)}
-					>
-						<TextField
-							required
-							id='outlined-required'
-							label='PRODUCT NAME'
-							sx={{ width: '50%' }}
-							onChange={handleChange}
-							name='productname'
-							value={values.productname}
-						/>
+					<Stack gridColumn={{ md: 'span 8', xs: 'span 12' }} sx={{ width: '100%', gap: '20px' }}>
+						<TextField required id='outlined-required' label='PRODUCT NAME' sx={{ width: '50%' }} />
 						<TextField
 							required
 							id='outlined-required'
 							label='SELECT CATEGORIES'
 							sx={{ width: '50%' }}
-							name='selectcategory'
-							onChange={handleChange}
-							value={values.selectcategory}
 						/>
-						<TextField
-							required
-							id='outlined-required'
-							label='SLUG'
-							onChange={handleChange}
-							value={values.slug}
-							name='slug'
-						/>
-						<TextField
-							required
-							id='outlined'
-							label='SORT DESCRIPTION'
-							value={values.sortdescription}
-							onChange={handleChange}
-							name='sortdescription'
-						/>
+						<TextField required id='outlined-required' label='SLUG' />
+						<TextField required id='outlined' label='SORT DESCRIPTION' />
 						<Stack justifyContent='space-between' flexDirection='row' alignItems='center'>
 							<Box>
 								<Typography variant='body1' fontSize={20} color='gray.300'>
 									COLORS
 								</Typography>
-								<Stack flexDirection='row' gap='8px' pt={1}>
-									{Array(4).fill(<Box sx={styles.colorBox} />)}
+								<Stack flexDirection='row' gap='8px'>
+									<Box sx={styles.colorBox} />
+									<Box sx={styles.colorBox} />
+									<Box sx={styles.colorBox} />
+									<Box sx={styles.colorBox} />
 								</Stack>
 							</Box>
 							<Box>
 								<Typography variant='body1' fontSize={20} color='gray.300'>
 									SIZE
 								</Typography>
-								<Stack flexDirection='row' pt={0.5}>
+								<Stack flexDirection='row'>
 									{sizes.map((val, ind) => (
-										<Typography variant='body1' color='gray.300' key={ind}>
-											<Checkbox defaultChecked={false} size='small' sx={styles.checkBox} />
+										<Typography variant='h6' color='gray.300' key={ind}>
+											<Checkbox defaultChecked={false} size='medium' />
 											{val}
 										</Typography>
 									))}
@@ -182,9 +135,6 @@ const AddProduct: React.FC = () => {
 							defaultValue=''
 						/>
 						<TextField required id='outlined-required' label='PRODUCT TAGS' />
-						<Button variant='text' color='primary' type='submit'>
-							Click me
-						</Button>
 					</Stack>
 				</Box>
 			</Box>
