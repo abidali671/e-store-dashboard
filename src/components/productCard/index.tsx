@@ -22,8 +22,8 @@ const ProductCard = ({ title, price, id }: ProductCardProps) => {
 				<Typography variant='body1' color='gray.400' >
 					{title}
 				</Typography>
-				<Link to={`/product-detail/${id}`}>
-					<Typography variant='body2' fontWeight='bold' sx={{ textDecoration: 'none' }}>
+				<Link to={`/product-detail/${id}`} style={{ textDecoration: 'none', color: 'black' }}>
+					<Typography variant='body2' fontWeight='bold' >
 						{price}
 					</Typography>
 				</Link>
