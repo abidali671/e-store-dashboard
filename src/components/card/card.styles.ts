@@ -1,10 +1,11 @@
 export const root = {
 	width: '100%',
-	height: '100%',
+	height: 'auto',
 	border: '1px solid',
 	borderColor: 'gray.100',
 	borderRadius: '16px',
 	display: 'flex',
+
 	flexDirection: 'column'
 };
 

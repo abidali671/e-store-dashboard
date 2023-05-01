@@ -1,14 +1,14 @@
 import React from 'react';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { useSelector } from './hooks';
+import { pathnames } from '@types';
+import ProductOverview from '@components/productDetail';
 import Login from './pages/auth/login';
 import Register from './pages/auth/register';
 import Dashboard from './pages/dashboard';
 import Vendors from './pages/vendors';
 import Categories from './pages/categories';
 import Products from './pages/products';
-
-import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import { useSelector } from './hooks';
-import { pathnames } from '@types';
 import AddProduct from './pages/addProduct';
 import ForgetPassword from './pages/auth/forgot_password';
 import ResetPassword from './pages/auth/reset_password';
@@ -67,6 +67,15 @@ const App: React.FC = () => {
 			/>
 			<Route path={pathnames.FORGET_PASSWORD} element={<ForgetPassword />} />
 			<Route path={pathnames.RESET_PASSWORD} element={<ResetPassword />} />
+			<Route
+				path='/product-detail/:id'
+				element={
+					<ProtectedRoute>
+						<ProductOverview />
+					</ProtectedRoute>
+				}
+			/>
+
 			<Route path='/' element={<Navigate to={pathnames.DASHBOARD} />} />
 			<Route path='*' element={<div>page not found</div>} />
 		</Routes>

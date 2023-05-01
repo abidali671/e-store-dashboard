@@ -16,7 +16,7 @@ const Breadcrumbs = () => {
 			separator={<NavigateNextIcon fontSize='small' />}
 		>
 			{pathnames.length ? (
-				<Link sx={{ textDecoration: 'none', cursor: 'pointer' }} onClick={() => navigate('/')}>
+				<Link sx={{ textDecoration: 'none ', cursor: 'pointer' }} onClick={() => navigate('/')}>
 					HOME
 				</Link>
 			) : (
@@ -28,7 +28,7 @@ const Breadcrumbs = () => {
 				return isLast ? (
 					<Typography key={name}>{name}</Typography>
 				) : (
-					<Link key={name} onClick={() => navigate(routeTo)}>
+					<Link key={name} style={{ textDecoration: 'none', color: 'black' }} onClick={() => navigate(routeTo)}>
 						{name}
 					</Link>
 				);

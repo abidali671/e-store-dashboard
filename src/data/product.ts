@@ -10,6 +10,7 @@ export const productData = [
 		joinOn: '22-20-10',
 		status: 'COMPLETED',
 		name: 'Shoes',
+
 	},
 	{
 		id: '2',
@@ -39,6 +40,6 @@ export const productData = [
 		totalSell: '300$',
 		joinOn: '22-20-10',
 		status: 'COMPLETED',
-		name: 'Shoes',
+		name: 'Shirt',
 	},
 ];
