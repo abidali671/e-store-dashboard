@@ -1,12 +1,9 @@
 export const sideListWrapper = {
 	width: '100%',
 	height: '100%',
-	// bgcolor: 'background.paper',
 	borderRight: '1px solid #ddd',
 	position: 'relative',
-	// overflowY: 'auto',
-
-	display: { md: 'block', },
+	display: { md: 'block' },
 };
 
 export const collapseBtn = {
@@ -15,7 +12,6 @@ export const collapseBtn = {
 	borderBottomRightRadius: '30px',
 	display: { md: 'flex', xs: 'none' },
 	justifyContent: 'center',
-	// display:'flex',
 	alignItems: 'center',
 	position: 'absolute',
 	top: '35%',

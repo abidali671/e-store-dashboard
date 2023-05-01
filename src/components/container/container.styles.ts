@@ -8,12 +8,12 @@ export const root: SxProps<Theme> = {
 	gridTemplateColumns: '1fr',
 };
 
-export const pageWrapper = (isCollapsed: boolean) =>
-({
-	display: 'grid',
-	gridTemplateColumns: { md: `${isCollapsed ? 60 : 300}px 1fr`, xs: '1fr' },
-	transition: '0.5s',
-	overflowX: 'hidden',
-} as SxProps);
+export const pageWrapper = (isCollapsed) =>
+	({
+		display: 'grid',
+		gridTemplateColumns: { md: `${isCollapsed.desktop ? 60 : 300}px 1fr`, xs: '1fr' },
+		transition: '0.5s',
+		overflowX: 'hidden',
+	} as SxProps);
 
 export const contentWrapper: SxProps<Theme> = { flex: 1, overflowX: 'hidden', padding: 6 };

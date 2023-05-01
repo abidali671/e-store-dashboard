@@ -30,12 +30,21 @@ const components: Components = {
 	},
 	MuiTableRow: {
 		styleOverrides: {
-			root: { height: '60px', border: '1px solid', borderColor: palette.gray[100] },
+			root: {
+				height: '60px',
+				'&:nth-child(odd) ': {
+					backgroundColor: palette.gray[50],
+				},
+			},
 		},
 	},
 	MuiTableCell: {
 		styleOverrides: {
-			root: { textAlign: 'center', p: '0px', padding: '0' },
+			root: {
+				textAlign: 'center',
+				padding: '0',
+				border: 'none',
+			},
 		},
 	},
 
@@ -43,8 +52,6 @@ const components: Components = {
 		styleOverrides: {
 			root: {
 				'.MuiTableCell-root': {
-					borderRadius: '20px',
-					boxShadow: 'none',
 					textAlign: 'center',
 					fontWeight: 'bold',
 					whiteSpace: 'nowrap',
@@ -52,6 +59,21 @@ const components: Components = {
 				},
 			},
 		},
+	},
+	MuiButton: {
+		variants: [
+			{
+				props: { color: 'secondary' },
+				style: {
+					backgroundColor: palette.gray[900],
+					color: palette.gray[50],
+					'&:hover': {
+						backgroundColor: palette.gray[50],
+						color: palette.gray[900],
+					},
+				},
+			},
+		],
 	},
 };
 

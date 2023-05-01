@@ -11,10 +11,10 @@ const Sidebar = ({
 	toggleSidebar,
 	isCollapsed,
 }: {
-	toggleSidebar: () => void;
-	isCollapsed: boolean;
+	toggleSidebar: (type: 'desktop' | 'mobile') => void;
+	isCollapsed: { mobile: boolean; desktop: boolean };
 }) => {
-	const dispatch = useDispatch()
+	const dispatch = useDispatch();
 
 	const navigate = useNavigate();
 	const location = useLocation();
@@ -31,8 +31,8 @@ const Sidebar = ({
 					overflowY: 'hidden',
 					position: { md: 'initial', xs: 'fixed' },
 					top: 0,
-					left: !isCollapsed ? 0 : '-100%',
-					opacity: !isCollapsed ? 1 : 0,
+					left: { md: !isCollapsed.desktop ? 0 : '-100%', xs: !isCollapsed.mobile ? 0 : '-100%' },
+					opacity: { md: !isCollapsed.desktop ? 1 : 0, xs: !isCollapsed.mobile ? 1 : 0 },
 					width: { md: 'auto', xs: '75%' },
 					height: '100%',
 					backgroundColor: '#FFF',
@@ -46,7 +46,13 @@ const Sidebar = ({
 							{item?.divider ? (
 								<Divider />
 							) : (
-								<ListItem onClick={() => { item?.path && handleChangePage(item.path); item.label === 'LOG OUT' ? dispatch(logout()) : null }} disablePadding>
+								<ListItem
+									onClick={() => {
+										item?.path && handleChangePage(item.path);
+										item.label === 'LOG OUT' ? dispatch(logout()) : null;
+									}}
+									disablePadding
+								>
 									<Box sx={location.pathname === item.path ? styles.select : null} />
 
 									<ListItemButton sx={{ height: '54px' }}>
@@ -63,7 +69,6 @@ const Sidebar = ({
 													display: 'flex',
 													paddingLeft: '8px',
 												}}
-
 											>
 												{item.label}
 											</ListItemText>
@@ -74,20 +79,23 @@ const Sidebar = ({
 						</React.Fragment>
 					))}
 				</Box>
-				<Box onClick={toggleSidebar} sx={isCollapsed ? styles.collapseBtn : styles.collapsedBtn}>
+				<Box
+					onClick={() => toggleSidebar('desktop')}
+					sx={isCollapsed.desktop ? styles.collapseBtn : styles.collapsedBtn}
+				>
 					<Box
 						component='img'
 						src={arrowleft2}
 						sx={{
 							transition: '0.3s',
-							rotate: isCollapsed ? '180deg' : '360deg',
+							rotate: isCollapsed.desktop ? '180deg' : '360deg',
 						}}
 					/>
 				</Box>
 			</Box>
-			{!isCollapsed && (
+			{!isCollapsed.mobile && (
 				<Box
-					onClick={toggleSidebar}
+					onClick={() => toggleSidebar('desktop')}
 					sx={{
 						display: { md: 'none', xs: 'block' },
 						width: '100%',

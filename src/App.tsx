@@ -10,6 +10,8 @@ import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useSelector } from './hooks';
 import { pathnames } from '@types';
 import AddProduct from './pages/addProduct';
+import ForgetPassword from './pages/auth/forgot_password';
+import ResetPassword from './pages/auth/reset_password';
 
 const App: React.FC = () => {
 	return (
@@ -63,6 +65,8 @@ const App: React.FC = () => {
 					</ProtectedRoute>
 				}
 			/>
+			<Route path={pathnames.FORGET_PASSWORD} element={<ForgetPassword />} />
+			<Route path={pathnames.RESET_PASSWORD} element={<ResetPassword />} />
 			<Route path='/' element={<Navigate to={pathnames.DASHBOARD} />} />
 			<Route path='*' element={<div>page not found</div>} />
 		</Routes>
