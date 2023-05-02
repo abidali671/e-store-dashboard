@@ -3,13 +3,13 @@ import { LoadingButton } from '@mui/lab';
 import { AuthContainer, FormWrapper, FormikTextField } from '@components';
 import { useNavigate } from 'react-router-dom';
 import * as styles from './forget.styles';
-import useSign from '../register/register.hook';
 import { Stack } from '@mui/system';
 import React from 'react';
+import useRegister from '../register/register.hook';
 
 const ForgetPassword = () => {
 	const navigate = useNavigate();
-	const { formik } = useSign();
+	const { formik } = useRegister();
 
 	const forgetPassword = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
