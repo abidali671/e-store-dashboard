@@ -10,7 +10,7 @@ const InitialSignUpValues = {
 	email: '',
 };
 
-const useSign = () => {
+const useRegister = () => {
 	const navigate = useNavigate()
 	const handleSubmit = async (values: typeof InitialSignUpValues) => {
 		try {
@@ -30,4 +30,4 @@ const useSign = () => {
 	return { formik };
 };
 
-export default useSign;
+export default useRegister;

@@ -1,7 +1,4 @@
 import React from 'react';
-import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import { useSelector } from './hooks';
-import { pathnames } from '@types';
 import ProductOverview from '@components/productDetail';
 import Login from './pages/auth/login';
 import Register from './pages/auth/register';
@@ -12,6 +9,10 @@ import Products from './pages/products';
 import AddProduct from './pages/addProduct';
 import ForgetPassword from './pages/auth/forgot_password';
 import ResetPassword from './pages/auth/reset_password';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { useSelector } from './hooks';
+import { pathnames } from '@types';
+
 
 const App: React.FC = () => {
 	return (
