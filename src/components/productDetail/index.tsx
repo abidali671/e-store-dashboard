@@ -12,7 +12,6 @@ const ProductOverview = () => {
     const [activeContent, setActiveContent] = useState('content1');
     const { id } = useParams();
     const product = productData.find((item) => item.id === id);
-    console.log(product);
 
     const handleClick = (content) => {
         setActiveContent(content);

@@ -1,10 +1,10 @@
 import Container from '@components/container';
 import { Box, Stack, Typography, TextField, Checkbox } from '@mui/material';
-import { useSelector } from 'react-redux';
+import { useSelector } from 'src/hooks';
 
 import * as styles from './addproduct.styles';
 const AddProduct = () => {
-    const dropDown = useSelector((state) => state['dropdowns'].sizes);
+    const dropDown = useSelector((state) => state.dropdowns.sizes);
 
     return (
         <Container>
