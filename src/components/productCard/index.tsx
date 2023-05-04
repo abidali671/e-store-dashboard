@@ -19,11 +19,11 @@ const ProductCard = ({ title, price, id }: ProductCardProps) => {
 				sx={{ width: '100%', objectFit: 'contain', borderRadius: '20px 20px 0px 0px' }}
 			/>
 			<Box sx={styles.cardContent}>
-				<Typography variant='body1' color='gray.400' >
+				<Typography variant='body1' fontSize={20} color='gray.400' >
 					{title}
 				</Typography>
 				<Link to={`/product-detail/${id}`} style={{ textDecoration: 'none', color: 'black' }}>
-					<Typography variant='body2' fontWeight='bold' >
+					<Typography variant='body2' fontSize={20} fontWeight='bold' >
 						{price}
 					</Typography>
 				</Link>
