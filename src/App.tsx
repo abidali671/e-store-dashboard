@@ -12,6 +12,7 @@ import ResetPassword from './pages/auth/reset_password';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useSelector } from './hooks';
 import pathnames from './types/pathnames';
+import VendorProfile from './pages/vendorProfile';
 
 const App: React.FC = () => {
 	return (
@@ -74,6 +75,14 @@ const App: React.FC = () => {
 				element={
 					<ProtectedRoute>
 						<ProductOverview />
+					</ProtectedRoute>
+				}
+			/>
+			<Route
+				path='/vendors/vendors-profile/:id'
+				element={
+					<ProtectedRoute>
+						<VendorProfile />
 					</ProtectedRoute>
 				}
 			/>
