@@ -1,5 +1,6 @@
 * {
 	box-sizing: border-box;
+	padding: 0;
 	margin: 0;
 }
 *::-webkit-scrollbar-track {
@@ -16,4 +17,12 @@
 	background-color: #86aaf1;
 	border: 1px solid #fafafa;
 	border-radius: 4px;
+}
+
+.carousel-root {
+	width: 100%;
+}
+
+.carousel .thumb {
+	width: 64px;
 }
