@@ -24,5 +24,16 @@
 }
 
 .carousel .thumb {
-	width: 64px;
+	padding: 4px;
+}
+
+.carousel .thumb.selected {
+	border: 2px solid #63666d;
+	border-radius: 8px;
+}
+
+.carousel .thumb:hover {
+	opacity: 0.8;
+	border: 2px solid #a5a7ab;
+	border-radius: 8px;
 }

@@ -27,7 +27,7 @@ const ProductOverview = () => {
 			</Typography>
 			<Breadcrumbs />
 			<Card title='Product Detail'>
-				<Box sx={{ display: 'flex', flexDirection: 'column' }}>
+				<Box sx={{ display: 'flex', flexDirection: 'column', p: 3, gap: 3 }}>
 					<Box sx={styles.gridBox}>
 						<Box
 							sx={{
@@ -39,6 +39,7 @@ const ProductOverview = () => {
 							}}
 						>
 							<Carousel
+								swipeable
 								showThumbs
 								showArrows={false}
 								showIndicators={false}
@@ -114,8 +115,8 @@ const ProductOverview = () => {
 						sx={{
 							border: '1px solid',
 							borderColor: 'gray.100',
-							margin: '20px 40px',
 							padding: '20px',
+							borderRadius: '16px',
 						}}
 					>
 						<Stack flexDirection='row' gap={2}>
@@ -157,28 +158,28 @@ const ProductOverview = () => {
 									voluptate veniam mollitia alias nam harum ea non quam, aut repellendus quisquam
 									impedit labore tempore.
 								</Typography>
-								<ul>
-									<li>
+								<Box component='ul' pl={3}>
+									<Box component='li'>
 										<Typography variant='subtitle2' color='gray.400'>
 											Any Product types that You want - Simple, Configurable
 										</Typography>
-									</li>
-									<li>
+									</Box>
+									<Box component='li'>
 										<Typography variant='subtitle2' color='gray.400'>
 											Downloadable/Digital Products, Virtual Products
 										</Typography>
-									</li>
-									<li>
+									</Box>
+									<Box component='li'>
 										<Typography variant='subtitle2' color='gray.400'>
 											Inventory Management with Backordered items
 										</Typography>
-									</li>
-									<li>
+									</Box>
+									<Box component='li'>
 										<Typography variant='subtitle2' color='gray.400'>
 											Flatlock seams throughout.
 										</Typography>
-									</li>
-								</ul>
+									</Box>
+								</Box>
 							</Box>
 						)}
 						{activeContent === 'content2' && (
@@ -191,28 +192,28 @@ const ProductOverview = () => {
 									voluptate veniam mollitia alias nam harum ea non quam, aut repellendus quisquam
 									impedit labore tempore.
 								</Typography>
-								<ul>
-									<li>
+								<Box component='ul' pl={3}>
+									<Box component='li'>
 										<Typography variant='subtitle2' color='gray.400'>
 											this is content 2
 										</Typography>
-									</li>
-									<li>
+									</Box>
+									<Box component='li'>
 										<Typography variant='subtitle2' color='gray.400'>
 											Downloadable/Digital Products, Virtual Products
 										</Typography>
-									</li>
-									<li>
+									</Box>
+									<Box component='li'>
 										<Typography variant='subtitle2' color='gray.400'>
 											Inventory Management with Backordered items
 										</Typography>
-									</li>
-									<li>
+									</Box>
+									<Box component='li'>
 										<Typography variant='subtitle2' color='gray.400'>
 											Flatlock seams throughout.
 										</Typography>
-									</li>
-								</ul>
+									</Box>
+								</Box>
 							</Box>
 						)}
 					</Box>
