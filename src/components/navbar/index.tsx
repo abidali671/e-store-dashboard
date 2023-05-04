@@ -4,18 +4,19 @@ import Logo from '@assests/logos.png';
 import { Ring, Hameburger } from '@assests/icons';
 import avatar from '@assests/Rectangle16.png';
 import SearchBar from '@components/searchBar';
+import * as types from '@components/container/container.types';
 
 const Navbar = ({
 	isSearchBar = true,
 	toggleSidebar,
 }: {
 	isSearchBar?: boolean;
-	toggleSidebar?: () => void;
+	toggleSidebar?: (type: types.TogglerType) => void;
 }) => {
 	return (
 		<Box sx={styles.root}>
 			<Box
-				onClick={toggleSidebar}
+				onClick={() => toggleSidebar(types.TogglerType.MOBILE)}
 				component={Hameburger}
 				sx={{ display: { md: 'none' }, cursor: 'pointer' }}
 			/>

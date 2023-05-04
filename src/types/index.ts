@@ -1,7 +1,7 @@
 export { default as pathnames } from './pathnames';
 
-type Primitive = string | number | boolean | undefined | null;
-type JSONArray = JSONValue[];
-type JSONObject = { [key: string]: JSONValue };
+export type Primitive = string | number | boolean | undefined | null;
+export type JSONArray = JSONValue[];
+export type JSONObject = { [key: string]: JSONValue };
 
 export type JSONValue = Primitive | JSONArray | JSONObject;

@@ -1,57 +1,34 @@
-import { Breadcrumbs, Container } from '@components';
-import { mainProduct } from '@components/productCard/productCard.style';
+import React, { useState } from 'react';
+import { Breadcrumbs, Container, Pagination } from '@components';
 import SearchBar from '@components/searchBar';
-import { Box, Stack, Typography, Button } from '@mui/material';
+import { Box, Typography } from '@mui/material';
+
+import GridViewIcon from '@mui/icons-material/GridView';
+import TableViewIcon from '@mui/icons-material/TableView';
+import { ProductTable, ProductGrid } from './boxLayout';
 
 const Products = () => {
+	const [view, setView] = useState('grid');
+	const [onSearch, setOnSearch] = useState('');
+	function toggleView() {
+		setView(view === 'grid' ? 'table' : 'grid');
+	}
+
 	return (
 		<Container>
 			<Typography variant='h5' fontWeight='bold'>
 				Products
 			</Typography>
-			<Breadcrumbs />
-			<Box sx={{ border: '1px solid', borderColor: 'gray.100', borderRadius: '20px' }}>
-				<Box sx={{ py: '40px', px: '40px' }}>
-					<Stack
-						flexWrap='wrap'
-						gap={3}
-						width='100%'
-						flexDirection='row'
-						justifyContent='space-between'
-					>
-						<SearchBar placeholderText='search with product name' />
-						<Stack flexDirection='row' gap={2}>
-							<Button
-								variant='outlined'
-								sx={{
-									color: 'gray.400',
-									borderColor: 'gray.100',
-									borderRadius: '10px',
-									height: '45px',
-								}}
-							>
-								All Category
-							</Button>
-							<Button
-								variant='outlined'
-								sx={{
-									color: 'gray.400',
-									borderColor: 'gray.100',
-									borderRadius: '10px',
-									height: '45px',
-								}}
-							>
-								ORDER BY
-							</Button>
-						</Stack>
-					</Stack>
-					<Box sx={mainProduct}>
-						{/* {response?.data.products.map((item, ind) => (
-							<ProductCard title={item.title} price={item.price} image={item.images[0]} key={ind} />
-						))} */}
-					</Box>
-				</Box>
+			<Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+				<Breadcrumbs />
+				{view === 'table' && <SearchBar placeholderText='Filter table' setOnSearch={setOnSearch} />}
+				{view === 'grid' ? (
+					<GridViewIcon sx={{ cursor: 'pointer', color: 'blue.500' }} onClick={toggleView} />
+				) : (
+					<TableViewIcon sx={{ cursor: 'pointer', color: 'blue.500' }} onClick={toggleView} />
+				)}
 			</Box>
+			{view === 'grid' ? <ProductGrid /> : <ProductTable onSearch={onSearch} />}
 		</Container>
 	);
 };

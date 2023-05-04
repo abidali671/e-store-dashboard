@@ -13,7 +13,7 @@ const Container: React.FC<ContainerProps> = ({ children, sx }) => {
 	const { isCollapsed, toggleSidebar } = useContainer();
 	return (
 		<Box sx={styles.root}>
-			<Navbar toggleSidebar={toggleSidebar} />
+			<Navbar toggleSidebar={toggleSidebar} isSearchBar={true} />
 			<Box sx={{ ...styles.pageWrapper(isCollapsed) }}>
 				<Sidebar isCollapsed={isCollapsed} toggleSidebar={toggleSidebar} />
 				<Box sx={{ ...styles.contentWrapper, ...sx } as SxProps}>{children}</Box>

@@ -10,6 +10,8 @@ export { default as Pagination } from './box/pagination';
 export { default as RowTable } from './rowTable';
 export { default as Sidebar } from './sidebar';
 export { default as SearchBar } from './searchBar';
+export { default as ProductCard } from './productCard';
+export { default as ProductOverview } from './productDetail';
 
 // Charts
 export { default as AreaChart } from './charts/area_chart';

@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
+import dropdownsReducer from 'src/features/constent/dropdowns.slice';
 import authReducer from '../features/auth/auth.slice';
 
 const store = configureStore({
 	reducer: {
 		auth: authReducer,
+		dropdowns: dropdownsReducer,
 	},
 });
 

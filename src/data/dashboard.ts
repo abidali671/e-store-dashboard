@@ -1,3 +1,5 @@
+import { JSONArray } from '@types';
+
 export const SALES_REPORT = [
 	{
 		name: 'Net Profit',
@@ -23,7 +25,7 @@ export const CURRENT_USERS = [
 
 export const ORDERS_OVERVIEW = [9.9, 8.7, 25.6, 32.0, 23.8];
 
-export const tableData = [
+export const tableData: JSONArray = [
 	{
 		id: '1',
 		product: 'shoes',

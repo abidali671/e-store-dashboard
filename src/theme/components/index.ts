@@ -1,10 +1,8 @@
 import { Components } from '@mui/material';
-import palette from '../palette/index'
-
+import palette from '../palette/index';
 
 const components: Components = {
 	MuiOutlinedInput: {
-
 		styleOverrides: {
 			root: {
 				borderRadius: '8px',
@@ -19,39 +17,64 @@ const components: Components = {
 				style: {
 					height: '36px',
 					fontSize: '14px',
-					maxHeight: '36px'
+					maxHeight: '36px',
+				},
+			},
+			{
+				props: { multiline: true },
+				style: {
+					height: 'auto',
 				},
 			},
 		],
 	},
 	MuiTableRow: {
 		styleOverrides: {
-			root: { height: '60px', border: '1px solid', borderColor: palette.gray[100] }
-		}
+			root: {
+				height: '60px',
+				'&:nth-child(odd) ': {
+					backgroundColor: palette.gray[50],
+				},
+			},
+		},
 	},
 	MuiTableCell: {
 		styleOverrides: {
-			root: { textAlign: 'center', p: '0px', padding: '0', }
-		}
+			root: {
+				textAlign: 'center',
+				padding: '0',
+				border: 'none',
+			},
+		},
 	},
 
 	MuiTableHead: {
 		styleOverrides: {
 			root: {
 				'.MuiTableCell-root': {
-					borderRadius: '20px',
-					boxShadow: 'none',
 					textAlign: 'center',
 					fontWeight: 'bold',
 					whiteSpace: 'nowrap',
-					height: '60px'
-				}
-			}
-		}
-	}
+					height: '60px',
+				},
+			},
+		},
+	},
+	MuiButton: {
+		variants: [
+			{
+				props: { color: 'secondary' },
+				style: {
+					backgroundColor: palette.gray[900],
+					color: palette.gray[50],
+					'&:hover': {
+						backgroundColor: palette.gray[50],
+						color: palette.gray[900],
+					},
+				},
+			},
+		],
+	},
 };
-
-
-
 
 export default components;

@@ -1,21 +1,24 @@
 import React from 'react';
+import { ProductOverview } from '@components';
 import Login from './pages/auth/login';
 import Register from './pages/auth/register';
 import Dashboard from './pages/dashboard';
 import Vendors from './pages/vendors';
 import Categories from './pages/categories';
 import Products from './pages/products';
-
+import AddProduct from './pages/addProduct';
+import ForgetPassword from './pages/auth/forgot_password';
+import ResetPassword from './pages/auth/reset_password';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useSelector } from './hooks';
-import { pathnames } from './types';
+import pathnames from './types/pathnames';
 
 const App: React.FC = () => {
 	return (
 		<Routes>
 			<Route path={pathnames.REGISTER} element={<Register />} />
 			<Route
-				path='/login'
+				path={pathnames.LOGIN}
 				element={
 					<ProtectedRoute>
 						<Login />
@@ -23,15 +26,16 @@ const App: React.FC = () => {
 				}
 			/>
 			<Route
-				path='/dashboard'
+				path={pathnames.DASHBOARD}
 				element={
 					<ProtectedRoute>
 						<Dashboard />
 					</ProtectedRoute>
 				}
 			/>
+
 			<Route
-				path='/vendors'
+				path={pathnames.VENDORS}
 				element={
 					<ProtectedRoute>
 						<Vendors />
@@ -39,7 +43,7 @@ const App: React.FC = () => {
 				}
 			/>
 			<Route
-				path='/category'
+				path={pathnames.CATEGORY}
 				element={
 					<ProtectedRoute>
 						<Categories />
@@ -47,14 +51,34 @@ const App: React.FC = () => {
 				}
 			/>
 			<Route
-				path='/products'
+				path={pathnames.PRODUCTS}
 				element={
 					<ProtectedRoute>
 						<Products />
 					</ProtectedRoute>
 				}
 			/>
-			<Route path='/' element={<Navigate to='/dashboard' />} />
+			<Route
+				path={pathnames.ADD_PRODUCT}
+				element={
+					<ProtectedRoute>
+						<AddProduct />
+					</ProtectedRoute>
+				}
+			/>
+
+			<Route path={pathnames.FORGET_PASSWORD} element={<ForgetPassword />} />
+			<Route path={pathnames.RESET_PASSWORD} element={<ResetPassword />} />
+			<Route
+				path='/product-detail/:id'
+				element={
+					<ProtectedRoute>
+						<ProductOverview />
+					</ProtectedRoute>
+				}
+			/>
+
+			<Route path='/' element={<Navigate to={pathnames.DASHBOARD} />} />
 			<Route path='*' element={<div>page not found</div>} />
 		</Routes>
 	);
@@ -64,13 +88,19 @@ const ProtectedRoute = ({ children }) => {
 	const location = useLocation();
 	const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
-	if (location.pathname === '/login' && !isLoggedIn) return children;
-	if (location.pathname === '/login' && isLoggedIn) {
-		alert('Already LoggedIn');
-		return <Navigate to='/dashboard' />;
+	const searchParams = new URLSearchParams(location.search);
+	const nextRoute = searchParams.get('next');
+
+	if (location.pathname === pathnames.LOGIN && !isLoggedIn) return children;
+	if (location.pathname === pathnames.LOGIN && isLoggedIn) {
+		return <Navigate to={nextRoute || pathnames.DASHBOARD} />;
 	}
 
-	return isLoggedIn ? children : <Navigate to='/login' />;
+	return isLoggedIn ? (
+		children
+	) : (
+		<Navigate to={{ pathname: pathnames.LOGIN, search: 'next=' + location.pathname }} />
+	);
 };
 
 export default App;

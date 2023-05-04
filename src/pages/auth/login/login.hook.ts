@@ -1,23 +1,29 @@
 import { useFormik } from 'formik';
 import API from 'src/axios';
+import { login } from 'src/features/auth/auth.slice';
+import { useDispatch } from 'src/hooks';
+
+
+const InitialSignUpValues = {
+	username: '',
+	password: '',
+
+};
 
 const useLogin = () => {
-	const handleSubmit = async (values: { username: string; password: string }) => {
+	const dispatch = useDispatch()
+	const handleSubmit = async (values: typeof InitialSignUpValues & { non_field_error: string }) => {
 		try {
-			await API.post('/api/auth/login', {
-				username: values.username,
-				password: values.password,
-			});
+			await API.post('/api/auth/login', values);
+			dispatch(login(values.username))
+
 		} catch (error) {
-			console.log(error.response);
+			formik.setErrors(error.response.data);
 		}
 	};
 
 	const formik = useFormik({
-		initialValues: {
-			username: '',
-			password: '',
-		},
+		initialValues: InitialSignUpValues,
 		onSubmit: handleSubmit,
 	});
 
