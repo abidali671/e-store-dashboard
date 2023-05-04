@@ -4,7 +4,7 @@ import { useSelector } from 'src/hooks';
 
 import * as styles from './addproduct.styles';
 const AddProduct = () => {
-    const dropDown = useSelector((state) => state.dropdowns.sizes);
+    const sizes = useSelector((state) => state.dropdowns.sizes);
 
     return (
         <Container>
@@ -62,7 +62,7 @@ const AddProduct = () => {
                                     SIZE
                                 </Typography>
                                 <Stack flexDirection='row' pt={.5}>
-                                    {dropDown.map((val, ind) => (
+                                    {sizes.map((val, ind) => (
                                         <Typography variant='body1' color='gray.300' key={ind}>
                                             <Checkbox defaultChecked={false} size='small' sx={{ padding: '0px 5px' }} />
                                             {val}
