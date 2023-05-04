@@ -2,7 +2,7 @@ import { Typography, Box, Stack, FormHelperText } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import { AuthContainer, FormikTextField, FormWrapper } from '@components';
 import { Link } from 'react-router-dom';
-import { pathnames } from '@types';
+import pathnames from '../../../types/pathnames';
 import useLogin from './login.hook';
 import * as types from './login.types';
 import * as styles from './login.styles';

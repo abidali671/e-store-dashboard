@@ -18,6 +18,7 @@ const ForgetPassword = () => {
 		}, 2000);
 		console.log(e, '==forget');
 	};
+
 	return (
 		<AuthContainer>
 			<Box sx={styles.root}>

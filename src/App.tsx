@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductOverview from '@components/productDetail';
+import { ProductOverview } from '@components';
 import Login from './pages/auth/login';
 import Register from './pages/auth/register';
 import Dashboard from './pages/dashboard';
@@ -11,8 +11,7 @@ import ForgetPassword from './pages/auth/forgot_password';
 import ResetPassword from './pages/auth/reset_password';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useSelector } from './hooks';
-import { pathnames } from '@types';
-
+import pathnames from './types/pathnames';
 
 const App: React.FC = () => {
 	return (
@@ -34,6 +33,7 @@ const App: React.FC = () => {
 					</ProtectedRoute>
 				}
 			/>
+
 			<Route
 				path={pathnames.VENDORS}
 				element={
@@ -66,6 +66,7 @@ const App: React.FC = () => {
 					</ProtectedRoute>
 				}
 			/>
+
 			<Route path={pathnames.FORGET_PASSWORD} element={<ForgetPassword />} />
 			<Route path={pathnames.RESET_PASSWORD} element={<ResetPassword />} />
 			<Route
