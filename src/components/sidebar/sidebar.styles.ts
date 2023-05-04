@@ -28,7 +28,6 @@ export const collapsedBtn = {
 	borderBottomRightRadius: '30px',
 	display: { md: 'flex', xs: 'none' },
 	justifyContent: 'center',
-	// display:'flex',
 	alignItems: 'center',
 	position: 'fixed',
 	top: '35%',

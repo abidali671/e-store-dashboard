@@ -2,16 +2,17 @@ import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Box, Divider, ListItem, ListItemButton, ListItemText } from '@mui/material';
 import { SideItemT, sideListItems } from '../../data/app.data';
-import arrowleft2 from '@assests/arrowleft2.png';
-import * as styles from './sidebar.styles';
 import { useDispatch } from 'src/hooks';
 import { logout } from 'src/features/auth/auth.slice';
+import arrowleft2 from '@assests/arrowleft2.png';
+import * as styles from './sidebar.styles';
+import * as types from '@components/container/container.types';
 
 const Sidebar = ({
 	toggleSidebar,
 	isCollapsed,
 }: {
-	toggleSidebar: (type: 'desktop' | 'mobile') => void;
+	toggleSidebar: (type: types.TogglerType) => void;
 	isCollapsed: { mobile: boolean; desktop: boolean };
 }) => {
 	const dispatch = useDispatch();
@@ -32,8 +33,7 @@ const Sidebar = ({
 					position: { md: 'initial', xs: 'fixed' },
 					top: 0,
 					left: { md: !isCollapsed.desktop ? 0 : '-100%', xs: !isCollapsed.mobile ? 0 : '-100%' },
-					opacity: { md: !isCollapsed.desktop ? 1 : 0, xs: !isCollapsed.mobile ? 1 : 0 },
-					width: { md: 'auto', xs: '75%' },
+					width: { md: 'auto', xs: '80%' },
 					height: '100%',
 					backgroundColor: '#FFF',
 					zIndex: 999,
@@ -58,21 +58,24 @@ const Sidebar = ({
 									<ListItemButton sx={{ height: '54px' }}>
 										{item?.icon && (
 											<item.icon
-												style={{ color: location.pathname === item.path ? '#86AAF1' : '#9F9B9B' }}
+												style={{
+													minHeight: 24,
+													minWidth: 24,
+													color: location.pathname === item.path ? '#86AAF1' : '#9F9B9B',
+												}}
 											/>
 										)}
-										{!isCollapsed && (
-											<ListItemText
-												sx={{
-													fontWeight: 'lighter',
-													color: location.pathname === item.path ? '#86AAF1' : '#9F9B9B',
-													display: 'flex',
-													paddingLeft: '8px',
-												}}
-											>
-												{item.label}
-											</ListItemText>
-										)}
+										<ListItemText
+											sx={{
+												whiteSpace: 'nowrap',
+												fontWeight: 'lighter',
+												color: location.pathname === item.path ? '#86AAF1' : '#9F9B9B',
+												display: { md: isCollapsed.desktop ? 'none' : 'flex', xs: 'flex' },
+												paddingLeft: '8px',
+											}}
+										>
+											{item.label}
+										</ListItemText>
 									</ListItemButton>
 								</ListItem>
 							)}
@@ -80,7 +83,7 @@ const Sidebar = ({
 					))}
 				</Box>
 				<Box
-					onClick={() => toggleSidebar('desktop')}
+					onClick={() => toggleSidebar(types.TogglerType.DESKTOP)}
 					sx={isCollapsed.desktop ? styles.collapseBtn : styles.collapsedBtn}
 				>
 					<Box
@@ -95,7 +98,7 @@ const Sidebar = ({
 			</Box>
 			{!isCollapsed.mobile && (
 				<Box
-					onClick={() => toggleSidebar('desktop')}
+					onClick={() => toggleSidebar(types.TogglerType.MOBILE)}
 					sx={{
 						display: { md: 'none', xs: 'block' },
 						width: '100%',
