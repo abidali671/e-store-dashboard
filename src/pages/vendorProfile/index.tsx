@@ -1,9 +1,11 @@
 import React from 'react';
-import { Container, Breadcrumbs } from '@components';
+import { Container, Breadcrumbs, Card } from '@components';
 import { Box, Typography, Button, Stack } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import * as styles from './vendorProfile.styles';
 import ProfileImage from '@assests/profile.png';
+import { Notifications, vendorDataCards } from 'src/data/vendor';
+import { Timer } from '@assests/icons';
 
 const VendorProfile = () => {
 	const { id } = useParams();
@@ -16,7 +18,7 @@ const VendorProfile = () => {
 			<Breadcrumbs pathnames={['Vendors', 'Vendor detail']} />
 
 			<Box sx={styles.gridBox}>
-				<Box sx={{ gridColumn: { md: 'span 3', xs: 'span 12' } }}>
+				<Box>
 					<Box
 						sx={{
 							display: 'flex',
@@ -24,8 +26,8 @@ const VendorProfile = () => {
 							justifyContent: 'center',
 							alignItems: 'center',
 							p: 3,
-							borderRight: '1px solid',
-							borderColor: 'gray.100',
+							borderRight: { md: '1px solid', xs: 'none' },
+							borderColor: { md: 'gray.100', xs: 'none' },
 						}}
 						gap={3}
 					>
@@ -79,7 +81,72 @@ const VendorProfile = () => {
 						</Stack>
 					</Box>
 				</Box>
-				<Box sx={{ gridColumn: { md: 'span 3', xs: 'span 12' } }}>dear</Box>
+				<Box p={3} gap={4} display='flex' flexDirection='column'>
+					<Stack
+						sx={{
+							borderBottom: '1px solid',
+							borderColor: 'gray.100',
+							flexDirection: 'row',
+							gap: 5,
+							height: 50,
+							alignItems: 'center',
+						}}
+					>
+						<Typography
+							variant='body1'
+							sx={{ borderBottom: '1px solid ', borderColor: 'blue.400' }}
+							fontWeight={600}
+							color='gray.400'
+						>
+							Profile
+						</Typography>
+						<Typography variant='body1' color='gray.400' fontWeight={600}>
+							Settings
+						</Typography>
+					</Stack>
+
+					<Stack sx={{ flexDirection: 'row', gap: 5, flexWrap: 'wrap' }}>
+						{vendorDataCards.map((props, ind) => (
+							<Box sx={styles.itemCard} key={ind}>
+								<Box>
+									<Typography variant='h5' sx={styles.cardTitle}>
+										{props.title}
+									</Typography>
+									<Typography variant='caption'>{props.info}</Typography>
+								</Box>
+								{props?.icon && <props.icon />}
+							</Box>
+						))}
+					</Stack>
+
+					<Card title='LATEST NOTIFICATION'>
+						<Box sx={styles.mainContainer}>
+							{Notifications.map((props, ind) => (
+								<Box key={ind} sx={styles.container}>
+									<Box sx={styles.leftBox}>
+										<Box sx={{ background: 'green', p: 3, borderRadius: '10px', opacity: 0.6 }}>
+											{props?.icon && <props.icon color='white' />}
+										</Box>
+										<Stack>
+											<Typography variant='body1' fontWeight={600} fontSize={16} color='gray.400'>
+												{props.title}
+											</Typography>
+											<Typography variant='body1' fontSize={14} color='gray.400'>
+												{props.info}
+											</Typography>
+										</Stack>
+									</Box>
+									<Stack flexDirection='row' gap={1}>
+										<Timer />
+										<Typography variant='body1' color='gray.400'>
+											10:00 AM
+										</Typography>
+									</Stack>
+								</Box>
+							))}
+						</Box>
+					</Card>
+				</Box>
 			</Box>
 		</Container>
 	);
