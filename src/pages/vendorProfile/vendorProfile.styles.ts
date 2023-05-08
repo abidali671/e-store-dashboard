@@ -14,7 +14,14 @@ export const container = {
 	alignItems: 'center',
 	justifyContent: 'space-between',
 };
-export const leftBox = { display: 'flex', gap: 3, alignItems: 'center' };
+export const titleBox = { display: 'flex', gap: 3, alignItems: 'center' };
+export const leftBox = {
+	display: 'flex',
+	flexDirection: 'column',
+	justifyContent: 'center',
+	alignItems: 'center',
+	p: 3,
+};
 export const itemCard: SxProps<Theme> = {
 	p: 2,
 	border: '1px solid #D9D9D9',

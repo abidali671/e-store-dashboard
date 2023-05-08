@@ -1,12 +1,12 @@
 import React from 'react';
 import { Container, Breadcrumbs, Card } from '@components';
-import { Box, Typography, Button, Stack } from '@mui/material';
+import { Box, Typography, Button, Stack, Divider } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import * as styles from './vendorProfile.styles';
 import ProfileImage from '@assests/profile.png';
 import { Notifications, vendorDataCards } from 'src/data/vendor';
 import { Timer } from '@assests/icons';
-
+import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 const VendorProfile = () => {
 	const { id } = useParams();
 
@@ -18,19 +18,17 @@ const VendorProfile = () => {
 			<Breadcrumbs pathnames={['Vendors', 'Vendor detail']} />
 
 			<Box sx={styles.gridBox}>
-				<Box>
-					<Box
-						sx={{
-							display: 'flex',
-							flexDirection: 'column',
-							justifyContent: 'center',
-							alignItems: 'center',
-							p: 3,
-							borderRight: { md: '1px solid', xs: 'none' },
-							borderColor: { md: 'gray.100', xs: 'none' },
-						}}
-						gap={3}
-					>
+				{/* Left box  */}
+				<Box
+					gap={3}
+					display='flex'
+					flexDirection='column'
+					sx={{
+						borderRight: { md: '1px solid', xs: 'none' },
+						borderColor: { md: 'gray.100', xs: 'none' },
+					}}
+				>
+					<Box sx={styles.leftBox} gap={3}>
 						<Box textAlign='center'>
 							<Box
 								component='img'
@@ -80,7 +78,58 @@ const VendorProfile = () => {
 							</Box>
 						</Stack>
 					</Box>
+
+					<Divider variant='middle' />
+					<Stack sx={{ textAlign: 'center', p: 3, gap: 3 }}>
+						<Stack gap={2}>
+							<Typography variant='h1' fontSize={20} fontWeight={600} color='initial'>
+								Contact Information
+							</Typography>
+							<Stack textAlign='left'>
+								<Typography variant='body1' fontSize={16} fontWeight={400} color='gray.400'>
+									Email Address
+								</Typography>
+								<Typography variant='body1' fontSize={16} fontWeight={400} color='gray.400'>
+									rileyreid@gmail.com
+								</Typography>
+							</Stack>
+							<Stack textAlign='left'>
+								<Typography variant='body1' fontSize={16} fontWeight={400} color='gray.400'>
+									Phone Number
+								</Typography>
+								<Typography variant='body1' fontSize={16} fontWeight={400} color='gray.400'>
+									+00 392-264-15641
+								</Typography>
+							</Stack>
+							<Stack textAlign='left'>
+								<Typography variant='body1' fontSize={16} fontWeight={400} color='gray.400'>
+									Birthday
+								</Typography>
+								<Typography variant='body1' fontSize={16} fontWeight={400} color='gray.400'>
+									Dec-10-1990
+								</Typography>
+							</Stack>
+						</Stack>
+						<Stack gap={2}>
+							<Typography
+								textAlign='left'
+								variant='body1'
+								fontSize={16}
+								fontWeight={600}
+								color='gray.400'
+							>
+								Social Profiles
+							</Typography>
+							<Stack gap={3} flexDirection='row' justifyContent='flex-start'>
+								<FacebookRoundedIcon sx={{ fontSize: '32px' }} />
+								<FacebookRoundedIcon sx={{ fontSize: '32px' }} />
+								<FacebookRoundedIcon sx={{ fontSize: '32px' }} />
+								<FacebookRoundedIcon sx={{ fontSize: '32px' }} />
+							</Stack>
+						</Stack>
+					</Stack>
 				</Box>
+				{/* Right box  */}
 				<Box p={3} gap={4} display='flex' flexDirection='column'>
 					<Stack
 						sx={{
@@ -123,7 +172,7 @@ const VendorProfile = () => {
 						<Box sx={styles.mainContainer}>
 							{Notifications.map((props, ind) => (
 								<Box key={ind} sx={styles.container}>
-									<Box sx={styles.leftBox}>
+									<Box sx={styles.titleBox}>
 										<Box sx={{ background: 'green', p: 3, borderRadius: '10px', opacity: 0.6 }}>
 											{props?.icon && <props.icon color='white' />}
 										</Box>
