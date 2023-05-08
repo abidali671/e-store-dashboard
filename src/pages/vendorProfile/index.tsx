@@ -13,10 +13,10 @@ const VendorProfile = () => {
 			<Typography variant='h5' fontWeight='bold'>
 				Vendor Profile
 			</Typography>
-			<Breadcrumbs />
+			<Breadcrumbs pathnames={['Vendors', 'Vendor detail']} />
 
 			<Box sx={styles.gridBox}>
-				<Box sx={{ gridColumn: 'span 3' }}>
+				<Box sx={{ gridColumn: { md: 'span 3', xs: 'span 12' } }}>
 					<Box
 						sx={{
 							display: 'flex',
@@ -79,7 +79,7 @@ const VendorProfile = () => {
 						</Stack>
 					</Box>
 				</Box>
-				<Box sx={{ gridColumn: 'span 9' }}>dear</Box>
+				<Box sx={{ gridColumn: { md: 'span 3', xs: 'span 12' } }}>dear</Box>
 			</Box>
 		</Container>
 	);

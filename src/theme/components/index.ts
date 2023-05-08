@@ -75,6 +75,19 @@ const components: Components = {
 			},
 		],
 	},
+	MuiLink: {
+		styleOverrides: {
+			root: {
+				textDecoration: 'none',
+				fontWeight: '600',
+				color: palette.blue[300],
+				transition: '0.25s',
+				'&:hover': {
+					opacity: 0.8,
+				},
+			},
+		},
+	},
 };
 
 export default components;

@@ -16,7 +16,6 @@ const ForgetPassword = () => {
 		setTimeout(() => {
 			navigate('/reset-password');
 		}, 2000);
-		console.log(e, '==forget');
 	};
 
 	return (

@@ -1,5 +1,4 @@
 import React from 'react';
-import { ProductOverview } from '@components';
 import Login from './pages/auth/login';
 import Register from './pages/auth/register';
 import Dashboard from './pages/dashboard';
@@ -9,10 +8,12 @@ import Products from './pages/products';
 import AddProduct from './pages/addProduct';
 import ForgetPassword from './pages/auth/forgot_password';
 import ResetPassword from './pages/auth/reset_password';
-import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import { useSelector } from './hooks';
-import pathnames from './types/pathnames';
 import VendorProfile from './pages/vendorProfile';
+
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { ProductOverview } from '@components';
+import { pathnames } from '@types';
+import { useSelector } from './hooks';
 
 const App: React.FC = () => {
 	return (
@@ -79,7 +80,7 @@ const App: React.FC = () => {
 				}
 			/>
 			<Route
-				path='/vendors/vendors-profile/:id'
+				path='/vendors/:id'
 				element={
 					<ProtectedRoute>
 						<VendorProfile />

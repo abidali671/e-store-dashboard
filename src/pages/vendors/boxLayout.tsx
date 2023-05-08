@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { Chip, Stack, Box, Typography, IconButton, SelectChangeEvent } from '@mui/material';
+import { Chip, Stack, Box, Typography, IconButton, SelectChangeEvent, Link } from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
 import { Phone, Message, MoreOption } from '@assests/icons';
 import { Table, Pagination } from '@components';
 import { VendorData } from './vendor';
+import { pathnames } from '@types';
 import * as styles from './boxLayout.styles';
 
 export const VendorGrid = () => {
@@ -24,48 +26,50 @@ export const VendorGrid = () => {
 	return (
 		<Box sx={{ border: '1px solid', borderColor: 'gray.100', borderRadius: '20px' }}>
 			<Box sx={styles.GridLayout}>
-				{dataShow.map(({ name, email, totalSell: sells, product, profile }, index) => (
-					<Box key={index} sx={styles.card}>
-						<Box component='img' sx={styles.cardImg} src={profile} />
-						<Box sx={{ textAlign: 'center' }}>
-							<Typography variant='h6' fontWeight={600} my={1}>
-								{name}
-							</Typography>
-							<Stack direction='row' alignItems='center' justifyContent='center' gap={1}>
-								<Phone />
-								<Typography variant='h6' fontSize={14} fontWeight={300} color='#9F9B9B'>
-									{email}
+				{dataShow.map(({ name, email, totalSell: sells, product, profile, id }, index) => (
+					<Link component={RouterLink} to={`${pathnames.VENDORS}/${id}`} key={index}>
+						<Box sx={styles.card}>
+							<Box component='img' sx={styles.cardImg} src={profile} />
+							<Box sx={{ textAlign: 'center' }}>
+								<Typography variant='h6' fontWeight={600} my={1}>
+									{name}
 								</Typography>
-							</Stack>
+								<Stack direction='row' alignItems='center' justifyContent='center' gap={1}>
+									<Phone />
+									<Typography variant='h6' fontSize={14} fontWeight={300} color='#9F9B9B'>
+										{email}
+									</Typography>
+								</Stack>
 
-							<Stack direction='row' alignItems='center' gap={1} my={1} justifyContent='center'>
-								<Message />
-								<Typography variant='h6' fontSize={14} fontWeight={300} color='#9F9B9B'>
-									{email}
-								</Typography>
+								<Stack direction='row' alignItems='center' gap={1} my={1} justifyContent='center'>
+									<Message />
+									<Typography variant='h6' fontSize={14} fontWeight={300} color='#9F9B9B'>
+										{email}
+									</Typography>
+								</Stack>
+							</Box>
+							<Stack justifyContent='center' flexWrap='wrap' gap={1} flexDirection='row'>
+								<Stack flexDirection='column'>
+									<Chip label='Items' />
+									<Typography variant='caption' color='initial'>
+										{product}
+									</Typography>
+								</Stack>
+								<Stack flexDirection='column'>
+									<Chip label='Sells' />
+									<Typography variant='caption' color='initial'>
+										{sells}
+									</Typography>
+								</Stack>
+								<Stack flexDirection='column'>
+									<Chip label='Payout' />
+									<Typography variant='caption' color='initial'>
+										{sells}
+									</Typography>
+								</Stack>
 							</Stack>
 						</Box>
-						<Stack justifyContent='center' flexWrap='wrap' gap={1} flexDirection='row'>
-							<Stack flexDirection='column'>
-								<Chip label='Items' />
-								<Typography variant='caption' color='initial'>
-									{product}
-								</Typography>
-							</Stack>
-							<Stack flexDirection='column'>
-								<Chip label='Sells' />
-								<Typography variant='caption' color='initial'>
-									{sells}
-								</Typography>
-							</Stack>
-							<Stack flexDirection='column'>
-								<Chip label='Payout' />
-								<Typography variant='caption' color='initial'>
-									{sells}
-								</Typography>
-							</Stack>
-						</Stack>
-					</Box>
+					</Link>
 				))}
 			</Box>
 			<Pagination
@@ -82,14 +86,14 @@ export const VendorGrid = () => {
 };
 export const VendorTable: React.FC<{ onSearch: string }> = ({ onSearch }) => {
 	const [data, setData] = useState(VendorData);
-	const columnKeys = ['name', 'email', 'product']
+	const columnKeys = ['name', 'email', 'product'];
 
 	React.useEffect(() => {
-		const filtered = VendorData.filter((item) => columnKeys.some((key) => item[key].toLowerCase().includes(onSearch.toLowerCase().trim()))
+		const filtered = VendorData.filter((item) =>
+			columnKeys.some((key) => item[key].toLowerCase().includes(onSearch.toLowerCase().trim())),
 		);
 		setData(filtered);
 	}, [onSearch]);
-
 
 	return (
 		<Table
