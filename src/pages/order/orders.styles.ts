@@ -8,4 +8,6 @@ export const itemCard: SxProps<Theme> = {
 	flex: '1 0 180px',
 	flexDirection: 'column',
 	alignItems: 'center',
+	overflow: 'hidden',
 };
+export const CardTop = { backgroundColor: 'gray.50', width: '100%', textAlign: 'center', p: 1 };

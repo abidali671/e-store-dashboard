@@ -76,7 +76,7 @@ export const ProductGrid = () => {
 					{dataShow.length > 0
 						? dataShow.map((category, ind) => (
 								<ProductCard
-									title={category['name']}
+									title={category.name}
 									id={category.id}
 									price={category.price}
 									key={ind}

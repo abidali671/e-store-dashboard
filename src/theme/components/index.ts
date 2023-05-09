@@ -7,7 +7,7 @@ const components: Components = {
 			root: {
 				borderRadius: '8px',
 				border: '1px solid',
-				borderColor: palette.gray[100],
+				borderColor: palette.gray[50],
 				height: '48px',
 			},
 		},

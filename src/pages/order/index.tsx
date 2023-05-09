@@ -12,6 +12,7 @@ import {
 } from '@mui/material';
 import { Card } from '@components';
 import * as styles from './orders.styles';
+import { orderDetail } from 'src/data/order.data';
 
 const Order = () => {
 	return (
@@ -20,47 +21,38 @@ const Order = () => {
 				<Typography variant='h4' fontWeight={600} color='initial'>
 					Order Detail
 				</Typography>
-				<Card title='Order Detail'>
+				<Card
+					title={
+						<Stack sx={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+							Order Detail <span>Order Id: #1234567</span>
+						</Stack>
+					}
+				>
 					<Stack p={5} gap={5}>
 						<Stack flexDirection='row' gap={5} flexWrap='wrap'>
-							<Box sx={styles.itemCard}>
-								<Box sx={{ backgroundColor: 'gray.50', width: '100%', textAlign: 'center', p: 1 }}>
-									<Typography variant='body1' fontWeight={600} fontSize={20} color='initial'>
-										Customer
-									</Typography>
+							{orderDetail.map((item, ind) => (
+								<Box sx={styles.itemCard} key={ind}>
+									<Box sx={styles.CardTop}>
+										<Typography variant='body1' fontWeight={600} fontSize={20} color='initial'>
+											{item.title}
+										</Typography>
+									</Box>
+									<Box sx={{ p: 3 }}>
+										<Typography variant='body1' fontSize={18} color='gray.400'>
+											{item.detail}
+										</Typography>
+									</Box>
 								</Box>
-								<Box sx={{ p: 3 }}>
-									<Typography variant='body1' fontSize={18} color='gray.400'>
-										Twitter, Inc.795 Folsom Ave, Suite 600San Francisco, CA 94107P: (123) 456-7890
-									</Typography>
-								</Box>
-							</Box>
-							<Box sx={styles.itemCard}>
-								<Box sx={{ backgroundColor: 'gray.50', width: '100%', textAlign: 'center', p: 1 }}>
-									<Typography fontWeight={600} variant='body1' fontSize={20} color='initial'>
-										Shipped To:
-									</Typography>
-								</Box>
-								<Box sx={{ p: 3 }}>
-									<Typography variant='body1' fontSize={18} color='gray.400'>
-										Elaine HernandezP. Sherman 42,Wallaby Way, SidneyP: (123) 345-6789
-									</Typography>
-								</Box>
-							</Box>
-							<Box sx={styles.itemCard}>
-								<Box sx={{ backgroundColor: 'gray.50', width: '100%', textAlign: 'center', p: 1 }}>
-									<Typography fontWeight={600} variant='body1' fontSize={20} color='initial'>
-										Order Date:
-									</Typography>
-								</Box>
-								<Box sx={{ p: 3 }}>
-									<Typography variant='body1' fontSize={18} color='gray.400'>
-										4:30 wed. Aug 13, 2023
-									</Typography>
-								</Box>
-							</Box>
+							))}
 						</Stack>
-						<Box sx={{ border: '1px solid', borderColor: 'gray.100' }}>
+						<Box
+							sx={{
+								border: '1px solid',
+								borderColor: 'gray.100',
+								borderRadius: '16px',
+								overflow: 'hidden',
+							}}
+						>
 							<Box sx={{ backgroundColor: 'gray.50', width: '100%', textAlign: 'center', p: 1 }}>
 								<Typography variant='body1' fontWeight={600} fontSize={20} color='initial'>
 									Customer
