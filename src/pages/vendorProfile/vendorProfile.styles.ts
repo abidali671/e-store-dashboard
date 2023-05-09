@@ -27,7 +27,7 @@ export const itemCard: SxProps<Theme> = {
 	border: '1px solid #D9D9D9',
 	borderRadius: '16px',
 	display: 'flex',
-	flex: '1 0 200px',
+	flex: '1 0 160px',
 	justifyContent: 'space-between',
 	alignItems: 'center',
 };
