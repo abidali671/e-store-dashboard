@@ -14,6 +14,7 @@ import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { ProductOverview } from '@components';
 import { pathnames } from '@types';
 import { useSelector } from './hooks';
+import Order from './pages/order';
 
 const App: React.FC = () => {
 	return (
@@ -72,7 +73,7 @@ const App: React.FC = () => {
 			<Route path={pathnames.FORGET_PASSWORD} element={<ForgetPassword />} />
 			<Route path={pathnames.RESET_PASSWORD} element={<ResetPassword />} />
 			<Route
-				path='/product-detail/:id'
+				path={`${pathnames.PRODUCT_DETAIL}/:id`}
 				element={
 					<ProtectedRoute>
 						<ProductOverview />
@@ -80,10 +81,18 @@ const App: React.FC = () => {
 				}
 			/>
 			<Route
-				path='/vendors/:id'
+				path={`${pathnames.VENDORS}/:id`}
 				element={
 					<ProtectedRoute>
 						<VendorProfile />
+					</ProtectedRoute>
+				}
+			/>
+			<Route
+				path={pathnames.ORDERS}
+				element={
+					<ProtectedRoute>
+						<Order />
 					</ProtectedRoute>
 				}
 			/>
