@@ -31,7 +31,8 @@ export const productsRow = [
 	{ name: 'Backpack', quantity: 9, average: '20%' },
 	{ name: 'Backpack', quantity: 9, average: '20%' },
 	{ name: 'Backpack', quantity: 9, average: '20%' },
-
+	{ name: 'Backpack', quantity: 9, average: '20%' },
+	{ name: 'Backpack', quantity: 9, average: '20%' },
 ];
 interface productT {
 	title: string;

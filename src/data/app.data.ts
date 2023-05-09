@@ -14,7 +14,7 @@ import {
 	Package,
 } from '@assests/icons';
 import React from 'react';
-import { JSONValue } from '@types';
+import { JSONValue, pathnames } from '@types';
 
 export interface SideItemT {
 	label?: string;
@@ -24,12 +24,12 @@ export interface SideItemT {
 }
 
 export const sideListItems: SideItemT[] = [
-	{ label: 'DASHBOARD', path: '/dashboard', icon: Dashboard },
-	{ label: 'VENDORS', path: '/vendors', icon: Vendors },
+	{ label: 'DASHBOARD', path: pathnames.DASHBOARD, icon: Dashboard },
+	{ label: 'VENDORS', path: pathnames.VENDORS, icon: Vendors },
 	{ divider: true },
-	{ label: 'CATAGORIES', icon: Category, path: '/category' },
-	{ label: 'PRODUCTS', icon: Products, path: '/products' },
-	{ label: 'ORDERS', icon: Order },
+	{ label: 'CATAGORIES', icon: Category, path: pathnames.CATEGORY },
+	{ label: 'PRODUCTS', icon: Products, path: pathnames.PRODUCTS },
+	{ label: 'ORDERS', icon: Order, path: pathnames.ORDERS },
 	{ label: 'REVIEWS', icon: Review },
 	{ label: 'BRANDS', icon: Brand },
 	{ divider: true },
