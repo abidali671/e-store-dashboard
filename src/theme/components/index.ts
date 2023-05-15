@@ -42,7 +42,7 @@ const components: Components = {
 		styleOverrides: {
 			root: {
 				textAlign: 'center',
-				padding: '0',
+				padding: '0 16px',
 				border: 'none',
 			},
 		},

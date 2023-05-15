@@ -24,6 +24,8 @@ const Sidebar = ({
 		navigate(path);
 	};
 
+	console.log(isCollapsed);
+
 	return (
 		<React.Fragment>
 			<Box

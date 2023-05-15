@@ -67,17 +67,21 @@ const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
 							))}
 						</TableRow>
 					))}
+					<TableRow sx={{ backgroundColor: 'transparent !important' }}>
+						<TableCell sx={{ px: 0 }} colSpan={columns.length}>
+							<Pagination
+								page={currentPage}
+								onChange={setCurrentPage}
+								count={totalPages}
+								dataShow={dataShow}
+								data={data}
+								entries={entries}
+								handleEntries={handleEntries}
+							/>
+						</TableCell>
+					</TableRow>
 				</TableBody>
 			</Table>
-			<Pagination
-				page={currentPage}
-				onChange={setCurrentPage}
-				count={totalPages}
-				dataShow={dataShow}
-				data={data}
-				entries={entries}
-				handleEntries={handleEntries}
-			/>
 		</TableContainer>
 	);
 };
