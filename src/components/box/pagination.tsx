@@ -1,7 +1,9 @@
 import * as React from 'react';
 import usePagination from '@mui/material/usePagination';
 import { styled } from '@mui/material/styles';
-import { Box, MenuItem, Select, Typography } from '@mui/material';
+import { Box, IconButton, MenuItem, Select, Typography } from '@mui/material';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 const List = styled('ul')({
 	listStyle: 'none',
@@ -26,7 +28,7 @@ export default function Pagination({
 			<Box
 				sx={{
 					display: 'flex',
-					justifyContent: 'space-between',
+					justifyContent: { xs: 'center', md: 'space-between' },
 					gap: '5px',
 					alignItems: 'center',
 					px: 2,
@@ -38,7 +40,7 @@ export default function Pagination({
 				<Typography variant='caption' color='#9F9B9B' sx={{ display: { xs: 'none', md: 'block' } }}>
 					Showing {page} to {dataShow.length} of {data.length}
 				</Typography>
-				<Box sx={{ display: 'flex', alignItems: 'center', color: '#9F9B9B' }}>
+				<Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', color: '#9F9B9B' }}>
 					<Typography variant='h6' fontSize={16} color='inherit'>
 						Show
 					</Typography>
@@ -101,7 +103,7 @@ export default function Pagination({
 							);
 						} else {
 							children = (
-								<button
+								<IconButton
 									type='button'
 									{...item}
 									style={{
@@ -120,8 +122,12 @@ export default function Pagination({
 										onChange(page);
 									}}
 								>
-									{type}
-								</button>
+									{type === 'previous' ? (
+										<ArrowBackIosNewIcon fontSize='small' />
+									) : (
+										<ArrowForwardIosIcon fontSize='small' />
+									)}
+								</IconButton>
 							);
 						}
 

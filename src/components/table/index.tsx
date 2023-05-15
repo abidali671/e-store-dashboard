@@ -8,6 +8,7 @@ import {
 	TableHead,
 	TableRow,
 	SelectChangeEvent,
+	Box,
 } from '@mui/material';
 import { tableContainer } from './table.styles';
 import { JSONArray, JSONValue } from '@types';
@@ -45,44 +46,42 @@ const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
 	};
 
 	return (
-		<TableContainer sx={tableContainer}>
-			<Table stickyHeader>
-				<TableHead>
-					<TableRow>
-						{columns.map((column) => (
-							<TableCell key={column.name}>{column.label}</TableCell>
-						))}
-					</TableRow>
-				</TableHead>
-				<TableBody>
-					{dataShow.map((item, index) => (
-						<TableRow key={index}>
-							{columns.map((column, index) => (
-								<TableCell
-									onClick={() => location.pathname == '/vendors' && RouteToProfile(item['id'])}
-									key={index}
-								>
-									{column?.render ? column?.render(item[column.name]) : item[column.name]}
-								</TableCell>
+		<Box sx={tableContainer}>
+			<TableContainer>
+				<Table stickyHeader>
+					<TableHead>
+						<TableRow>
+							{columns.map((column) => (
+								<TableCell key={column.name}>{column.label}</TableCell>
 							))}
 						</TableRow>
-					))}
-					<TableRow sx={{ backgroundColor: 'transparent !important' }}>
-						<TableCell sx={{ px: 0 }} colSpan={columns.length}>
-							<Pagination
-								page={currentPage}
-								onChange={setCurrentPage}
-								count={totalPages}
-								dataShow={dataShow}
-								data={data}
-								entries={entries}
-								handleEntries={handleEntries}
-							/>
-						</TableCell>
-					</TableRow>
-				</TableBody>
-			</Table>
-		</TableContainer>
+					</TableHead>
+					<TableBody>
+						{dataShow.map((item, index) => (
+							<TableRow key={index}>
+								{columns.map((column, index) => (
+									<TableCell
+										onClick={() => location.pathname == '/vendors' && RouteToProfile(item['id'])}
+										key={index}
+									>
+										{column?.render ? column?.render(item[column.name]) : item[column.name]}
+									</TableCell>
+								))}
+							</TableRow>
+						))}
+					</TableBody>
+				</Table>
+			</TableContainer>
+			<Pagination
+				page={currentPage}
+				onChange={setCurrentPage}
+				count={totalPages}
+				dataShow={dataShow}
+				data={data}
+				entries={entries}
+				handleEntries={handleEntries}
+			/>
+		</Box>
 	);
 };
 export default TableComponent;
