@@ -31,9 +31,13 @@ const AddProduct = () => {
 				<Box sx={styles.gridBox}>
 					<Box gridColumn={{ md: 'span 4', xs: 'span 12' }}>
 						<Box sx={styles.leftSideImage} {...getRootProps()}>
-							<input {...getInputProps()} type='file' min={1} />
+							<input {...getInputProps()} type='file' />
 							{uploadImage ? (
-								<Box component='img' src={uploadImage} />
+								<Box
+									component='img'
+									src={uploadImage}
+									sx={{ width: '100%', height: '100%', objectFit: 'contain' }}
+								/>
 							) : (
 								<Box>
 									<Typography variant='h2' fontWeight='bold' textAlign='center' color='gray.500'>
