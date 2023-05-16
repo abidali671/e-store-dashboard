@@ -10,18 +10,17 @@ import { productData } from 'src/data/product';
 export const ProductGrid = () => {
 	const [selectMenu, setSelectMenu] = useState('All category');
 	const [filteredData, setFilteredData] = useState(productData);
+	const [entries, setEntries] = useState(5);
+	const [currentPage, setCurrentPage] = useState(1);
+	const navigate = useNavigate();
 
 	const handleChange = (event: any) => {
 		const selectedCategory = event.target.value;
 		setSelectMenu(event.target.value);
 		selectedCategory === 'All category'
 			? setFilteredData(productData)
-			: setFilteredData((data) => data.filter((item) => item.name === selectedCategory));
+			: setFilteredData(productData.filter((item) => item.name === selectedCategory));
 	};
-
-	const [entries, setEntries] = useState(5);
-	const [currentPage, setCurrentPage] = useState(1);
-	const navigate = useNavigate();
 
 	const totalPages = useMemo(() => {
 		return Math.ceil(filteredData.length / entries);
@@ -104,8 +103,8 @@ export const ProductTable: React.FC<{ onSearch: string }> = ({ onSearch }) => {
 	useEffect(() => {
 		const filtered = productData.filter(
 			(item) =>
-				item['name'].toLowerCase().includes(onSearch.toLowerCase()) ||
-				item['price'].toLowerCase().includes(onSearch.toLowerCase()),
+				item.name.toLowerCase().includes(onSearch.toLowerCase()) ||
+				item.price.toLowerCase().includes(onSearch.toLowerCase()),
 		);
 		setData(filtered);
 	}, [onSearch]);
