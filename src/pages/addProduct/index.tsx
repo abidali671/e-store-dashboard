@@ -5,23 +5,28 @@ import { useSelector } from 'src/hooks';
 import { useDropzone } from 'react-dropzone';
 
 import * as styles from './addproduct.styles';
-const AddProduct = () => {
-	const [uploadImage, setUploadImage] = useState('');
+
+const AddProduct: React.FC = () => {
+	const [uploadMultipleImages, setUploadMultipleImages] = useState([]);
 	const sizes = useSelector((state) => state.dropdowns.sizes);
+
 	const onDrop = useCallback(
 		(acceptedFiles) => {
-			const imageMimeType = ['image', 'png', 'jpg', 'jpeg'];
+			const img_list = uploadMultipleImages;
+
 			acceptedFiles.forEach((file) => {
-				if (imageMimeType.includes(file.path.split('.').at(-1))) {
-					setUploadImage(URL.createObjectURL(file));
-				} else {
-					alert('please choose a image');
-				}
+				img_list.push(URL.createObjectURL(file));
 			});
+
+			setUploadMultipleImages(img_list);
 		},
-		[uploadImage],
+		[uploadMultipleImages],
 	);
-	const { getRootProps, getInputProps } = useDropzone({ onDrop, multiple: false });
+
+	const { getRootProps, getInputProps } = useDropzone({
+		onDrop,
+	});
+
 	return (
 		<Container>
 			<Typography variant='h5' fontWeight='bold'>
@@ -29,17 +34,17 @@ const AddProduct = () => {
 			</Typography>
 			<Box sx={styles.mainBox}>
 				<Box sx={styles.gridBox}>
-					<Box gridColumn={{ md: 'span 4', xs: 'span 12' }}>
+					<Box gridColumn={{ lg: 'span 4', xs: 'span 12' }}>
 						<Box sx={styles.leftSideImage} {...getRootProps()}>
 							<input {...getInputProps()} type='file' />
-							{uploadImage ? (
+							{uploadMultipleImages?.[0] ? (
 								<Box
 									component='img'
-									src={uploadImage}
+									src={uploadMultipleImages[0]}
 									sx={{ width: '100%', height: '100%', objectFit: 'contain' }}
 								/>
 							) : (
-								<Box>
+								<Box textAlign='center'>
 									<Typography variant='h2' fontWeight='bold' textAlign='center' color='gray.500'>
 										765 x 850
 									</Typography>
@@ -50,17 +55,38 @@ const AddProduct = () => {
 							)}
 						</Box>
 
-						<Box sx={styles.mainSmallBoxes}>
-							{Array(5).fill(
-								<Box sx={styles.smallBoxes}>
-									<Typography variant='body2' fontWeight='bold' textAlign='center' color='gray.500'>
-										750 x 850
-									</Typography>
-								</Box>,
-							)}
+						<Box sx={styles.mainSmallBoxes} {...getRootProps({ className: 'dropzone' })}>
+							{Array(5)
+								.fill('')
+								.map((_, index) => uploadMultipleImages[index] || '')
+								.map((image, index) => (
+									<Box key={index} sx={styles.smallBoxes}>
+										{image ? (
+											<Box
+												key={index}
+												component='img'
+												src={image}
+												sx={{ width: '100%', height: '100%', objectFit: 'contain' }}
+											/>
+										) : (
+											<>
+												<input {...getInputProps()} type='file' />
+												<Typography
+													variant='body2'
+													fontWeight='bold'
+													textAlign='center'
+													color='gray.500'
+												>
+													750 x 850
+												</Typography>
+											</>
+										)}
+									</Box>
+								))}
 						</Box>
 					</Box>
-					<Stack gridColumn={{ md: 'span 8', xs: 'span 12' }} sx={{ width: '100%', gap: '20px' }}>
+
+					<Stack gridColumn={{ xs: 'span 12', md: 'span 8' }} sx={{ width: '100%', gap: '20px' }}>
 						<TextField required id='outlined-required' label='PRODUCT NAME' sx={{ width: '50%' }} />
 						<TextField
 							required
