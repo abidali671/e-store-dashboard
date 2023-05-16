@@ -58,7 +58,7 @@ const AddProduct: React.FC = () => {
 						<Box sx={styles.mainSmallBoxes} {...getRootProps({ className: 'dropzone' })}>
 							{Array(5)
 								.fill('')
-								.map((_, index) => uploadMultipleImages[index] || '')
+								.map((_, index) => uploadMultipleImages[index + 1] || '')
 								.map((image, index) => (
 									<Box key={index} sx={styles.smallBoxes}>
 										{image ? (

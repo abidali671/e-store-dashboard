@@ -3,7 +3,7 @@ import { Pagination, ProductCard, SearchBar, Table } from '@components';
 import { mainProduct } from '@components/productCard/productCard.style';
 import { Button, IconButton, MenuItem, Select } from '@mui/material';
 import { Box, Stack } from '@mui/system';
-import { useEffect, useMemo, useState, useId } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { productData } from 'src/data/product';
 
