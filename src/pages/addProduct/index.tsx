@@ -1,21 +1,30 @@
 import React, { useCallback, useState } from 'react';
 import Container from '@components/container';
-import { Box, Stack, Typography, TextField, Checkbox } from '@mui/material';
+import { Box, Stack, Typography, TextField, Checkbox, Button } from '@mui/material';
 import { useSelector } from 'src/hooks';
 import { useDropzone } from 'react-dropzone';
 
 import * as styles from './addproduct.styles';
 
 const AddProduct: React.FC = () => {
+	const init = {
+		productname: '',
+		selectcategory: '',
+		slug: '',
+		sortdescription: '',
+	};
 	const [uploadMultipleImages, setUploadMultipleImages] = useState([]);
+	const [values, setValues] = useState(init);
+
 	const sizes = useSelector((state) => state.dropdowns.sizes);
 
 	const onDrop = useCallback(
-		(acceptedFiles) => {
+		(acceptedFiles: Blob[]) => {
 			const img_list = uploadMultipleImages;
 
-			acceptedFiles.forEach((file) => {
+			acceptedFiles.forEach((file: Blob) => {
 				img_list.push(URL.createObjectURL(file));
+				console.log(file, 'file');
 			});
 
 			setUploadMultipleImages(img_list);
@@ -26,6 +35,19 @@ const AddProduct: React.FC = () => {
 	const { getRootProps, getInputProps } = useDropzone({
 		onDrop,
 	});
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		if (values) {
+			setValues(init);
+		}
+		console.log(values, 'form');
+	};
+	const handleChange = (e) => {
+		setValues((values) => {
+			return { ...values, [e.target.name]: e.target.value };
+		});
+	};
 
 	return (
 		<Container>
@@ -63,7 +85,6 @@ const AddProduct: React.FC = () => {
 									<Box key={index} sx={styles.smallBoxes}>
 										{image ? (
 											<Box
-												key={index}
 												component='img'
 												src={image}
 												sx={{ width: '100%', height: '100%', objectFit: 'contain' }}
@@ -86,26 +107,53 @@ const AddProduct: React.FC = () => {
 						</Box>
 					</Box>
 
-					<Stack gridColumn={{ xs: 'span 12', md: 'span 8' }} sx={{ width: '100%', gap: '20px' }}>
-						<TextField required id='outlined-required' label='PRODUCT NAME' sx={{ width: '50%' }} />
+					<Stack
+						gridColumn={{ xs: 'span 12', md: 'span 8' }}
+						sx={styles.rightSide}
+						component='form'
+						onSubmit={(e) => handleSubmit(e)}
+					>
+						<TextField
+							required
+							id='outlined-required'
+							label='PRODUCT NAME'
+							sx={{ width: '50%' }}
+							onChange={handleChange}
+							name='productname'
+							value={values.productname}
+						/>
 						<TextField
 							required
 							id='outlined-required'
 							label='SELECT CATEGORIES'
 							sx={{ width: '50%' }}
+							name='selectcategory'
+							onChange={handleChange}
+							value={values.selectcategory}
 						/>
-						<TextField required id='outlined-required' label='SLUG' />
-						<TextField required id='outlined' label='SORT DESCRIPTION' />
+						<TextField
+							required
+							id='outlined-required'
+							label='SLUG'
+							onChange={handleChange}
+							value={values.slug}
+							name='slug'
+						/>
+						<TextField
+							required
+							id='outlined'
+							label='SORT DESCRIPTION'
+							value={values.sortdescription}
+							onChange={handleChange}
+							name='sortdescription'
+						/>
 						<Stack justifyContent='space-between' flexDirection='row' alignItems='center'>
 							<Box>
 								<Typography variant='body1' fontSize={20} color='gray.300'>
 									COLORS
 								</Typography>
 								<Stack flexDirection='row' gap='8px' pt={1}>
-									<Box sx={styles.colorBox} />
-									<Box sx={styles.colorBox} />
-									<Box sx={styles.colorBox} />
-									<Box sx={styles.colorBox} />
+									{Array(4).fill(<Box sx={styles.colorBox} />)}
 								</Stack>
 							</Box>
 							<Box>
@@ -115,7 +163,7 @@ const AddProduct: React.FC = () => {
 								<Stack flexDirection='row' pt={0.5}>
 									{sizes.map((val, ind) => (
 										<Typography variant='body1' color='gray.300' key={ind}>
-											<Checkbox defaultChecked={false} size='small' sx={{ padding: '0px 5px' }} />
+											<Checkbox defaultChecked={false} size='small' sx={styles.checkBox} />
 											{val}
 										</Typography>
 									))}
@@ -134,6 +182,9 @@ const AddProduct: React.FC = () => {
 							defaultValue=''
 						/>
 						<TextField required id='outlined-required' label='PRODUCT TAGS' />
+						<Button variant='text' color='primary' type='submit'>
+							Click me
+						</Button>
 					</Stack>
 				</Box>
 			</Box>
