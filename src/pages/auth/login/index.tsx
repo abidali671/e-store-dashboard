@@ -18,7 +18,8 @@ const Login: types.ComponentT = () => {
 						Sign in
 					</Typography>
 					<Box width='100%'>
-						<Stack sx={{ width: '100%', gap: '16px' }}>
+						<Stack sx={{ width: '100%', gap: '14px' }}>
+							{/* <FormikTextField name='username' label='username' {...formik} /> */}
 							<FormikTextField name='username' label='username' {...formik} />
 							<FormikTextField name='password' type='password' label='Password' {...formik} />
 
