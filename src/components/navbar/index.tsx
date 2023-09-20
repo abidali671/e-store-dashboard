@@ -11,9 +11,10 @@ import { pathnames } from '@types';
 
 const Navbar: ComponentT = ({ isSearchBar = true, toggleSidebar }) => {
 	const location = useLocation();
+	const isPath = location.pathname == pathnames.LOGIN || location.pathname == pathnames.REGISTER ? true : false
 	return (
 		<Box sx={styles.root}>
-			{location.pathname == pathnames.LOGIN || location.pathname == pathnames.REGISTER ? '' : <Box
+			{isPath ? '' : <Box
 				onClick={() => toggleSidebar(types.TogglerType.MOBILE)}
 				component={Hameburger}
 				sx={{ display: { md: 'none' }, cursor: 'pointer' }}
@@ -22,13 +23,13 @@ const Navbar: ComponentT = ({ isSearchBar = true, toggleSidebar }) => {
 				component='img'
 				sx={{
 					height: 50,
-					display: { xs: location.pathname == '/login' ? 'block' : 'none', md: 'block' },
+					display: { xs: isPath ? 'block' : 'none', md: 'block' },
 				}}
 				alt='Logo'
 				src={Logo}
 			/>
 			{isSearchBar && <SearchBar placeholderText='Search...' />}
-			{location.pathname == pathnames.LOGIN || location.pathname == pathnames.REGISTER ? '' : <Box sx={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+			{isPath ? '' : <Box sx={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
 				<Ring />
 				<Box
 					component='img'
