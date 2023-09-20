@@ -7,7 +7,7 @@ export const root: SxProps<Theme> = {
 	// justifyContent: 'flex-start',
 	flexDirection: 'column',
 	// my: 1,
-
+	padding: '0px 14px',
 	textAlign: 'center',
 	height: '100%',
 };

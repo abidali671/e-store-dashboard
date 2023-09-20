@@ -31,7 +31,7 @@ const Register: types.ComponentT = () => {
 								width: '100%',
 							}}
 						>
-							<Checkbox defaultChecked size='small' />
+							<Checkbox size='small' />
 							<Typography variant='caption' color='initial'>
 								I Accept Terms & Coditions
 							</Typography>
