@@ -10,6 +10,8 @@ import * as styles from './login.styles';
 const Login: types.ComponentT = () => {
 	const { formik } = useLogin();
 
+
+
 	return (
 		<AuthContainer>
 			<Box sx={styles.root}>
@@ -19,7 +21,6 @@ const Login: types.ComponentT = () => {
 					</Typography>
 					<Box width='100%'>
 						<Stack sx={{ width: '100%', gap: '14px' }}>
-							{/* <FormikTextField name='username' label='username' {...formik} /> */}
 							<FormikTextField name='username' label='username' {...formik} />
 							<FormikTextField name='password' type='password' label='Password' {...formik} />
 
@@ -29,9 +30,9 @@ const Login: types.ComponentT = () => {
 								</Link>
 							</Typography>
 						</Stack>
-						{formik.errors['non_field_error'] && (
+						{formik.errors.username && formik.touched.username && (
 							<FormHelperText sx={{ color: '#9F9B9B', textAlign: 'left' }}>
-								{formik.errors['non_field_error']}
+								{formik.errors.username}
 							</FormHelperText>
 						)}
 					</Box>

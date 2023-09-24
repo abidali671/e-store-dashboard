@@ -5,7 +5,7 @@ export const root: SxProps<Theme> = {
 	display: 'flex',
 	alignItems: 'center',
 	justifyContent: 'space-between',
-	px: '60px',
+	px: { xs: '20px', sm: '40px', md: '60px' },
 	borderBottom: '1px solid #7D767680',
 	height: '60px'
 };

@@ -10,6 +10,7 @@ enum pathnames {
 	RESET_PASSWORD = '/reset-password',
 	ORDERS = '/orders',
 	PRODUCT_DETAIL = '/product-detail',
+	VERIFIED = '/verified',
 }
 
 export default pathnames;

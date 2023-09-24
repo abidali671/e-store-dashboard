@@ -11,7 +11,7 @@ import { pathnames } from '@types';
 
 const Navbar: ComponentT = ({ isSearchBar = true, toggleSidebar }) => {
 	const location = useLocation();
-	const isPath = location.pathname == pathnames.LOGIN || location.pathname == pathnames.REGISTER ? true : false
+	const isPath = (pathnames.LOGIN || pathnames.REGISTER || pathnames.VERIFIED) ? true : false
 	return (
 		<Box sx={styles.root}>
 			{isPath ? '' : <Box
