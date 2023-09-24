@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const API = axios.create({
-    baseURL: 'https://ruby-beaver-tutu.cyclic.app'
+    baseURL: process.env.API_BASE_URL,
+
 });
 
 
