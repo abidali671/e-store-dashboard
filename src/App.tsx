@@ -15,7 +15,7 @@ import { ProductOverview } from '@components';
 import { pathnames } from '@types';
 import { useSelector } from './hooks';
 import Order from './pages/order';
-import Verified from './pages/verified';
+import Verify from './pages/auth/verified';
 
 const App: React.FC = () => {
 	return (
@@ -73,7 +73,7 @@ const App: React.FC = () => {
 
 			<Route path={pathnames.FORGET_PASSWORD} element={<ForgetPassword />} />
 			<Route path={pathnames.RESET_PASSWORD} element={<ResetPassword />} />
-			<Route path={pathnames.VERIFIED} element={<Verified />} />
+			<Route path={pathnames.VERIFY} element={<Verify />} />
 			<Route
 				path={`${pathnames.PRODUCT_DETAIL}/:id`}
 				element={
