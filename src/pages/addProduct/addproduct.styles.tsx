@@ -1,4 +1,9 @@
-export const mainBox = { border: '1px solid', borderColor: 'gray.100', borderRadius: '20px' };
+export const mainBox = {
+	border: '1px solid',
+	borderColor: 'gray.100',
+	borderRadius: '20px',
+	mt: 2,
+};
 export const gridBox = { display: 'grid', p: 3, gap: 3, gridTemplateColumns: 'repeat(12,1fr)' };
 export const leftSideImage = {
 	border: '1px solid',
@@ -25,4 +30,6 @@ export const smallBoxes = {
 	borderColor: 'gray.100',
 	borderRadius: '16px',
 };
+export const rightSide = { width: '100%', gap: '20px' };
+export const checkBox = { padding: '0px 5px' };
 export const colorBox = { width: '20px', height: '20px', backgroundColor: 'red.600' };

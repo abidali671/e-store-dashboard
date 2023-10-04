@@ -1,5 +1,6 @@
 * {
 	box-sizing: border-box;
+	padding: 0;
 	margin: 0;
 }
 *::-webkit-scrollbar-track {
@@ -9,6 +10,7 @@
 
 *::-webkit-scrollbar {
 	width: 8px;
+	height: 8px;
 	background-color: #fafafa;
 }
 
@@ -16,4 +18,23 @@
 	background-color: #86aaf1;
 	border: 1px solid #fafafa;
 	border-radius: 4px;
+}
+
+.carousel-root {
+	width: 100%;
+}
+
+.carousel .thumb {
+	padding: 4px;
+}
+
+.carousel .thumb.selected {
+	border: 2px solid #63666d;
+	border-radius: 8px;
+}
+
+.carousel .thumb:hover {
+	opacity: 0.8;
+	border: 2px solid #a5a7ab;
+	border-radius: 8px;
 }

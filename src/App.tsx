@@ -1,5 +1,4 @@
 import React from 'react';
-import { ProductOverview } from '@components';
 import Login from './pages/auth/login';
 import Register from './pages/auth/register';
 import Dashboard from './pages/dashboard';
@@ -9,9 +8,14 @@ import Products from './pages/products';
 import AddProduct from './pages/addProduct';
 import ForgetPassword from './pages/auth/forgot_password';
 import ResetPassword from './pages/auth/reset_password';
+import VendorProfile from './pages/vendorProfile';
+
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { ProductOverview } from '@components';
+import { pathnames } from '@types';
 import { useSelector } from './hooks';
-import pathnames from './types/pathnames';
+import Order from './pages/order';
+import Verify from './pages/auth/verified';
 
 const App: React.FC = () => {
 	return (
@@ -69,11 +73,28 @@ const App: React.FC = () => {
 
 			<Route path={pathnames.FORGET_PASSWORD} element={<ForgetPassword />} />
 			<Route path={pathnames.RESET_PASSWORD} element={<ResetPassword />} />
+			<Route path={pathnames.VERIFY} element={<Verify />} />
 			<Route
-				path='/product-detail/:id'
+				path={`${pathnames.PRODUCT_DETAIL}/:id`}
 				element={
 					<ProtectedRoute>
 						<ProductOverview />
+					</ProtectedRoute>
+				}
+			/>
+			<Route
+				path={`${pathnames.VENDORS}/:id`}
+				element={
+					<ProtectedRoute>
+						<VendorProfile />
+					</ProtectedRoute>
+				}
+			/>
+			<Route
+				path={pathnames.ORDERS}
+				element={
+					<ProtectedRoute>
+						<Order />
 					</ProtectedRoute>
 				}
 			/>

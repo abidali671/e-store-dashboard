@@ -7,6 +7,7 @@ export const root: SxProps<Theme> = {
 	flexDirection: 'column',
 	textAlign: 'center',
 	height: '100%',
+	padding: '0px 14px'
 };
 export const button: SxProps<Theme> = {
 	backgroundColor: 'black',

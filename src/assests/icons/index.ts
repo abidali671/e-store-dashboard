@@ -20,3 +20,7 @@ export { default as Update } from './update';
 export { default as Hameburger } from './hameburger';
 export { default as ArrowDown } from './arrowDown';
 export { default as MoreOption } from './moreOption';
+export { default as NewUsers } from './newUsers';
+export { default as NewEnquiry } from './newEnquiry';
+export { default as Timer } from './timer';
+export { default as VerifiedIcon } from './verified';

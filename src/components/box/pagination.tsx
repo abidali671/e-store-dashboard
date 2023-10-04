@@ -1,7 +1,9 @@
 import * as React from 'react';
 import usePagination from '@mui/material/usePagination';
 import { styled } from '@mui/material/styles';
-import { Box, MenuItem, Select, Typography } from '@mui/material';
+import { Box, IconButton, MenuItem, Select, Typography } from '@mui/material';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 const List = styled('ul')({
 	listStyle: 'none',
@@ -26,34 +28,28 @@ export default function Pagination({
 			<Box
 				sx={{
 					display: 'flex',
-					justifyContent: { md: 'space-between', sm: 'center' },
+					justifyContent: { xs: 'center', md: 'space-between' },
 					gap: '5px',
 					alignItems: 'center',
 					px: 2,
-					py: 1,
 					borderTop: '1px solid',
 					borderColor: 'gray.100',
+					height: '60px',
 				}}
 			>
-				<Box>
-					<Typography
-						variant='caption'
-						color='#9F9B9B'
-						sx={{ display: { xs: 'none', md: 'block' } }}
-					>
-						Showing {page} to {dataShow.length} of {data.length}
-					</Typography>
-				</Box>
-				<Box sx={{ display: 'flex', alignItems: 'center', color: '#9F9B9B' }}>
+				<Typography variant='caption' color='#9F9B9B' sx={{ display: { xs: 'none', md: 'block' } }}>
+					Showing {page} to {dataShow.length} of {data.length}
+				</Typography>
+				<Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', color: '#9F9B9B' }}>
 					<Typography variant='h6' fontSize={16} color='inherit'>
 						Show
 					</Typography>
 					<Select
 						size='small'
 						sx={{
-							width: '80px',
-
-							mx: 2,
+							width: { md: '80px' },
+							mr: { md: 2 },
+							ml: { md: 2, xs: 1 },
 						}}
 						value={String(entries)}
 						onChange={handleEntries}
@@ -62,7 +58,7 @@ export default function Pagination({
 						<MenuItem value={10}>10</MenuItem>
 						<MenuItem value={20}>20</MenuItem>
 					</Select>
-					<Typography variant='h6' fontSize={16} color='#9F9B9B'>
+					<Typography display={{ xs: 'none', md: 'initial' }} variant='body1' color='#9F9B9B'>
 						Entries
 					</Typography>
 				</Box>
@@ -107,7 +103,7 @@ export default function Pagination({
 							);
 						} else {
 							children = (
-								<button
+								<IconButton
 									type='button'
 									{...item}
 									style={{
@@ -126,8 +122,12 @@ export default function Pagination({
 										onChange(page);
 									}}
 								>
-									{type}
-								</button>
+									{type === 'previous' ? (
+										<ArrowBackIosNewIcon fontSize='small' />
+									) : (
+										<ArrowForwardIosIcon fontSize='small' />
+									)}
+								</IconButton>
 							);
 						}
 

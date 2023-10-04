@@ -5,8 +5,7 @@ export const root = {
 	borderColor: 'gray.100',
 	borderRadius: '16px',
 	display: 'flex',
-
-	flexDirection: 'column'
+	flexDirection: 'column',
 };
 
 export const headerWrapper = {
@@ -25,7 +24,7 @@ export const footerWrapper = {
 	alignItems: 'center',
 	borderTop: '1px solid',
 	borderColor: 'gray.100',
-	marginTop: 'auto'
+	marginTop: 'auto',
 };
 
 export const contentWrapper = {
@@ -39,11 +38,11 @@ export const contentWrapper = {
 
 export const footerLink = {
 	fontWeight: 500,
-
 	color: 'blue.400',
 };
 
 export const title = {
-	fontWeight: 500,
+	fontWeight: 600,
 	color: 'gray.400',
+	width: '100%',
 };

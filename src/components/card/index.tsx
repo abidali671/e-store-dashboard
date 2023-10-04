@@ -2,11 +2,11 @@ import React from 'react';
 import { Box, Typography } from '@mui/material';
 import * as styles from './card.styles';
 
-const Card: React.FC<{ title: string; footer?: string; children: React.ReactNode }> = ({
-	title,
-	footer,
-	children,
-}) => {
+const Card: React.FC<{
+	title: string | JSX.Element;
+	footer?: string;
+	children: React.ReactNode;
+}> = ({ title, footer, children }) => {
 	return (
 		<Box sx={styles.root}>
 			<Box sx={styles.headerWrapper}>

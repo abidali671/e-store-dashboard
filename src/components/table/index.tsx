@@ -8,9 +8,11 @@ import {
 	TableHead,
 	TableRow,
 	SelectChangeEvent,
+	Box,
 } from '@mui/material';
 import { tableContainer } from './table.styles';
 import { JSONArray, JSONValue } from '@types';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 interface TableProps {
 	columns: {
@@ -24,6 +26,12 @@ interface TableProps {
 const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
 	const [entries, setEntries] = useState(5);
 	const [currentPage, setCurrentPage] = useState(1);
+	const navigate = useNavigate();
+	const location = useLocation();
+
+	const RouteToProfile = (id: string) => {
+		navigate(`/vendors/${id}`);
+	};
 
 	const totalPages = React.useMemo(() => {
 		return Math.ceil(data.length / entries);
@@ -36,28 +44,34 @@ const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
 	const handleEntries = (e: SelectChangeEvent<string>) => {
 		setEntries(+e.target.value);
 	};
+
 	return (
-		<TableContainer sx={tableContainer}>
-			<Table stickyHeader>
-				<TableHead>
-					<TableRow>
-						{columns.map((column) => (
-							<TableCell key={column.name}>{column.label}</TableCell>
-						))}
-					</TableRow>
-				</TableHead>
-				<TableBody>
-					{dataShow.map((item, index) => (
-						<TableRow key={index}>
-							{columns.map((column, index) => (
-								<TableCell key={index}>
-									{column?.render ? column?.render(item[column.name]) : item[column.name]}
-								</TableCell>
+		<Box sx={tableContainer}>
+			<TableContainer>
+				<Table stickyHeader>
+					<TableHead>
+						<TableRow>
+							{columns.map((column) => (
+								<TableCell key={column.name}>{column.label}</TableCell>
 							))}
 						</TableRow>
-					))}
-				</TableBody>
-			</Table>
+					</TableHead>
+					<TableBody>
+						{dataShow.map((item, index) => (
+							<TableRow key={index}>
+								{columns.map((column, index) => (
+									<TableCell
+										onClick={() => location.pathname == '/vendors' && RouteToProfile(item['id'])}
+										key={index}
+									>
+										{column?.render ? column?.render(item[column.name]) : item[column.name]}
+									</TableCell>
+								))}
+							</TableRow>
+						))}
+					</TableBody>
+				</Table>
+			</TableContainer>
 			<Pagination
 				page={currentPage}
 				onChange={setCurrentPage}
@@ -67,7 +81,7 @@ const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
 				entries={entries}
 				handleEntries={handleEntries}
 			/>
-		</TableContainer>
+		</Box>
 	);
 };
 export default TableComponent;

@@ -9,15 +9,17 @@ import * as styles from './register.styles';
 const Register: types.ComponentT = () => {
 	const { formik } = useSign();
 
+
+
 	return (
 		<AuthContainer>
 			<Box sx={styles.root}>
-				<FormWrapper onSubmit={formik.handleSubmit} sx={{ gap: 8 }}>
+				<FormWrapper onSubmit={formik.handleSubmit} sx={{ gap: 6, my: 3 }}>
 					<Typography variant='h4' fontWeight={600}>
 						Sign Up
 					</Typography>
 					<Box width='100%'>
-						<Stack sx={{ width: '100%', gap: '16px' }}>
+						<Stack sx={{ width: '100%', gap: '14px' }}>
 							<FormikTextField name='username' label='Username' {...formik} />
 							<FormikTextField name='first_name' label='First Name' {...formik} />
 							<FormikTextField name='last_name' label='Last Name' {...formik} />
@@ -31,7 +33,7 @@ const Register: types.ComponentT = () => {
 								width: '100%',
 							}}
 						>
-							<Checkbox defaultChecked size='small' />
+							<Checkbox size='small' />
 							<Typography variant='caption' color='initial'>
 								I Accept Terms & Coditions
 							</Typography>

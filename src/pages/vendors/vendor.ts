@@ -5,7 +5,7 @@ export const VendorData = [
 		id: '1',
 		profile: Face,
 		name: 'wahab',
-		email: 'abidali@gmail.com',
+		email: 'wahab@gmail.com',
 		product: '32',
 		totalSell: '2164',
 		status: 'Active',

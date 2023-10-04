@@ -16,7 +16,6 @@ const ForgetPassword = () => {
 		setTimeout(() => {
 			navigate('/reset-password');
 		}, 2000);
-		console.log(e, '==forget');
 	};
 
 	return (
@@ -30,7 +29,7 @@ const ForgetPassword = () => {
 						<Typography variant='body1' color='gray.300'>
 							Enter your email and we’ll send you a link to reset your password
 						</Typography>
-						<FormikTextField name='forgetPassword' label='Forget Password' {...formik} />
+						<FormikTextField name='forgetPassword' label='Username or Email' {...formik} />
 					</Stack>
 
 					<LoadingButton variant='contained' fullWidth color='secondary' type='submit'>

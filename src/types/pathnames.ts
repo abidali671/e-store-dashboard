@@ -8,6 +8,9 @@ enum pathnames {
 	ADD_PRODUCT = '/add-product',
 	FORGET_PASSWORD = '/forget-password',
 	RESET_PASSWORD = '/reset-password',
+	ORDERS = '/orders',
+	PRODUCT_DETAIL = '/product-detail',
+	VERIFY = '/verify',
 }
 
 export default pathnames;

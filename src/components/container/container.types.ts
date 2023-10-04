@@ -1,7 +1,4 @@
-export interface CollapsedStateT {
-	desktop: boolean;
-	mobile: boolean;
-}
+export type CollapsedStateT = Record<TogglerType, boolean>;
 
 export enum TogglerType {
 	DESKTOP = 'desktop',

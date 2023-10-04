@@ -38,6 +38,7 @@ const FormikTextField: ComponentT = (props: FormikValues) => {
 			multiline={multiline}
 			minRows={minRows}
 			fullWidth
+			style={{ padding: '2px 0px' }}
 			type={type == 'password' ? (showPassword ? 'text' : 'password') : type}
 			InputProps={{
 				endAdornment: (

@@ -7,7 +7,7 @@ const components: Components = {
 			root: {
 				borderRadius: '8px',
 				border: '1px solid',
-				borderColor: palette.gray[100],
+				borderColor: palette.gray[50],
 				height: '48px',
 			},
 		},
@@ -42,7 +42,7 @@ const components: Components = {
 		styleOverrides: {
 			root: {
 				textAlign: 'center',
-				padding: '0',
+				padding: '0 16px',
 				border: 'none',
 			},
 		},
@@ -74,6 +74,19 @@ const components: Components = {
 				},
 			},
 		],
+	},
+	MuiLink: {
+		styleOverrides: {
+			root: {
+				textDecoration: 'none',
+				fontWeight: '600',
+				color: palette.blue[300],
+				transition: '0.25s',
+				'&:hover': {
+					opacity: 0.8,
+				},
+			},
+		},
 	},
 };
 
