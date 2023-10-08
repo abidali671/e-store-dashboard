@@ -8,20 +8,24 @@ import API from 'src/axios'
 const Verify = () => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [responseMessage, setResponseMessage] = useState(null)
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
     const id = searchParams.get('id');
     const token = searchParams.get('token');
+    console.log(id, token, '===');
 
     const handleSubmit = async () => {
         try {
-            await API.get(`/api/auth/verify?id=${id}&token=${token}`);
+            const res = await API.get(`/api/auth/verify?id=${id}&token=${token}`);
+            setResponseMessage(res.data.message)
             setLoading(false);
         } catch (error) {
-            setError(error.message);
+            setError(error.response.data['error']);
             setLoading(false);
         }
     };
+
 
     useEffect(() => {
         handleSubmit();
@@ -34,10 +38,26 @@ const Verify = () => {
                 {loading ? (
                     <Typography variant="body2" fontWeight={700} color="initial">Loading...</Typography>
                 ) : error ? (
-                    <Typography variant="body2" fontWeight={700} color="initial">{error}</Typography>
+                    <>
+                        <Typography variant="h6" fontWeight={700} color="initial">VERIFIED UNSUCCESSFULL</Typography>
+                        <Typography variant="caption" fontWeight={700} color="initial">{error}</Typography>
+
+                        {/* <UnverifyIco /> */}
+                        <Button variant="contained" sx={{
+                            backgroundColor: 'black',
+                            '&:hover': {
+                                color: 'black',
+                                backgroundColor: 'initial',
+                            },
+                        }}>
+                            Ok
+                        </Button>
+                    </>
                 ) : (
                     <>
                         <Typography variant="h6" fontWeight={700} color="initial">VERIFIED SUCCESSFULLY</Typography>
+                        <Typography variant="caption" fontWeight={700} color="initial">{responseMessage}</Typography>
+
                         <VerifiedIcon />
                         <Button variant="contained" sx={{
                             backgroundColor: 'black',
@@ -45,7 +65,7 @@ const Verify = () => {
                                 color: 'black',
                                 backgroundColor: 'initial',
                             },
-                        }}   >
+                        }}>
                             Ok
                         </Button>
                     </>
