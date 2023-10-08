@@ -1,6 +1,6 @@
 export const root = {
 	width: '100%',
-	height: 'auto',
+	height: '100%',
 	border: '1px solid',
 	borderColor: 'gray.100',
 	borderRadius: '16px',

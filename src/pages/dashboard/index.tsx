@@ -73,12 +73,12 @@ const Dashboard: React.FC = () => {
 											value == 'COMPLETED'
 												? 'success'
 												: value === 'ON HOLD'
-												? 'warning'
-												: value == 'CANCELLED'
-												? 'error'
-												: value === 'IN PROGRESS'
-												? 'secondary'
-												: 'default'
+													? 'warning'
+													: value == 'CANCELLED'
+														? 'error'
+														: value === 'IN PROGRESS'
+															? 'secondary'
+															: 'default'
 										}
 										sx={{ color: 'white !important' }}
 									/>
