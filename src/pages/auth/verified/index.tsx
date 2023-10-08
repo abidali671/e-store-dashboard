@@ -1,4 +1,4 @@
-import { VerifiedIcon } from '@assests/icons'
+import { UnverifyIcon, VerifiedIcon } from '@assests/icons'
 import Navbar from '@components/navbar'
 import { Box, Typography, Button } from '@mui/material'
 import React, { useEffect, useState } from 'react'
@@ -13,7 +13,6 @@ const Verify = () => {
     const searchParams = new URLSearchParams(location.search);
     const id = searchParams.get('id');
     const token = searchParams.get('token');
-    console.log(id, token, '===');
 
     const handleSubmit = async () => {
         try {
@@ -42,7 +41,7 @@ const Verify = () => {
                         <Typography variant="h6" fontWeight={700} color="initial">VERIFIED UNSUCCESSFULL</Typography>
                         <Typography variant="caption" fontWeight={700} color="initial">{error}</Typography>
 
-                        {/* <UnverifyIco /> */}
+                        <UnverifyIcon />
                         <Button variant="contained" sx={{
                             backgroundColor: 'black',
                             '&:hover': {

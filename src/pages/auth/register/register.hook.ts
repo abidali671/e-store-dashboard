@@ -1,5 +1,6 @@
 import { useFormik } from 'formik';
-import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
 import API from 'src/axios';
 
 const InitialSignUpValues = {
@@ -11,11 +12,12 @@ const InitialSignUpValues = {
 };
 
 const useRegister = () => {
-	const navigate = useNavigate()
+
 	const handleSubmit = async (values: typeof InitialSignUpValues) => {
 		try {
-			await API.post('/api/auth/register', values);
-			navigate('/login');
+			const res = await API.post('/api/auth/register', values);
+			console.log('register ', res.data.msg)
+			toast(res.data.msg)
 
 		} catch (error) {
 			formik.setErrors(error.response.data);
