@@ -10,7 +10,6 @@ import { useLocation } from 'react-router-dom';
 import { pathnames } from '@types';
 
 const Navbar: ComponentT = ({ isSearchBar = true, toggleSidebar }) => {
-	const location = useLocation();
 
 
 	const isPath = (pathnames.LOGIN || pathnames.REGISTER || pathnames.VERIFY) ? true : false

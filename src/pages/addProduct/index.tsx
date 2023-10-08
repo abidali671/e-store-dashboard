@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import Container from '@components/container';
-import { Box, Stack, Typography, TextField, Checkbox, Button } from '@mui/material';
+import { Box, Stack, Typography, TextField, Checkbox } from '@mui/material';
 import { useSelector } from 'src/hooks';
 import { useDropzone } from 'react-dropzone';
 
@@ -36,18 +36,18 @@ const AddProduct: React.FC = () => {
 		onDrop,
 	});
 
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		if (values) {
-			setValues(init);
-		}
-		console.log(values, 'form');
-	};
-	const handleChange = (e) => {
-		setValues((values) => {
-			return { ...values, [e.target.name]: e.target.value };
-		});
-	};
+	// const handleSubmit = (e) => {
+	// 	e.preventDefault();
+	// 	if (values) {
+	// 		setValues(init);
+	// 	}
+	// 	console.log(values, 'form');
+	// };
+	// const handleChange = (e) => {
+	// 	setValues((values) => {
+	// 		return { ...values, [e.target.name]: e.target.value };
+	// 	});
+	// };
 
 	return (
 		<Container>

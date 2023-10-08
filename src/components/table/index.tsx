@@ -8,7 +8,7 @@ import {
 	TableHead,
 	TableRow,
 	SelectChangeEvent,
-	Box,
+
 } from '@mui/material';
 import { tableContainer } from './table.styles';
 import { JSONArray, JSONValue } from '@types';
@@ -27,11 +27,11 @@ const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
 	const [entries, setEntries] = useState(5);
 	const [currentPage, setCurrentPage] = useState(1);
 	const navigate = useNavigate();
-	const location = useLocation();
 
-	const RouteToProfile = (id: string) => {
-		navigate(`/vendors/${id}`);
-	};
+
+	// const RouteToProfile = (id: string) => {
+	// 	navigate(`/vendors/${id}`);
+	// };
 
 	const totalPages = React.useMemo(() => {
 		return Math.ceil(data.length / entries);
