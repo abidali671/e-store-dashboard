@@ -1,7 +1,9 @@
-import { useFormik } from 'formik';
 import API from 'src/axios';
+import { useFormik } from 'formik';
+
 import { login } from 'src/features/auth/auth.slice';
 import { useDispatch } from 'src/hooks';
+import { toast } from 'react-toastify';
 
 
 const InitialSignUpValues = {
@@ -17,7 +19,11 @@ const useLogin = () => {
 			await API.post('/api/auth/login', values);
 			dispatch(login(values.username))
 
+
+
 		} catch (error) {
+			console.log(error.response.data['non_field_error'], 'errror === ');
+			toast.error(error.response.data['non_field_error'])
 			formik.setErrors(error.response.data);
 		}
 	};
