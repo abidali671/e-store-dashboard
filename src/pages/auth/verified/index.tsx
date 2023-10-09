@@ -32,7 +32,7 @@ const Verify = () => {
 
     return (
         <React.Fragment>
-            <Navbar isSearchBar={false} />
+            <Navbar isSearchBar={false} isNav={false} />
             <Box component='div' sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '70vh', gap: 1 }}>
                 {loading ? (
                     <Typography variant="body2" fontWeight={700} color="initial">Loading...</Typography>
