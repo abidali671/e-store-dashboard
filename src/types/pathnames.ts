@@ -4,6 +4,7 @@ enum pathnames {
 	DASHBOARD = '/dashboard',
 	VENDORS = '/vendors',
 	CATEGORY = '/category',
+	ADD_CATEGORY = '/add-category',
 	PRODUCTS = '/products',
 	ADD_PRODUCT = '/add-product',
 	FORGET_PASSWORD = '/forget-password',
@@ -11,6 +12,7 @@ enum pathnames {
 	ORDERS = '/orders',
 	PRODUCT_DETAIL = '/product-detail',
 	VERIFY = '/verify',
+
 }
 
 export default pathnames;

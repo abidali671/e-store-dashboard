@@ -16,6 +16,7 @@ import { pathnames } from '@types';
 import { useSelector } from './hooks';
 import Order from './pages/order';
 import Verify from './pages/auth/verified';
+import AddCategory from './pages/addCategory';
 
 const App: React.FC = () => {
 	return (
@@ -51,6 +52,14 @@ const App: React.FC = () => {
 				element={
 					<ProtectedRoute>
 						<Categories />
+					</ProtectedRoute>
+				}
+			/>
+			<Route
+				path={pathnames.ADD_CATEGORY}
+				element={
+					<ProtectedRoute>
+						<AddCategory />
 					</ProtectedRoute>
 				}
 			/>
