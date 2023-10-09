@@ -9,9 +9,6 @@ import * as styles from './login.styles';
 
 const Login: types.ComponentT = () => {
 	const { formik } = useLogin();
-
-
-
 	return (
 		<AuthContainer>
 			<Box sx={styles.root}>
@@ -21,7 +18,7 @@ const Login: types.ComponentT = () => {
 					</Typography>
 					<Box width='100%'>
 						<Stack sx={{ width: '100%', gap: '14px' }}>
-							<FormikTextField name='username' label='username' {...formik} />
+							<FormikTextField name='username' label='Username' {...formik} />
 							<FormikTextField name='password' type='password' label='Password' {...formik} />
 
 							<Typography variant='body1' sx={{ color: '#9F9B9B', textAlign: 'left' }}>
