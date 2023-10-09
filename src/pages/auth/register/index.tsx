@@ -52,7 +52,7 @@ const Register: types.ComponentT = () => {
 						SIGN UP
 					</LoadingButton>
 				</FormWrapper>
-				<ToastContainer />
+
 			</Box>
 		</AuthContainer>
 	);

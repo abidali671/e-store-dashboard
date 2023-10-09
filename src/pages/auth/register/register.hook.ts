@@ -17,7 +17,7 @@ const useRegister = () => {
 		try {
 			const res = await API.post('/api/auth/register', values);
 			console.log('register ', res.data.msg)
-			toast(res.data.msg)
+			toast.success(res.data.msg)
 
 		} catch (error) {
 			formik.setErrors(error.response.data);
