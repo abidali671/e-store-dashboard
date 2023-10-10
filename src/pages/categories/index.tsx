@@ -7,10 +7,33 @@ import {
 	Chip,
 	Button,
 	Tooltip,
+	IconButton,
+	Menu,
+	MenuItem,
 } from '@mui/material';
 import { categoryData } from 'src/data/category';
 import { useNavigate } from 'react-router-dom';
+import { MoreOption } from '@assests/icons';
+import { useState } from 'react';
 const Categories = () => {
+	const [anchorEl, setAnchorEl] = useState(null);
+
+	const handleClick = (event) => {
+		setAnchorEl(event.currentTarget);
+	};
+
+	const handleClose = () => {
+		setAnchorEl(null);
+	};
+
+	const handleEdit = () => {
+		navigate('/edit-category')
+		handleClose();
+	};
+
+	const handleDelete = () => {
+		handleClose();
+	};
 	const navigate = useNavigate()
 	return (
 		<Container sx={{ display: 'flex', flexDirection: 'column' }}>
@@ -72,6 +95,35 @@ const Categories = () => {
 										label={value}
 										sx={{ backgroundColor: 'green.500', color: 'white !important' }}
 									/>
+								),
+							},
+							{
+								name: 'action',
+								label: '',
+								render: () => (
+
+									<Box>
+										<IconButton
+											aria-controls="dropdown-menu"
+											aria-haspopup="true"
+											onClick={handleClick}
+										>
+											<MoreOption style={{ height: '20px', width: '20px' }} />
+										</IconButton>
+										<Menu
+											id="basic-menu"
+											anchorEl={anchorEl}
+											open={Boolean(anchorEl)}
+											onClose={handleClose}
+											MenuListProps={{
+												'aria-labelledby': 'basic-button',
+											}}
+
+										>
+											<MenuItem onClick={handleEdit}>Edit</MenuItem>
+											<MenuItem onClick={handleDelete}>Delete</MenuItem>
+										</Menu>
+									</Box>
 								),
 							},
 						]}
