@@ -1,26 +1,39 @@
-import { Container, Card } from '@components'
-import { mainForm, smallBoxes } from './addCategory.styles';
-
-import {
-    Typography,
-    Grid,
-    Box,
-    FormControl,
-    TextField,
-
-    Button,
-
-
-} from '@mui/material';
+import { Container, Card, Breadcrumbs } from '@components';
+import { BoxLeft, mainForm, smallBoxes } from './addCategory.styles';
+import { useDropzone } from 'react-dropzone';
+import { Typography, Grid, Box, FormControl, TextField, Button } from '@mui/material';
+import { useCallback, useState } from 'react';
 const AddCategory = () => {
+    const [uploadMultipleImages, setUploadMultipleImages] = useState([]);
+
+    const onDrop = useCallback(
+        (acceptedFiles: Blob[]) => {
+            setUploadMultipleImages([URL.createObjectURL(acceptedFiles[0])]);
+        },
+        [uploadMultipleImages],
+    );
+
+    const { getRootProps, getInputProps } = useDropzone({
+        onDrop,
+
+        multiple: false,
+    });
+    console.log(uploadMultipleImages, 'upload');
+
     return (
         <Container>
+            <Box>
+                <Typography variant='h5' fontWeight='bold'>
+                    Category
+                </Typography>
+                <Breadcrumbs />
+            </Box>
             <Grid container columns={12} spacing={4}>
                 <Grid item xs={12} md={12}>
                     <Card title='Add New Category'>
                         <Box sx={mainForm} component='form'>
-                            <Grid item xs={12} md={12} display='flex' gap={2}>
-                                <Grid item xs={6} md={8} sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                            <Box gap={2} sx={BoxLeft}>
+                                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
                                     <FormControl>
                                         <Typography fontWeight='bold' variant='body1'>
                                             Name
@@ -35,22 +48,32 @@ const AddCategory = () => {
                                         <TextField name='slug' placeholder='Please enter your slug' />
                                     </FormControl>
                                     <Typography variant='caption'>
-                                        The “slug” is the URL-friendly version of the name. It is usually all lowercase and contains only letters, numbers, and hyphens
+                                        The “slug” is the URL-friendly version of the name. It is usually all lowercase
+                                        and contains only letters, numbers, and hyphens
                                     </Typography>
-                                </Grid>
-                                <Grid item xs={6} md={4}>
-                                    <FormControl>
-                                        <Typography fontWeight='bold' variant='body1'>
-                                            Thumbnail
-                                        </Typography>
-                                        <Box sx={smallBoxes}>
-                                            <Typography variant='body2' fontWeight='bold' textAlign='center' color='gray.500'>
-                                                Upload Image
-                                            </Typography>
-                                        </Box>
-                                    </FormControl>
-                                </Grid>
-                            </Grid>
+                                </Box>
+                                <Box>
+                                    <Typography fontWeight='bold' variant='body1'>
+                                        Thumbnail
+                                    </Typography>
+                                    <Box {...getRootProps()} sx={smallBoxes}>
+                                        <input {...getInputProps()} type='file' />
+                                        {uploadMultipleImages?.[0] ? (
+                                            <Box
+                                                component='img'
+                                                src={uploadMultipleImages[0]}
+                                                sx={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                                            />
+                                        ) : (
+                                            <Box textAlign='center'>
+                                                <Typography variant='body1' textAlign='center' color='gray.500'>
+                                                    Upload Image
+                                                </Typography>
+                                            </Box>
+                                        )}
+                                    </Box>
+                                </Box>
+                            </Box>
                             <FormControl>
                                 <Typography variant='body1' fontWeight='bold'>
                                     Description
@@ -91,7 +114,7 @@ const AddCategory = () => {
                 </Grid>
             </Grid>
         </Container>
-    )
-}
+    );
+};
 
-export default AddCategory
+export default AddCategory;
