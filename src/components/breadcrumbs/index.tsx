@@ -11,7 +11,9 @@ interface BreadCrumbsProps {
 const Breadcrumbs = ({ pathnames }: BreadCrumbsProps) => {
 	const { pathname } = useLocation();
 
-	const routePathnames = pathname.split('/').filter(Boolean);
+	const routePathnames = pathname.split('/').filter(Boolean).map(path => path.replace(/-/g, ' '));
+
+
 
 	const breadcrumbsList = React.useMemo(() => {
 		if (pathnames) return pathnames;
