@@ -14,7 +14,6 @@ const AddProduct: React.FC = () => {
 		sortdescription: '',
 	};
 	const [uploadMultipleImages, setUploadMultipleImages] = useState([]);
-	const [values, setValues] = useState(init);
 
 	const sizes = useSelector((state) => state.dropdowns.sizes);
 
@@ -67,6 +66,7 @@ const AddProduct: React.FC = () => {
 								/>
 							) : (
 								<Box textAlign='center'>
+
 									<Typography variant='h2' fontWeight='bold' textAlign='center' color='gray.500'>
 										765 x 850
 									</Typography>
