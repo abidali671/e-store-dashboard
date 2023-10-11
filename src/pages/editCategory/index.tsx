@@ -1,5 +1,6 @@
 import { Container, Card, Breadcrumbs } from '@components';
 import { BoxLeft, mainForm, smallBoxes } from './editCategory.styles';
+
 import { useDropzone } from 'react-dropzone';
 import { Typography, Grid, Box, FormControl, TextField, Button } from '@mui/material';
 import { useCallback, useState } from 'react';

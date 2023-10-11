@@ -18,7 +18,6 @@ const AddCategory = () => {
 
         multiple: false,
     });
-    console.log(uploadMultipleImages, 'upload');
 
     return (
         <Container>
@@ -56,7 +55,7 @@ const AddCategory = () => {
                                     <Typography fontWeight='bold' variant='body1'>
                                         Thumbnail
                                     </Typography>
-                                    <Box {...getRootProps()} sx={smallBoxes}>
+                                    <Box sx={smallBoxes}   {...getRootProps()} >
                                         <input {...getInputProps()} type='file' />
                                         {uploadMultipleImages?.[0] ? (
                                             <Box
@@ -67,7 +66,7 @@ const AddCategory = () => {
                                         ) : (
                                             <Box textAlign='center'>
                                                 <Typography variant='body1' textAlign='center' color='gray.500'>
-                                                    Upload Image
+                                                    Upload Imag
                                                 </Typography>
                                             </Box>
                                         )}
