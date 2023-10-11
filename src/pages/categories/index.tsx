@@ -3,7 +3,6 @@ import {
 	Typography,
 	Grid,
 	Box,
-
 	Chip,
 	Button,
 	Tooltip,
@@ -11,12 +10,16 @@ import {
 	Menu,
 	MenuItem,
 } from '@mui/material';
-import { categoryData } from 'src/data/category';
+// import { categoryData } from 'src/data/category';
 import { useNavigate } from 'react-router-dom';
 import { MoreOption } from '@assests/icons';
 import { useState } from 'react';
+import useCategoryData from './categories.hook';
+
 const Categories = () => {
 	const [anchorEl, setAnchorEl] = useState(null);
+	const { categoryData, loading, error } = useCategoryData();
+
 
 	const handleClick = (event) => {
 		setAnchorEl(event.currentTarget);
@@ -27,14 +30,15 @@ const Categories = () => {
 	};
 
 	const handleEdit = () => {
-		navigate('/edit-category')
+		navigate('/edit-category');
 		handleClose();
 	};
 
 	const handleDelete = () => {
 		handleClose();
 	};
-	const navigate = useNavigate()
+	const navigate = useNavigate();
+
 	return (
 		<Container sx={{ display: 'flex', flexDirection: 'column' }}>
 			<Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -44,14 +48,17 @@ const Categories = () => {
 					</Typography>
 					<Breadcrumbs />
 				</Box>
-				<Button variant="text" color="secondary" onClick={() => navigate('/add-category')} sx={{ backgroundColor: '#3D72D9', borderRadius: '40px', fontWeight: 500 }}>
+				<Button
+					variant='text'
+					color='secondary'
+					onClick={() => navigate('/add-category')}
+					sx={{ backgroundColor: '#3D72D9', borderRadius: '40px', fontWeight: 500 }}
+				>
 					Add
 				</Button>
 			</Box>
 
-
 			<Grid container columns={12} spacing={4}>
-
 				<Grid item xs={12} md={12}>
 					<Table
 						columns={[
@@ -72,53 +79,34 @@ const Categories = () => {
 								),
 							},
 							{ name: 'name', label: 'Name' },
-							{
-								name: 'subCategory',
-								label: 'Sub Category',
-								render: (val: string[]) => (
-									<Tooltip title={val.map((x, ind) => (ind ? ', ' : '') + x)}>
-										<Chip sx={{ cursor: 'pointer' }} label={val.length} />
-									</Tooltip>
-								),
-							},
+
 							{ name: 'product', label: 'Product' },
 							{ name: 'totalSell', label: 'Total Sell' },
 							{
 								name: 'status',
 								label: 'Status',
 							},
-							{
-								name: 'joinOn',
-								label: 'Join On',
-								render: (value: string) => (
-									<Chip
-										label={value}
-										sx={{ backgroundColor: 'green.500', color: 'white !important' }}
-									/>
-								),
-							},
+
 							{
 								name: 'action',
 								label: '',
 								render: () => (
-
 									<Box>
 										<IconButton
-											aria-controls="dropdown-menu"
-											aria-haspopup="true"
+											aria-controls='dropdown-menu'
+											aria-haspopup='true'
 											onClick={handleClick}
 										>
 											<MoreOption style={{ height: '20px', width: '20px' }} />
 										</IconButton>
 										<Menu
-											id="basic-menu"
+											id='basic-menu'
 											anchorEl={anchorEl}
 											open={Boolean(anchorEl)}
 											onClose={handleClose}
 											MenuListProps={{
 												'aria-labelledby': 'basic-button',
 											}}
-
 										>
 											<MenuItem onClick={handleEdit}>Edit</MenuItem>
 											<MenuItem onClick={handleDelete}>Delete</MenuItem>
