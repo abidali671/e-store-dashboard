@@ -16,6 +16,7 @@ export { default as Search } from './search';
 export { default as Ring } from './ring';
 export { default as Message } from './message';
 export { default as Phone } from './phone';
+export { default as UnverifyIcon } from './unVerify';
 export { default as Update } from './update';
 export { default as Hameburger } from './hameburger';
 export { default as ArrowDown } from './arrowDown';
