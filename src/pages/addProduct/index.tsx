@@ -1,9 +1,7 @@
 import React, { useCallback, useState } from 'react';
-import React, { useCallback, useState } from 'react';
 import Container from '@components/container';
-import { Box, Stack, Typography, TextField, Checkbox, Button } from '@mui/material';
+import { Box, Stack, Typography, TextField, Checkbox } from '@mui/material';
 import { useSelector } from 'src/hooks';
-import { useDropzone } from 'react-dropzone';
 import { useDropzone } from 'react-dropzone';
 
 import * as styles from './addproduct.styles';
