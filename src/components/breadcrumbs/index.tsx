@@ -1,7 +1,7 @@
 import React from 'react';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { Breadcrumbs as MuiBreadcrumbs, Link, Typography } from '@mui/material';
 import { useLocation, Link as RouterLink } from 'react-router-dom';
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { pathnames as Pathnames } from '@types';
 
 interface BreadCrumbsProps {
@@ -11,7 +11,10 @@ interface BreadCrumbsProps {
 const Breadcrumbs = ({ pathnames }: BreadCrumbsProps) => {
 	const { pathname } = useLocation();
 
-	const routePathnames = pathname.split('/').filter(Boolean);
+	const routePathnames = pathname
+		.split('/')
+		.filter(Boolean)
+		.map((path) => path.replace(/-/g, ' '));
 
 	const breadcrumbsList = React.useMemo(() => {
 		if (pathnames) return pathnames;

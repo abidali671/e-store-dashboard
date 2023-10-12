@@ -1,14 +1,17 @@
 import React from 'react';
-import Login from './pages/auth/login';
-import Register from './pages/auth/register';
-import Dashboard from './pages/dashboard';
-import Vendors from './pages/vendors';
-import Categories from './pages/categories';
-import Products from './pages/products';
-import AddProduct from './pages/addProduct';
-import ForgetPassword from './pages/auth/forgot_password';
-import ResetPassword from './pages/auth/reset_password';
-import VendorProfile from './pages/vendorProfile';
+import {
+	Login,
+	Register,
+	Dashboard,
+	Vendors,
+	Categories,
+	Products,
+	AddProduct,
+	ForgetPassword,
+	ResetPassword,
+	VendorProfile,
+	EditCategory,
+} from './pages';
 
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { ProductOverview } from '@components';
@@ -16,6 +19,7 @@ import { pathnames } from '@types';
 import { useSelector } from './hooks';
 import Order from './pages/order';
 import Verify from './pages/auth/verified';
+import AddCategory from './pages/addCategory';
 
 const App: React.FC = () => {
 	return (
@@ -51,6 +55,22 @@ const App: React.FC = () => {
 				element={
 					<ProtectedRoute>
 						<Categories />
+					</ProtectedRoute>
+				}
+			/>
+			<Route
+				path={pathnames.ADD_CATEGORY}
+				element={
+					<ProtectedRoute>
+						<AddCategory />
+					</ProtectedRoute>
+				}
+			/>
+			<Route
+				path={pathnames.EDIT_CATEGORY}
+				element={
+					<ProtectedRoute>
+						<EditCategory />
 					</ProtectedRoute>
 				}
 			/>

@@ -92,6 +92,8 @@ const Sidebar = ({
 						sx={{
 							transition: '0.3s',
 							rotate: isCollapsed.desktop ? '180deg' : '360deg',
+							filter: 'invert(100%)',
+
 						}}
 					/>
 				</Box>

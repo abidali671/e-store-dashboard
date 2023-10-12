@@ -1,6 +1,9 @@
 import { AuthContainer, FormikTextField, FormWrapper } from '@components';
 import { Typography, Box, Stack } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import useSign from './register.hook';
 import Checkbox from '@mui/material/Checkbox';
 import * as types from './register.types';
@@ -49,6 +52,7 @@ const Register: types.ComponentT = () => {
 						SIGN UP
 					</LoadingButton>
 				</FormWrapper>
+
 			</Box>
 		</AuthContainer>
 	);

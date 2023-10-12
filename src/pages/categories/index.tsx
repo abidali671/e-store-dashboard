@@ -1,81 +1,65 @@
-import { Card, Container, Table, Breadcrumbs } from '@components';
+import { Container, Table, Breadcrumbs } from '@components';
 import {
 	Typography,
 	Grid,
 	Box,
-	FormControl,
-	TextField,
 	Chip,
 	Button,
 	Tooltip,
+	IconButton,
+	Menu,
+	MenuItem,
 } from '@mui/material';
-import { mainForm } from './category.styles';
-import { categoryData } from 'src/data/category';
+// import { categoryData } from 'src/data/category';
+import { useNavigate } from 'react-router-dom';
+import { MoreOption } from '@assests/icons';
+import { useState } from 'react';
+import useCategoryData from './categories.hook';
 
 const Categories = () => {
+	const [anchorEl, setAnchorEl] = useState(null);
+	const { categoryData, loading, error } = useCategoryData();
+
+
+	const handleClick = (event) => {
+		setAnchorEl(event.currentTarget);
+	};
+
+	const handleClose = () => {
+		setAnchorEl(null);
+	};
+
+	const handleEdit = () => {
+		navigate('/edit-category');
+		handleClose();
+	};
+
+	const handleDelete = () => {
+		handleClose();
+	};
+	const navigate = useNavigate();
+
 	return (
 		<Container sx={{ display: 'flex', flexDirection: 'column' }}>
-			<Typography variant='h5' fontWeight='bold'>
-				Category
-			</Typography>
-			<Breadcrumbs />
+			<Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+				<Box>
+					<Typography variant='h5' fontWeight='bold'>
+						Category
+					</Typography>
+					<Breadcrumbs />
+				</Box>
+				<Button
+					variant='text'
+					color='secondary'
+					onClick={() => navigate('/add-category')}
+					sx={{ backgroundColor: '#3D72D9', borderRadius: '40px', fontWeight: 500 }}
+				>
+					Add
+				</Button>
+			</Box>
 
 			<Grid container columns={12} spacing={4}>
-				<Grid item xs={12} md={4}>
-					<Card title='Add New Category'>
-						<Box sx={mainForm} component='form'>
-							<FormControl>
-								<Typography fontWeight='bold' variant='body1'>
-									Name
-								</Typography>
-
-								<TextField name='name' placeholder='Please enter your name' />
-							</FormControl>
-							<FormControl>
-								<Typography fontWeight='bold' variant='body1'>
-									Slug
-								</Typography>
-								<TextField name='slug' placeholder='Please enter your slug' />
-							</FormControl>
-							<FormControl>
-								<Typography variant='body1' fontWeight='bold'>
-									Description
-								</Typography>
-
-								<TextField
-									sx={{ '.MuiOutlinedInput-root': { height: 'auto' } }}
-									multiline
-									rows={5}
-								/>
-							</FormControl>
-							<FormControl>
-								<Box>
-									<Typography fontWeight='bold' variant='body1'>
-										Product Tags
-									</Typography>
-									<Typography variant='caption' color='initial'>
-										(type & make a comma to seprate tags)
-									</Typography>
-								</Box>
-
-								<TextField />
-								<Button
-									variant='contained'
-									sx={{
-										backgroundColor: 'blue.500',
-										color: 'white',
-
-										width: '120px',
-										marginTop: '14px',
-									}}
-								>
-									Submit
-								</Button>
-							</FormControl>
-						</Box>
-					</Card>
-				</Grid>
-				<Grid item xs={12} md={8}>
+				<Grid item xs={12} md={12}>
 					<Table
 						columns={[
 							{
@@ -95,29 +79,39 @@ const Categories = () => {
 								),
 							},
 							{ name: 'name', label: 'Name' },
-							{
-								name: 'subCategory',
-								label: 'Sub Category',
-								render: (val: string[]) => (
-									<Tooltip title={val.map((x, ind) => (ind ? ', ' : '') + x)}>
-										<Chip sx={{ cursor: 'pointer' }} label={val.length} />
-									</Tooltip>
-								),
-							},
+
 							{ name: 'product', label: 'Product' },
 							{ name: 'totalSell', label: 'Total Sell' },
 							{
 								name: 'status',
 								label: 'Status',
 							},
+
 							{
-								name: 'joinOn',
-								label: 'Join On',
-								render: (value: string) => (
-									<Chip
-										label={value}
-										sx={{ backgroundColor: 'green.500', color: 'white !important' }}
-									/>
+								name: 'action',
+								label: '',
+								render: () => (
+									<Box>
+										<IconButton
+											aria-controls='dropdown-menu'
+											aria-haspopup='true'
+											onClick={handleClick}
+										>
+											<MoreOption style={{ height: '20px', width: '20px' }} />
+										</IconButton>
+										<Menu
+											id='basic-menu'
+											anchorEl={anchorEl}
+											open={Boolean(anchorEl)}
+											onClose={handleClose}
+											MenuListProps={{
+												'aria-labelledby': 'basic-button',
+											}}
+										>
+											<MenuItem onClick={handleEdit}>Edit</MenuItem>
+											<MenuItem onClick={handleDelete}>Delete</MenuItem>
+										</Menu>
+									</Box>
 								),
 							},
 						]}

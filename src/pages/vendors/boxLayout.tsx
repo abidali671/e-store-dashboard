@@ -86,14 +86,13 @@ export const VendorGrid = () => {
 };
 export const VendorTable: React.FC<{ onSearch: string }> = ({ onSearch }) => {
 	const [data, setData] = useState(VendorData);
-	const columnKeys = ['name', 'email', 'product'];
 
 	React.useEffect(() => {
-		const filtered = VendorData.filter((item) =>
-			columnKeys.some((key) => item[key].toLowerCase().includes(onSearch.toLowerCase().trim())),
-		);
+		const filtered = VendorData.filter((item) => item.name.toLocaleLowerCase().includes(onSearch));
 		setData(filtered);
-	}, [onSearch]);
+	}, [onSearch, VendorData]);
+
+	console.log(data);
 
 	return (
 		<Table

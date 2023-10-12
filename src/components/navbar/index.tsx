@@ -6,42 +6,44 @@ import { ComponentT } from './navbar.types';
 import { Ring, Hameburger } from '@assests/icons';
 import * as types from '@components/container/container.types';
 import * as styles from './navbar.styles';
-import { useLocation } from 'react-router-dom';
-import { pathnames } from '@types';
 
-const Navbar: ComponentT = ({ isSearchBar = true, toggleSidebar }) => {
-	const location = useLocation();
-
-
-	const isPath = (pathnames.LOGIN || pathnames.REGISTER || pathnames.VERIFY) ? true : false
+const Navbar: ComponentT = ({ isSearchBar = true, toggleSidebar, isNav }) => {
 	return (
 		<Box sx={styles.root}>
-			{isPath ? '' : <Box
-				onClick={() => toggleSidebar(types.TogglerType.MOBILE)}
-				component={Hameburger}
-				sx={{ display: { md: 'none' }, cursor: 'pointer' }}
-			/>}
+			{isNav ? (
+				<Box
+					onClick={() => toggleSidebar(types.TogglerType.MOBILE)}
+					component={Hameburger}
+					sx={{ display: { md: 'none' }, cursor: 'pointer' }}
+				/>
+			) : (
+				''
+			)}
 			<Box
 				component='img'
 				sx={{
 					height: 50,
-					display: { xs: isPath ? 'block' : 'none', md: 'block' },
+					display: { xs: isNav ? 'none' : 'block', md: 'block' },
 				}}
 				alt='Logo'
 				src={Logo}
 			/>
 			{isSearchBar && <SearchBar placeholderText='Search...' />}
-			{isPath ? '' : <Box sx={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-				<Ring />
-				<Box
-					component='img'
-					sx={{
-						height: 25,
-					}}
-					alt='avatar'
-					src={avatar}
-				/>
-			</Box>}
+			{isNav ? (
+				<Box sx={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+					<Ring />
+					<Box
+						component='img'
+						sx={{
+							height: 25,
+						}}
+						alt='avatar'
+						src={avatar}
+					/>
+				</Box>
+			) : (
+				''
+			)}
 		</Box>
 	);
 };

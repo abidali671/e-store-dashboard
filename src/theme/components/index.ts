@@ -61,6 +61,13 @@ const components: Components = {
 		},
 	},
 	MuiButton: {
+		styleOverrides: {
+			root: {
+				fontWeight: 700,
+				textTransform: 'capitalize'
+
+			}
+		},
 		variants: [
 			{
 				props: { color: 'secondary' },

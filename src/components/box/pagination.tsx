@@ -24,7 +24,7 @@ export default function Pagination({
 	const { items } = usePagination({ count, page });
 
 	return (
-		<>
+		<React.Fragment>
 			<Box
 				sx={{
 					display: 'flex',
@@ -135,6 +135,6 @@ export default function Pagination({
 					})}
 				</List>
 			</Box>
-		</>
+		</React.Fragment>
 	);
 }
