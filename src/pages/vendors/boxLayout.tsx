@@ -85,21 +85,14 @@ export const VendorGrid = () => {
 	);
 };
 export const VendorTable: React.FC<{ onSearch: string }> = ({ onSearch }) => {
-	const [data, setData] = useState(VendorData)
-
+	const [data, setData] = useState(VendorData);
 
 	React.useEffect(() => {
-
-		const filtered = VendorData.filter(
-			item => item.name.toLocaleLowerCase().includes(onSearch)
-		);
+		const filtered = VendorData.filter((item) => item.name.toLocaleLowerCase().includes(onSearch));
 		setData(filtered);
-
-
 	}, [onSearch, VendorData]);
 
 	console.log(data);
-
 
 	return (
 		<Table

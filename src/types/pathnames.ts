@@ -13,7 +13,6 @@ enum pathnames {
 	ORDERS = '/orders',
 	PRODUCT_DETAIL = '/product-detail',
 	VERIFY = '/verify',
-
 }
 
 export default pathnames;

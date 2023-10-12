@@ -24,4 +24,3 @@ export { default as NewUsers } from './newUsers';
 export { default as NewEnquiry } from './newEnquiry';
 export { default as Timer } from './timer';
 export { default as VerifiedIcon } from './verified';
-export { default as UnverifyIcon } from './unVerify';

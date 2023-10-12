@@ -1,7 +1,9 @@
 import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import Container from '@components/container';
-import { Box, Stack, Typography, TextField, Checkbox } from '@mui/material';
+import { Box, Stack, Typography, TextField, Checkbox, Button } from '@mui/material';
 import { useSelector } from 'src/hooks';
+import { useDropzone } from 'react-dropzone';
 import { useDropzone } from 'react-dropzone';
 
 import * as styles from './addproduct.styles';
@@ -66,7 +68,6 @@ const AddProduct: React.FC = () => {
 								/>
 							) : (
 								<Box textAlign='center'>
-
 									<Typography variant='h2' fontWeight='bold' textAlign='center' color='gray.500'>
 										765 x 850
 									</Typography>

@@ -28,7 +28,9 @@ const Login: types.ComponentT = () => {
 							</Typography>
 						</Stack>
 						{formik.errors.username && formik.touched.username && (
+						{formik.errors.username && formik.touched.username && (
 							<FormHelperText sx={{ color: '#9F9B9B', textAlign: 'left' }}>
+								{formik.errors.username}
 								{formik.errors.username}
 							</FormHelperText>
 						)}
