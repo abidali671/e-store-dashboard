@@ -11,9 +11,6 @@ import * as styles from './register.styles';
 
 const Register: types.ComponentT = () => {
 	const { formik } = useSign();
-
-
-
 	return (
 		<AuthContainer>
 			<Box sx={styles.root}>

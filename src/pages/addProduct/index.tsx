@@ -23,7 +23,6 @@ const AddProduct: React.FC = () => {
 
 			acceptedFiles.forEach((file: Blob) => {
 				img_list.push(URL.createObjectURL(file));
-				console.log(file, 'file');
 			});
 
 			setUploadMultipleImages(img_list);

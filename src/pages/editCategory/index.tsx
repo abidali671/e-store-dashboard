@@ -4,9 +4,11 @@ import { BoxLeft, mainForm, smallBoxes } from './editCategory.styles';
 import { useDropzone } from 'react-dropzone';
 import { Typography, Grid, Box, FormControl, TextField, Button } from '@mui/material';
 import { useCallback, useState } from 'react';
+import useCategoryData from '../categories/categories.hook';
 const EditCategory = () => {
     const [uploadMultipleImages, setUploadMultipleImages] = useState([]);
-
+    const { categoryData, loading } = useCategoryData();
+    console.log(categoryData, 'categoryData=== edit')
     const onDrop = useCallback(
         (acceptedFiles: Blob[]) => {
             setUploadMultipleImages([URL.createObjectURL(acceptedFiles[0])]);
