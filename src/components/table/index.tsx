@@ -17,7 +17,7 @@ interface TableProps {
 	columns: {
 		name: string;
 		label: string;
-		render?: (column_value: JSONValue) => JSX.Element;
+		render?: (column_value: JSONValue, item: JSONValue) => JSX.Element;
 	}[];
 	data: JSONArray;
 }
@@ -25,16 +25,10 @@ interface TableProps {
 const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
 	const [entries, setEntries] = useState(5);
 	const [currentPage, setCurrentPage] = useState(1);
-	const navigate = useNavigate();
-	const location = useLocation();
+	// const navigate = useNavigate();
+	// const location = useLocation();
 
-	const RouteToProfile = (id: string) => {
-		navigate(`/vendors/${id}`);
-	};
 
-	// const RouteToProfile = (id: string) => {
-	// 	navigate(`/vendors/${id}`);
-	// };
 
 	const totalPages = React.useMemo(() => {
 		return Math.ceil(data.length / entries);
@@ -59,11 +53,11 @@ const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
 					</TableRow>
 				</TableHead>
 				<TableBody>
-					{dataShow.map((item, index) => (
-						<TableRow key={index} sx={{ border: index < dataShow.length - 1 ? '1 ' : '0' }}>
+					{dataShow.map((item, idx) => (
+						<TableRow key={idx} sx={{ border: idx < dataShow.length - 1 ? '1 ' : '0' }}>
 							{columns.map((column, index) => (
-								<TableCell key={index}>
-									{column?.render ? column?.render(item[column.name]) : item[column.name]}
+								<TableCell key={index} >
+									{column?.render ? column?.render(item[column.name], item) : item[column.name]}
 								</TableCell>
 							))}
 						</TableRow>
