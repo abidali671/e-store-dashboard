@@ -1,10 +1,14 @@
-import { Container, Card, Breadcrumbs } from '@components';
+import { Container, Card, Breadcrumbs, FormikTextField } from '@components';
 import { BoxLeft, mainForm, smallBoxes } from './addCategory.styles';
 import { useDropzone } from 'react-dropzone';
-import { Typography, Grid, Box, FormControl, TextField, Button } from '@mui/material';
+import { Typography, Grid, Box, FormControl, Button } from '@mui/material';
 import { useCallback, useState } from 'react';
+import AddToCategory from './addCategory.hook';
+import { LoadingButton } from '@mui/lab';
+
 const AddCategory = () => {
     const [uploadMultipleImages, setUploadMultipleImages] = useState([]);
+    const { formik } = AddToCategory();
 
     const onDrop = useCallback(
         (acceptedFiles: Blob[]) => {
@@ -15,7 +19,6 @@ const AddCategory = () => {
 
     const { getRootProps, getInputProps } = useDropzone({
         onDrop,
-
         multiple: false,
     });
 
@@ -30,7 +33,17 @@ const AddCategory = () => {
             <Grid container columns={12} spacing={4}>
                 <Grid item xs={12} md={12}>
                     <Card title='Add New Category'>
-                        <Box sx={mainForm} component='form'>
+                        <Box
+                            component='form'
+                            onSubmit={formik.handleSubmit}
+                            sx={{
+                                display: 'flex',
+                                justifyContent: 'center',
+                                padding: '16px 24px',
+                                flexDirection: 'column',
+                                gap: '8px',
+                            }}
+                        >
                             <Box gap={2} sx={BoxLeft}>
                                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
                                     <FormControl>
@@ -38,13 +51,13 @@ const AddCategory = () => {
                                             Name
                                         </Typography>
 
-                                        <TextField name='name' placeholder='Please enter your name' />
+                                        <FormikTextField name='name' {...formik} placeholder='Please enter your name' />
                                     </FormControl>
                                     <FormControl>
                                         <Typography fontWeight='bold' variant='body1'>
                                             Slug
                                         </Typography>
-                                        <TextField name='slug' placeholder='Please enter your slug' />
+                                        <FormikTextField {...formik} name='slug' placeholder='Please enter your slug' />
                                     </FormControl>
                                     <Typography variant='caption'>
                                         The “slug” is the URL-friendly version of the name. It is usually all lowercase
@@ -55,7 +68,7 @@ const AddCategory = () => {
                                     <Typography fontWeight='bold' variant='body1'>
                                         Thumbnail
                                     </Typography>
-                                    <Box sx={smallBoxes}   {...getRootProps()} >
+                                    <Box sx={smallBoxes} {...getRootProps()}>
                                         <input {...getInputProps()} type='file' />
                                         {uploadMultipleImages?.[0] ? (
                                             <Box
@@ -78,35 +91,27 @@ const AddCategory = () => {
                                     Description
                                 </Typography>
 
-                                <TextField
+                                <FormikTextField
                                     sx={{ '.MuiOutlinedInput-root': { height: 'auto' } }}
                                     multiline
                                     rows={5}
+                                    name='description'
+                                    {...formik}
                                 />
                             </FormControl>
                             <FormControl>
-                                <Box>
-                                    <Typography fontWeight='bold' variant='body1'>
-                                        Product Tags
-                                    </Typography>
-                                    <Typography variant='caption' color='initial'>
-                                        (type & make a comma to seprate tags)
-                                    </Typography>
-                                </Box>
-
-                                <TextField />
-                                <Button
+                                <LoadingButton
                                     variant='contained'
                                     sx={{
                                         backgroundColor: 'blue.500',
                                         color: 'white',
-
                                         width: '120px',
                                         marginTop: '14px',
                                     }}
+                                    type='submit'
                                 >
                                     Submit
-                                </Button>
+                                </LoadingButton>
                             </FormControl>
                         </Box>
                     </Card>

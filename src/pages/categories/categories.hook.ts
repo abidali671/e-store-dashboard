@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import API from 'src/axios';
 
 const useCategoryData = () => {
@@ -6,22 +6,30 @@ const useCategoryData = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    useEffect(() => {
-        const fetchCategory = async () => {
-            try {
-                const res = await API.get('/api/category');
-                setCategoryData(res.data);
-                setLoading(false);
-            } catch (error) {
-                setError(error);
-                setLoading(false);
-            }
-        };
+    const fetchData = async () => {
+        setLoading(true);
+        setError(null);
 
-        fetchCategory();
+        try {
+            const res = await API.get('/api/category');
+            setCategoryData(res.data);
+            setLoading(false);
+        } catch (error) {
+            setError(error);
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
     }, []);
 
-    return { categoryData, loading, error };
+    // Function to trigger data refresh
+    const refreshData = () => {
+        fetchData();
+    };
+
+    return { categoryData, loading, error, refreshData };
 };
 
 export default useCategoryData;
