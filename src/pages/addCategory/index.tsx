@@ -1,5 +1,5 @@
 import { Container, Card, Breadcrumbs, FormikTextField } from '@components';
-import { BoxLeft, mainForm, smallBoxes } from './addCategory.styles';
+import { BoxLeft, smallBoxes } from './addCategory.styles';
 import { useDropzone } from 'react-dropzone';
 import { Typography, Grid, Box, FormControl, Button } from '@mui/material';
 import { useCallback, useEffect, useState } from 'react';
@@ -8,7 +8,6 @@ import { LoadingButton } from '@mui/lab';
 
 const AddCategory = () => {
     const [uploadMultipleImages, setUploadMultipleImages] = useState([]);
-    const [slug, setSlug] = useState('');
     const { formik } = AddToCategory();
 
 
