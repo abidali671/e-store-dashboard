@@ -2,13 +2,15 @@ import { Container, Card, Breadcrumbs, FormikTextField } from '@components';
 import { BoxLeft, mainForm, smallBoxes } from './addCategory.styles';
 import { useDropzone } from 'react-dropzone';
 import { Typography, Grid, Box, FormControl, Button } from '@mui/material';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import AddToCategory from './addCategory.hook';
 import { LoadingButton } from '@mui/lab';
 
 const AddCategory = () => {
     const [uploadMultipleImages, setUploadMultipleImages] = useState([]);
+    const [slug, setSlug] = useState('');
     const { formik } = AddToCategory();
+
 
     const onDrop = useCallback(
         (acceptedFiles: Blob[]) => {
@@ -22,6 +24,14 @@ const AddCategory = () => {
         multiple: false,
     });
 
+    //  add slug
+    const updateSlug = (categoryTitle) => {
+        const updatedSlug = categoryTitle.toLowerCase().replace(/ /g, '-');
+        formik.setFieldValue('slug', updatedSlug);
+    };
+    useEffect(() => {
+        updateSlug(formik.values.name)
+    }, [formik.values.name])
     return (
         <Container>
             <Box>
@@ -51,13 +61,14 @@ const AddCategory = () => {
                                             Name
                                         </Typography>
 
-                                        <FormikTextField name='name' {...formik} placeholder='Please enter your name' />
+                                        <FormikTextField name='name'
+                                            {...formik} placeholder='Please enter your name' />
                                     </FormControl>
                                     <FormControl>
                                         <Typography fontWeight='bold' variant='body1'>
                                             Slug
                                         </Typography>
-                                        <FormikTextField {...formik} name='slug' placeholder='Please enter your slug' />
+                                        <FormikTextField  {...formik} name='slug' placeholder='Please enter your slug' />
                                     </FormControl>
                                     <Typography variant='caption'>
                                         The “slug” is the URL-friendly version of the name. It is usually all lowercase

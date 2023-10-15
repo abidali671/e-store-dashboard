@@ -3,15 +3,13 @@ import {
 	Typography,
 	Grid,
 	Box,
-	Chip,
 	Button,
-	Tooltip,
 	IconButton,
 	Menu,
 	MenuItem,
 } from '@mui/material';
 import CachedIcon from '@mui/icons-material/Cached';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { MoreOption } from '@assests/icons';
 import { useState } from 'react';
 import useCategoryData from './categories.hook';
@@ -20,7 +18,6 @@ import { toast, ToastContainer } from 'react-toastify';
 
 const Categories = () => {
 	const { categoryData, loading, refreshData } = useCategoryData();
-
 	const navigate = useNavigate();
 
 	return (
