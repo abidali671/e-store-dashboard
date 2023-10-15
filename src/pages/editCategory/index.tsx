@@ -87,16 +87,7 @@ const EditCategory = () => {
                                 />
                             </FormControl>
                             <FormControl>
-                                <Box>
-                                    <Typography fontWeight='bold' variant='body1'>
-                                        Product Tags
-                                    </Typography>
-                                    <Typography variant='caption' color='initial'>
-                                        (type & make a comma to seprate tags)
-                                    </Typography>
-                                </Box>
 
-                                <TextField />
                                 <Button
                                     variant='contained'
                                     sx={{
