@@ -11,9 +11,7 @@ const initialValues = {
     description: '',
 };
 const AddToCategory = () => {
-
     const navigate = useNavigate()
-
     const handleSubmit = async (values: typeof initialValues) => {
         try {
             const { thumbnailFile, ...data } = values
@@ -25,7 +23,6 @@ const AddToCategory = () => {
 
         } catch (error) {
             formik.setErrors(error.response.data);
-            console.log(error.response.data)
         }
 
     };
