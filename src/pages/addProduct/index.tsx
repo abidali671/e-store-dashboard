@@ -7,12 +7,6 @@ import { useDropzone } from 'react-dropzone';
 import * as styles from './addproduct.styles';
 
 const AddProduct: React.FC = () => {
-	const init = {
-		productname: '',
-		selectcategory: '',
-		slug: '',
-		sortdescription: '',
-	};
 	const [uploadMultipleImages, setUploadMultipleImages] = useState([]);
 
 	const sizes = useSelector((state) => state.dropdowns.sizes);
@@ -33,19 +27,6 @@ const AddProduct: React.FC = () => {
 	const { getRootProps, getInputProps } = useDropzone({
 		onDrop,
 	});
-
-	// const handleSubmit = (e) => {
-	// 	e.preventDefault();
-	// 	if (values) {
-	// 		setValues(init);
-	// 	}
-	// 	console.log(values, 'form');
-	// };
-	// const handleChange = (e) => {
-	// 	setValues((values) => {
-	// 		return { ...values, [e.target.name]: e.target.value };
-	// 	});
-	// };
 
 	return (
 		<Container>

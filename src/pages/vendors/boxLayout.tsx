@@ -92,8 +92,6 @@ export const VendorTable: React.FC<{ onSearch: string }> = ({ onSearch }) => {
 		setData(filtered);
 	}, [onSearch, VendorData]);
 
-	console.log(data);
-
 	return (
 		<Table
 			columns={[

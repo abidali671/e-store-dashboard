@@ -1,5 +1,4 @@
 import { useFormik } from 'formik';
-import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import API from 'src/axios';
@@ -18,7 +17,6 @@ const EditCategoryHook = () => {
             toast(res.data.msg)
         } catch (error) {
             formik.setErrors(error.response.data);
-            console.log(error.response.data);
         }
 
     };
