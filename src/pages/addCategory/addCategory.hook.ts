@@ -6,6 +6,8 @@ import API from 'src/axios';
 const initialValues = {
     name: '',
     slug: '',
+    thumbnail: '',
+    thumbnailFile: '',
     description: '',
 };
 const AddToCategory = () => {
@@ -14,8 +16,12 @@ const AddToCategory = () => {
 
     const handleSubmit = async (values: typeof initialValues) => {
         try {
-            const res = await API.post('/api/category', values);
+            const { thumbnailFile, ...data } = values
+            const res = await API.post('/api/category', data);
+            API.post(`/api/category/${res.data.id}/thumbnail`, { file: thumbnailFile })
+            console.log(res, '===>')
             navigate('/category')
+
 
         } catch (error) {
             formik.setErrors(error.response.data);

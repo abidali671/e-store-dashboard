@@ -5,17 +5,18 @@ import { Typography, Grid, Box, FormControl, Button } from '@mui/material';
 import { useCallback, useEffect, useState } from 'react';
 import AddToCategory from './addCategory.hook';
 import { LoadingButton } from '@mui/lab';
+import API from 'src/axios';
 
 const AddCategory = () => {
-    const [uploadMultipleImages, setUploadMultipleImages] = useState([]);
     const { formik } = AddToCategory();
-
-
     const onDrop = useCallback(
+
         (acceptedFiles: Blob[]) => {
-            setUploadMultipleImages([URL.createObjectURL(acceptedFiles[0])]);
+            formik.setFieldValue('thumbnail', URL.createObjectURL(acceptedFiles[0]))
+
+            formik.setFieldValue('thumbnailFile', acceptedFiles[0])
         },
-        [uploadMultipleImages],
+        [],
     );
 
     const { getRootProps, getInputProps } = useDropzone({
@@ -28,6 +29,7 @@ const AddCategory = () => {
         const updatedSlug = categoryTitle.toLowerCase().replace(/ /g, '-');
         formik.setFieldValue('slug', updatedSlug);
     };
+
     useEffect(() => {
         updateSlug(formik.values.name)
     }, [formik.values.name])
@@ -80,10 +82,10 @@ const AddCategory = () => {
                                     </Typography>
                                     <Box sx={smallBoxes} {...getRootProps()}>
                                         <input {...getInputProps()} type='file' />
-                                        {uploadMultipleImages?.[0] ? (
+                                        {formik.values.thumbnail ? (
                                             <Box
                                                 component='img'
-                                                src={uploadMultipleImages[0]}
+                                                src={formik.values.thumbnail}
                                                 sx={{ width: '100%', height: '100%', objectFit: 'contain' }}
                                             />
                                         ) : (
@@ -118,6 +120,7 @@ const AddCategory = () => {
                                         width: '120px',
                                         marginTop: '14px',
                                     }}
+                                    loading={formik.isSubmitting}
                                     type='submit'
                                 >
                                     Submit
