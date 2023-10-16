@@ -11,7 +11,6 @@ import {
 } from '@mui/material';
 import { tableContainer } from './table.styles';
 import { JSONArray, JSONValue } from '@types';
-import { useLocation, useNavigate } from 'react-router-dom';
 
 interface TableProps {
 	columns: {
@@ -25,10 +24,6 @@ interface TableProps {
 const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
 	const [entries, setEntries] = useState(5);
 	const [currentPage, setCurrentPage] = useState(1);
-	// const navigate = useNavigate();
-	// const location = useLocation();
-
-
 
 	const totalPages = React.useMemo(() => {
 		return Math.ceil(data.length / entries);
@@ -56,7 +51,7 @@ const TableComponent: React.FC<TableProps> = ({ data, columns }) => {
 					{dataShow.map((item, idx) => (
 						<TableRow key={idx} sx={{ border: idx < dataShow.length - 1 ? '1 ' : '0' }}>
 							{columns.map((column, index) => (
-								<TableCell key={index} >
+								<TableCell key={index}>
 									{column?.render ? column?.render(item[column.name], item) : item[column.name]}
 								</TableCell>
 							))}
