@@ -8,6 +8,9 @@ const initialValues = {
     slug: '',
     description: '',
     id: '',
+    thumbnail: '',
+    thumbnailFile: '',
+
 };
 const EditCategoryHook = () => {
     const handleSubmit = async (values: typeof initialValues) => {

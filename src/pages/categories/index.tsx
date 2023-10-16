@@ -1,13 +1,5 @@
 import { Container, Table, Breadcrumbs } from '@components';
-import {
-	Typography,
-	Grid,
-	Box,
-	Button,
-	IconButton,
-	Menu,
-	MenuItem,
-} from '@mui/material';
+import { Typography, Grid, Box, Button, IconButton, Menu, MenuItem } from '@mui/material';
 import CachedIcon from '@mui/icons-material/Cached';
 import { useNavigate } from 'react-router-dom';
 import { MoreOption } from '@assests/icons';
@@ -19,7 +11,7 @@ import { toast, ToastContainer } from 'react-toastify';
 const Categories = () => {
 	const { categoryData, loading, refreshData } = useCategoryData();
 	const navigate = useNavigate();
-
+	console.log(categoryData);
 	return (
 		<Container sx={{ display: 'flex', flexDirection: 'column' }}>
 			<Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -30,7 +22,8 @@ const Categories = () => {
 					<Breadcrumbs />
 				</Box>
 				<Box sx={{ alignItems: 'center', display: 'flex', gap: 2 }}>
-					<CachedIcon onClick={refreshData}
+					<CachedIcon
+						onClick={refreshData}
 						sx={{
 							color: 'gray.200',
 							transition: 'transform 0.3s',
@@ -66,7 +59,7 @@ const Categories = () => {
 						<Table
 							columns={[
 								{
-									name: 'thumb',
+									name: 'thumbnail',
 									label: 'Thumb',
 									render: (val: string) => (
 										<Box
@@ -120,6 +113,7 @@ const ActionButton = ({ item }) => {
 		} catch (error) {
 			console.log(error);
 		}
+		handleClose();
 	};
 	const handleClick = (event) => {
 		setAnchorEl(event.currentTarget);
