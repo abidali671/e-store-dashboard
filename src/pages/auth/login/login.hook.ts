@@ -22,7 +22,6 @@ const useLogin = () => {
 
 
 		} catch (error) {
-			console.log(error.response.data['non_field_error'], 'errror === ');
 			toast.error(error.response.data['non_field_error'])
 			formik.setErrors(error.response.data);
 		}

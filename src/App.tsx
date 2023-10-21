@@ -67,7 +67,7 @@ const App: React.FC = () => {
 				}
 			/>
 			<Route
-				path={pathnames.EDIT_CATEGORY}
+				path={`${pathnames.EDIT_CATEGORY}/:slug`}
 				element={
 					<ProtectedRoute>
 						<EditCategory />
