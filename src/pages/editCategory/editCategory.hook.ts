@@ -27,6 +27,7 @@ const EditCategoryHook = () => {
     const formik = useFormik({
         initialValues: initialValues,
         onSubmit: handleSubmit,
+        // enableReinitialize: true
     });
 
     return { formik };

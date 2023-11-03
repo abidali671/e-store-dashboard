@@ -11,7 +11,11 @@ import API from 'src/axios';
 const EditCategory = () => {
 	const { slug } = useParams();
 	const { formik } = EditCategoryHook();
-
+	// const [value, setValue] = useState({
+	// 	name: '',
+	// 	slug: '',
+	// 	description: '',
+	// });
 	const fetchData = async () => {
 		try {
 			const res = await API.get(`/api/category/${slug}`);
@@ -34,6 +38,7 @@ const EditCategory = () => {
 		onDrop,
 		multiple: false,
 	});
+	console.log(formik.touched);
 
 	return (
 		<Container>
@@ -68,7 +73,6 @@ const EditCategory = () => {
 							color: 'white',
 							width: '120px',
 						}}
-						// disabled={formik.handle}
 						type='submit'
 					>
 						Save
