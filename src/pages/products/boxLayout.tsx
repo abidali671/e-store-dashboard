@@ -5,30 +5,38 @@ import { Button, IconButton, MenuItem, Select } from '@mui/material';
 import { Box, Stack } from '@mui/system';
 import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { productData } from 'src/data/product';
-
+import useProductData from './product.hook';
 export const ProductGrid = () => {
 	const [selectMenu, setSelectMenu] = useState('All category');
-	const [filteredData, setFilteredData] = useState(productData);
+
 	const [entries, setEntries] = useState(5);
 	const [currentPage, setCurrentPage] = useState(1);
 	const navigate = useNavigate();
+
+	const { productData: products, loading, error } = useProductData();
+	const [productFilter, setProductFilter] = useState([]);
+
+	useEffect(() => {
+		if (!loading && !error && products) {
+			setProductFilter(products);
+		}
+	}, [loading, error, products]);
 
 	const handleChange = (event: any) => {
 		const selectedCategory = event.target.value;
 		setSelectMenu(event.target.value);
 		selectedCategory === 'All category'
-			? setFilteredData(productData)
-			: setFilteredData(productData.filter((item) => item.name === selectedCategory));
+			? setProductFilter(products)
+			: setProductFilter(products.filter((item) => item.name === selectedCategory));
 	};
 
 	const totalPages = useMemo(() => {
-		return Math.ceil(filteredData.length / entries);
+		return Math.ceil(productFilter.length / entries);
 	}, [entries]);
 
 	const dataShow = useMemo(() => {
-		return filteredData.slice((currentPage - 1) * entries, (currentPage - 1) * entries + entries);
-	}, [entries, currentPage, filteredData]);
+		return productFilter.slice((currentPage - 1) * entries, (currentPage - 1) * entries + entries);
+	}, [entries, currentPage, productFilter]);
 
 	const handleEntries = (e: any) => {
 		setEntries(+e.target.value);
@@ -89,7 +97,7 @@ export const ProductGrid = () => {
 				onChange={setCurrentPage}
 				count={totalPages}
 				dataShow={dataShow}
-				data={productData}
+				data={productFilter}
 				entries={entries}
 				handleEntries={handleEntries}
 			/>
@@ -98,15 +106,20 @@ export const ProductGrid = () => {
 };
 
 export const ProductTable: React.FC<{ onSearch: string }> = ({ onSearch }) => {
-	const [data, setData] = useState(productData);
+	const { productData: products, loading, error } = useProductData();
+	const [productFilter, setProductFilter] = useState([]);
 
 	useEffect(() => {
-		const filtered = productData.filter(
-			(item) =>
-				item.name.toLowerCase().includes(onSearch.toLowerCase()) ||
-				item.price.toLowerCase().includes(onSearch.toLowerCase()),
+		if (!loading && !error && products) {
+			setProductFilter(products);
+		}
+	}, [loading, error, products]);
+
+	useEffect(() => {
+		const filtered = products.filter((item) =>
+			item.name.toLowerCase().includes(onSearch.toLowerCase()),
 		);
-		setData(filtered);
+		setProductFilter(filtered);
 	}, [onSearch]);
 
 	return (
@@ -155,7 +168,7 @@ export const ProductTable: React.FC<{ onSearch: string }> = ({ onSearch }) => {
 					),
 				},
 			]}
-			data={data}
+			data={productFilter}
 		/>
 	);
 };
