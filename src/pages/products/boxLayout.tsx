@@ -6,6 +6,7 @@ import { Box, Stack } from '@mui/system';
 import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useProductData from './product.hook';
+import API from 'src/axios';
 export const ProductGrid = () => {
 	const [selectMenu, setSelectMenu] = useState('All category');
 
@@ -21,6 +22,7 @@ export const ProductGrid = () => {
 			setProductFilter(products);
 		}
 	}, [loading, error, products]);
+	console.log(productFilter, 'product===');
 
 	const handleChange = (event: any) => {
 		const selectedCategory = event.target.value;
@@ -86,6 +88,7 @@ export const ProductGrid = () => {
 									title={category.name}
 									id={category.id}
 									price={category.price}
+									slug={category.slug}
 									key={ind}
 								/>
 						  ))

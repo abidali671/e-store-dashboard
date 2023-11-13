@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Container from '@components/container';
 import { Carousel } from 'react-responsive-carousel';
 
@@ -9,11 +9,34 @@ import { Breadcrumbs, Card } from '@components';
 
 import * as styles from './productDetail.style';
 import _map from 'lodash/map';
+import API from 'src/axios';
 
+interface ProductListT {
+	description: string;
+	name: string;
+	short_description: string;
+}
 const ProductOverview = () => {
 	const [activeContent, setActiveContent] = useState('content1');
-	const { id } = useParams();
-	const product = productData.find((item) => item.id === id);
+	const { slug } = useParams();
+	const [productList, setProductList] = useState<ProductListT>();
+	const fetchData = async () => {
+		try {
+			const res = await API.get(`/api/products/${slug}`);
+			console.log(res, 'RES===');
+			setProductList(res.data);
+		} catch (error) {
+			console.log(error);
+		}
+	};
+	useEffect(() => {
+		fetchData();
+	}, [slug]);
+
+	// const { description, name, short_description } = productList;
+	console.log(productList, ' pr===');
+
+	const product = productList ? productData.find((item) => item.id === '1') : null;
 	const product_images = new Array(6).fill(product.product);
 
 	const handleClick = (content) => {
@@ -84,7 +107,7 @@ const ProductOverview = () => {
 										PRICE: {product.price}
 									</Typography>
 									<Typography variant='subtitle1' color='gray.200'>
-										{product.name}
+										{productList?.name}
 									</Typography>
 									<Stack flexDirection='row' gap='8px' pt={1}>
 										{Array(4).fill(<Box sx={styles.colorBox} />)}
@@ -151,14 +174,9 @@ const ProductOverview = () => {
 						{activeContent === 'content1' && (
 							<Box pt={2}>
 								<Typography variant='subtitle2' color='gray.400'>
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt quod rem saepe
-									commodi assumenda nostrum voluptate veniam mollitia alias nam harum ea non quam,
-									aut repellendus quisquam impedit labore tempore. Lorem ipsum dolor sit amet
-									consectetur adipisicing elit. Deserunt quod rem saepe commodi assumenda nostrum
-									voluptate veniam mollitia alias nam harum ea non quam, aut repellendus quisquam
-									impedit labore tempore.
+									{productList?.description}
 								</Typography>
-								<Box component='ul' pl={3}>
+								{/* <Box component='ul' pl={3}>
 									<Box component='li'>
 										<Typography variant='subtitle2' color='gray.400'>
 											Any Product types that You want - Simple, Configurable
@@ -179,20 +197,15 @@ const ProductOverview = () => {
 											Flatlock seams throughout.
 										</Typography>
 									</Box>
-								</Box>
+								</Box> */}
 							</Box>
 						)}
 						{activeContent === 'content2' && (
 							<Box pt={2}>
 								<Typography variant='subtitle2' color='gray.400'>
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt quod rem saepe
-									commodi assumenda nostrum voluptate veniam mollitia alias nam harum ea non quam,
-									aut repellendus quisquam impedit labore tempore. Lorem ipsum dolor sit amet
-									consectetur adipisicing elit. Deserunt quod rem saepe commodi assumenda nostrum
-									voluptate veniam mollitia alias nam harum ea non quam, aut repellendus quisquam
-									impedit labore tempore.
+									{productList?.short_description}
 								</Typography>
-								<Box component='ul' pl={3}>
+								{/* <Box component='ul' pl={3}>
 									<Box component='li'>
 										<Typography variant='subtitle2' color='gray.400'>
 											this is content 2
@@ -213,7 +226,7 @@ const ProductOverview = () => {
 											Flatlock seams throughout.
 										</Typography>
 									</Box>
-								</Box>
+								</Box> */}
 							</Box>
 						)}
 					</Box>
