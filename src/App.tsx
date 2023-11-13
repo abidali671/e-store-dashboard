@@ -95,7 +95,7 @@ const App: React.FC = () => {
 			<Route path={pathnames.RESET_PASSWORD} element={<ResetPassword />} />
 			<Route path={pathnames.VERIFY} element={<Verify />} />
 			<Route
-				path={`${pathnames.PRODUCT_DETAIL}/:id`}
+				path={`${pathnames.PRODUCT_DETAIL}/:slug`}
 				element={
 					<ProtectedRoute>
 						<ProductOverview />

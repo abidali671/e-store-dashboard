@@ -7,6 +7,7 @@ import { useState } from 'react';
 import useCategoryData from './categories.hook';
 import API from 'src/axios';
 import { toast, ToastContainer } from 'react-toastify';
+import { ActionButton } from './ActionButton';
 
 const Categories = () => {
 	const { categoryData, loading, refreshData } = useCategoryData();
@@ -96,42 +97,6 @@ const Categories = () => {
 			</Grid>
 			<ToastContainer />
 		</Container>
-	);
-};
-
-const ActionButton = ({ item }) => {
-	const [anchorEl, setAnchorEl] = useState(null);
-	const navigate = useNavigate();
-	const handleEdit = () => {
-		navigate(`/category/${item.slug}`);
-	};
-
-	const handleDelete = async () => {
-		try {
-			const res = await API.delete(`/api/category/${item.slug}`);
-			toast.success(res.data.msg);
-		} catch (error) {
-			console.log(error);
-		}
-		handleClose();
-	};
-	const handleClick = (event) => {
-		setAnchorEl(event.currentTarget);
-	};
-
-	const handleClose = () => {
-		setAnchorEl(null);
-	};
-	return (
-		<Box>
-			<IconButton onClick={handleClick}>
-				<MoreOption style={{ height: '20px', width: '20px' }} />
-			</IconButton>
-			<Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
-				<MenuItem onClick={handleEdit}>Edit</MenuItem>
-				<MenuItem onClick={handleDelete}>Delete</MenuItem>
-			</Menu>
-		</Box>
 	);
 };
 
