@@ -1,15 +1,18 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Link, Typography } from '@mui/material';
 import Shirt from '@assests/bag.png';
 import * as styles from './productCard.style';
-import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 
 interface ProductCardProps {
 	title: string;
 	price: string;
 	id: string;
+	slug: string;
 }
 
-const ProductCard = ({ title, price, id }: ProductCardProps) => {
+const ProductCard = ({ title, price = '200', id, slug }: ProductCardProps) => {
+	console.log(slug, price, 'id, slug');
+
 	return (
 		<Box sx={styles.card}>
 			<Box
@@ -21,7 +24,11 @@ const ProductCard = ({ title, price, id }: ProductCardProps) => {
 				<Typography variant='body1' fontSize={20} color='gray.400'>
 					{title}
 				</Typography>
-				<Link to={`/product-detail/${id}`} style={{ textDecoration: 'none', color: 'black' }}>
+				<Link
+					component={RouterLink}
+					to={`/product-detail/${slug}`}
+					style={{ textDecoration: 'none', color: 'black' }}
+				>
 					<Typography variant='body2' fontSize={20} fontWeight='bold'>
 						{price}
 					</Typography>
