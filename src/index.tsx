@@ -1,5 +1,5 @@
 import App from './App';
-import store from './store';
+import { store } from './store';
 import MuiTheme from './theme';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
