@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
 	Login,
 	Register,
@@ -16,10 +16,12 @@ import {
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { ProductOverview } from '@components';
 import { pathnames } from '@types';
-import { useSelector } from './hooks';
+import { useDispatch, useSelector } from './hooks';
 import Order from './pages/order';
 import Verify from './pages/auth/verified';
 import AddCategory from './pages/addCategory';
+import API from './axios';
+import { updateUser } from './features/auth/auth.slice';
 
 const App: React.FC = () => {
 	return (
@@ -127,17 +129,43 @@ const App: React.FC = () => {
 
 const ProtectedRoute = ({ children }) => {
 	const location = useLocation();
-	const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+	const token = useSelector((state) => state.auth.token);
+	const [islogged, setIsLogged] = useState(false);
+	const [loading, setLoading] = useState(true);
+	const dispatch = useDispatch();
+
+	const fetchMe = async () => {
+		try {
+			setLoading(true);
+			const res = await API.get('/api/auth/me', {
+				headers: { Authorization: `Bearer ${token}` },
+			});
+			const { first_name, last_name, email, username } = res.data;
+			dispatch(updateUser({ first_name, last_name, username, email }));
+
+			setIsLogged(true);
+			setLoading(false);
+		} catch (error) {
+			setIsLogged(false);
+			setLoading(false);
+		}
+	};
+
+	useEffect(() => {
+		fetchMe();
+	}, [token]);
 
 	const searchParams = new URLSearchParams(location.search);
 	const nextRoute = searchParams.get('next');
 
-	if (location.pathname === pathnames.LOGIN && !isLoggedIn) return children;
-	if (location.pathname === pathnames.LOGIN && isLoggedIn) {
+	if (location.pathname === pathnames.LOGIN && !islogged) return children;
+	if (location.pathname === pathnames.LOGIN && islogged) {
 		return <Navigate to={nextRoute || pathnames.DASHBOARD} />;
 	}
 
-	return isLoggedIn ? (
+	if (loading) return 'loading..';
+
+	return islogged ? (
 		children
 	) : (
 		<Navigate to={{ pathname: pathnames.LOGIN, search: 'next=' + location.pathname }} />
