@@ -9,3 +9,4 @@ export { default as ForgetPassword } from './auth/forgot_password';
 export { default as ResetPassword } from './auth/reset_password';
 export { default as VendorProfile } from './vendorProfile';
 export { default as EditCategory } from './editCategory';
+export { default as Profile } from './Profile';
