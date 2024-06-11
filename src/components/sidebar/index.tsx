@@ -2,8 +2,6 @@ import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Box, Divider, ListItem, ListItemButton, ListItemText } from '@mui/material';
 import { SideItemT, sideListItems } from '../../data/app.data';
-import { useDispatch } from 'src/hooks';
-import { logout } from 'src/features/auth/auth.slice';
 import arrowleft2 from '@assests/arrowleft2.png';
 import * as styles from './sidebar.styles';
 import * as types from '@components/container/container.types';
@@ -15,8 +13,6 @@ const Sidebar = ({
 	toggleSidebar: (type: types.TogglerType) => void;
 	isCollapsed: { mobile: boolean; desktop: boolean };
 }) => {
-	const dispatch = useDispatch();
-
 	const navigate = useNavigate();
 	const location = useLocation();
 
@@ -49,7 +45,6 @@ const Sidebar = ({
 								<ListItem
 									onClick={() => {
 										item?.path && handleChangePage(item.path);
-										item.label === 'LOG OUT' ? dispatch(logout()) : null;
 									}}
 									disablePadding
 								>
@@ -93,7 +88,6 @@ const Sidebar = ({
 							transition: '0.3s',
 							rotate: isCollapsed.desktop ? '180deg' : '360deg',
 							filter: 'invert(100%)',
-
 						}}
 					/>
 				</Box>
