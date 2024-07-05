@@ -32,9 +32,6 @@ export const sideListItems: SideItemT[] = [
 	{ label: 'ORDERS', icon: Order, path: pathnames.ORDERS },
 	{ label: 'REVIEWS', icon: Review },
 	{ label: 'BRANDS', icon: Brand },
-	{ divider: true },
-	{ label: 'LOG OUT', icon: logout },
-	{ label: 'OTHER PAGES', icon: Copy },
 ];
 
 export interface ViewDetailsT {

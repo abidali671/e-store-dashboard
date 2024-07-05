@@ -12,6 +12,7 @@ export { default as Sidebar } from './sidebar';
 export { default as SearchBar } from './searchBar';
 export { default as ProductCard } from './productCard';
 export { default as ProductOverview } from './productDetail';
+export { default as ProfileDropdown } from './profile_dropdown';
 
 // Charts
 export { default as AreaChart } from './charts/area_chart';

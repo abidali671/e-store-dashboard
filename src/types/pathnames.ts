@@ -4,6 +4,7 @@ enum pathnames {
 	DASHBOARD = '/dashboard',
 	VENDORS = '/vendors',
 	CATEGORY = '/category',
+	PROFILE = '/profile',
 	ADD_CATEGORY = '/category/add-category',
 	EDIT_CATEGORY = '/category',
 	PRODUCTS = '/products',

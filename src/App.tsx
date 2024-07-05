@@ -11,6 +11,7 @@ import {
 	ResetPassword,
 	VendorProfile,
 	EditCategory,
+	Profile,
 } from './pages';
 
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
@@ -43,7 +44,14 @@ const App: React.FC = () => {
 					</ProtectedRoute>
 				}
 			/>
-
+			<Route
+				path={pathnames.PROFILE}
+				element={
+					<ProtectedRoute>
+						<Profile />
+					</ProtectedRoute>
+				}
+			/>
 			<Route
 				path={pathnames.VENDORS}
 				element={
