@@ -14,16 +14,11 @@ const Register: types.ComponentT = () => {
 	return (
 		<AuthContainer>
 			<Box sx={styles.root}>
-				<FormWrapper onSubmit={formik.handleSubmit} sx={{ gap: 6, my: 3 }}>
-					<Box>
-						<Typography variant='h4' fontWeight={600}>
-							Create an Account
-						</Typography>
-						<Typography variant='body2' color='gray.200'>
-							Join us to enjoy a personalized shopping experience, faster checkouts, order tracking,
-							and exclusive offers.
-						</Typography>
-					</Box>
+				<FormWrapper onSubmit={formik.handleSubmit} sx={{ gap: 5 }}>
+					<Typography variant='body2' color='gray.200'>
+						Join us to enjoy a personalized shopping experience, faster checkouts, order tracking,
+						and exclusive offers.
+					</Typography>
 					<Box width='100%'>
 						<Stack sx={{ width: '100%', gap: '14px' }}>
 							<FormikTextField name='username' label='Username' {...formik} />

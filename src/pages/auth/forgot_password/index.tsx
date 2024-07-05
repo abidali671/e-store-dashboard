@@ -21,16 +21,11 @@ const ForgetPassword = () => {
 	return (
 		<AuthContainer>
 			<Box sx={styles.root}>
-				<FormWrapper onSubmit={forgetPassword} sx={{ gap: 8 }}>
+				<FormWrapper onSubmit={forgetPassword} sx={{ gap: 5 }}>
 					<Stack sx={{ width: '100%', gap: 2 }}>
-						<Box>
-							<Typography variant='h4' fontWeight={600} color='gray.500'>
-								Forget Password
-							</Typography>
-							<Typography variant='body2' color='gray.200'>
-								Enter your email and we’ll send you a link to reset your password
-							</Typography>
-						</Box>
+						<Typography variant='body2' color='gray.200'>
+							Enter your email and we’ll send you a link to reset your password
+						</Typography>
 						<FormikTextField name='forgetPassword' label='Username or Email' {...formik} />
 					</Stack>
 

@@ -1,7 +1,7 @@
-import { Typography, Box, Stack, FormHelperText } from '@mui/material';
+import { Typography, Box, Stack, FormHelperText, Link } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import { AuthContainer, FormikTextField, FormWrapper } from '@components';
-import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import pathnames from '../../../types/pathnames';
 import useLogin from './login.hook';
 import * as types from './login.types';
@@ -12,23 +12,18 @@ const Login: types.ComponentT = () => {
 	return (
 		<AuthContainer>
 			<Box sx={styles.root}>
-				<FormWrapper onSubmit={formik.handleSubmit} sx={{ gap: 8 }}>
-					<Box>
-						<Typography variant='h4' fontWeight={600}>
-							Sign in
-						</Typography>
-						<Typography variant='body2' color="gray.200">Welcome back! Sign In to Your Account</Typography>
-					</Box>
+				<FormWrapper onSubmit={formik.handleSubmit} sx={{ gap: 5 }}>
+					<Typography variant='body2' color='gray.200'>
+						Welcome back! Sign In to Your Account
+					</Typography>
 					<Box width='100%'>
 						<Stack sx={{ width: '100%', gap: '14px' }}>
 							<FormikTextField name='username' label='Username' {...formik} />
 							<FormikTextField name='password' type='password' label='Password' {...formik} />
 
-							<Typography variant='body1' sx={{ color: '#9F9B9B', textAlign: 'left' }}>
-								<Link to='/forget-password' style={{ textDecoration: 'none' }}>
-									Forget Password
-								</Link>
-							</Typography>
+							<Link align='left' component={RouterLink} variant='body2' to='/forget-password'>
+								Forget Password?
+							</Link>
 						</Stack>
 						{formik.errors.username && formik.touched.username && (
 							<FormHelperText sx={{ color: '#9F9B9B', textAlign: 'left' }}>
@@ -47,8 +42,11 @@ const Login: types.ComponentT = () => {
 						>
 							LOGIN
 						</LoadingButton>
-						<Typography variant='caption'>
-							Dont have an account? <Link to={pathnames.REGISTER}> Register</Link>
+						<Typography variant='body2'>
+							Don&apos;t have an account?{' '}
+							<Link component={RouterLink} to={pathnames.REGISTER}>
+								Register
+							</Link>
 						</Typography>
 					</Stack>
 				</FormWrapper>
