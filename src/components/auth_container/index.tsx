@@ -2,7 +2,7 @@ import { Box } from '@mui/material';
 import * as types from './auth_container.types';
 import * as styles from './auth_container.styles';
 
-import Logo from '@assests/logos.png';
+import Logo from '@assests/logo.png';
 import Rectangle from '@assests/Rectangle5.png';
 
 const AuthContainer: types.ComponentT = ({ children }: types.PropsT) => {

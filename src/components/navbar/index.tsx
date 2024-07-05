@@ -1,4 +1,4 @@
-import Logo from '@assests/logos.png';
+import Logo from '@assests/logo.png';
 import SearchBar from '@components/searchBar';
 import { Box } from '@mui/material';
 import { ComponentT } from './navbar.types';
