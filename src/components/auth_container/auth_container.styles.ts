@@ -3,7 +3,7 @@ import { SxProps, Theme } from '@mui/material';
 export const root: SxProps<Theme> = {
 	height: '100vh',
 	display: 'grid',
-	gridTemplateRows: '60px 1fr',
+	gridTemplateRows: '1fr',
 };
 
 export const coverImg: SxProps<Theme> = {
@@ -24,4 +24,14 @@ export const contentWrapper: SxProps<Theme> = {
 	display: 'grid',
 	gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
 	alignItems: 'center',
+};
+
+export const formWrapper: SxProps<Theme> = {
+	display: 'flex',
+	flexDirection: 'column',
+	alignItems: 'center',
+	width: '100%',
+	'& > div': {
+		width: '100%',
+	},
 };
