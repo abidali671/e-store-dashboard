@@ -6,9 +6,12 @@ const components: Components = {
 		styleOverrides: {
 			root: {
 				borderRadius: '8px',
-				border: '1px solid',
-				borderColor: palette.gray[50],
+				border: '0px',
 				height: '48px',
+				'& .MuiOutlinedInput-notchedOutline': {
+					border: '1px solid',
+					borderColor: palette.gray[50],
+				},
 			},
 		},
 		variants: [
@@ -47,7 +50,6 @@ const components: Components = {
 			},
 		},
 	},
-
 	MuiTableHead: {
 		styleOverrides: {
 			root: {
@@ -64,9 +66,8 @@ const components: Components = {
 		styleOverrides: {
 			root: {
 				fontWeight: 700,
-				textTransform: 'capitalize'
-
-			}
+				textTransform: 'capitalize',
+			},
 		},
 		variants: [
 			{
@@ -92,6 +93,13 @@ const components: Components = {
 				'&:hover': {
 					opacity: 0.8,
 				},
+			},
+		},
+	},
+	MuiDivider: {
+		styleOverrides: {
+			root: {
+				borderColor: palette.gray[50],
 			},
 		},
 	},
