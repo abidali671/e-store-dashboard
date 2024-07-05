@@ -13,9 +13,12 @@ const Login: types.ComponentT = () => {
 		<AuthContainer>
 			<Box sx={styles.root}>
 				<FormWrapper onSubmit={formik.handleSubmit} sx={{ gap: 8 }}>
-					<Typography variant='h4' fontWeight={600}>
-						Sign in
-					</Typography>
+					<Box>
+						<Typography variant='h4' fontWeight={600}>
+							Sign in
+						</Typography>
+						<Typography variant='body2' color="gray.200">Welcome back! Sign In to Your Account</Typography>
+					</Box>
 					<Box width='100%'>
 						<Stack sx={{ width: '100%', gap: '14px' }}>
 							<FormikTextField name='username' label='Username' {...formik} />

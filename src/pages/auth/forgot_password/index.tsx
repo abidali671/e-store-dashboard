@@ -23,12 +23,14 @@ const ForgetPassword = () => {
 			<Box sx={styles.root}>
 				<FormWrapper onSubmit={forgetPassword} sx={{ gap: 8 }}>
 					<Stack sx={{ width: '100%', gap: 2 }}>
-						<Typography variant='h4' fontWeight={600} color='gray.500'>
-							Forget Password
-						</Typography>
-						<Typography variant='body1' color='gray.300'>
-							Enter your email and we’ll send you a link to reset your password
-						</Typography>
+						<Box>
+							<Typography variant='h4' fontWeight={600} color='gray.500'>
+								Forget Password
+							</Typography>
+							<Typography variant='body2' color='gray.200'>
+								Enter your email and we’ll send you a link to reset your password
+							</Typography>
+						</Box>
 						<FormikTextField name='forgetPassword' label='Username or Email' {...formik} />
 					</Stack>
 

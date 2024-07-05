@@ -1,5 +1,4 @@
 import Logo from '@assests/logos.png';
-import avatar from '@assests/Rectangle16.png';
 import SearchBar from '@components/searchBar';
 import { Box } from '@mui/material';
 import { ComponentT } from './navbar.types';
