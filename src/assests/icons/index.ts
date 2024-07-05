@@ -7,7 +7,7 @@ export { default as Review } from './reviews';
 export { default as Brand } from './brand';
 export { default as logout } from './logout';
 export { default as Dashboard } from './dashboard';
-export { default as Vendors } from './vendors';
+export { default as Users } from './users';
 export { default as UserAdd } from './userAdd';
 export { default as Package } from './package';
 export { default as Dollar } from './dollar';

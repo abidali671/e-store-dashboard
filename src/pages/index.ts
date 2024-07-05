@@ -1,12 +1,12 @@
 export { default as Login } from './auth/login';
 export { default as Register } from './auth/register';
 export { default as Dashboard } from './dashboard';
-export { default as Vendors } from './vendors';
+export { default as Users } from './users';
 export { default as Categories } from './categories';
 export { default as Products } from './products';
 export { default as AddProduct } from './addProduct';
 export { default as ForgetPassword } from './auth/forgot_password';
 export { default as ResetPassword } from './auth/reset_password';
-export { default as VendorProfile } from './vendorProfile';
+export { default as UserProfile } from './userProfile';
 export { default as EditCategory } from './editCategory';
 export { default as Profile } from './Profile';

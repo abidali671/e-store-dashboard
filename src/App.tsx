@@ -3,13 +3,13 @@ import {
 	Login,
 	Register,
 	Dashboard,
-	Vendors,
+	Users,
 	Categories,
 	Products,
 	AddProduct,
 	ForgetPassword,
 	ResetPassword,
-	VendorProfile,
+	UserProfile,
 	EditCategory,
 	Profile,
 } from './pages';
@@ -53,10 +53,10 @@ const App: React.FC = () => {
 				}
 			/>
 			<Route
-				path={pathnames.VENDORS}
+				path={pathnames.USERS}
 				element={
 					<ProtectedRoute>
-						<Vendors />
+						<Users />
 					</ProtectedRoute>
 				}
 			/>
@@ -113,10 +113,10 @@ const App: React.FC = () => {
 				}
 			/>
 			<Route
-				path={`${pathnames.VENDORS}/:id`}
+				path={`${pathnames.USERS}/:id`}
 				element={
 					<ProtectedRoute>
-						<VendorProfile />
+						<UserProfile />
 					</ProtectedRoute>
 				}
 			/>

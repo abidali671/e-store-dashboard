@@ -1,14 +1,12 @@
 import {
-	Copy,
 	User,
 	Category,
 	Products,
 	Order,
 	Review,
 	Brand,
-	logout,
 	Dashboard,
-	Vendors,
+	Users,
 	Profile,
 	Dollar,
 	Package,
@@ -25,7 +23,7 @@ export interface SideItemT {
 
 export const sideListItems: SideItemT[] = [
 	{ label: 'DASHBOARD', path: pathnames.DASHBOARD, icon: Dashboard },
-	{ label: 'VENDORS', path: pathnames.VENDORS, icon: Vendors },
+	{ label: 'USERS', path: pathnames.USERS, icon: Users },
 	{ divider: true },
 	{ label: 'CATAGORIES', icon: Category, path: pathnames.CATEGORY },
 	{ label: 'PRODUCTS', icon: Products, path: pathnames.PRODUCTS },

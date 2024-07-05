@@ -1,12 +1,12 @@
 import { NewEnquiry, NewUsers } from '@assests/icons';
 import { SVGProps } from 'react';
 
-export interface vendorDataCardsT {
+export interface UserDataCardsT {
 	title: string;
 	info?: string;
 	icon?: React.FC;
 }
-export const vendorDataCards: vendorDataCardsT[] = [
+export const userDataCards: UserDataCardsT[] = [
 	{
 		title: '13.75K',
 		info: 'NEW USERS',

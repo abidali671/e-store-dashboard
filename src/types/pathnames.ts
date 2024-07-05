@@ -2,7 +2,7 @@ enum pathnames {
 	REGISTER = '/register',
 	LOGIN = '/login',
 	DASHBOARD = '/dashboard',
-	VENDORS = '/vendors',
+	USERS = '/users',
 	CATEGORY = '/category',
 	PROFILE = '/profile',
 	ADD_CATEGORY = '/category/add-category',
