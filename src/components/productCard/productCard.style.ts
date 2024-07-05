@@ -10,10 +10,10 @@ export const mainProduct = {
 	gap: 3,
 	pt: 3,
 };
-export const card = { border: '1px solid', borderColor: 'gray.100', borderRadius: '20px' };
+export const card = { border: '1px solid', borderColor: 'gray.50', borderRadius: '20px' };
 export const cardContent = {
 	borderTop: '1px solid',
-	borderColor: 'gray.100',
+	borderColor: 'gray.50',
 	px: '40px',
 	py: '10px',
 };

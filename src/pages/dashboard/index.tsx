@@ -158,7 +158,7 @@ const SoldItemList: React.FC<{
 							sx={{
 								width: '100%',
 								height: '1px',
-								backgroundColor: 'gray.100',
+								backgroundColor: 'gray.50',
 								gridColumnStart: 'span 3',
 							}}
 						/>

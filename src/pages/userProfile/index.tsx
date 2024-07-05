@@ -29,7 +29,7 @@ const UserProfile = () => {
 					flexDirection='column'
 					sx={{
 						borderRight: { md: '1px solid', xs: 'none' },
-						borderColor: { md: 'gray.100', xs: 'none' },
+						borderColor: { md: 'gray.50', xs: 'none' },
 					}}
 				>
 					<Box sx={styles.leftBox} gap={3}>
@@ -138,7 +138,7 @@ const UserProfile = () => {
 					<Stack
 						sx={{
 							borderBottom: '1px solid',
-							borderColor: 'gray.100',
+							borderColor: 'gray.50',
 							flexDirection: 'row',
 							gap: 5,
 							height: 50,

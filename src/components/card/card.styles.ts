@@ -2,7 +2,7 @@ export const root = {
 	width: '100%',
 	height: '100%',
 	border: '1px solid',
-	borderColor: 'gray.100',
+	borderColor: 'gray.50',
 	borderRadius: '16px',
 	display: 'flex',
 	flexDirection: 'column',
@@ -14,7 +14,7 @@ export const headerWrapper = {
 	display: 'flex',
 	alignItems: 'center',
 	borderBottom: '1px solid',
-	borderColor: 'gray.100',
+	borderColor: 'gray.50',
 };
 
 export const footerWrapper = {
@@ -23,7 +23,7 @@ export const footerWrapper = {
 	display: 'flex',
 	alignItems: 'center',
 	borderTop: '1px solid',
-	borderColor: 'gray.100',
+	borderColor: 'gray.50',
 	marginTop: 'auto',
 };
 

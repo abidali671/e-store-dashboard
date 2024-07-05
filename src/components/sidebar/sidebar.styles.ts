@@ -1,7 +1,8 @@
 export const sideListWrapper = {
 	width: '100%',
 	height: '100%',
-	borderRight: '1px solid #ddd',
+	borderRight: '1px solid',
+	borderColor: 'gray.50',
 	position: 'relative',
 	display: { md: 'block' },
 };

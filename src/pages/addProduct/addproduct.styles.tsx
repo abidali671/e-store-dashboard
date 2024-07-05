@@ -1,13 +1,13 @@
 export const mainBox = {
 	border: '1px solid',
-	borderColor: 'gray.100',
+	borderColor: 'gray.50',
 	borderRadius: '20px',
 	mt: 2,
 };
 export const gridBox = { display: 'grid', p: 3, gap: 3, gridTemplateColumns: 'repeat(12,1fr)' };
 export const leftSideImage = {
 	border: '1px solid',
-	borderColor: 'gray.100',
+	borderColor: 'gray.50',
 	borderRadius: '20px',
 	aspectRatio: '4 / 3',
 	display: 'flex',
@@ -27,7 +27,7 @@ export const smallBoxes = {
 	alignItems: 'center',
 	justifyContent: 'center',
 	border: '1px solid',
-	borderColor: 'gray.100',
+	borderColor: 'gray.50',
 	borderRadius: '16px',
 };
 export const rightSide = { width: '100%', gap: '20px' };

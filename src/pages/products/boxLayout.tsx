@@ -45,7 +45,7 @@ export const ProductGrid = () => {
 	};
 
 	return (
-		<Box sx={{ border: '1px solid', borderColor: 'gray.100', borderRadius: '20px' }}>
+		<Box sx={{ border: '1px solid', borderColor: 'gray.50', borderRadius: '20px' }}>
 			<Box sx={{ py: '40px', px: '40px' }}>
 				<Stack
 					flexWrap='wrap'
@@ -71,7 +71,7 @@ export const ProductGrid = () => {
 						<Button
 							sx={{
 								color: 'gray.400',
-								borderColor: 'gray.100',
+								borderColor: 'gray.50',
 								borderRadius: '10px',
 								height: '45px',
 							}}

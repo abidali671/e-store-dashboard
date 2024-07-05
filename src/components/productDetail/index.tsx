@@ -137,7 +137,7 @@ const ProductOverview = () => {
 					<Box
 						sx={{
 							border: '1px solid',
-							borderColor: 'gray.100',
+							borderColor: 'gray.50',
 							padding: '20px',
 							borderRadius: '16px',
 						}}

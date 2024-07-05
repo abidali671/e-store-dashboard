@@ -5,7 +5,7 @@ export const gridBox: SxProps<Theme> = {
 	gap: 2,
 	gridTemplateColumns: { xs: '1fr', md: '300px 1fr' },
 	border: '1px solid',
-	borderColor: 'gray.100',
+	borderColor: 'gray.50',
 	borderRadius: '10px',
 };
 export const mainContainer = { display: 'flex', flexDirection: 'column', p: 3, gap: 3 };
@@ -24,7 +24,8 @@ export const leftBox = {
 };
 export const itemCard: SxProps<Theme> = {
 	p: 2,
-	border: '1px solid #D9D9D9',
+	border: '1px solid',
+	borderColor: 'gray.50',
 	borderRadius: '16px',
 	display: 'flex',
 	flex: '1 0 160px',

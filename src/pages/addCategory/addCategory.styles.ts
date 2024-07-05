@@ -15,7 +15,7 @@ export const smallBoxes = {
     alignItems: 'center',
     justifyContent: 'center',
     border: '2px dashed',
-    borderColor: 'gray.100',
+    borderColor: 'gray.50',
     borderRadius: '16px',
     width: { xs: '450px', md: '300px' },
     height: '165px',

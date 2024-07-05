@@ -12,7 +12,7 @@ export const GridLayout = {
 }
 export const card = {
     border: '1px solid',
-    borderColor: 'gray.100',
+    borderColor: 'gray.50',
     borderRadius: '16px',
     textAlign: 'center',
     py: '16px'

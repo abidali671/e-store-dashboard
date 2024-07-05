@@ -24,7 +24,7 @@ export const UserGrid = () => {
 	};
 
 	return (
-		<Box sx={{ border: '1px solid', borderColor: 'gray.100', borderRadius: '20px' }}>
+		<Box sx={{ border: '1px solid', borderColor: 'gray.50', borderRadius: '20px' }}>
 			<Box sx={styles.GridLayout}>
 				{dataShow.map(({ name, email, totalSell: sells, product, profile, id }, index) => (
 					<Link component={RouterLink} to={`${pathnames.USERS}/${id}`} key={index}>

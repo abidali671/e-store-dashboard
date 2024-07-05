@@ -49,7 +49,7 @@ const AddProduct: React.FC = () => {
 									<Typography variant='h2' fontWeight='bold' textAlign='center' color='gray.500'>
 										765 x 850
 									</Typography>
-									<Typography variant='caption' color='gray.100'>
+									<Typography variant='caption' color='gray.50'>
 										Please Choose Image According to Aspected Ratio
 									</Typography>
 								</Box>

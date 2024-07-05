@@ -33,7 +33,7 @@ export default function Pagination({
 					alignItems: 'center',
 					px: 2,
 					borderTop: '1px solid',
-					borderColor: 'gray.100',
+					borderColor: 'gray.50',
 					height: '60px',
 				}}
 			>
