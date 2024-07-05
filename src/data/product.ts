@@ -1,4 +1,4 @@
-import Shirt from '@assests/shirt.png';
+import Shirt from '@assets/shirt.png';
 
 export const productData = [
 	{

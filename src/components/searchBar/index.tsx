@@ -1,4 +1,4 @@
-import { Search } from '@assests/icons';
+import { Search } from '@assets/icons';
 import { Box, IconButton, InputAdornment, OutlinedInput } from '@mui/material';
 import React, { useState } from 'react';
 

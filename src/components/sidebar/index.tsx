@@ -2,7 +2,7 @@ import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Box, Divider, ListItem, ListItemButton, ListItemText } from '@mui/material';
 import { SideItemT, sideListItems } from '../../data/app.data';
-import arrowleft2 from '@assests/arrowleft2.png';
+import arrowleft2 from '@assets/arrowleft2.png';
 import * as styles from './sidebar.styles';
 import * as types from '@components/container/container.types';
 

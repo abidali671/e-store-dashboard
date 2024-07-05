@@ -1,4 +1,4 @@
-import Shirt from '@assests/shirt.png';
+import Shirt from '@assets/shirt.png';
 import { JSONValue } from '@types';
 
 export const categoryData: JSONValue[] = [

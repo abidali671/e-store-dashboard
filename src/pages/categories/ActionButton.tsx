@@ -1,6 +1,6 @@
 import { Box, IconButton, Menu, MenuItem } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { MoreOption } from '@assests/icons';
+import { MoreOption } from '@assets/icons';
 import { useState } from 'react';
 import API from 'src/axios';
 import { toast } from 'react-toastify';

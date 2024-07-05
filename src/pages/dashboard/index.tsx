@@ -7,7 +7,7 @@ import { productsRow, productDetail } from '@components/box/box.data';
 import * as styles from './dashboard.styles';
 import _map from 'lodash/map';
 import Chip from '@mui/material/Chip';
-import { MoreOption } from '@assests/icons';
+import { MoreOption } from '@assets/icons';
 interface ProductProps {
 	name: string;
 	quantity: number;
@@ -190,7 +190,7 @@ const SellingProducts = ({ productDetail }) => {
 				<Box sx={{ display: 'flex', p: 2 }} key={ind}>
 					<Box
 						component='img'
-						src={require(`@assests/${product.img}.png`)}
+						src={require(`@assets/${product.img}.png`)}
 						sx={{
 							width: '96px',
 							height: '96px',

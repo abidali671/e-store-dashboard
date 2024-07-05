@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import avatar from '@assests/Rectangle16.png';
+import avatar from '@assets/Rectangle16.png';
 import { Box } from '@mui/material';
 import { useDispatch } from 'src/hooks';
 import { logout } from 'src/features/auth/auth.slice';

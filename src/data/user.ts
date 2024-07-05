@@ -1,4 +1,4 @@
-import { NewEnquiry, NewUsers } from '@assests/icons';
+import { NewEnquiry, NewUsers } from '@assets/icons';
 import { SVGProps } from 'react';
 
 export interface UserDataCardsT {

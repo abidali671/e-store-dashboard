@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Chip, Stack, Box, Typography, IconButton, SelectChangeEvent, Link } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
-import { Phone, Message, MoreOption } from '@assests/icons';
+import { Phone, Message, MoreOption } from '@assets/icons';
 import { Table, Pagination } from '@components';
 import { UserData } from './user';
 import { pathnames } from '@types';

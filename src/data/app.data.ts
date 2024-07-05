@@ -10,7 +10,7 @@ import {
 	Profile,
 	Dollar,
 	Package,
-} from '@assests/icons';
+} from '@assets/icons';
 import React from 'react';
 import { JSONValue, pathnames } from '@types';
 

@@ -4,11 +4,11 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { Container, Breadcrumbs, Card } from '@components';
-import ProfileImage from '@assests/profile.png';
+import ProfileImage from '@assets/profile.png';
 import { Box, Typography, Button, Stack, Divider } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import { Notifications, userDataCards } from 'src/data/user';
-import { Timer } from '@assests/icons';
+import { Timer } from '@assets/icons';
 import * as styles from './UserProfile.styles';
 
 const UserProfile = () => {

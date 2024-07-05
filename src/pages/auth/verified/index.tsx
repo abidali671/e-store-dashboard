@@ -1,4 +1,4 @@
-import { UnverifyIcon, VerifiedIcon } from '@assests/icons';
+import { UnverifyIcon, VerifiedIcon } from '@assets/icons';
 import Navbar from '@components/navbar';
 import { Box, Typography, Button } from '@mui/material';
 import React, { useEffect, useState } from 'react';

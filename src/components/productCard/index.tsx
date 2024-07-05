@@ -1,5 +1,5 @@
 import { Box, Link, Typography } from '@mui/material';
-import Shirt from '@assests/bag.png';
+import Shirt from '@assets/bag.png';
 import * as styles from './productCard.style';
 import { Link as RouterLink } from 'react-router-dom';
 

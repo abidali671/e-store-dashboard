@@ -1,4 +1,4 @@
-import { MoreOption } from '@assests/icons';
+import { MoreOption } from '@assets/icons';
 import { Pagination, ProductCard, SearchBar, Table } from '@components';
 import { mainProduct } from '@components/productCard/productCard.style';
 import { Button, IconButton, MenuItem, Select } from '@mui/material';

@@ -2,7 +2,7 @@ import { Container, Table, Breadcrumbs } from '@components';
 import { Typography, Grid, Box, Button, IconButton, Menu, MenuItem } from '@mui/material';
 import CachedIcon from '@mui/icons-material/Cached';
 import { useNavigate } from 'react-router-dom';
-import { MoreOption } from '@assests/icons';
+import { MoreOption } from '@assets/icons';
 import { useState } from 'react';
 import useCategoryData from './categories.hook';
 import API from 'src/axios';

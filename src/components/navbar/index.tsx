@@ -1,8 +1,8 @@
-import Logo from '@assests/logo.png';
+import Logo from '@assets/logo.png';
 import SearchBar from '@components/searchBar';
 import { Box } from '@mui/material';
 import { ComponentT } from './navbar.types';
-import { Ring, Hameburger } from '@assests/icons';
+import { Ring, Hameburger } from '@assets/icons';
 import * as types from '@components/container/container.types';
 import * as styles from './navbar.styles';
 import { ProfileDropdown } from '..';

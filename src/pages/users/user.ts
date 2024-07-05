@@ -1,4 +1,4 @@
-import Face from '@assests/imgs/Face.png';
+import Face from '@assets/imgs/Face.png';
 
 export const UserData = [
 	{

@@ -1,4 +1,4 @@
-import { VerifiedIcon } from '@assests/icons';
+import { VerifiedIcon } from '@assets/icons';
 import Navbar from '@components/navbar';
 import { Box, Typography, Button } from '@mui/material';
 import React, { Fragment } from 'react';

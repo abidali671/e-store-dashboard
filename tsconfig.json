@@ -18,8 +18,8 @@
 		"baseUrl": ".",
 
 		"paths": {
-			"@assests/*": ["./src/assests/*"],
-			"@assests": ["./src/assests"],
+			"@assets/*": ["./src/assets/*"],
+			"@assets": ["./src/assets"],
 			"@components/*": ["./src/components/*"],
 			"@components": ["./src/components"],
 			"@types/*": ["./src/types/*"],
